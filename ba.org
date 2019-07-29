@@ -2,6 +2,7 @@
 #+Author: Nikolai Weidt
 #+Options: toc:t tasks:nil num:3
 #+Todo: TODO (t) | DONE (d)
+#+EXCLUDE_TAGS: ignore
 
 \clearpage\null\newpage
 ** Header                                                            :ignore:
@@ -78,4 +79,4 @@ Trapez-Bild
 * Anhang
 * Literaturverzeichnis
   bibliographystyle:alpha
-  bibliography:Bibliography.bib
+  bibliography:library.bib
