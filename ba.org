@@ -4,6 +4,53 @@
 #+Todo: TODO (t) | DONE (d)
 
 \clearpage\null\newpage
+** Header                                                            :ignore:
+   #+latex_class:book
+   #+latex_class_options:[pdftex,12pt,a4paper,twoside]
+   
+*** Packages
+   #+latex_header_extra:\usepackage[top=2.5cm,bottom=2.5cm,left=2.5cm,right=2cm]{geometry}
+   #+latex_header_extra:\usepackage{background}
+   #+latex_header_extra:\usepackage{color, xcolor}
+   #+latex_header_extra:\usepackage[utf8]{inputenc}
+   #+latex_header_extra:\usepackage[T1]{fontenc}
+   #+latex_header_extra:\usepackage[german]{babel}
+   #+latex_header_extra:\usepackage{setspace}
+   #+latex_header_extra:\onehalfspacing
+   #+latex_header_extra:\usepackage{blindtext}
+   #+latex_header_extra:\usepackage{titlesec}
+   #+latex_header_extra:\usepackage{scrextend}
+   #+latex_header_extra:\usepackage{booktabs}
+   #+latex_header_extra:\usepackage[hidelinks]{hyperref}
+   #+latex_header_extra:\usepackage[titletoc,title]{appendix}
+   #+latex_header_extra:\usepackage{acronym}
+   #+latex_header_extra:\usepackage{amsmath,amssymb,amstext,bbm}
+   #+latex_header_extra:\usepackage[labelfont=bf, up, textfont=small, figurename=Abb., tablename=Tab.]{caption}
+   #+latex_header_extra:\usepackage[headsepline]{scrpage2}
+   
+*** Colors
+   #+latex_header_extra:\definecolor{magd}{RGB}{154,12,70}
+   #+latex_header_extra:\definecolor{magh}{RGB}{197,0,90}
+
+*** Chapter, section and subsection style
+   #+latex_header_extra:\titleformat{\chapter}[hang]{\Huge\bfseries}{\scalebox{3}{\textcolor{magd}\thechapter}}{15pt}{\Huge\bfseries\hfill}
+   #+latex_header_extra:\titleformat{\section}[hang]{\Large\bfseries}{\scalebox{1.25}{\textcolor{magd}\thesection}\hspace{15pt}}{0pt}{}
+   #+latex_header_extra:\titleformat{\subsection}[hang]{\large\bfseries}{\scalebox{1.25}{\textcolor{magd}\thesubsection\hspace{15pt}}}{0pt}{}
+   #+latex_header_extra:\numberwithin{equation}{chapter}
+   #+latex_header_extra:\numberwithin{figure}{chapter}
+   #+latex_header_extra:\setlength{\headheight}{1.1\baselineskip}
+   
+*** Head and footstyle
+    
+   #+latex_header_extra:\setheadsepline{.5pt}
+   #+latex_header_extra:\renewcommand*{\headfont}{\normalfont}
+   #+latex_header_extra:\pagestyle{scrheadings}
+   #+latex_header_extra:\clearscrheadfoot
+   #+latex_header_extra:\cfoot[\pagemark]
+   #+latex_header_extra:\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+   #+latex_header_extra:\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+   #+latex_header_extra:\ihead{\textbf{\thechapter}\hspace{15pt}\leftmark}
+   #+latex_header_extra:\ohead{\pagemark~}
 
 * Einleitung
 * Theoretische Grundlagen
@@ -29,3 +76,6 @@ Trapez-Bild
 * Diskussion und Ausblick
 * Zusammenfassung
 * Anhang
+* Literaturverzeichnis
+bibliographystyle:alpha
+bibliography:Bibliography.bib
