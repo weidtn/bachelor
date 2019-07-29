@@ -1,1 +1,31 @@
 #+Title: Bachelorarbeit
+#+Author: Nikolai Weidt
+#+Options: toc:t tasks:nil num:3
+#+Todo: TODO (t) | DONE (d)
+
+\clearpage\null\newpage
+
+* Einleitung
+* Theoretische Grundlagen
+** Magnetismus
+*** Exchange Bias Effekt
+*** Elektromagnetismus
+
+- Vergleich physikalisches Formel mit Python code
+- I(X)
+- B(x)
+
+** Superparamagnetische Partikel
+** Kräfte zwischen Partikel und Probenoberfläche
+
+Geschwindigkeit?
+
+** Partikeltransport
+
+Trapez-Bild
+
+* Experimentelle Methoden
+* Ergebnisse und Diskussion
+* Diskussion und Ausblick
+* Zusammenfassung
+* Anhang
