@@ -1,6 +1,6 @@
 #+Title: Bachelorarbeit
 #+Author: Nikolai Weidt
-#+Options: toc:t tasks:nil title:nil
+#+Options: toc:2 tasks:nil title:nil
 #+Todo: TODO (t) | DONE (d)
 #+EXCLUDE_TAGS: ignore
 #+LANGUAGE: de
@@ -24,10 +24,26 @@
    #+latex_header: \usepackage[labelfont=bf, up, textfont=small, figurename=Abb., tablename=Tab.]{caption}
    #+latex_header: \usepackage[output-decimal-marker={,}]{siunitx}
    #+latex_header: \include{titlepage/titlepage}
-   
+  
+
+* Andere Arbeiten                                                    :ignore:
+
+** [[file:arbeiten/BAChJa.pdf][BAChJa]]
+
+** [[file:arbeiten/Bachelorarbeit_MeRe.pdf][BAMeRe]]
+
+** [[file:arbeiten/Meike%20Reginka%20-%20Masterarbeit%2015.06.18.pdf][MAMeRe]]
+
+** [[file:arbeiten/Holzinger_2015_Diss%20Transport%20magnetischer%20Partikel%20durch%20ma%C3%9Fgeschneider....pdf][DissDeHo]]
+
 * Einleitung
+
 \blindmathtrue
 \blindtext
+Pellentesque dapibus suscipit ligula.  Donec posuere augue in quam.  Etiam vel tortor sodales tellus ultricies commodo.  Suspendisse potenti.  Aenean in sem ac leo mollis blandit.  Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.  Phasellus lacus.  Etiam laoreet quam sed arcu.  Phasellus at dui in ligula mollis ultricies.  Integer placerat tristique nisl.  Praesent augue.  Fusce commodo.  Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus.  Nullam libero mauris, consequat quis, varius et, dictum id, arcu.  Mauris mollis tincidunt felis.  Aliquam feugiat tellus ut neque.  Nulla facilisis, risus a rhoncus fermentum, tellus tellus lacinia purus, et dictum nunc justo sit amet elit.
+
+
+
 
 * Theoretische Grundlagen
 ** Magnetismus
@@ -44,13 +60,16 @@
 
   
 ** Superparamagnetische Partikel
+
    \blindtext 
+   
 #+caption: example figure
-#+attr_latex: :placement [!h]
+#+attr_latex: :placement [!h] :width 0.50\textwidth
 #+name: myfig
 [[file:myfig.png]]
 
 ** Kräfte zwischen Partikel und Probenoberfläche
+
    \blindtext 
 
 
