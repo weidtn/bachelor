@@ -1,7 +1,7 @@
 #+Title: Bachelorarbeit
 #+Author: Nikolai Weidt
 #+Options: toc:2 tasks:nil title:nil
-#+Todo: TODO (t) | DONE (d)
+#+Todo: TODO(t) | DONE(d)
 #+EXCLUDE_TAGS: ignore
 #+LANGUAGE: de
 
@@ -36,22 +36,24 @@
 
 ** [[file:arbeiten/Holzinger_2015_Diss%20Transport%20magnetischer%20Partikel%20durch%20ma%C3%9Fgeschneider....pdf][DissDeHo]]
 
-* Einleitung
+
+* TODO Einleitung
 
 \blindmathtrue
 \blindtext
-Pellentesque dapibus suscipit ligula.  Donec posuere augue in quam.  Etiam vel tortor sodales tellus ultricies commodo.  Suspendisse potenti.  Aenean in sem ac leo mollis blandit.  Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.  Phasellus lacus.  Etiam laoreet quam sed arcu.  Phasellus at dui in ligula mollis ultricies.  Integer placerat tristique nisl.  Praesent augue.  Fusce commodo.  Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus.  Nullam libero mauris, consequat quis, varius et, dictum id, arcu.  Mauris mollis tincidunt felis.  Aliquam feugiat tellus ut neque.  Nulla facilisis, risus a rhoncus fermentum, tellus tellus lacinia purus, et dictum nunc justo sit amet elit.
 
+* TODO Theoretische Grundlagen
 
+** TODO Magnetismus
 
-
-* Theoretische Grundlagen
-** Magnetismus
 \blindtext   
-*** Exchange Bias Effekt
+
+*** TODO Exchange Bias Effekt
+
    \blindtext 
    
-*** Elektromagnetismus
+*** TODO Elektromagnetismus
+
    \blindtext 
 
 - Vergleich physikalisches Formel mit Python code cite:Reginka2015
@@ -59,7 +61,7 @@ Pellentesque dapibus suscipit ligula.  Donec posuere augue in quam.  Etiam vel t
 - B(x)
 
   
-** Superparamagnetische Partikel
+** TODO Superparamagnetische Partikel
 
    \blindtext 
    
@@ -68,39 +70,41 @@ Pellentesque dapibus suscipit ligula.  Donec posuere augue in quam.  Etiam vel t
 #+name: myfig
 [[file:myfig.png]]
 
-** Kräfte zwischen Partikel und Probenoberfläche
+** TODO Kräfte zwischen Partikel und Probenoberfläche
 
    \blindtext 
 
 
 Geschwindigkeit?
 
-** Partikeltransport
+** TODO Partikeltransport
+
    \blindtext 
 
 
 Trapez-Bild cite:Holzinger2015
 
-* Experimentelle Methoden
+* TODO Experimentelle Methoden
+
+   \blindtext 
+
+* TODO Ergebnisse und Diskussion
+
    \blindtext 
 
 
+* TODO Diskussion und Ausblick
 
-* Ergebnisse und Diskussion
    \blindtext 
 
+* TODO Zusammenfassung
 
-* Diskussion und Ausblick
    \blindtext 
 
-
-* Zusammenfassung
-   \blindtext 
-
-
-* Anhang
+* TODO Anhang
 
 
 * Literaturverzeichnis
+
   bibliographystyle:alpha
   bibliography:library.bib
