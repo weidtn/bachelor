@@ -5,49 +5,38 @@
 #+EXCLUDE_TAGS: ignore
 #+LANGUAGE: de
 
-\clearpage\null
 * Header                                                             :ignore:
    #+latex_class:scrbook
-   #+latex_class_options:[pdftex,12pt,a4paper,twoside,openright]
+   #+latex_class_options:[page,pdftex,12pt,a4paper,twoside,openright]
    
    #+latex_header: \usepackage[latin1]{inputenc}
    #+latex_header: \usepackage[T1]{fontenc}
    #+latex_header: \usepackage[ngerman]{babel} 
    #+latex_header: \usepackage[top=2.5cm,bottom=2.5cm,left=2.5cm,right=2cm]{geometry}
-   #+latex_header: \usepackage{background}
    #+latex_header: \usepackage{color, xcolor}
    #+latex_header: \usepackage{float}
    #+latex_header: \usepackage{blindtext}
-   #+latex_header: \usepackage{titlesec}
-   #+latex_header: \usepackage{scrextend}
    #+latex_header: \usepackage{booktabs}
    #+latex_header: \usepackage[hidelinks]{hyperref}
-   #+latex_header: \usepackage{setspace}
-   #+latex_header: \onehalfspacing
+   #+latex_header: \usepackage[onehalfspacing]{setspace}
+   #+latex_header: \usepackage{graphicx}
    #+latex_header: \usepackage{amsmath,amssymb,amstext,bbm}
    #+latex_header: \usepackage[labelfont=bf, up, textfont=small, figurename=Abb., tablename=Tab.]{caption}
-   #+latex_header: \usepackage[titletoc,title]{appendix}
    #+latex_header: \usepackage[output-decimal-marker={,}]{siunitx}
-   #+latex_header: \numberwithin{equation}{chapter}
-   #+latex_header: \numberwithin{figure}{chapter}
-   #+latex_header: \setlength{\parindent}{0pt}
-   #+latex_header_extra: \input{titlepage/titlepage}
-
+   #+latex_header: \include{titlepage/titlepage}
    
 * Einleitung
- äöüß asdfkldasf 
- Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam rutrum.  Nam vestibulum accumsan nisl.
+\blindmathtrue
+\blindtext
 
 * Theoretische Grundlagen
 ** Magnetismus
-   
+\blindtext   
 *** Exchange Bias Effekt
-    
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam rutrum.  Nam vestibulum accumsan nisl.
+   \blindtext 
    
 *** Elektromagnetismus
-    
-    Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.  Nunc porta vulputate tellus.  Nunc rutrum turpis sed pede.  Sed bibendum.  Aliquam posuere.  Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.  Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.  Curabitur vulputate vestibulum lorem.  Fusce sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.  Sed id ligula quis est convallis tempor.  Curabitur lacinia pulvinar nibh.  Nam a sapien.
+   \blindtext 
 
 - Vergleich physikalisches Formel mit Python code cite:Reginka2015
 - I(X)
@@ -55,19 +44,44 @@
 
   
 ** Superparamagnetische Partikel
+   \blindtext 
+#+caption: example figure
+#+attr_latex: :placement [!h]
+#+name: myfig
+[[file:myfig.png]]
+
 ** Kräfte zwischen Partikel und Probenoberfläche
+   \blindtext 
+
 
 Geschwindigkeit?
 
 ** Partikeltransport
+   \blindtext 
+
 
 Trapez-Bild cite:Holzinger2015
 
 * Experimentelle Methoden
+   \blindtext 
+
+
+
 * Ergebnisse und Diskussion
+   \blindtext 
+
+
 * Diskussion und Ausblick
+   \blindtext 
+
+
 * Zusammenfassung
+   \blindtext 
+
+
 * Anhang
+
+
 * Literaturverzeichnis
   bibliographystyle:alpha
   bibliography:library.bib
