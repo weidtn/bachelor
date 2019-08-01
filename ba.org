@@ -1,6 +1,6 @@
 #+Title: Bachelorarbeit
 #+Author: Nikolai Weidt
-#+Options: toc:2 tasks:nil title:nil
+#+Options: toc:2 tasks:t title:nil
 #+Todo: TODO(t) | DONE(d)
 #+EXCLUDE_TAGS: ignore
 #+LANGUAGE: de
@@ -37,22 +37,24 @@
 ** [[file:arbeiten/Holzinger_2015_Diss%20Transport%20magnetischer%20Partikel%20durch%20ma%C3%9Fgeschneider....pdf][DissDeHo]]
 
 
-* TODO Einleitung
+*  Einleitung
 
 \blindmathtrue
 \blindtext
 
-* TODO Theoretische Grundlagen
-
-** TODO Magnetismus
+*  Theoretische Grundlagen
+ 
+\blindtext 
+ 
+**  Magnetismus
 
 \blindtext   
 
-*** TODO Exchange Bias Effekt
+***  Exchange Bias Effekt
 
    \blindtext 
    
-*** TODO Elektromagnetismus
+***  Elektromagnetismus
 
    \blindtext 
 
@@ -61,48 +63,54 @@
 - B(x)
 
   
-** TODO Superparamagnetische Partikel
+**  Superparamagnetische Partikel
 
    \blindtext 
-   
-#+caption: example figure
-#+attr_latex: :placement [!h] :width 0.50\textwidth
-#+name: myfig
-[[file:myfig.png]]
 
-** TODO Kräfte zwischen Partikel und Probenoberfläche
+**  Kräfte zwischen Partikel und Probenoberfläche
 
    \blindtext 
 
 
 Geschwindigkeit?
 
-** TODO Partikeltransport
+**  Partikeltransport
 
    \blindtext 
 
+#+caption: Potentielle magnetische Energielandschaft (nach Holzinger et. al). cite:Holzinger2015b 
+[[file:./img/trapez.jpeg]]
 
-Trapez-Bild cite:Holzinger2015
-
-* TODO Experimentelle Methoden
-
-   \blindtext 
-
-* TODO Ergebnisse und Diskussion
+**  Programmierung zur erstellung einer Magnetfeldsequenz
 
    \blindtext 
 
+*  Experimentelle Methoden
+   
+\blindtext
 
-* TODO Diskussion und Ausblick
+*  Ergebnisse und Diskussion
+  
+  \blindtext 
+  \\
+  #+caption: Partikelgeschwindigkeiten
+  #+attr_latex: :placement[!h] :width 0.55\textwidth
+  #+name: geschwindigkeit
+  [[file:./img/v.png]]
+  \\
+  \blindtext 
+
+  
+*  Diskussion und Ausblick
 
    \blindtext 
 
-* TODO Zusammenfassung
+*  Zusammenfassung
 
    \blindtext 
 
-* TODO Anhang
-
+*  Anhang
+  
 
 * Literaturverzeichnis
 
