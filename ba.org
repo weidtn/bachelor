@@ -79,6 +79,8 @@ Geschwindigkeit?
    \blindtext 
 
 #+caption: Potentielle magnetische Energielandschaft (nach Holzinger et. al). cite:Holzinger2015b 
+#+attr_latex: :placement [!h] :width = 0.5\textwidth
+#+name: trapez
 [[file:./img/trapez.jpeg]]
 
 **  Programmierung zur erstellung einer Magnetfeldsequenz
@@ -94,7 +96,7 @@ Geschwindigkeit?
   \blindtext 
   \\
   #+caption: Partikelgeschwindigkeiten
-  #+attr_latex: :placement[!h] :width 0.55\textwidth
+  #+attr_latex: :placement [!h] :width 0.55\textwidth
   #+name: geschwindigkeit
   [[file:./img/v.png]]
   \\
