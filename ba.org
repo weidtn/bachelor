@@ -49,15 +49,27 @@
 **  Magnetismus
 
 \blindtext   
+*** Para- und Diamagnetismus
+    
+   \blindtext 
 
-***  Exchange Bias Effekt
+*** Ferromagnetismus
+    
+   \blindtext 
+
+*** Antiferromagnetismus
+     
+   \blindtext 
+    
+*** Exchange Bias Effekt
 
    \blindtext 
    
 ***  Elektromagnetismus
 
    \blindtext 
-
+**** Helmholtzspulen
+     Bergmann Schäfer S. 214
 - Vergleich physikalisches Formel mit Python code cite:Reginka2015
 - I(X)
 - B(x)
@@ -77,11 +89,14 @@ Geschwindigkeit?
 **  Partikeltransport
 
    \blindtext 
-
-#+caption: Potentielle magnetische Energielandschaft (nach Holzinger et. al). cite:Holzinger2015b 
-#+attr_latex: :placement [!h] :width = 0.5\textwidth
-#+name: trapez
+\\
+#+caption: Potentielle magnetische Energielandschaft (nach Holzinger et. al). cite:Holzinger2015b
+#+attr_latex: :placement [H] :width 0.5\textwidth
+#+name: img-trapez
 [[file:./img/trapez.jpeg]]
+\\
+\blindtext
+Verweis auf [[img-trapez]] hier.
 
 **  Programmierung zur erstellung einer Magnetfeldsequenz
 
@@ -97,7 +112,7 @@ Geschwindigkeit?
   \\
   #+caption: Partikelgeschwindigkeiten
   #+attr_latex: :placement [!h] :width 0.55\textwidth
-  #+name: geschwindigkeit
+  #+name: img-v
   [[file:./img/v.png]]
   \\
   \blindtext 
