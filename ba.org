@@ -43,12 +43,16 @@
 \blindtext
 
 *  Theoretische Grundlagen
- 
-\blindtext 
+
+  In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt, und dabei auf die verschiedenen Arten dessen eingegangen. Dann werden die in dieser Arbeit verwendeten //Exchange Bias Systeme// eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene Exchange Bias Systeme beschrieben, wobei die auf sie wirkenden Kräfter genauer betrachtet werden sollen.
+
  
 **  Magnetismus
 
-\blindtext   
+\begin{equation}
+\vec{M} = \Chi * \vec{H}
+\end{equation}
+
 *** Para- und Diamagnetismus
     
    \blindtext 
@@ -69,7 +73,14 @@
 
    \blindtext 
 **** Helmholtzspulen
+     Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen angelegt. Diese erzeugen ein weitestgehend homogenes Magnetfeld im Inneren. Dieses Magnetfeld hängt von Stromstärke $ I $, Windungszahl $ N $ und Radius der einzelnen Spule $ r $ ab.
+     
+\begin{equation}
+   B = \mu_{0} * \frac{8 * I * N}{\sqrt{125}*r}
+\end{equation}
+
      Bergmann Schäfer S. 214
+     
 - Vergleich physikalisches Formel mit Python code cite:Reginka2015
 - I(X)
 - B(x)
@@ -98,19 +109,23 @@ Geschwindigkeit?
 \blindtext
 Verweis auf [[img-trapez]] hier.
 
-**  Programmierung zur erstellung einer Magnetfeldsequenz
+*  Experimentelle Methoden
+  
+\blindtext
+
+**  Programm zur Erstellung von Magnetfeldsequenzen
 
    \blindtext 
 
-*  Experimentelle Methoden
+** Experimenteller Aufbau
    
-\blindtext
+   \blindtext
 
 *  Ergebnisse und Diskussion
   
   \blindtext 
   \\
-  #+caption: Partikelgeschwindigkeiten
+  #+caption: Gemessene Partikelgeschwindigkeiten für verschiedene Startzeiten des Plateaus in der angelegten Trapezspannung für eine Frequenz von 1 Hz.
   #+attr_latex: :placement [!h] :width 0.55\textwidth
   #+name: img-v
   [[file:./img/v.png]]
