@@ -50,7 +50,7 @@
 **  Magnetismus
 
 \begin{equation}
-\vec{M} = \Chi * \vec{H}
+\vec{M} = \mathcal{X} * \vec{H}
 \end{equation}
 
 *** Para- und Diamagnetismus
@@ -69,11 +69,11 @@
 
    \blindtext 
    
-***  Elektromagnetismus
+*** Elektromagnetismus
 
    \blindtext 
 **** Helmholtzspulen
-     Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen angelegt. Diese erzeugen ein weitestgehend homogenes Magnetfeld im Inneren. Dieses Magnetfeld hängt von Stromstärke $ I $, Windungszahl $ N $ und Radius der einzelnen Spule $ r $ ab.
+     Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen angelegt. Diese erzeugen ein homogenes Magnetfeld in ihrem Inneren. Dieses Magnetfeld hängt von Stromstärke $ I $, Windungszahl $ N $ und Radius der einzelnen Spule $ r $ ab.
      
 \begin{equation}
    B = \mu_{0} * \frac{8 * I * N}{\sqrt{125}*r}
@@ -81,7 +81,7 @@
 
      Bergmann Schäfer S. 214
      
-- Vergleich physikalisches Formel mit Python code cite:Reginka2015
+- Vergleich physikalisches Formel mit Python code
 - I(X)
 - B(x)
 
