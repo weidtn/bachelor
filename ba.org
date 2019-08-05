@@ -1,8 +1,7 @@
 #+Title: Bachelorarbeit
 #+Author: Nikolai Weidt
 #+Options: toc:2 tasks:t title:nil
-#+Todo: TODO(t) | DONE(d)
-#+EXCLUDE_TAGS: ignore
+#+Todo: TODO(t) | DONE(d) #+EXCLUDE_TAGS: ignore
 #+LANGUAGE: de
 
 * Header                                                             :ignore:
@@ -39,23 +38,23 @@
 ** [[file:arbeiten/Holzinger_2015_Diss%20Transport%20magnetischer%20Partikel%20durch%20ma%C3%9Fgeschneider....pdf][DissDeHo]]
 
 
-* TODO Einleitung
+* TODO Einleitung label:sec-einleitung
 
 \blindmathtrue
 \blindtext
 
-* TODO [0/4] Theoretische Grundlagen
+* TODO [0/4] Theoretische Grundlagen label:sec-grundlagen
 
   In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt, und dabei auf die verschiedenen Arten dessen eingegangen. Dann werden die in dieser Arbeit verwendeten //Exchange Bias Systeme// eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene Exchange Bias Systeme beschrieben, wobei die auf sie wirkenden Kräfter genauer betrachtet werden sollen.
 
  
-** TODO [0/5] Magnetismus
+** TODO [0/5] Magnetismus label:sec-magnetismus
 
 \begin{equation}
 \vec{M} = \chi * \vec{H}
 \end{equation}
 
-*** TODO Elektromagnetismus
+*** TODO Elektromagnetismus label:sec-elektromagnetismus
 
    \blindtext 
 **** Helmholtzspulen
@@ -72,34 +71,34 @@
 - B(x)
 
   
-*** TODO Para- und Diamagnetismus
+*** TODO Para- und Diamagnetismus label:sec-para-und-dia
     
    \blindtext 
 
-*** TODO Ferromagnetismus
+*** TODO Ferromagnetismus label:sec-ferro
     
    \blindtext 
 
-*** TODO Antiferromagnetismus
+*** TODO Antiferromagnetismus label:sec-antiferro
      
    \blindtext 
     
-*** TODO Exchange Bias Effekt
+*** TODO Exchange Bias Effekt label:sec-EB
 
    \blindtext 
    
-** TODO Superparamagnetische Partikel
+** TODO Superparamagnetische Partikel label:sec-spp
 
    \blindtext 
 
-** TODO Kräfte zwischen Partikel und Probenoberfläche
+** TODO Kräfte zwischen Partikel und Probenoberfläche label:sec-kräfte
 
    \blindtext 
 
 
 Geschwindigkeit?
 
-** TODO Partikeltransport
+** TODO Partikeltransport label:sec-transport
 
    \blindtext 
 \\
@@ -111,7 +110,7 @@ Geschwindigkeit?
 \blindtext
 Verweis auf [[img-trapez]] hier.
 
-* TODO Experimentelle Methoden
+* TODO Experimentelle Methoden label:sec-methoden
   
 \blindtext
 
@@ -120,12 +119,16 @@ Verweis auf [[img-trapez]] hier.
 
    \blindtext 
 
-** TODO Experimenteller Aufbau
+** TODO Experimenteller Aufbau label:sec-aufbau
 
-Um den Transport von SPP über das Substrat zu realisieren und zu beobachten, wurde der Versuchsaufbau, der in Abbildung ref:img-aufbau zu sehen ist, verwendet.\\
-Dieser Aufbau ist aus zwei Teilen zusammengesetzt. Der erste Teil besteht aus einer Optronis Hochgeschwindigkeitskamera, welche durch ein Mikroskop die Partikelbewegung in Videos aufzeichnet. Zur Belichtung der Probe wird eine Weißlicht-LED verwendet. Die Position der Kamera über der Probe, und somit der Fokus des Mikroskops wird über einen Schrittmotor verändert, welcher von einem LabView-Programm über eine NI USB-6002 Box gesteuert wird.\\
-Der zweite Teil erzeugt das elektromagnetische Feld um die Partikel zu transportieren. Er besteht aus drei senkrecht zueinander stehenden Helmholtzspulen, in deren Mitte ein beweglicher Probentisch liegt. Hiermit können Magnetfelder für alle drei Raumdimensionen erzeugt werden. Die Helmholtzspulen werden über ein Netzteil mit Strom versorgt, welches wiederum von einer NI USB-6002 Box über ein Python-Programm (siehe ref:sec-py) angesteuert wird. So können beliebige Magnetfeldsequenzen im Inneren der Helmholtzspulen realisiert werden.\\
-Die Helmholtzspulen bestehen aus Kupferdraht, nähere Daten können Tabelle ref:tab-spulen entnommen werden.\\
+Um den Transport von SPP über das Substrat zu realisieren und zu beobachten, wurde der Versuchsaufbau, der in Abbildung ref:img-aufbau zu sehen ist, verwendet.
+
+#+caption: Partikeltransport Versuchsaufbau. ...
+#+attr_latex: :width 0.5\textwidth
+#+name: img-aufbau
+file:./img/aufbau.png
+
+Dieser Versuchsaufbau kann in zwei Teile unterteilt werden. Der erste Teil besteht aus einer Optronis Hochgeschwindigkeitskamera, welche durch ein Mikroskop die Partikelbewegung in Videos aufzeichnet. Zur Belichtung der Probe wird eine Weißlicht-LED verwendet. Die Position der Kamera über der Probe, und somit der Fokus des Mikroskops wird über einen Schrittmotor verändert, welcher von einem LabView-Programm über eine NI USB-6002 Box gesteuert wird. Der zweite Teil erzeugt das elektromagnetische Feld um die Partikel zu transportieren. Er besteht aus drei senkrecht zueinander stehenden Helmholtzspulen, in deren Mitte ein beweglicher Probentisch liegt. Hiermit können Magnetfelder für alle drei Raumdimensionen erzeugt werden. Die Helmholtzspulen werden über ein Netzteil mit Strom versorgt, welches wiederum von einer NI USB-6002 Box über ein Python-Programm (siehe Kapitel ref:sec-py) angesteuert wird. So können beliebige Magnetfeldsequenzen im Inneren der Helmholtzspulen realisiert werden. Die Helmholtzspulen bestehen aus gewickeltem Kupferdraht, nähere Daten können Tabelle ref:tab-spulen entnommen werden.
 
 #+caption: Technische Daten Helmholtzspulen
 #+attr_latex: :center t :align nil
@@ -138,15 +141,7 @@ Die Helmholtzspulen bestehen aus Kupferdraht, nähere Daten können Tabelle ref:
 | z    |       330 | 0,030                | 11,5                   |                        70 | 5,6                              |
 
 
-Die Versuche in dieser Arbeit wurden nur zwei der drei Helmholtzspulen verwendet. Dabei handelte es sich um die Spulen für die x- und z-Richtung.
-
-#+caption: Partikeltransport Versuchsaufbau. ...
-#+attr_latex: :placement [!h] :width 0.5\textwidth
-#+name: img-aufbau
-file:./img/aufbau.png
-
-Die Partikel wurden in einer mikrofluidischen Zell auf den Proben platziert, um dann untersucht werden zu können.
-Hierfür wurde Parafilm zuerst in größe der Probe zurecht geschnitten, und dann ein rechteck im inneren des Parafilms ausgeschnitten. So entsteht eine Aussparung in der Mitte, in die circa \SI{10}{\micro\meter} Partikelsuspension gegeben wurde.
+Die Versuche in dieser Arbeit wurden nur zwei der drei Helmholtzspulen verwendet. Dabei handelte es sich um die Spulen für die x- und z-Richtung. Die Partikel wurden in einer mikrofluidischen Zelle auf den Proben platziert, um dann untersucht werden zu können. Hierfür wird Parafilm zuerst in Größe der Probe zurecht geschnitten, und dann ein Rechteck im Inneren des Parafilms ausgeschnitten. So entsteht eine Aussparung in der Mitte, in die \SI{10}{\micro\meter} Partikelsuspension gegeben werden. Anschließend wird die Probe auf dem Probentisch platziert, die LED eingeschaltet, und die Kamera mittels Livebild und auf die Partikel fokussiert.
 
 * TODO Ergebnisse und Diskussion
   
