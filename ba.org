@@ -23,6 +23,8 @@
    #+latex_header: \usepackage{amsmath,amssymb,amstext,bbm}
    #+latex_header: \usepackage[labelfont=bf, up, textfont=small, figurename=Abb., tablename=Tab.]{caption}
    #+latex_header: \usepackage[output-decimal-marker={,}]{siunitx}
+   #+latex_header: \usepackage{parskip}
+   #+latex_header: \parskip{0pt}
    #+latex_header: \include{titlepage/titlepage}
   
 
