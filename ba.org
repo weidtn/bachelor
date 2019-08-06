@@ -1,7 +1,8 @@
 #+Title: Bachelorarbeit
 #+Author: Nikolai Weidt
 #+Options: toc:2 tasks:t title:nil
-#+Todo: TODO(t) | DONE(d) #+EXCLUDE_TAGS: ignore
+#+Todo: TODO(t) | DONE(d) 
+#+EXCLUDE_TAGS: ignore
 #+LANGUAGE: de
 
 * Header                                                             :ignore:
@@ -22,8 +23,6 @@
    #+latex_header: \usepackage{amsmath,amssymb,amstext,bbm}
    #+latex_header: \usepackage[labelfont=bf, up, textfont=small, figurename=Abb., tablename=Tab.]{caption}
    #+latex_header: \usepackage[output-decimal-marker={,}]{siunitx}
-   #+latex_header: \usepackage{parskip}
-   #+latex_header: \parskip{0pt}
    #+latex_header: \include{titlepage/titlepage}
   
 
@@ -45,20 +44,20 @@
 
 * TODO [0/4] Theoretische Grundlagen label:sec-grundlagen
 
-  In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt, und dabei auf die verschiedenen Arten dessen eingegangen. Dann werden die in dieser Arbeit verwendeten //Exchange Bias Systeme// eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene Exchange Bias Systeme beschrieben, wobei die auf sie wirkenden Kräfter genauer betrachtet werden sollen.
+In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt, und dabei auf die verschiedenen Arten dessen eingegangen. Dann werden die in dieser Arbeit verwendeten //Exchange Bias Systeme// eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene Exchange Bias Systeme beschrieben, wobei die auf sie wirkenden Kräfter genauer betrachtet werden sollen.
 
  
-** TODO [0/5] Magnetismus label:sec-magnetismus
+** TODO [0/6] Magnetismus label:sec-magnetismus
 
-\begin{equation}
-\vec{M} = \chi * \vec{H}
-\end{equation}
+#+begin_equation
+\vec{M} = \chi \cdot \vec{H}
+#+end_equation
 
 *** TODO Elektromagnetismus label:sec-elektromagnetismus
 
    \blindtext 
 **** Helmholtzspulen
-     Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen angelegt. Diese erzeugen ein homogenes Magnetfeld in ihrem Inneren. Dieses Magnetfeld hängt von Stromstärke $ I $, Windungszahl $ N $ und Radius der einzelnen Spule $ r $ ab.
+     Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen angelegt. Diese erzeugen ein homogenes Magnetfeld in ihrem Inneren. Dieses Magnetfeld hängt von Stromstärke $I$, Windungszahl $N$ und Radius der einzelnen Spule $r$ ab.
      
 \begin{equation}
    B = \mu_{0} * \frac{8 * I * N}{\sqrt{125}*r}
@@ -83,6 +82,7 @@
      
    \blindtext 
     
+*** TODO Superparamagnetismus
 *** TODO Exchange Bias Effekt label:sec-EB
 
    \blindtext 
