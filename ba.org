@@ -9,15 +9,15 @@
    #+latex_class:scrbook
    #+latex_class_options:[page,pdftex,12pt,a4paper,twoside,openright]
    
-   #+latex_header: \usepackage[latin1]{inputenc}
+   # #+latex_header: \usepackage[latin1]{inputenc}
    #+latex_header: \usepackage[T1]{fontenc}
    #+latex_header: \usepackage[ngerman]{babel} 
-   #+latex_header: \usepackage[top=2.5cm,bottom=2.5cm,left=2.5cm,right=2cm]{geometry}
+   #+latex_header: \usepackage[top=0.5cm,bottom=2.5cm,left=2.5cm,right=2cm]{geometry}
    #+latex_header: \usepackage{color, xcolor}
    #+latex_header: \usepackage{float}
    #+latex_header: \usepackage{blindtext}
    #+latex_header: \usepackage{booktabs}
-   #+latex_header: \usepackage[hidelinks]{hyperref}
+   # #+latex_header: \usepackage[hidelinks]{hyperref}
    #+latex_header: \usepackage[onehalfspacing]{setspace}
    #+latex_header: \usepackage{graphicx}
    #+latex_header: \usepackage{amsmath,amssymb,amstext,bbm}
@@ -25,7 +25,7 @@
    #+latex_header: \usepackage[output-decimal-marker={,}]{siunitx}
    #+latex_header: \include{titlepage/titlepage}
   
-
+   
 * Andere Arbeiten                                                    :ignore:
 
 ** [[file:arbeiten/BAChJa.pdf][BAChJa]]
@@ -42,34 +42,60 @@
 \blindmathtrue
 \blindtext
 
-* TODO [0/4] Theoretische Grundlagen label:sec-grundlagen
+* TODO [0/5] Theoretische Grundlagen label:sec-grundlagen
 
-In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt, und dabei auf die verschiedenen Arten dessen eingegangen. Dann werden die in dieser Arbeit verwendeten //Exchange Bias Systeme// eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene Exchange Bias Systeme beschrieben, wobei die auf sie wirkenden Kräfter genauer betrachtet werden sollen.
+In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt, und dabei auf die verschiedenen Arten dessen eingegangen. Dann werden die in dieser Arbeit verwendeten //Exchange Bias Systeme// eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene Exchange Bias Systeme beschrieben, wobei die auf sie wirkenden Kräfte genauer betrachtet werden sollen.
 
  
-** TODO [0/6] Magnetismus label:sec-magnetismus
+** TODO Elektromagnetismus label:sec-elektromagnetismus
+   Fließt ein Strom I durch einen langen geraden Draht, erzeugt dies ein kreisförmiges Magnetfeld. Entlang der Stromrichtung ergibt sich eine Rechtsschraube für das Magnetfeld B. Eine Spule besteht aus mehreren Windungen stromdurchflossenen Drahtes und erzeugt so durch Überlagerung ein Magnetfeld ähnlich einem Stabmagneten mit Nord- und Südpol. Das Magnetfeld $B$ kann hängt dabei von Stromstärke $I$ und Windungszahl $n$ ab: cite:Demtroder2017
+
+#+name: eq-spule
+\begin{equation}
+B = \mu_{0} \cdot n \cdot I
+\end{equation}
+   
+ - Ströme erzeugen Magnetfelder
+ - Spule = Magnetfeld addiert sich pro Windung
+   - Impedanz & Induktivität
+ - Helmholtzspule = homogenes Magnetfeld im Inneren 
+   
+*** TODO Helmholtzspulen
+    Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen erzeugt. Diese erzeugen ein homogenes Magnetfeld in ihrem Inneren. Dieses Magnetfeld hängt von Stromstärke $I$, Windungszahl $N$ und Radius einer einzelnen Spule $r$ ab: cite:Demtroder2017 
+    
+#+name: eq-helmholtz
+\begin{equation}
+B = (\frac{4}{5})^{\frac{3}{2}} \cdot \mu_{0} \cdot \frac{N \cdot I}{r}
+\end{equation}
+
+*** TODO Spulen als elektrische Bauteile
+    Legt man eine Spannung an einer Spule an, wird durch Selbstinduktion eine Gegenspannung induziert. Hierbei ist die induzierte Spannung abhängig von der zeitlichen Änderung der Stromstärke, und dem Selbstinduktionskoeffizienten, kurz Induktivität $L$: cite:Demtroder2017
+    
+#+name: eq-induktivität
+\begin{equation}
+U_{ind} = - L \frac{dI}{dt}
+\end{equation}
+
+In einem Stromkreis mit Spule $L$ und Widerstand $R$ in Reihe, wird beim Einschalten der Spannungsquelle der Anstieg der Stromstärke verzögert. Die angelegte Spannung teilt sich auf in $U_R$ über dem Widerstand und der Spannung $U_L$, die nötig ist, um der Selbstinduktion entgegen zu wirken. Dabei ist $U_L = - U_{ind} = L \frac{dI}{dt}$. Für den Verlauf der Stromstärke $I(t)$ ergibt sich hierbei folgender Zusammenhang mit der Zeitkonstanten $\tau = \frac{L}{R}$: cite:Raith 
+
+#+name: eq-strom-spule
+\begin{equation}
+I(t) = I_{0} \cdot e^{ -\frac{t}{\tau}} = I_{0} \cdot e^{ -\frac{t \cdot R}{L}} 
+\end{equation}
+
+Den entsprechenden Verlauf von Spannung und Stromstärke kann man in Abbildung ref:fig-einschalten nachvollziehen:
+
+#+caption: Qualitative Darstellung des Verlaufs von selbstinduzierter Spannung $U_{ind}$, Stromstärke $I$ und Speisespannung $U_0$ in einer Reihenschaltung von Widerstand $R$ und Spule $L$.
+#+attr_latex: :placement [H] :width 0.5\textwidth
+#+name: fig-einschalten
+file:./img/induktivität.png
+  
+** TODO [0/1] Magnetismus in Materie label:sec-magnetismus
 
 #+begin_equation
 \vec{M} = \chi \cdot \vec{H}
 #+end_equation
 
-*** TODO Elektromagnetismus label:sec-elektromagnetismus
-
-   \blindtext 
-**** Helmholtzspulen
-     Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen angelegt. Diese erzeugen ein homogenes Magnetfeld in ihrem Inneren. Dieses Magnetfeld hängt von Stromstärke $I$, Windungszahl $N$ und Radius der einzelnen Spule $r$ ab.
-     
-\begin{equation}
-   B = \mu_{0} * \frac{8 * I * N}{\sqrt{125}*r}
-\end{equation}
-
-     Bergmann Schäfer S. 214
-     
-- Vergleich physikalisches Formel mit Python code
-- I(X)
-- B(x)
-
-  
 *** TODO Para- und Diamagnetismus label:sec-para-und-dia
     
    \blindtext 
@@ -83,6 +109,9 @@ In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständ
    \blindtext 
     
 *** TODO Superparamagnetismus
+    
+    \blindtext
+    
 *** TODO Exchange Bias Effekt label:sec-EB
 
    \blindtext 
@@ -107,7 +136,9 @@ Geschwindigkeit?
 #+name: img-trapez
 [[file:./img/trapez.jpeg]]
 \\
+
 \blindtext
+
 Verweis auf [[img-trapez]] hier.
 
 * TODO Experimentelle Methoden label:sec-methoden
@@ -115,7 +146,6 @@ Verweis auf [[img-trapez]] hier.
 \blindtext
 
 ** TODO Programm zur Erstellung von Magnetfeldsequenzen label:sec-py
-
 
    \blindtext 
 
