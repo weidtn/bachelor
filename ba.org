@@ -68,10 +68,10 @@ B = \mu_{0} \cdot n \cdot I
 B = (\frac{4}{5})^{\frac{3}{2}} \cdot \mu_{0} \cdot \frac{N \cdot I}{r}
 \end{equation}
 
-*** TODO Spulen als elektrische Bauteile
+* TODO Spulen als elektrische Bauteile
     Legt man eine Spannung an einer Spule an, wird durch Selbstinduktion eine Gegenspannung induziert. Hierbei ist die induzierte Spannung abhängig von der zeitlichen Änderung der Stromstärke, und dem Selbstinduktionskoeffizienten, kurz Induktivität $L$: cite:Demtroder2017
     
-#+name: eq-induktivität
+#+name: eq-induktivitaet
 \begin{equation}
 U_{ind} = - L \frac{dI}{dt}
 \end{equation}
@@ -83,13 +83,14 @@ In einem Stromkreis mit Spule $L$ und Widerstand $R$ in Reihe, wird beim Einscha
 I(t) = I_{0} \cdot e^{ -\frac{t}{\tau}} = I_{0} \cdot e^{ -\frac{t \cdot R}{L}} 
 \end{equation}
 
-Den entsprechenden Verlauf von Spannung und Stromstärke kann man in Abbildung ref:fig-einschalten nachvollziehen:
+Den entsprechenden Verlauf von Spannung und Stromstärke kann man in Abbildung ref:fig-einschalten nachvollziehen: \\
 
 #+caption: Qualitative Darstellung des Verlaufs von selbstinduzierter Spannung $U_{ind}$, Stromstärke $I$ und Speisespannung $U_0$ in einer Reihenschaltung von Widerstand $R$ und Spule $L$.
 #+attr_latex: :placement [H] :width 0.5\textwidth
 #+name: fig-einschalten
-file:./img/induktivität.png
+file:./img/einschalten.png
   
+
 ** TODO [0/1] Magnetismus in Materie label:sec-magnetismus
 
 #+begin_equation
