@@ -44,21 +44,16 @@
 
 * TODO [0/5] Theoretische Grundlagen label:sec-grundlagen
 
-In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt, und dabei auf die verschiedenen Arten dessen eingegangen. Dann werden die in dieser Arbeit verwendeten //Exchange Bias Systeme// eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene Exchange Bias Systeme beschrieben, wobei die auf sie wirkenden Kräfte genauer betrachtet werden sollen.
+In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt, und dabei auf die verschiedenen Arten eingegangen. Dann werden die in dieser Arbeit verwendeten /Exchange Bias Systeme/ eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene /Exchange Bias Systeme/ beschrieben, wobei die auf sie wirkenden Kräfte genauer betrachtet werden sollen.
 
  
 ** TODO Elektromagnetismus label:sec-elektromagnetismus
-   Fließt ein Strom I durch einen langen geraden Draht, erzeugt dies ein kreisförmiges Magnetfeld. Entlang der Stromrichtung ergibt sich eine Rechtsschraube für das Magnetfeld B. Eine Spule besteht aus mehreren Windungen stromdurchflossenen Drahtes und erzeugt so durch Überlagerung ein Magnetfeld ähnlich einem Stabmagneten mit Nord- und Südpol. Das Magnetfeld $B$ kann hängt dabei von Stromstärke $I$ und Windungszahl $n$ ab: cite:Demtroder2017
+   Allgemein gilt, dass bewegte Ladungen (Ströme) ein Magnetfeld erzeugen. Fließt zum Beispiel ein Strom I durch einen langen geraden Draht, erzeugt dies ein kreisförmiges Magnetfeld. Entlang der Stromrichtung ergibt sich eine Rechtsschraube für das Magnetfeld B. Eine Spule besteht aus mehreren Windungen stromdurchflossenen Drahtes und erzeugt so durch Überlagerung ein Magnetfeld ähnlich einem Stabmagneten mit Nord- und Südpol. Das Magnetfeld $B$ hängt dabei von Stromstärke $I$ und Windungszahl $n$ ab: cite:Demtroder2017
 
 #+name: eq-spule
 \begin{equation}
 B = \mu_{0} \cdot n \cdot I
 \end{equation}
-   
- - Ströme erzeugen Magnetfelder
- - Spule = Magnetfeld addiert sich pro Windung
-   - Impedanz & Induktivität
- - Helmholtzspule = homogenes Magnetfeld im Inneren 
    
 *** TODO Helmholtzspulen
     Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen erzeugt. Diese erzeugen ein homogenes Magnetfeld in ihrem Inneren. Dieses Magnetfeld hängt von Stromstärke $I$, Windungszahl $N$ und Radius einer einzelnen Spule $r$ ab: cite:Demtroder2017 
@@ -68,30 +63,31 @@ B = \mu_{0} \cdot n \cdot I
 B = (\frac{4}{5})^{\frac{3}{2}} \cdot \mu_{0} \cdot \frac{N \cdot I}{r}
 \end{equation}
 
-* TODO Spulen als elektrische Bauteile
-    Legt man eine Spannung an einer Spule an, wird durch Selbstinduktion eine Gegenspannung induziert. Hierbei ist die induzierte Spannung abhängig von der zeitlichen Änderung der Stromstärke, und dem Selbstinduktionskoeffizienten, kurz Induktivität $L$: cite:Demtroder2017
+** TODO Spulen als elektrische Bauteile
+     Legt man eine Spannung an einer Spule an, wird durch Selbstinduktion eine Gegenspannung induziert. Hierbei ist die induzierte Spannung abhängig von der zeitlichen Änderung der Stromstärke, und dem Selbstinduktionskoeffizienten, kurz Induktivität $L$: cite:Demtroder2017
     
-#+name: eq-induktivitaet
-\begin{equation}
-U_{ind} = - L \frac{dI}{dt}
-\end{equation}
+ #+name: eq-induktivitaet
+ \begin{equation}
+ U_{ind} = - L \frac{dI}{dt}
+ \end{equation}
 
-In einem Stromkreis mit Spule $L$ und Widerstand $R$ in Reihe, wird beim Einschalten der Spannungsquelle der Anstieg der Stromstärke verzögert. Die angelegte Spannung teilt sich auf in $U_R$ über dem Widerstand und der Spannung $U_L$, die nötig ist, um der Selbstinduktion entgegen zu wirken. Dabei ist $U_L = - U_{ind} = L \frac{dI}{dt}$. Für den Verlauf der Stromstärke $I(t)$ ergibt sich hierbei folgender Zusammenhang mit der Zeitkonstanten $\tau = \frac{L}{R}$: cite:Raith 
+ In einem Stromkreis mit Spule $L$ und Widerstand $R$ in Reihe, wird beim Einschalten der Spannungsquelle der Anstieg der Stromstärke verzögert. Die angelegte Spannung teilt sich auf in $U_R$ über dem Widerstand und der Spannung $U_L$, die nötig ist, um der Selbstinduktion entgegen zu wirken. Dabei ist $U_L = - U_{ind} = L \frac{dI}{dt}$. Für den Verlauf der Stromstärke $I(t)$ ergibt sich hierbei folgender Zusammenhang mit der Zeitkonstanten $\tau = \frac{L}{R}$: cite:Raith 
 
-#+name: eq-strom-spule
-\begin{equation}
-I(t) = I_{0} \cdot e^{ -\frac{t}{\tau}} = I_{0} \cdot e^{ -\frac{t \cdot R}{L}} 
-\end{equation}
+ #+name: eq-strom-spule
+ \begin{equation}
+ I(t) = I_{0} \cdot e^{ -\frac{t}{\tau}} = I_{0} \cdot e^{ -\frac{t \cdot R}{L}} 
+ \end{equation}
 
-Den entsprechenden Verlauf von Spannung und Stromstärke kann man in Abbildung ref:fig-einschalten nachvollziehen: \\
+ Den entsprechenden Verlauf von Spannung und Stromstärke kann man in Abbildung ref:fig-einschalten nachvollziehen: \\
 
-#+caption: Qualitative Darstellung des Verlaufs von selbstinduzierter Spannung $U_{ind}$, Stromstärke $I$ und Speisespannung $U_0$ in einer Reihenschaltung von Widerstand $R$ und Spule $L$.
-#+attr_latex: :placement [H] :width 0.5\textwidth
-#+name: fig-einschalten
-file:./img/einschalten.png
+ #+caption: Qualitative Darstellung des Verlaufs von Speisespannung $U_0$ und Stromstärke $I$ in einer Reihenschaltung von Widerstand $R$ und Spule $L$.
+ #+attr_latex: :placement [H] :width \textwidth
+ #+name: fig-einschalten
+ file:./img/einschalten.png
   
 
 ** TODO [0/1] Magnetismus in Materie label:sec-magnetismus
+   Wie bereits in Kapitel ref:sec-elektromagnetismus erläutert, erzeugen bewegte Ladungen Magnetfelder. Eine solche bewegte Ladung ist auch das Elektron, was in einer vereinfachten Vorstellung um den Atomkern kreist. Folglich besitzen Atome ein magnetisches Moment $\mu$. 
 
 #+begin_equation
 \vec{M} = \chi \cdot \vec{H}
