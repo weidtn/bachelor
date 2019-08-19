@@ -12,7 +12,7 @@
    # #+latex_header: \usepackage[latin1]{inputenc}
    #+latex_header: \usepackage[T1]{fontenc}
    #+latex_header: \usepackage[ngerman]{babel} 
-   #+latex_header: \usepackage[top=0.5cm,bottom=2.5cm,left=2.5cm,right=2cm]{geometry}
+   #+latex_header: \usepackage[bottom=2.5cm,left=2.5cm,right=2cm]{geometry}
    #+latex_header: \usepackage{color, xcolor}
    #+latex_header: \usepackage{float}
    #+latex_header: \usepackage{blindtext}
@@ -24,6 +24,7 @@
    #+latex_header: \usepackage[labelfont=bf, up, textfont=small, figurename=Abb., tablename=Tab.]{caption}
    #+latex_header: \usepackage[output-decimal-marker={,}]{siunitx}
    #+latex_header: \include{titlepage/titlepage}
+   #+latex_header: \newgeometry{bottom=2.5cm,left=2.5cm,right=2cm}
   
    
 * Andere Arbeiten                                                    :ignore:
@@ -37,14 +38,14 @@
 ** [[file:arbeiten/Holzinger_2015_Diss%20Transport%20magnetischer%20Partikel%20durch%20ma%C3%9Fgeschneider....pdf][DissDeHo]]
 
 
-* TODO Einleitung label:sec-einleitung
+* TODO Einleitung label:sec-einleitung                               :ignore:
 
 \blindmathtrue
 \blindtext
 
-* TODO [0/5] Theoretische Grundlagen label:sec-grundlagen
 
-In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt, und dabei auf die verschiedenen Arten eingegangen. Dann werden die in dieser Arbeit verwendeten /Exchange Bias Systeme/ eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene /Exchange Bias Systeme/ beschrieben, wobei die auf sie wirkenden Kräfte genauer betrachtet werden sollen.
+* TODO [0/5] Theoretische Grundlagen label:sec-grundlagen
+  In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt. Dann werden die in dieser Arbeit verwendeten /Exchange Bias Systeme/ eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene /Exchange Bias Systeme/ beschrieben, wobei die auf sie wirkenden Kräfte genauer betrachtet werden sollen.
 
  
 ** TODO Elektromagnetismus label:sec-elektromagnetismus
@@ -52,35 +53,37 @@ In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständ
 
 #+name: eq-spule
 \begin{equation}
-B = \mu_{0} \cdot n \cdot I
+B = \mu_{\mathrm{0}} \cdot n \cdot I
 \end{equation}
    
+
 *** TODO Helmholtzspulen
     Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen erzeugt. Diese erzeugen ein homogenes Magnetfeld in ihrem Inneren. Dieses Magnetfeld hängt von Stromstärke $I$, Windungszahl $N$ und Radius einer einzelnen Spule $r$ ab: cite:Demtroder2017 
     
 #+name: eq-helmholtz
 \begin{equation}
-B = (\frac{4}{5})^{\frac{3}{2}} \cdot \mu_{0} \cdot \frac{N \cdot I}{r}
+B = (\frac{4}{5})^{\frac{3}{2}} \cdot \mu_{\mathrm{0}} \cdot \frac{N \cdot I}{r}
 \end{equation}
 
-** TODO Spulen als elektrische Bauteile
+
+** TODO Spulen als elektrische Bauteile label:sec-spulen
      Legt man eine Spannung an einer Spule an, wird durch Selbstinduktion eine Gegenspannung induziert. Hierbei ist die induzierte Spannung abhängig von der zeitlichen Änderung der Stromstärke, und dem Selbstinduktionskoeffizienten, kurz Induktivität $L$: cite:Demtroder2017
     
  #+name: eq-induktivitaet
  \begin{equation}
- U_{ind} = - L \frac{dI}{dt}
+ U_\mathrm{ind} = - L \frac{dI}{dt}
  \end{equation}
 
- In einem Stromkreis mit Spule $L$ und Widerstand $R$ in Reihe, wird beim Einschalten der Spannungsquelle der Anstieg der Stromstärke verzögert. Die angelegte Spannung teilt sich auf in $U_R$ über dem Widerstand und der Spannung $U_L$, die nötig ist, um der Selbstinduktion entgegen zu wirken. Dabei ist $U_L = - U_{ind} = L \frac{dI}{dt}$. Für den Verlauf der Stromstärke $I(t)$ ergibt sich hierbei folgender Zusammenhang mit der Zeitkonstanten $\tau = \frac{L}{R}$: cite:Raith 
+ In einem Stromkreis mit Spule $L$ und Widerstand $R$ in Reihe, wird beim Einschalten der Spannungsquelle der Anstieg der Stromstärke verzögert. Die angelegte Spannung teilt sich auf in $U_R$ über dem Widerstand und der Spannung $U_L$, die nötig ist, um der Selbstinduktion entgegen zu wirken. Dabei ist $U_{\mathrm{L}} = - U_{\mathrm{ind}} = L \frac{dI}{dt}$. Für den Verlauf der Stromstärke $I(t)$ ergibt sich hierbei folgender Zusammenhang mit der Zeitkonstanten $\tau = \frac{L}{R}$: cite:Raith 
 
  #+name: eq-strom-spule
  \begin{equation}
- I(t) = I_{0} \cdot e^{ -\frac{t}{\tau}} = I_{0} \cdot e^{ -\frac{t \cdot R}{L}} 
+ I(t) = I_{\mathrm{0}} \cdot e^{ -\frac{t}{\tau}} = I_{\mathrm{0}} \cdot e^{ -\frac{t \cdot R}{L}} 
  \end{equation}
 
  Den entsprechenden Verlauf von Spannung und Stromstärke kann man in Abbildung ref:fig-einschalten nachvollziehen: \\
 
- #+caption: Qualitative Darstellung des Verlaufs von Speisespannung $U_0$ und Stromstärke $I$ in einer Reihenschaltung von Widerstand $R$ und Spule $L$.
+ #+caption: Qualitative Darstellung des Verlaufs von Speisespannung $U_\mathrm{0}$ und Stromstärke $I$ in einer Reihenschaltung von Widerstand $R$ und Spule $L$.
  #+attr_latex: :placement [H] :width \textwidth
  #+name: fig-einschalten
  file:./img/einschalten.png
@@ -88,63 +91,74 @@ B = (\frac{4}{5})^{\frac{3}{2}} \cdot \mu_{0} \cdot \frac{N \cdot I}{r}
 
 ** TODO [0/1] Magnetismus in Materie label:sec-magnetismus
    Wie bereits in Kapitel ref:sec-elektromagnetismus erläutert, erzeugen bewegte Ladungen Magnetfelder. Eine solche bewegte Ladung ist auch das Elektron, was in einer vereinfachten Vorstellung um den Atomkern kreist. Folglich besitzen Atome ein magnetisches Moment $\mu$. 
+Da Elektronen zwei Rotationsbewegungen ausführen, existieren auch zwei magnetische Momente, jeweils abhängig von $l$ und $s$ den Quantenzahlen des Bahn- und Spindrehimpulses, $g_\mathrm{e}$ dem gyromagnetischen Verhältnis des Elektrons, $m_\mathrm{e}$ der Masse des Elektrons und $e$ der Elementarladung: cite:Kassing 
+\\
+Das Spinmoment $\mu_\mathrm{s}$: 
+#+name:eq-spinmoment
+\begin{equation}
+ \mu_\mathrm{s} = - g_\mathrm{e} \frac{\vert e \vert}{2 m_\mathrm{e}} \cdot s
+\end{equation}
 
-#+begin_equation
+
+und das Bahnmoment $\mu_\mathrm{l}$: 
+#+name:eq-bahnmoment
+\begin{equation}
+ \mu_\mathrm{l} = - \frac{\vert e \vert}{2 m_\mathrm{e}} \cdot l
+\end{equation}
+
+Die Vektorsumme beider ergibt dann das magnetische Gesamtmoment $\mu_j$:
+#+name:eq-gesamtmoment
+\begin{equation}
+\mu_\mathrm{j} = \mu_\mathrm{l} + \mu_\mathrm{s}
+\end{equation}
+
+
+Bringt man Materie in eine äußere magnetische Erregung $H$, resultiert meistens ein magnetisches Moment. Makroskopisch dient die Magnetisierung $\vec{M}$ zur Beschreibung der magnetischen Momente von Materie pro Volumeneinheit. Die Magnetisierung ist proportional zum extern angelegen Magnetfeld $\vec{H}$, wobei die magnetische Suszeptibilität $\chi$ ein materialabhängiger dimensionsloser Proportionalitätsfaktor ist:  cite:Kassing
+
+#+name:eq-magnetisierung
+\begin{equation}
 \vec{M} = \chi \cdot \vec{H}
-#+end_equation
+\end{equation}
+
+Die magnetische Suszeptibilität $\chi$ ist materialabhängig, da Bahn- und Spinmoment verschieden auf Magnetfelder reagieren, und diese je nach vorhandenen Elektronen unterschiedlich stark in das Gesamtmoment einfließen. 
+Das Bahnmoment wird in Anwesenheit eines externen Feldes abgeschwächt, da nach Lenz´scher Regel ein Gegenstrom induziert wird. Für das Spinmoment hingegen wir die Energie minimiert, wenn es sich parallel zum externen Magnetfeld ausrichtet. Dies führt zu Para- und Diamagnetismus, welche im folgenden näher erklärt werden. cite:Kassing
 
 *** TODO Para- und Diamagnetismus label:sec-para-und-dia
     
-   \blindtext 
 
 *** TODO Ferromagnetismus label:sec-ferro
     
-   \blindtext 
 
 *** TODO Antiferromagnetismus label:sec-antiferro
      
-   \blindtext 
     
 *** TODO Superparamagnetismus
     
-    \blindtext
     
 *** TODO Exchange Bias Effekt label:sec-EB
 
-   \blindtext 
    
 ** TODO Superparamagnetische Partikel label:sec-spp
 
-   \blindtext 
 
 ** TODO Kräfte zwischen Partikel und Probenoberfläche label:sec-kräfte
 
-   \blindtext 
-
-
-Geschwindigkeit?
 
 ** TODO Partikeltransport label:sec-transport
 
-   \blindtext 
-\\
 #+caption: Potentielle magnetische Energielandschaft (nach Holzinger et. al). cite:Holzinger2015b
-#+attr_latex: :placement [H] :width 0.5\textwidth
+#+attr_latex: :placement [!H] :width 0.5\textwidth
 #+name: img-trapez
 [[file:./img/trapez.jpeg]]
-\\
-
-\blindtext
 
 Verweis auf [[img-trapez]] hier.
 
-* TODO Experimentelle Methoden label:sec-methoden
+
+* TODO Experimentelle Methoden label:sec-methoden                    :ignore:
   
-\blindtext
 
 ** TODO Programm zur Erstellung von Magnetfeldsequenzen label:sec-py
 
-   \blindtext 
 
 ** TODO Experimenteller Aufbau label:sec-aufbau
 
@@ -170,25 +184,19 @@ Dieser Versuchsaufbau kann in zwei Teile unterteilt werden. Der erste Teil beste
 
 Die Versuche in dieser Arbeit wurden nur zwei der drei Helmholtzspulen verwendet. Dabei handelte es sich um die Spulen für die x- und z-Richtung. Die Partikel wurden in einer mikrofluidischen Zelle auf den Proben platziert, um dann untersucht werden zu können. Hierfür wird Parafilm zuerst in Größe der Probe zurecht geschnitten, und dann ein Rechteck im Inneren des Parafilms ausgeschnitten. So entsteht eine Aussparung in der Mitte, in die \SI{10}{\micro\meter} Partikelsuspension gegeben werden. Anschließend wird die Probe auf dem Probentisch platziert, die LED eingeschaltet, und die Kamera mittels Livebild und auf die Partikel fokussiert.
 
-* TODO Ergebnisse und Diskussion
+* TODO Ergebnisse und Diskussion                                     :ignore:
   
-  \blindtext 
-  \\
   #+caption: Gemessene Partikelgeschwindigkeiten für verschiedene Startzeiten des Plateaus in der angelegten Trapezspannung für eine Frequenz von 1 Hz.
   #+attr_latex: :placement [!h] :width 0.55\textwidth
   #+name: img-v
   [[file:./img/v.png]]
-  \\
-  \blindtext 
 
   
-* TODO Diskussion und Ausblick
+* TODO Diskussion und Ausblick                                       :ignore:
 
-   \blindtext 
 
-* TODO Zusammenfassung
+* TODO Zusammenfassung                                               :ignore:
 
-   \blindtext 
 
 *  Anhang
   
