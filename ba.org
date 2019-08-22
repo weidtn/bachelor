@@ -84,13 +84,19 @@ B = (\frac{4}{5})^{\frac{3}{2}} \cdot \mu_{\mathrm{0}} \cdot \frac{N \cdot I}{r}
  Den entsprechenden Verlauf von Spannung und Stromstärke kann man in Abbildung ref:fig-einschalten nachvollziehen: \\
 
  #+caption: Qualitative Darstellung des Verlaufs von Speisespannung $U_\mathrm{0}$ und Stromstärke $I$ in einer Reihenschaltung von Widerstand $R$ und Spule $L$.
- #+attr_latex: :placement [H] :width \textwidth
+ #+attr_latex: :placement [H] :width 0.75\textwidth
  #+name: fig-einschalten
  file:./img/einschalten.png
   
 
 ** TODO [0/1] Magnetismus in Materie label:sec-magnetismus
-   Wie bereits in Kapitel ref:sec-elektromagnetismus erläutert, erzeugen bewegte Ladungen Magnetfelder. Eine solche bewegte Ladung ist auch das Elektron, was in einer vereinfachten Vorstellung um den Atomkern kreist. Folglich besitzen Atome ein magnetisches Moment $\mu$. 
+   Wie bereits in Kapitel ref:sec-elektromagnetismus erläutert, erzeugen bewegte Ladungen Magnetfelder. Eine solche bewegte Ladung ist auch das Elektron, was in einer vereinfachten Vorstellung um den Atomkern kreist. Folglich besitzen Atome ein magnetisches Moment $\mu$, welches abhängig ist von der umkreisten Fläche $A$ und dem Kreisstrom des Elektrons $I$: cite:Kassing
+   
+#+name:eq-moment:
+\begin{equation}
+\mu = I * A
+\end{equation}
+
 Da Elektronen zwei Rotationsbewegungen ausführen, existieren auch zwei magnetische Momente, jeweils abhängig von $l$ und $s$ den Quantenzahlen des Bahn- und Spindrehimpulses, $g_\mathrm{e}$ dem gyromagnetischen Verhältnis des Elektrons, $m_\mathrm{e}$ der Masse des Elektrons und $e$ der Elementarladung: cite:Kassing 
 \\
 Das Spinmoment $\mu_\mathrm{s}$: 
@@ -113,7 +119,7 @@ Die Vektorsumme beider ergibt dann das magnetische Gesamtmoment $\mu_j$:
 \end{equation}
 
 
-Bringt man Materie in eine äußere magnetische Erregung $H$, resultiert meistens ein magnetisches Moment. Makroskopisch dient die Magnetisierung $\vec{M}$ zur Beschreibung der magnetischen Momente von Materie pro Volumeneinheit. Die Magnetisierung ist proportional zum extern angelegen Magnetfeld $\vec{H}$, wobei die magnetische Suszeptibilität $\chi$ ein materialabhängiger dimensionsloser Proportionalitätsfaktor ist:  cite:Kassing
+Bringt man Materie in eine äußere magnetische Erregung $H$, resultiert meistens ein magnetisches Moment. Makroskopisch dient die Magnetisierung $\vec{M}$ zur Beschreibung der magnetischen Momente von Materie pro Volumeneinheit. Die Magnetisierung ist proportional zum extern angelegen Magnetfeld $\vec{H}$, wobei die magnetische Suszeptibilität $\chi$ ein materialabhängiger dimensionsloser Proportionalitätsfaktor ist: cite:Kassing
 
 #+name:eq-magnetisierung
 \begin{equation}
@@ -121,23 +127,56 @@ Bringt man Materie in eine äußere magnetische Erregung $H$, resultiert meisten
 \end{equation}
 
 Die magnetische Suszeptibilität $\chi$ ist materialabhängig, da Bahn- und Spinmoment verschieden auf Magnetfelder reagieren, und diese je nach vorhandenen Elektronen unterschiedlich stark in das Gesamtmoment einfließen. 
-Das Bahnmoment wird in Anwesenheit eines externen Feldes abgeschwächt, da nach Lenz´scher Regel ein Gegenstrom induziert wird. Für das Spinmoment hingegen wir die Energie minimiert, wenn es sich parallel zum externen Magnetfeld ausrichtet. Dies führt zu Para- und Diamagnetismus, welche im folgenden näher erklärt werden. cite:Kassing
+Das Bahnmoment wird in Anwesenheit eines externen Feldes abgeschwächt, da nach Lenz´scher Regel ein Gegenstrom induziert wird. Für das Spinmoment hingegen wird die Energie minimiert, wenn es sich parallel zum externen Magnetfeld ausrichtet. Dies führt zu Para- und Diamagnetismus, welche im folgenden näher erklärt werden. cite:Kassing
+
 
 *** TODO Para- und Diamagnetismus label:sec-para-und-dia
-    
+   Untereinander nicht gekoppelte magnetische Momente äußern sich in Festkörpern durch Para- und Diamagnetismus. cite:Kassing 
+Ein Stoff ist paramagnetisch, wenn zwar magnetische Momente der Elektronen vorhanden sind, diese sich aber infolge der thermischen Bewegung im Mittelwert über das Volumen gegenseitig aufheben: cite:Demtroder2017
+
+#+name:eq-paramagnetismus
+\begin{equation}
+\vec{M} = \frac{1}{V} \sum \mu_\mathrm{j} = 0
+\end{equation}
+
+Dies ist dann möglich, wenn ungepaarte Elektronen vorliegen. Bringt man einen paramagnetischen Stoff in ein äußeres Magnetfeld, so wird dieser in das Feld gezogen, da sich die Dipole teilweise ausrichten können. Die Suszeptibilität $\chi$ ist antiproportional zur Temperatur $T$. cite:Demtroder2017
+
+# #+name:eq-chi(temp)
+# \begin{equation}
+# \chi = N_\mathrm{0} \cdot \frac{\mu_\mathrm{0} \cdot \mu_\mathrm{m}^{2}}{k_\mathrm{B} T}
+# \end{equation}
+
+Stoffe sind Diamagnetisch, wenn kein permanentes magnetisches Dipolmoment vorliegt. Die magnetischen Momente von gepaarten Elektronen sind antiparallel zueinander und heben sich auf. Durch Anlegen eines externen Magnetfeldes werden jedoch magnetische Dipole induziert. Der Stoff wird aus dem Magnetfeld gedrängt und besitzt eine negative Suszeptibilität $\chi$, da diese induzierten Dipole dem Magnetfeld entgegengerichtet sind. cite:Demtroder2017
+
+Liegen abgeschlossene äußere Schalen vor, heben sich die magnetischen Momente der dort befindlichen Elektronen gegenseitig auf. Die Elektronen befinden sich auf einer größeren Kreisbahn als Elektronen innerer Schalen. Da das magnetische Moment von der umkreisten Fläche abhängig ist, überwiegt der Diamagnetismus der äußeren Elektronen dem Paramagnetismus der inneren Elektronen. cite:Kassing
+
 
 *** TODO Ferromagnetismus label:sec-ferro
     
+Beeinflussen sich die einzelnen magnetischen Momente, sind sie also gekoppelt, kann das System einen magnetisch geordneten Zustand einnehmen. Dieser geordnete Zustand unterliegt jedoch einer Temperaturabhängigkeit. cite:Kassing
+
+Eine mögliche Erscheinung die auftreten kann ist der Ferromagnetismus. Ein ferromagnetischer Festkörper besteht aus paramagnetischen Atomen bzw. Molekülen. Alle magnetischen Momente sind im Festkörper parallel zueinander ausgerichtet (vgl. Abb ref:fig-ferro). cite:Demtroder2017
+    
+#+name:fig-ferro
+#+attr_latex: :placement [H] :width 0.33\textwidth
+#+caption: Schematische Darstellung der magnetischen Momente in einem ferromagnetischen Festkörper.
+[[file:img/ferro.PNG]]
+
+
 
 *** TODO Antiferromagnetismus label:sec-antiferro
      
+#+name:fig-antiferro
+#+attr_latex: :placement [H] :width 0.33\textwidth
+#+caption: Schematische Darstellung der magnetischen Momente in einem antiferromagnetischen Festkörper.
+[[file:img/antiferro.PNG]]
     
 *** TODO Superparamagnetismus
     
     
 *** TODO Exchange Bias Effekt label:sec-EB
 
-   
+    
 ** TODO Superparamagnetische Partikel label:sec-spp
 
 
@@ -154,7 +193,7 @@ Das Bahnmoment wird in Anwesenheit eines externen Feldes abgeschwächt, da nach 
 Verweis auf [[img-trapez]] hier.
 
 
-* TODO Experimentelle Methoden label:sec-methoden                    :ignore:
+* TODO Experimentelle Methoden label:sec-methoden
   
 
 ** TODO Programm zur Erstellung von Magnetfeldsequenzen label:sec-py
@@ -167,7 +206,12 @@ Um den Transport von SPP über das Substrat zu realisieren und zu beobachten, wu
 #+caption: Partikeltransport Versuchsaufbau. ...
 #+attr_latex: :width 0.5\textwidth
 #+name: img-aufbau
-file:./img/aufbau.png
+file:./img/aufbau1.jpg
+
+#+caption: Partikeltransport Versuchsaufbau. ...
+#+attr_latex: :width 0.5\textwidth
+#+name: img-aufbau
+file:./img/aufbau2.jpg
 
 Dieser Versuchsaufbau kann in zwei Teile unterteilt werden. Der erste Teil besteht aus einer Optronis Hochgeschwindigkeitskamera, welche durch ein Mikroskop die Partikelbewegung in Videos aufzeichnet. Zur Belichtung der Probe wird eine Weißlicht-LED verwendet. Die Position der Kamera über der Probe, und somit der Fokus des Mikroskops wird über einen Schrittmotor verändert, welcher von einem LabView-Programm über eine NI USB-6002 Box gesteuert wird. Der zweite Teil erzeugt das elektromagnetische Feld um die Partikel zu transportieren. Er besteht aus drei senkrecht zueinander stehenden Helmholtzspulen, in deren Mitte ein beweglicher Probentisch liegt. Hiermit können Magnetfelder für alle drei Raumdimensionen erzeugt werden. Die Helmholtzspulen werden über ein Netzteil mit Strom versorgt, welches wiederum von einer NI USB-6002 Box über ein Python-Programm (siehe Kapitel ref:sec-py) angesteuert wird. So können beliebige Magnetfeldsequenzen im Inneren der Helmholtzspulen realisiert werden. Die Helmholtzspulen bestehen aus gewickeltem Kupferdraht, nähere Daten können Tabelle ref:tab-spulen entnommen werden.
 
