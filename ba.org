@@ -17,6 +17,7 @@
    #+latex_header: \usepackage{float}
    #+latex_header: \usepackage{blindtext}
    #+latex_header: \usepackage{booktabs}
+   #+latex_header: \usepackage{subfig}
    # #+latex_header: \usepackage[hidelinks]{hyperref}
    #+latex_header: \usepackage[onehalfspacing]{setspace}
    #+latex_header: \usepackage{graphicx}
@@ -49,45 +50,48 @@
 
  
 ** TODO Elektromagnetismus label:sec-elektromagnetismus
-   Allgemein gilt, dass bewegte Ladungen (Ströme) ein Magnetfeld erzeugen. Fließt zum Beispiel ein Strom I durch einen langen geraden Draht, erzeugt dies ein kreisförmiges Magnetfeld. Entlang der Stromrichtung ergibt sich eine Rechtsschraube für das Magnetfeld B. Eine Spule besteht aus mehreren Windungen stromdurchflossenen Drahtes und erzeugt so durch Überlagerung ein Magnetfeld ähnlich einem Stabmagneten mit Nord- und Südpol. Das Magnetfeld $B$ hängt dabei von Stromstärke $I$ und Windungszahl $n$ ab: cite:Demtroder2017
+   Allgemein gilt, dass bewegte Ladungsträger (Ströme) ein Magnetfeld erzeugen. Fließt zum Beispiel ein Strom $I$ durch einen langen geraden Draht, erzeugt dies ein kreisförmiges Magnetfeld. Entlang der Stromrichtung ergibt sich eine Rechtsschraube für das Magnetfeld B. Eine Spule besteht aus mehreren Windungen stromdurchflossenen Drahtes und erzeugt so durch Überlagerung ein Magnetfeld ähnlich eines Stabmagneten mit Nord- und Südpol. Die Magnetische Flussdichte $B$ im Vakuum hängt dabei von Stromstärke $I$ und Windungsdichte $n = \frac{N}{L}$ (Windungen pro Länge) ab: cite:Demtroder2017
 
 #+name: eq-spule
 \begin{equation}
-B = \mu_{\mathrm{0}} \cdot n \cdot I
+B = \mu_{\mathrm{0}} \cdot n \cdot I .
 \end{equation}
-   
+  
+ 
 
 *** TODO Helmholtzspulen
-    Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen erzeugt. Diese erzeugen ein homogenes Magnetfeld in ihrem Inneren. Dieses Magnetfeld hängt von Stromstärke $I$, Windungszahl $N$ und Radius einer einzelnen Spule $r$ ab: cite:Demtroder2017 
+    Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen erzeugt. Diese erzeugen ein homogenes Magnetfeld in ihrem Inneren, wenn die Helmholtz-Bedingung erfüllt ist, d.h. Radius und Abstand der Teilspulen gleich sind. Dieses Magnetfeld hängt in Näherung von der Stromstärke $I$, der Windungszahl $N$ und dem Radius einer einzelnen Spule $r$ ab: cite:Demtroder2017 
     
 #+name: eq-helmholtz
 \begin{equation}
-B = (\frac{4}{5})^{\frac{3}{2}} \cdot \mu_{\mathrm{0}} \cdot \frac{N \cdot I}{r}
+B = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot \mu_{\mathrm{0}} \cdot \frac{N \cdot I}{r} .
 \end{equation}
 
 
 ** TODO Spulen als elektrische Bauteile label:sec-spulen
-     Legt man eine Spannung an einer Spule an, wird durch Selbstinduktion eine Gegenspannung induziert. Hierbei ist die induzierte Spannung abhängig von der zeitlichen Änderung der Stromstärke, und dem Selbstinduktionskoeffizienten, kurz Induktivität $L$: cite:Demtroder2017
+     Beim Anlegen einer Spannung an eine Spule, wird innerhalb dieser eine Gegenspannung induziert. Hierbei ist die induzierte Spannung $U_{\mathrm{ind}}$ abhängig von der zeitlichen Änderung der Stromstärke $I$, und dem Selbstinduktionskoeffizienten, kurz Induktivität $L$: cite:Demtroder2017
     
  #+name: eq-induktivitaet
  \begin{equation}
- U_\mathrm{ind} = - L \frac{dI}{dt}
+ U_\mathrm{ind} = - L \frac{dI}{dt} .
  \end{equation}
 
- In einem Stromkreis mit Spule $L$ und Widerstand $R$ in Reihe, wird beim Einschalten der Spannungsquelle der Anstieg der Stromstärke verzögert. Die angelegte Spannung teilt sich auf in $U_R$ über dem Widerstand und der Spannung $U_L$, die nötig ist, um der Selbstinduktion entgegen zu wirken. Dabei ist $U_{\mathrm{L}} = - U_{\mathrm{ind}} = L \frac{dI}{dt}$. Für den Verlauf der Stromstärke $I(t)$ ergibt sich hierbei folgender Zusammenhang mit der Zeitkonstanten $\tau = \frac{L}{R}$: cite:Raith 
+ Als Folge der Selbstinduktion wird in einem Stromkreis mit idealer Spule $L$ (kein eigener Widerstand) und Widerstand $R$ in Reihe beim Einschalten der Spannungsquelle der Anstieg der Stromstärke verzögert. Die angelegte Spannung teilt sich auf in $U_R$ über dem Widerstand und der Spannung $U_L$, die nötig ist, um der Selbstinduktion entgegen zu wirken. Dabei ist $U_{\mathrm{L}} = - U_{\mathrm{ind}}$. Für den zeitlichen Verlauf der Stromstärke $I(t)$ ergibt sich hierbei folgender Zusammenhang mit der Zeitkonstanten $\tau = \frac{L}{R}$: cite:Raith 
 
  #+name: eq-strom-spule
  \begin{equation}
- I(t) = I_{\mathrm{0}} \cdot e^{ -\frac{t}{\tau}} = I_{\mathrm{0}} \cdot e^{ -\frac{t \cdot R}{L}} 
+ I(t) = I_{\mathrm{0}} \cdot e^{ -\frac{t}{\tau}} = I_{\mathrm{0}} \cdot e^{ -\frac{t \cdot R}{L}} .
  \end{equation}
 
- Den entsprechenden Verlauf von Spannung und Stromstärke kann man in Abbildung ref:fig-einschalten nachvollziehen: \\
+ Der entsprechende Verlauf von Spannung und Stromstärke kann in Abbildung ref:fig-einschalten nachvollzogen werden: \\
 
- #+caption: Qualitative Darstellung des Verlaufs von Speisespannung $U_\mathrm{0}$ und Stromstärke $I$ in einer Reihenschaltung von Widerstand $R$ und Spule $L$.
- #+attr_latex: :placement [H] :width 0.75\textwidth
- #+name: fig-einschalten
- file:./img/einschalten.png
-  
+\begin{figure}[H]
+\centering
+\subfloat[Ersatzschaltbild.]{\includegraphics[width=0.40\textwidth]{./img/schaltplan.png}\label{fig-schaltplan}}
+\hfill
+\subfloat[Gemessene Spannung und Stromstärke.]{\includegraphics[width=0.55\textwidth]{./img/einschalten.png}\label{fig-einschalten}}
+\caption{Qualitative Darstellung des Verlaufs von Speisespannung $U_\mathrm{0}$ und Stromstärke $I$ in einer Reihenschaltung von Widerstand $R$ und Spule $L$.}
+\end{figure}
 
 ** TODO [0/1] Magnetismus in Materie label:sec-magnetismus
    Wie bereits in Kapitel ref:sec-elektromagnetismus erläutert, erzeugen bewegte Ladungen Magnetfelder. Eine solche bewegte Ladung ist auch das Elektron, was in einer vereinfachten Vorstellung um den Atomkern kreist. Folglich besitzen Atome ein magnetisches Moment $\mu$, welches abhängig ist von der umkreisten Fläche $A$ und dem Kreisstrom des Elektrons $I$: cite:Kassing
@@ -157,19 +161,16 @@ Beeinflussen sich die einzelnen magnetischen Momente, sind sie also gekoppelt, k
 
 Eine mögliche Erscheinung die auftreten kann ist der Ferromagnetismus. Ein ferromagnetischer Festkörper besteht aus paramagnetischen Atomen bzw. Molekülen. Alle magnetischen Momente sind im Festkörper parallel zueinander ausgerichtet (vgl. Abb ref:fig-ferro). cite:Demtroder2017
     
-#+name:fig-ferro
-#+attr_latex: :placement [H] :width 0.33\textwidth
-#+caption: Schematische Darstellung der magnetischen Momente in einem ferromagnetischen Festkörper.
-[[file:img/ferro.PNG]]
 
-
+\begin{figure}[H]
+\centering
+\subfloat[Ferromagnetischer Festkörper.]{\includegraphics[width=0.45\textwidth]{./img/ferro.pdf}\label{fig-ferro}}
+\hfill
+\subfloat[Antiferromagnetischer Festkörper.]{\includegraphics[width=0.45\textwidth]{./img/antiferro.pdf}\label{fig-antiferro}}
+\caption{Schematische Darstellung der magnetischen Momente in Festkörpern.}
+\end{figure}
 
 *** TODO Antiferromagnetismus label:sec-antiferro
-     
-#+name:fig-antiferro
-#+attr_latex: :placement [H] :width 0.33\textwidth
-#+caption: Schematische Darstellung der magnetischen Momente in einem antiferromagnetischen Festkörper.
-[[file:img/antiferro.PNG]]
     
 *** TODO Superparamagnetismus
     
@@ -204,29 +205,28 @@ Verweis auf [[img-trapez]] hier.
 Um den Transport von SPP über das Substrat zu realisieren und zu beobachten, wurde der Versuchsaufbau, der in Abbildung ref:img-aufbau zu sehen ist, verwendet.
 
 #+caption: Partikeltransport Versuchsaufbau. ...
-#+attr_latex: :width 0.5\textwidth
+#+attr_latex: :width \textwidth
 #+name: img-aufbau
-file:./img/aufbau1.jpg
+file:./img/aufbau.png
 
-#+caption: Partikeltransport Versuchsaufbau. ...
-#+attr_latex: :width 0.5\textwidth
-#+name: img-aufbau
-file:./img/aufbau2.jpg
 
-Dieser Versuchsaufbau kann in zwei Teile unterteilt werden. Der erste Teil besteht aus einer Optronis Hochgeschwindigkeitskamera, welche durch ein Mikroskop die Partikelbewegung in Videos aufzeichnet. Zur Belichtung der Probe wird eine Weißlicht-LED verwendet. Die Position der Kamera über der Probe, und somit der Fokus des Mikroskops wird über einen Schrittmotor verändert, welcher von einem LabView-Programm über eine NI USB-6002 Box gesteuert wird. Der zweite Teil erzeugt das elektromagnetische Feld um die Partikel zu transportieren. Er besteht aus drei senkrecht zueinander stehenden Helmholtzspulen, in deren Mitte ein beweglicher Probentisch liegt. Hiermit können Magnetfelder für alle drei Raumdimensionen erzeugt werden. Die Helmholtzspulen werden über ein Netzteil mit Strom versorgt, welches wiederum von einer NI USB-6002 Box über ein Python-Programm (siehe Kapitel ref:sec-py) angesteuert wird. So können beliebige Magnetfeldsequenzen im Inneren der Helmholtzspulen realisiert werden. Die Helmholtzspulen bestehen aus gewickeltem Kupferdraht, nähere Daten können Tabelle ref:tab-spulen entnommen werden.
+Dieser Versuchsaufbau kann in zwei Teile unterteilt werden. Der erste Teil besteht aus einer Optronis Hochgeschwindigkeitskamera (1), welche durch ein Mikroskop (2) die Partikelbewegung in Videos aufzeichnet. Zur Belichtung der Probe wird eine Weißlicht-LED (3) verwendet. Die Position der Kamera über der Probe, und somit der Fokus des Mikroskops wird über einen Schrittmotor (4) verändert, welcher von einem LabView-Programm über eine NI USB-6002 Box (5) gesteuert wird. Der zweite Teil erzeugt das elektromagnetische Feld, um die Partikel zu transportieren. Er besteht aus drei senkrecht zueinander stehenden Helmholtzspulen (6), in deren Mitte ein beweglicher Probentisch liegt. Hiermit können Magnetfelder für alle drei Raumdimensionen erzeugt werden. Die Helmholtzspulen werden über eine spannungsgesteuertes Netzteil (7) mit Strom versorgt, welches wiederum von einer NI USB-6002 Box (8) über ein Python-Programm (siehe Kapitel ref:sec-py) angesteuert wird. So können beliebige Magnetfeldsequenzen im Inneren der Helmholtzspulen realisiert werden. Die Helmholtzspulen bestehen aus gewickeltem Kupferdraht, nähere Daten können Tabelle ref:tab-spulen entnommen werden.
 
-#+caption: Technische Daten Helmholtzspulen
+#+caption: Technische Daten Helmholtzspulen. Windungen, Radius, Widerstand und Länge wurden der technischen Zeichnung entnommen, die Induktivität wurde gemessen.
 #+attr_latex: :center t :align nil
 #+name: tab-spulen
 | Name | Windungen | Radius\nbsp[\si{\meter}] | Widerstand\nbsp[\si{\ohm}] | Länge\nbsp[\si{\milli\meter}] | Induktivität\nbsp[\si{\milli\henry}] |
 |------+-----------+----------------------+------------------------+---------------------------+----------------------------------|
 | /    |         < | <                    | <                      |                         < | <                                |
-| x    |       360 | 0,047                | 18,2                   |                        65 | 9                                |
-| y    |       936 | 0,069                | 51,6                   |                        95 | 58                               |
-| z    |       330 | 0,030                | 11,5                   |                        70 | 5,6                              |
+| x    |       \num{360} | \num{0,047}          | \num{18,2}             |                        \num{65} | \num{9,29}                 |
+| y    |       \num{936} | \num{0,069}          | \num{51,6}             |                        \num{95} | \num{57,9}                     |
+| z    |       \num{330} | \num{0,030}          | \num{11,5}             |                        \num{70} | \num{5,6}                       |
 
 
-Die Versuche in dieser Arbeit wurden nur zwei der drei Helmholtzspulen verwendet. Dabei handelte es sich um die Spulen für die x- und z-Richtung. Die Partikel wurden in einer mikrofluidischen Zelle auf den Proben platziert, um dann untersucht werden zu können. Hierfür wird Parafilm zuerst in Größe der Probe zurecht geschnitten, und dann ein Rechteck im Inneren des Parafilms ausgeschnitten. So entsteht eine Aussparung in der Mitte, in die \SI{10}{\micro\meter} Partikelsuspension gegeben werden. Anschließend wird die Probe auf dem Probentisch platziert, die LED eingeschaltet, und die Kamera mittels Livebild und auf die Partikel fokussiert.
+Bei den Versuchen in dieser Arbeit wurden nur zwei der drei Helmholtzspulen verwendet. Dabei handelte es sich um die Spulen für die x- und z-Richtung. Die Partikel wurden in einer mikrofluidischen Zelle auf den Proben platziert, um dann untersucht werden zu können. Hierfür wird Parafilm zuerst in Größe der Probe zurecht geschnitten, und dann ein Rechteck im Inneren des Parafilms ausgeschnitten. So entsteht eine Aussparung in der Mitte, in die circa \SI{10}{\micro\meter} Partikelsuspension gegeben werden. Anschließend wird die Probe auf dem Probentisch platziert, die LED eingeschaltet, und die Kamera mittels Livebild und auf die Partikel fokussiert.
+
+** TODO Messung des Magnetfeldes
+   
 
 * TODO Ergebnisse und Diskussion                                     :ignore:
   
