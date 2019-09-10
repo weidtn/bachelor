@@ -41,9 +41,6 @@
 
 * TODO Einleitung label:sec-einleitung
 
-\blindmathtrue
-\blindtext
-
 
 * TODO [0/5] Theoretische Grundlagen label:sec-grundlagen
   In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt. Dann werden die in dieser Arbeit verwendeten /Exchange Bias Systeme/ eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene /Exchange Bias Systeme/ beschrieben, wobei die auf sie wirkenden Kräfte genauer betrachtet werden sollen.
@@ -204,8 +201,8 @@ Verweis auf [[img-trapez]] hier.
 
 Um den Transport von SPP über das Substrat zu realisieren und zu beobachten, wurde der Versuchsaufbau, der in Abbildung ref:img-aufbau zu sehen ist, verwendet.
 
-#+caption: Partikeltransport Versuchsaufbau. ...
-#+attr_latex: :width \textwidth
+#+caption: Partikeltransport Versuchsaufbau.
+#+attr_latex: :width 0.75\textwidth
 #+name: img-aufbau
 file:./img/aufbau.png
 
@@ -217,10 +214,10 @@ Dieser Versuchsaufbau kann in zwei Teile unterteilt werden. Der erste Teil beste
 #+name: tab-spulen
 | Name | Windungen | Radius\nbsp[\si{\meter}] | Widerstand\nbsp[\si{\ohm}] | Länge\nbsp[\si{\milli\meter}] | Induktivität\nbsp[\si{\milli\henry}] |
 |------+-----------+----------------------+------------------------+---------------------------+----------------------------------|
-| /    |         < | <                    | <                      |                         < | <                                |
-| x    |       \num{360} | \num{0,047}          | \num{18,2}             |                        \num{65} | \num{9,29}                 |
-| y    |       \num{936} | \num{0,069}          | \num{51,6}             |                        \num{95} | \num{57,9}                     |
-| z    |       \num{330} | \num{0,030}          | \num{11,5}             |                        \num{70} | \num{5,6}                       |
+| /    | <         | <                    | <                      | <                         | <                                |
+| x    | \num{360} | \num{0,047}          | \num{18,2}             | \num{65}                  | \num{9,29}                       |
+| y    | \num{936} | \num{0,069}          | \num{51,6}             | \num{95}                  | \num{57,9}                       |
+| z    | \num{330} | \num{0,030}          | \num{11,5}             | \num{70}                  | \num{5,6}                        |
 
 
 Bei den Versuchen in dieser Arbeit wurden nur zwei der drei Helmholtzspulen verwendet. Dabei handelte es sich um die Spulen für die x- und z-Richtung. Die Partikel wurden in einer mikrofluidischen Zelle auf den Proben platziert, um dann untersucht werden zu können. Hierfür wird Parafilm zuerst in Größe der Probe zurecht geschnitten, und dann ein Rechteck im Inneren des Parafilms ausgeschnitten. So entsteht eine Aussparung in der Mitte, in die circa \SI{10}{\micro\meter} Partikelsuspension gegeben werden. Anschließend wird die Probe auf dem Probentisch platziert, die LED eingeschaltet, und die Kamera mittels Livebild und auf die Partikel fokussiert.
@@ -228,24 +225,22 @@ Bei den Versuchen in dieser Arbeit wurden nur zwei der drei Helmholtzspulen verw
 ** TODO Messung des Magnetfeldes
    
 
-* TODO Ergebnisse und Diskussion
+* TODO Ergebnisse und Diskussion label:sec-ergebnisse
   
   #+caption: Gemessene Partikelgeschwindigkeiten für verschiedene Startzeiten des Plateaus in der angelegten Trapezspannung für eine Frequenz von 1 Hz.
   #+attr_latex: :placement [!h] :width 0.55\textwidth
   #+name: img-v
   [[file:./img/v.png]]
 
-  
-* TODO Diskussion und Ausblick
-
-
-* TODO Zusammenfassung
-
+ #+caption: Darstellung der einzelnen Trajektorien von ausgewählten Partikeln bei verschiedenen Änderungsraten. 
+ #+attr_latex: :placmeent [!h] :width 0.9\textwidth
+ #+name: img-traj_real
+ 
+* TODO Zusammenfassung und Ausblick label:sec-zusammenfassung
 
 *  Anhang
   
 
-* Literaturverzeichnis
-
+# Literaturverzeichnis:
   bibliographystyle:alpha
   bibliography:library.bib
