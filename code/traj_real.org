@@ -1,0 +1,29 @@
+#+begin_src python :session :results output
+  import numpy as np
+  import matplotlib
+  matplotlib.use("Agg")
+  import matplotlib.pyplot as plt
+#+end_src
+
+#+RESULTS:
+
+Trajektorien laden:
+#+begin_src python :session :results output
+  traj = np.load("9486x_26213z_ipol.npy")
+  traj
+  time = np.linspace(0,1,len(traj))
+#+end_src
+
+#+RESULTS:
+
+Plotten:
+
+#+begin_src python :session :results file
+  fig, axes = plt.subplots(3,2)
+  axes[0,0].plot(time, traj)
+  plt.savefig("test.png")
+  "test.png"
+#+end_src
+
+#+RESULTS:
+[[file:test.png]]
