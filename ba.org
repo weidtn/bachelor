@@ -233,8 +233,9 @@ Bei den Versuchen in dieser Arbeit wurden nur zwei der drei Helmholtzspulen verw
   [[file:./img/v.png]]
 
  #+caption: Darstellung der einzelnen Trajektorien von ausgewählten Partikeln bei verschiedenen Änderungsraten. 
- #+attr_latex: :placmeent [!h] :width 0.9\textwidth
+ #+attr_latex: :placmeent [!h] :width 0.7\textwidth
  #+name: img-traj_real
+ file:./img/traj_real.png
  
 * TODO Zusammenfassung und Ausblick label:sec-zusammenfassung
 
