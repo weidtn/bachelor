@@ -170,7 +170,7 @@ Die Suszeptibilität ferromagnetischer Materialien ist um bis zu mehrere Größe
 \caption{Schematische Darstellung der magnetischen Momente innerhalb eines Weissschen Bezirkes in Festkörpern.}
 \end{figure}
 
-Die magnetischen Dipole in einem ferromagnetischen Festkörper weisen innerhalb der so genannten *Weissschen Bezirke* aufgrund der Austausch-Wechselwirkung eine spontane Magnetisierung auf, und zeigen in die selbe Richtung (vgl. Abbildung ref:fig-ferro). Ohne externes Magnetfeld zeigen die magnetischen Momente verschiedener Weissscher Bezirke in verschiedene Richtungen. Zwischen den Weissschen Bezirken befinden sich die Domänenwände, welche als *Bloch-(Domänen)wände* bezeichnet werden. Bloch-Wände bestehen aus atomaren Dipolen die sich innerhalb der Wandebene drehen.cite:gross2012festkrperphysik Durch die hohe Anzahl der Weissschen Bezirke ist makroskopisch keine Magnetisierung erkennbar.cite:rybach2008physik  
+Die magnetischen Dipole in einem ferromagnetischen Festkörper weisen innerhalb der so genannten *Weissschen Bezirke* aufgrund der Austausch-Wechselwirkung eine spontane Magnetisierung auf, und zeigen in die selbe Richtung (vgl. Abbildung ref:fig-ferro). Ohne externes Magnetfeld zeigen die magnetischen Momente verschiedener Weissscher Bezirke in verschiedene Richtungen. Zwischen den Weissschen Bezirken befinden sich die Domänenwände, welche als *Bloch-(Domänen)wände* bezeichnet werden. Bloch-Wände bestehen aus atomaren Dipolen die sich innerhalb der Wandebene drehen.cite:gross2012 Durch die hohe Anzahl der Weissschen Bezirke ist makroskopisch keine Magnetisierung erkennbar.cite:rybach2008  
 
 #+caption: Hysteresekurve der Magnetisierung $M$ in Abhängigkeit vom äußeren Feld $B$.cite:Demtroder2017
 #+name: fig-hysterese
@@ -181,31 +181,20 @@ Da die magnetischen Momente sich nach dem externen Magnetfeld ausrichten, ist di
 Die Magnetisierung erreicht schließlich eine Sättigung. In diesem Zustand zeigen alle mikroskopischen magnetischen Momente in die selbe Richtung parallel zum Feld. Zu sehen ist dies in der Teilkurve a in ref:fig-hysterese welche *jungfräuliche Kurve* oder *Neukurve* genannt wird.
 Wird das externe Feld wieder zurück gefahren, folgt die Magnetisierung einer neuen Kurve b. Hierbei durchläuft die Kurve den Punkt $\mathrm{M_{R}}$ die Restmagnetisierung auch *Remaneszenz* genannt bei $B=0$. Die Bloch-Wände sind wieder in ihren ursprünglichen Positionen, jedoch bleiben innerhalb der Domänen die parallelen Ausrichtungen der magnetischen Momente erhalten.
 Wird nun das Magnetfeld weiter bis $-B$ verringert, ergibt sich erneut eine Sättigung, in der sich nun die magnetischen Momente in die andere Richtung ausgerichtet haben. Dabei durchläuft die Magnetisierungskurve die Feldstärke $\mathrm{B_{K}}$, welche *Koerzitivkraft* oder *Koerzitivfeldstärke* genannt wird. Dies ist die Feldstärke, welche benötigt wird, um die Restmagnetisierung durch parallele magnetische Momente aufzuheben.
-Ändert sich das externe Feld nun wieder in Richtung $+B$, erhält man Teilkurve c, welche wiederum in Sättigung übergeht. Die Teilkurven a und b stellen hierbei die typische *Hysteresekurve* eines ferromagnetischen Festkörpers dar, und werden immer wieder durchlaufen bei erneuten Umpolungen des externen Magnetfeldes.cite:rybach2008physik,Demtroder2017
+Ändert sich das externe Feld nun wieder in Richtung $+B$, erhält man Teilkurve c, welche wiederum in Sättigung übergeht. Die Teilkurven a und b stellen hierbei die typische *Hysteresekurve* eines ferromagnetischen Festkörpers dar, und werden immer wieder durchlaufen bei erneuten Umpolungen des externen Magnetfeldes.cite:rybach2008,Demtroder2017
 
 Der Festkörper kann seine ferromagnetischen Eigenschaften verlieren, wenn er über eine bestimmte, für das Material charakteristische, Temperatur $T_\mathrm{C}$, die *Curie-Temperatur* erhitzt wird. Die Wärmebewegung zerstört dann die magnetische Ausrichtung der Dipole und der Stoff zeigt nur noch paramagnetisches Verhalten.cite:Demtroder2017 
 
-Beim Ausrichten der magnetischen Dipole in einem ferromagnetischen Stoff wird Energie benötigt. Diese entspricht der Fläche, die von der Hysteresekurve eingeschlossen ist und wird beim Ummagnetisieren in Wärme umgewandelt.cite:rybach2008physik 
+Beim Ausrichten der magnetischen Dipole in einem ferromagnetischen Stoff wird Energie benötigt. Diese entspricht der Fläche, die von der Hysteresekurve eingeschlossen ist und wird beim Ummagnetisieren in Wärme umgewandelt.cite:rybach2008
 
 *** TODO Antiferromagnetismus label:sec-antiferro
-In einem Antiferromagneten liegen zwei ineinander gestellte Untergitter im Kristallgitter vor. Die magnetischen Momente derer zeigen jeweils in entgegengesetzte Richtungen und haben den gleichen Betrag. Somit heben sie sich insgesamt auf und es ist keine makroskopische Magnetisierung sichtbar. oberhalb der *Néel-Temperatur* $T_\mathrm{N}$, dem Analogon zur Curie-Temperatur, geht der Festkörper in den paramagnetischen Zustand über. cite:Demtroder2017 
+In einem Antiferromagneten liegen zwei ineinander gestellte Untergitter im Kristallgitter vor. Die magnetischen Momente jener Untergitter zeigen jeweils in entgegengesetzte Richtungen und haben den gleichen Betrag. Somit heben sie sich insgesamt auf und es ist keine makroskopische Magnetisierung sichtbar. Oberhalb der *Néel-Temperatur* $T_\mathrm{N}$, dem Analogon zur Curie-Temperatur, geht der Festkörper in den paramagnetischen Zustand über. cite:Demtroder2017 
+
 *** TODO Superparamagnetismus
-Ist das Volumen eines ferromagnetischen Festkörpers so gering, dass er nur aus einer einzelnen Domäne besteht, spricht man von Superparamagnetismus. Die Suszeptibilität solcher Superparamagneten ist größer als die Suszeptibilität von Paramagneten, jedoch verhalten sie sich ohne äußeres Magnetfeld ähnlich, da die Magnetisierung in solchen einzelnen Domänen nicht thermisch stabil ist, und sich beliebig ausrichten kann.cite:gross2012festkrperphysik 
+Ist das Volumen eines ferromagnetischen Festkörpers so gering, dass er nur aus einer einzelnen Domäne besteht, spricht man von Superparamagnetismus. Die Suszeptibilität solcher Superparamagneten ist größer als die Suszeptibilität von Paramagneten, jedoch verhalten sie sich ohne äußeres Magnetfeld ähnlich, da die Magnetisierung in solchen einzelnen Domänen nicht thermisch stabil ist, und sich beliebig ausrichten kann.cite:gross2012 
     
 *** TODO Exchange Bias Effekt label:sec-EB
-
-** TODO Superparamagnetische Partikel label:sec-spp
-** TODO Kräfte zwischen Partikel und Probenoberfläche label:sec-kräfte
-
-** TODO Partikeltransport label:sec-transport
-
-#+caption: Potentielle magnetische Energielandschaft (nach Holzinger et. al).cite:Holzinger2015b
-#+attr_latex: :placement [!H] :width 0.5\textwidth
-#+name: img-trapez
-[[file:./img/trapez.jpeg]]
-
-Verweis auf [[img-trapez]] hier.
-
+ Der Exchange Bias Effekt wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten Co-Partikeln entdeckt.cite:Meiklejohn1957
 * TODO Experimentelle Methoden label:sec-methoden
   
 ** TODO Programm zur Erstellung von Magnetfeldsequenzen label:sec-py
@@ -256,7 +245,7 @@ Bei den Versuchen in dieser Arbeit wurden nur zwei der drei Helmholtzspulen verw
  
 * TODO Zusammenfassung und Ausblick label:sec-zusammenfassung
 
-*  Anhang
+* Anhang
   
 
 # Literaturverzeichnis:
