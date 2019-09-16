@@ -102,35 +102,37 @@ Der Abschaltvorgang ist in Abbildung ref:fig-abschalten abgebildet.
 [[file:img/ausschalten.png]]
 
 ** TODO [0/1] Magnetismus in Materie label:sec-magnetismus
-Wie bereits in Kapitel ref:sec-elektromagnetismus erläutert, erzeugen bewegte Ladungen Magnetfelder. Eine solche bewegte Ladung ist auch das Elektron, was in einer vereinfachten Vorstellung um den Atomkern kreist. Folglich besitzen Atome ein magnetisches Moment $\mu$, welches abhängig ist von der umkreisten Fläche $A$ und dem Kreisstrom des Elektrons $I$:cite:Kassing
+Wie bereits in Kapitel ref:sec-elektromagnetismus erläutert, erzeugen bewegte Ladungen Magnetfelder. Eine solche bewegte Ladung ist auch das Elektron, das in einer vereinfachten Vorstellung um den Atomkern kreist. Folglich besitzen Atome ein magnetisches Moment $\mu$, welches abhängig ist von der umkreisten Fläche $A$ und dem Kreisstrom des Elektrons $I$:cite:Kassing
    
 #+name:eq-moment:
 \begin{equation}
 \mu = I * A
 \end{equation}
 
-Da Elektronen zwei Rotationsbewegungen ausführen, existieren auch zwei magnetische Momente, jeweils abhängig von $l$ und $s$ den Quantenzahlen des Bahn- und Spindrehimpulses, $g_\mathrm{e}$ dem gyromagnetischen Verhältnis des Elektrons, $m_\mathrm{e}$ der Masse des Elektrons und $e$ der Elementarladung:cite:Kassing 
+Da Elektronen sowohl eine Bahnbewegung als auch eine Spinbewegung durchführen, existieren auch zwei magnetische Momente, jeweils abhängig von $l$ und $s$ den Quantenzahlen des Bahn- und Spindrehimpulses, $g_\mathrm{e}$ dem gyromagnetischen Verhältnis des Elektrons, $m_\mathrm{e}$ der Masse des Elektrons und $e$ der Elementarladung:cite:Kassing
 \\
-Das Spinmoment $\mu_\mathrm{s}$: 
+Die Vektorsumme aus Spinmoment $\mu_\mathrm{s}$
 #+name:eq-spinmoment
 \begin{equation}
  \mu_\mathrm{s} = - g_\mathrm{e} \frac{\vert e \vert}{2 m_\mathrm{e}} \cdot s
 \end{equation}
 
 
-und das Bahnmoment $\mu_\mathrm{l}$: 
+und Bahnmoment $\mu_\mathrm{l}$ 
 #+name:eq-bahnmoment
 \begin{equation}
  \mu_\mathrm{l} = - \frac{\vert e \vert}{2 m_\mathrm{e}} \cdot l
 \end{equation}
 
-Die Vektorsumme beider ergibt dann das magnetische Gesamtmoment $\mu_j$:
+ergibt sich zu dem magnetischen Gesamtmoment $\mu_j$:
 #+name:eq-gesamtmoment
 \begin{equation}
 \mu_\mathrm{j} = \mu_\mathrm{l} + \mu_\mathrm{s}
 \end{equation}
 
-Bringt man Materie in eine äußere magnetische Erregung $H$, resultiert meistens ein magnetisches Moment. Makroskopisch dient die Magnetisierung $\vec{M}$ zur Beschreibung der magnetischen Momente von Materie pro Volumeneinheit. Die Magnetisierung ist proportional zum extern angelegen Magnetfeld $\vec{H}$, wobei die magnetische Suszeptibilität $\chi$ ein materialabhängiger dimensionsloser Proportionalitätsfaktor ist:cite:Kassing
+Festkörper können in Folge der mikroskopischen Ursachen bezüglich ihres Magnetismus in drei Kategorien eingeordnet werden. Alle Materialien sind diamagnetisch. Besitzt ein Festkörper bereits ohne äußeres Magnetfeld magnetische Momente, die nicht miteinander Wechselwirken, so handelt es sich um einen Paramagneten. Wechselwirken die magnetischen Momente, führt dies zu einer spontanen Magnetisierung und unter anderem zu Ferro- oder Antiferromagnetismus.cite:gross2012 
+
+Wird Materie in eine äußere magnetische Erregung $H$ gebracht, resultiert meistens ein magnetisches Moment. Makroskopisch dient die Magnetisierung $\vec{M}$ zur Beschreibung der magnetischen Momente von Materie pro Volumeneinheit. Die Magnetisierung ist proportional zum extern angelegen Magnetfeld $\vec{H}$, wobei die magnetische Suszeptibilität $\chi$ ein materialabhängiger dimensionsloser Proportionalitätsfaktor ist:cite:Kassing
 
 #+name:eq-magnetisierung
 \begin{equation}
@@ -138,7 +140,7 @@ Bringt man Materie in eine äußere magnetische Erregung $H$, resultiert meisten
 \end{equation}
 
 Die magnetische Suszeptibilität $\chi$ ist materialabhängig, da Bahn- und Spinmoment verschieden auf Magnetfelder reagieren, und diese je nach vorhandenen Elektronen unterschiedlich stark in das Gesamtmoment einfließen. 
-Das Bahnmoment wird in Anwesenheit eines externen magnetischen Feldes abgeschwächt, da nach Lenzscher Regel ein Gegenstrom induziert wird. Für das Spinmoment hingegen wird die Energie minimiert, wenn es sich parallel zum externen Magnetfeld ausrichtet. Dies führt zu Para- und Diamagnetismus, welche im folgenden näher erklärt werden.cite:Kassing
+Das Bahnmoment wird in Anwesenheit eines externen magnetischen Feldes abgeschwächt, da nach Lenzscher Regel ein Gegenstrom induziert wird. Für das Spinmoment hingegen wird die Energie minimiert, wenn es sich parallel zum externen Magnetfeld ausrichtet.cite:Kassing
 
 
 *** TODO Para- und Diamagnetismus label:sec-para-und-dia
@@ -237,8 +239,20 @@ Dieser Versuchsaufbau kann in zwei Teile unterteilt werden. Der erste Teil beste
 
 Bei den Versuchen in dieser Arbeit wurden nur zwei der drei Helmholtzspulen verwendet. Dabei handelte es sich um die Spulen für die x- und z-Richtung. Die Partikel wurden in einer mikrofluidischen Zelle auf den Proben platziert, um dann untersucht werden zu können. Hierfür wird Parafilm zuerst in Größe der Probe zurecht geschnitten, und dann ein Rechteck im Inneren des Parafilms ausgeschnitten. So entsteht eine Aussparung in der Mitte, in die circa \SI{10}{\micro\litre} Partikelsuspension gegeben werden. Anschließend wird die Probe auf dem Probentisch platziert, die LED eingeschaltet, und die Kamera mittels Livebild auf die Partikel fokussiert.
 
-** TODO Messung des Magnetfeldes
-   
+** TODO Zeitabhängige Messung von Strom und Magnetfeld
+Um das Verhalten der im Experiment verwendeten Helmholtzspulen nachvollziehen zu können und um die gegebenen technischen Daten und Modelle zu Überprüfen, wurden Messungen des Magnetfeldes und des Stromes an eben jenen Spulen durchgeführt.
+
+Hierfür wurde einerseits der zeitliche Verlauf der Stromstärke in der Spule gemessen, um Induktivität und ohmschen Widerstand zu überprüfen. Es wurde ein Keramikwiderstand in Reihe mit der zu messenden Helmholtzspule angebracht. Über diesem Widerstand $R$ wurde nun die Spannung $U$ gemessen, indem eine NI USB-6002 Box parallel dazu angeschlossen wurde. Mithilfe des Ohmschen Gesetzes lässt sich so der Strom $I$, der durch den bekannten Widerstand $R$ fließt, berechnen. Da Spule und Widerstand in Reihe geschaltet sind, fließt durch beide der selbe Strom.
+
+#+name: fig-strommessung-aufbau
+#+caption: Schaltbild zur Strommessung
+#+attr_latex: :width 0.7\textwidth :placement [h]
+[[file:img/strommessung.pdf]]
+
+Um den zeitlichen Verlauf des Magnetfeldes zu messen, wurde der Messkopf eines Teslameters auf dem Probentisch in den Helmholtzspulen platziert. Das FM210 Teslameter der /Projekt Elektronik GmbH/ besitzt einen BNC-Anschluss, über welchen widerum eine NI USB-6002 Box angeschlossen wurde, um den zeitlichen Verlauf des Magnetfeldes aufzuzeichnen.
+
+Die Aufzeichnung der Daten der NI USB-6002 Box erfolgte für beide Messungen mittels eines selbst geschriebenen Python-Scriptes (siehe Kapitel *12345*).
+
 * TODO Ergebnisse und Diskussion label:sec-ergebnisse
   
   #+caption: Gemessene Partikelgeschwindigkeiten für verschiedene Startzeiten des Plateaus in der angelegten Trapezspannung für eine Frequenz von 1 Hz.
