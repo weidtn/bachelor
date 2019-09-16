@@ -5,6 +5,10 @@
 #+EXCLUDE_TAGS: ignore
 #+LANGUAGE: de
 
+* Fragen                                                             :ignore:
+** TODO Zitieren von Bildern aus Buch?
+
+** TODO Induktivität gemessen in Elektrowerkstatt?
 * Header                                                             :ignore:
    #+latex_class:scrbook
    #+latex_class_options:[page,pdftex,12pt,a4paper,twoside,openright]
@@ -34,13 +38,12 @@
 ** [[file:arbeiten/Meike%20Reginka%20-%20Masterarbeit%2015.06.18.pdf][MAMeRe]]
 ** [[file:arbeiten/Holzinger_2015_Diss%20Transport%20magnetischer%20Partikel%20durch%20ma%C3%9Fgeschneider....pdf][DissDeHo]]
 
-
 * TODO Einleitung label:sec-einleitung
 * TODO [0/5] Theoretische Grundlagen label:sec-grundlagen
   In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt. Dann werden die in dieser Arbeit verwendeten /Exchange Bias Systeme/ eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene /Exchange Bias Systeme/ beschrieben, wobei die auf sie wirkenden Kräfte genauer betrachtet werden sollen.
 
 ** TODO Elektromagnetismus label:sec-elektromagnetismus
-   Allgemein gilt, dass bewegte Ladungsträger (Ströme) ein Magnetfeld erzeugen. Fließt zum Beispiel ein Strom $I$ durch einen langen geraden Draht, erzeugt dies ein kreisförmiges Magnetfeld. Entlang der Stromrichtung ergibt sich eine Rechtsschraube für das Magnetfeld B. Eine Spule besteht aus mehreren Windungen stromdurchflossenen Drahtes und erzeugt so durch Überlagerung ein Magnetfeld ähnlich eines Stabmagneten mit Nord- und Südpol. Die Magnetische Flussdichte $B$ im Vakuum hängt dabei von Stromstärke $I$ und Windungsdichte $n = \frac{N}{L}$ (Windungen pro Länge) ab:cite:Demtroder2017
+   Allgemein gilt, dass bewegte Ladungsträger (Ströme) ein Magnetfeld erzeugen. Fließt zum Beispiel ein Strom $I$ durch einen langen geraden Draht, erzeugt dies ein kreisförmiges Magnetfeld. Entlang der Stromrichtung ergibt sich eine Rechtsschraube für das Magnetfeld B. Eine Spule besteht aus mehreren Windungen stromdurchflossenen Drahtes und erzeugt so durch Überlagerung ein Magnetfeld ähnlich eines Stabmagneten mit Nord- und Südpol. Die Magnetische Flussdichte $B$ im Vakuum hängt dabei von Stromstärke $I$ und Windungsdichte $n = \frac{N}{L}$ (Windungen pro Länge) ab. Hierbei ist $\mu_\mathrm{0}$ die magnetische Feldkonstante:cite:Demtroder2017
 
 #+name: eq-spule
 \begin{equation}
@@ -48,7 +51,7 @@ B = \mu_{\mathrm{0}} \cdot n \cdot I .
 \end{equation}
 
 *** TODO Helmholtzspulen
-    Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen erzeugt. Diese erzeugen ein homogenes Magnetfeld in ihrem Inneren, wenn die Helmholtz-Bedingung erfüllt ist, d.h. Radius und Abstand der Teilspulen gleich sind. Dieses Magnetfeld hängt in Näherung von der Stromstärke $I$, der Windungszahl $N$ und dem Radius einer einzelnen Spule $r$ ab:cite:Demtroder2017 
+    Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen erzeugt. Eine Helmholtzspule besteht aus zwei parallelen Ringspulen in Reihe. Diese erzeugen ein homogenes Magnetfeld in ihrem Inneren, wenn die Helmholtz-Bedingung erfüllt ist, d.h. Radius und Abstand der Teilspulen gleich sind. Dieses Magnetfeld hängt in Näherung von der Stromstärke $I$, der Windungszahl $N$ und dem Radius einer einzelnen Spule $r$ ab:cite:Demtroder2017 
     
 #+name: eq-helmholtz
 \begin{equation}
@@ -56,40 +59,45 @@ B = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot \mu_{\mathrm{0}} \cdot \frac{N 
 \end{equation}
 
 ** TODO Spulen als elektrische Bauteile label:sec-spulen
-     Beim Anlegen einer Spannung an eine Spule, wird innerhalb dieser eine Gegenspannung induziert. Hierbei ist die induzierte Spannung $U_{\mathrm{ind}}$ abhängig von der zeitlichen Änderung der Stromstärke $I$, und dem Selbstinduktionskoeffizienten, kurz Induktivität $L$:cite:Demtroder2017
+Beim Anlegen einer Spannung an eine Spule, wird innerhalb dieser eine Gegenspannung induziert. Hierbei ist die induzierte Spannung
     
  #+name: eq-induktivitaet
  \begin{equation}
  U_\mathrm{ind} = - L \frac{dI}{dt} .
  \end{equation}
 
- Als Folge der Selbstinduktion wird in einem Stromkreis mit idealer Spule $L$ (kein eigener Widerstand) und Widerstand $R$ in Reihe beim Einschalten der Spannungsquelle der Anstieg der Stromstärke verzögert. Die angelegte Spannung teilt sich auf in $U_R$ über dem Widerstand und der Spannung $U_L$, die nötig ist, um der Selbstinduktion entgegen zu wirken. Dabei ist $U_{\mathrm{L}} = - U_{\mathrm{ind}}$. Für den zeitlichen Verlauf der Stromstärke $I(t)$ ergibt sich hierbei folgender Zusammenhang mit der Zeitkonstanten $\tau = \frac{L}{R}$:cite:Raith 
+abhängig von der zeitlichen Änderung der Stromstärke $I$, und dem Selbstinduktionskoeffizienten, kurz Induktivität $L$. Die Selbstinduktion kann dabei wie folgt erklärt werden: Bei Anlegen einer Spannung an eine Spule fließt ein Strom. Aus diesem Strom resultiert ein Magnetfeld. Nach dem Faradayschen Induktionsgesetz entsteht in einer Spule bei Änderung des Magnetfeldes eine Induktionsspannung. Diese ist nach Lenzscher Regel der Ursache, also der angelegten Spannung, entgegengerichtet.cite:Demtroder2017 
+ 
+Als Folge der Selbstinduktion wird in einem Stromkreis mit Induktiviät $L$ und Widerstand $R$ in Reihe beim Einschalten der Spannungsquelle der Anstieg der Stromstärke verzögert. Eine reale Spule besitzt immer auch einen eigenen ohmschen Widerstand. Die angelegte Spannung teilt sich auf in $U_R$ über dem Widerstand und der Spannung $U_L$, die nötig ist, um der Selbstinduktion entgegen zu wirken. Dabei ist $U_{\mathrm{L}} = - U_{\mathrm{ind}}$. Für den zeitlichen Verlauf der Stromstärke $I(t)$ ergibt sich hierbei folgender exponentieller Zusammenhang mit der Zeitkonstanten $\tau = \frac{L}{R}$:cite:Raith 
 
  #+name: eq-strom-spule
  \begin{equation}
- I(t) = I_{\mathrm{0}} \cdot e^{ -\frac{t}{\tau}} = I_{\mathrm{0}} \cdot e^{ -\frac{t \cdot R}{L}} .
+ I(t) = I_{\mathrm{0}} \cdot (1 - e^{ -\frac{t}{\tau}})= I_{\mathrm{0}} \cdot (1- e^{ -\frac{t \cdot R}{L}}).
  \end{equation}
 
- Der entsprechende Verlauf von Spannung und Stromstärke kann in Abbildung ref:fig-einschalten nachvollzogen werden: \\
+Der entsprechende Verlauf von Spannung und Stromstärke kann in Abbildung ref:fig-einschalten nachvollzogen werden.
 
-\begin{figure}[H]
-\centering
-\begin{subfigure}[b]{0.45\textwidth}
-\includegraphics[width=\textwidth]{./img/schaltplan.png}
-\caption{Ersatzschaltbild.}
-\label{fig-schaltplan}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.45\textwidth}
-\includegraphics[width=\textwidth]{./img/einschalten.png}
-\caption{Gemessene Spannung und Stromstärke.}
-\label{fig-einschalten}
-\end{subfigure}
-\caption{Qualitative Darstellung des Verlaufs von Speisespannung $U_\mathrm{0}$ und Stromstärke $I$ in einer Reihenschaltung von Widerstand $R$ und Spule $L$.}
-\end{figure}
+#+name:fig-einschalten
+#+caption: Demonstration der Selbstinduktion einer Spule. a Experimenteller Aufbau; b Stromverlauf I(t) nach dem Schließen des Schalters S.cite:Demtroder2017
+#+attr_latex: :width 0.75\textwidth :placement [!H]
+[[file:img/einschalten.png]]
+
+Analog hierzu fällt die Stromstärke beim Abschalten nicht direkt auf Null sondern folgt auch hier wegen einer induzierten Gegenspannung einem exponentiellen Abfall mit der Zeitkonstanten $\tau$:cite:Raith
+
+#+name: eq-auschalten
+\begin{equation}
+I(t) = I_{\mathrm{0}} \cdot e^{ -\frac{t}{\tau}}= I_{\mathrm{0}} \cdot e^{ -\frac{t \cdot R}{L}}.
+\end{equation}
+
+Der Abschaltvorgang ist in Abbildung ref:fig-abschalten abgebildet.
+
+#+name:fig-abschalten
+#+caption: Induktionsspannng beim Abschalten der Stromquelle durch Öffnen des Schalters S. a) Schaltung; b) Strom I_2(t), c) Spannung U(t); d) Strom I_1(t) cite:Demtroder2017
+#+attr_latex: :width 0.6\textwidth :placement [!H]
+[[file:img/ausschalten.png]]
 
 ** TODO [0/1] Magnetismus in Materie label:sec-magnetismus
-   Wie bereits in Kapitel ref:sec-elektromagnetismus erläutert, erzeugen bewegte Ladungen Magnetfelder. Eine solche bewegte Ladung ist auch das Elektron, was in einer vereinfachten Vorstellung um den Atomkern kreist. Folglich besitzen Atome ein magnetisches Moment $\mu$, welches abhängig ist von der umkreisten Fläche $A$ und dem Kreisstrom des Elektrons $I$:cite:Kassing
+Wie bereits in Kapitel ref:sec-elektromagnetismus erläutert, erzeugen bewegte Ladungen Magnetfelder. Eine solche bewegte Ladung ist auch das Elektron, was in einer vereinfachten Vorstellung um den Atomkern kreist. Folglich besitzen Atome ein magnetisches Moment $\mu$, welches abhängig ist von der umkreisten Fläche $A$ und dem Kreisstrom des Elektrons $I$:cite:Kassing
    
 #+name:eq-moment:
 \begin{equation}
@@ -125,11 +133,11 @@ Bringt man Materie in eine äußere magnetische Erregung $H$, resultiert meisten
 \end{equation}
 
 Die magnetische Suszeptibilität $\chi$ ist materialabhängig, da Bahn- und Spinmoment verschieden auf Magnetfelder reagieren, und diese je nach vorhandenen Elektronen unterschiedlich stark in das Gesamtmoment einfließen. 
-Das Bahnmoment wird in Anwesenheit eines externen Feldes abgeschwächt, da nach Lenz´scher Regel ein Gegenstrom induziert wird. Für das Spinmoment hingegen wird die Energie minimiert, wenn es sich parallel zum externen Magnetfeld ausrichtet. Dies führt zu Para- und Diamagnetismus, welche im folgenden näher erklärt werden.cite:Kassing
+Das Bahnmoment wird in Anwesenheit eines externen magnetischen Feldes abgeschwächt, da nach Lenzscher Regel ein Gegenstrom induziert wird. Für das Spinmoment hingegen wird die Energie minimiert, wenn es sich parallel zum externen Magnetfeld ausrichtet. Dies führt zu Para- und Diamagnetismus, welche im folgenden näher erklärt werden.cite:Kassing
 
 
 *** TODO Para- und Diamagnetismus label:sec-para-und-dia
-   Untereinander nicht gekoppelte magnetische Momente äußern sich in Festkörpern durch Para- und Diamagnetismus.cite:Kassing 
+Untereinander nicht gekoppelte magnetische Momente äußern sich in Festkörpern durch Para- und Diamagnetismus.cite:Kassing 
 Ein Stoff ist paramagnetisch, wenn zwar magnetische Momente der Elektronen vorhanden sind, diese sich aber infolge der thermischen Bewegung im Mittelwert über das Volumen gegenseitig aufheben:cite:Demtroder2017
 
 #+name:eq-paramagnetismus
@@ -179,9 +187,9 @@ Die magnetischen Dipole in einem ferromagnetischen Festkörper weisen innerhalb 
 
 Da die magnetischen Momente sich nach dem externen Magnetfeld ausrichten, ist die resultierende Magnetisierung abhängig von vorherigen erfolgten Magnetisierungsprozessen. Abbildung ref:fig-hysterese stellt eine Hysteresekurve dar, die für einen ferromagnetischen Festkörper charakteristisch ist. Wird eine vollkommen entmagnetisierte ferromagnetische Probe in ein äußeres Magnetfeld gebracht, so steigt die Magnetisierung zunächst linear. Die Weissschen Bezirke, dessen magnetisches Moment bereits annähernd in Richtung des Magnetfeldes zeigen, wachsen. Die Bloch-Wände verschieben sich, da sich die atomaren Dipole drehen. Da sich alle Weissschen Bezirke aufgrund von Größe und Lage energetisch unterscheiden, klappen dann nach und nach in anderen Weissschen Bezirken zunächst die magnetischen Momente um (*Barkhausen Sprünge)*, bevor auch hier die Domänenwände sich verschieben.
 Die Magnetisierung erreicht schließlich eine Sättigung. In diesem Zustand zeigen alle mikroskopischen magnetischen Momente in die selbe Richtung parallel zum Feld. Zu sehen ist dies in der Teilkurve a in ref:fig-hysterese welche *jungfräuliche Kurve* oder *Neukurve* genannt wird.
-Wird das externe Feld wieder zurück gefahren, folgt die Magnetisierung einer neuen Kurve b. Hierbei durchläuft die Kurve den Punkt $\mathrm{M_{R}}$ die Restmagnetisierung auch *Remaneszenz* genannt bei $B=0$. Die Bloch-Wände sind wieder in ihren ursprünglichen Positionen, jedoch bleiben innerhalb der Domänen die parallelen Ausrichtungen der magnetischen Momente erhalten.
+Wird das externe Feld wieder zurück gefahren, folgt die Magnetisierung einer neuen Kurve b. Hierbei durchläuft die Kurve den Punkt $\mathrm{M_{R}}$ die Restmagnetisierung, auch *Remaneszenz* genannt, bei $B=0$. Die Bloch-Wände sind wieder in ihren ursprünglichen Positionen, jedoch bleiben innerhalb der Domänen die parallelen Ausrichtungen der magnetischen Momente erhalten.
 Wird nun das Magnetfeld weiter bis $-B$ verringert, ergibt sich erneut eine Sättigung, in der sich nun die magnetischen Momente in die andere Richtung ausgerichtet haben. Dabei durchläuft die Magnetisierungskurve die Feldstärke $\mathrm{B_{K}}$, welche *Koerzitivkraft* oder *Koerzitivfeldstärke* genannt wird. Dies ist die Feldstärke, welche benötigt wird, um die Restmagnetisierung durch parallele magnetische Momente aufzuheben.
-Ändert sich das externe Feld nun wieder in Richtung $+B$, erhält man Teilkurve c, welche wiederum in Sättigung übergeht. Die Teilkurven a und b stellen hierbei die typische *Hysteresekurve* eines ferromagnetischen Festkörpers dar, und werden immer wieder durchlaufen bei erneuten Umpolungen des externen Magnetfeldes.cite:rybach2008,Demtroder2017
+Ändert sich das externe Feld nun wieder in Richtung $+B$, erhält man Teilkurve c, welche wiederum in Sättigung übergeht. Die Teilkurven a und b stellen hierbei die typische *Hysteresekurve* eines ferromagnetischen Festkörpers dar, und werden immer wieder bei erneuten Umpolungen des externen Magnetfeldes durchlaufen.cite:rybach2008,Demtroder2017
 
 Der Festkörper kann seine ferromagnetischen Eigenschaften verlieren, wenn er über eine bestimmte, für das Material charakteristische, Temperatur $T_\mathrm{C}$, die *Curie-Temperatur* erhitzt wird. Die Wärmebewegung zerstört dann die magnetische Ausrichtung der Dipole und der Stoff zeigt nur noch paramagnetisches Verhalten.cite:Demtroder2017 
 
@@ -209,7 +217,7 @@ Um den Transport von SPP über das Substrat zu realisieren und zu beobachten, wu
 file:./img/aufbau.png
 
 
-Dieser Versuchsaufbau kann in zwei Teile unterteilt werden. Der erste Teil besteht aus einer Optronis Hochgeschwindigkeitskamera (1), welche durch ein Mikroskop (2) die Partikelbewegung in Videos aufzeichnet. Zur Belichtung der Probe wird eine Weißlicht-LED (3) verwendet. Die Position der Kamera über der Probe, und somit der Fokus des Mikroskops wird über einen Schrittmotor (4) verändert, welcher von einem LabView-Programm über eine NI USB-6002 Box (5) gesteuert wird. Der zweite Teil erzeugt das elektromagnetische Feld, um die Partikel zu transportieren. Er besteht aus drei senkrecht zueinander stehenden Helmholtzspulen (6), in deren Mitte ein beweglicher Probentisch liegt. Hiermit können Magnetfelder für alle drei Raumdimensionen erzeugt werden. Die Helmholtzspulen werden über eine spannungsgesteuertes Netzteil (7) mit Strom versorgt, welches wiederum von einer NI USB-6002 Box (8) über ein Python-Programm (siehe Kapitel ref:sec-py) angesteuert wird. So können beliebige Magnetfeldsequenzen im Inneren der Helmholtzspulen realisiert werden. Die Helmholtzspulen bestehen aus gewickeltem Kupferdraht, nähere Daten können Tabelle ref:tab-spulen entnommen werden.
+Dieser Versuchsaufbau kann in zwei Teile unterteilt werden. Der erste Teil besteht aus einer Optronis Hochgeschwindigkeitskamera (1), welche durch ein Mikroskop (2) die Partikelbewegung in Videos aufzeichnet. Zur Belichtung der Probe wird eine Weißlicht-LED (3) verwendet. Die Position der Kamera über der Probe, und somit der Fokus des Mikroskops wird über einen Schrittmotor (4) verändert, welcher von einem LabView-Programm über eine NI USB-6002 Box (5) gesteuert wird. Der zweite Teil erzeugt das elektromagnetische Feld, um die Partikel zu transportieren. Er besteht aus drei senkrecht zueinander stehenden Helmholtzspulen (6), in deren Mitte ein beweglicher Probentisch liegt. Hiermit können Magnetfelder für alle drei Raumdimensionen erzeugt werden. Die Helmholtzspulen werden über ein spannungsgesteuertes Netzteil (7) mit Strom versorgt, welches wiederum von einer NI USB-6002 Box (8) über ein Python-Programm (siehe Kapitel ref:sec-py) angesteuert wird. So können beliebige Magnetfeldsequenzen im Inneren der Helmholtzspulen realisiert werden. Die Helmholtzspulen bestehen aus gewickeltem Kupferdraht, nähere Daten können Tabelle ref:tab-spulen entnommen werden.
 
 #+caption: Technische Daten Helmholtzspulen. Windungen, Radius, Widerstand und Länge wurden der technischen Zeichnung entnommen, die Induktivität wurde gemessen.
 #+attr_latex: :center t :align nil
@@ -222,7 +230,7 @@ Dieser Versuchsaufbau kann in zwei Teile unterteilt werden. Der erste Teil beste
 | z    | \num{330} | \num{0,030}          | \num{11,5}             | \num{70}                  | \num{5,6}                        |
 
 
-Bei den Versuchen in dieser Arbeit wurden nur zwei der drei Helmholtzspulen verwendet. Dabei handelte es sich um die Spulen für die x- und z-Richtung. Die Partikel wurden in einer mikrofluidischen Zelle auf den Proben platziert, um dann untersucht werden zu können. Hierfür wird Parafilm zuerst in Größe der Probe zurecht geschnitten, und dann ein Rechteck im Inneren des Parafilms ausgeschnitten. So entsteht eine Aussparung in der Mitte, in die circa \SI{10}{\micro\meter} Partikelsuspension gegeben werden. Anschließend wird die Probe auf dem Probentisch platziert, die LED eingeschaltet, und die Kamera mittels Livebild und auf die Partikel fokussiert.
+Bei den Versuchen in dieser Arbeit wurden nur zwei der drei Helmholtzspulen verwendet. Dabei handelte es sich um die Spulen für die x- und z-Richtung. Die Partikel wurden in einer mikrofluidischen Zelle auf den Proben platziert, um dann untersucht werden zu können. Hierfür wird Parafilm zuerst in Größe der Probe zurecht geschnitten, und dann ein Rechteck im Inneren des Parafilms ausgeschnitten. So entsteht eine Aussparung in der Mitte, in die circa \SI{10}{\micro\litre} Partikelsuspension gegeben werden. Anschließend wird die Probe auf dem Probentisch platziert, die LED eingeschaltet, und die Kamera mittels Livebild auf die Partikel fokussiert.
 
 ** TODO Messung des Magnetfeldes
    
