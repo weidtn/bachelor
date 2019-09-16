@@ -31,6 +31,8 @@
    #+latex_header: \usepackage{amsmath,amssymb,amstext,bbm}
    #+latex_header: \usepackage[labelfont=bf, up, textfont=small, figurename=Abb., tablename=Tab.]{caption}
    #+latex_header: \usepackage[output-decimal-marker={,}]{siunitx}
+   #+latex_header: \usepackage{minted}
+   #+latex_header: \usemintedstyle{monokai}
    #+latex_header: \include{titlepage/titlepage}
    #+latex_header: \newgeometry{bottom=2.5cm,left=2.5cm,right=2cm}
      
@@ -270,11 +272,59 @@ Die Aufzeichnung der Daten der NI USB-6002 Box erfolgte für beide Messungen mit
  #+name: img-traj_real
  file:./img/traj_sim.png
  
+** TODO Strom und Magnetfeld der Helmholtzspulen
+** TODO Partikeltransport 
 * TODO Zusammenfassung und Ausblick label:sec-zusammenfassung
 
 * Anhang
-  
+** TODO Python-Script zur Messung von Stromstärke und Magnetfeld: label:anh-messung :ignore:
+   
 
+#+begin_src python :exports code
+""" Measure magnetic fieldstrength with NI USB-6002 """
+import numpy as np
+import nidaqmx
+import matplotlib.pyplot as plt
+import pandas as pd
+
+CHANNEL = "Dev1/ai0"
+SAMPLE_RATE = 48000 # Specific for NI USB-6002
+TIME = 10 # s
+SAMPS_PER_CHAN = 48000 * TIME
+CONVERSION_FACTOR = 10 # Depends on the measuring range of the teslameter
+
+def measure(file):
+    """ make a new measurement into a file """
+    with nidaqmx.Task() as task:
+        task.ai_channels.add_ai_voltage_chan(CHANNEL)
+        task.timing.cfg_samp_clk_timing(SAMPLE_RATE,
+                                        samps_per_chan=SAMPS_PER_CHAN,
+                                        sample_mode=nidaqmx.constants.AcquisitionType.FINITE)
+        task.start()
+        task.wait_until_done(timeout=1002)
+        data = np.asarray(task.read(number_of_samples_per_channel=SAMPS_PER_CHAN))
+    df = pd.DataFrame(data)
+    df.to_csv(file, index=False)
+    return data
+
+def read_csv(file):
+    return pd.read_csv(file)
+
+
+if __name__ == "__main__":
+    #Uncomment if you want to measure new data
+    #data = measure("data_200mt.csv")
+    # Uncomment if you want to read a datafile:
+    data = read_csv("z_1V_1Hz_200mT_1.csv")['0'].to_numpy()
+    #####
+
+    plt.tight_layout()
+    plt.plot(data * CONVERSION_FACTOR, 'b')
+    plt.show()
+#+end_src
+
+* 
 # Literaturverzeichnis:
   bibliographystyle:alpha
   bibliography:library.bib
+  
