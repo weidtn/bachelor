@@ -17,6 +17,8 @@
    SCHEDULED: <2019-09-19 Do>
 ** TODO Ein und Auschalten in ein Bild mit Schaltbild
    schaltbild links, spannung/strom ein mitte, spannung/strom aus rechts
+   neue bilder erstellt
+** TODO ein und auschaltcode in eigenes Kapitel?
 * Header                                                             :ignore:
    #+latex_class:scrbook
    #+latex_class_options:[page,pdftex,12pt,a4paper,twoside,openright]
