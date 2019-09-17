@@ -1,6 +1,6 @@
 #+Title: Bachelorarbeit
 #+Author: Nikolai Weidt
-#+Options: toc:2 tasks:t title:nil
+#+Options: toc:2 tasks:t title:nil d:nil
 #+Todo: TODO(t) | DONE(d) 
 #+EXCLUDE_TAGS: ignore
 #+LANGUAGE: de
@@ -18,7 +18,9 @@
 ** TODO Ein und Auschalten in ein Bild mit Schaltbild
    schaltbild links, spannung/strom ein mitte, spannung/strom aus rechts
    neue bilder erstellt
-** TODO ein und auschaltcode in eigenes Kapitel?
+** DONE ein und auschaltcode in eigenes Kapitel?
+   CLOSED: [2019-09-17 Di 16:11]
+   in drawer, drawer werden ignoriert dank options: d:nil
 * Header                                                             :ignore:
    #+latex_class:scrbook
    #+latex_class_options:[page,pdftex,12pt,a4paper,twoside,openright]
@@ -90,6 +92,81 @@ Als Folge der Selbstinduktion wird in einem Stromkreis mit Induktiviät $L$ und 
  \end{equation}
 
 Der entsprechende Verlauf von Spannung und Stromstärke kann in Abbildung ref:fig-einschalten nachvollzogen werden.
+
+:Code:
+Imports
+#+begin_src python :session spule :results output :exports none
+  import numpy as np
+  import matplotlib
+  matplotlib.use("Agg")
+  import matplotlib.pyplot as plt
+  from scipy.signal import square
+  import os
+#+end_src
+
+#+RESULTS:
+
+Einschalten:
+#+begin_src python :session spule :results output :exports none
+  def I(x,L):
+      return U0 * (1 - np.exp(-x / L))
+
+  def I_aus(x,L):
+      return U0 * (np.exp(-x / L))
+
+  L = 1 
+  x = np.linspace(-0.5,3,10000) 
+  U0 = square(x) * 2.5
+  U0 += 2.5
+  U0[0] = 0
+  I = I(x,L)
+  Uind = L * U0 * (x/L) * np.exp(-x/L)
+  plt.clf()
+  fig, axes = plt.subplots(2,1)
+  axes[0].plot(x, U0, label="U0")
+  axes[0].set_ylabel("U [V]")
+  axes[0].set_xlabel("t")
+  axes[0].tick_params(axis="x", labelbottom=False)
+  axes[1].tick_params(axis="x", labelbottom=False)
+  axes[0].tick_params(axis="y", labelleft=False)
+  axes[1].tick_params(axis="y", labelleft=False)
+  axes[0].legend()
+  axes[1].plot(x, I, label="I")
+  axes[1].set_ylabel("I [A]")
+  axes[1].set_xlabel("t")
+  axes[1].legend()
+  plt.tight_layout()
+  plt.savefig("./img/einschalten.png")
+#+end_src
+
+#+RESULTS:
+
+[[file:./img/einschalten.png]]
+
+#+begin_src python :session spule :results output :exports none
+  U1 = square(x * -1)
+  I2 = I_aus(x,L)
+  fig,axes = plt.subplots(2,1)
+  axes[0].plot(x, U1, label="U0")
+  axes[0].set_ylabel("U [V]")
+  axes[0].set_xlabel("t")
+  axes[0].tick_params(axis="x", labelbottom=False)
+  axes[1].tick_params(axis="x", labelbottom=False)
+  axes[0].tick_params(axis="y", labelleft=False)
+  axes[1].tick_params(axis="y", labelleft=False)
+  axes[0].legend()
+  axes[1].plot(x, I2, label="I")
+  axes[1].set_ylabel("I [A]")
+  axes[1].set_xlabel("t")
+  axes[1].legend()
+  plt.tight_layout()
+  plt.savefig("./img/ausschalten.png")
+#+end_src
+
+#+RESULTS:
+
+[[file:./img/ausschalten.png]]
+:END:
 
 #+name:fig-einschalten
 #+caption: Demonstration der Selbstinduktion einer Spule. a Experimenteller Aufbau; b Stromverlauf I(t) nach dem Schließen des Schalters S.cite:Demtroder2017
