@@ -11,7 +11,10 @@
 ** TODO Induktivität gemessen in Elektrowerkstatt?
 * Noch zu tun:                                                       :ignore:
 ** TODO minted
-** Para und Diamagnetismus
+   SCHEDULED: <2019-09-20 Fr>
+** TODO Para und Diamagnetismus
+** TODO Simulierte Trajektorien durch step_evaluate laufen lassen
+   SCHEDULED: <2019-09-19 Do>
 * Header                                                             :ignore:
    #+latex_class:scrbook
    #+latex_class_options:[page,pdftex,12pt,a4paper,twoside,openright]
@@ -132,7 +135,7 @@ ergibt sich zu dem magnetischen Gesamtmoment $\mu_j$:
 \mu_\mathrm{j} = \mu_\mathrm{l} + \mu_\mathrm{s}
 \end{equation}
 
-Festkörper können in Folge der mikroskopischen Ursachen bezüglich ihres Magnetismus in drei Kategorien eingeordnet werden. Alle Materialien sind diamagnetisch. Besitzt ein Festkörper bereits ohne äußeres Magnetfeld magnetische Momente, die nicht miteinander Wechselwirken, so handelt es sich um einen Paramagneten. Wechselwirken die magnetischen Momente, führt dies zu einer spontanen Magnetisierung und unter anderem zu Ferro- oder Antiferromagnetismus.cite:gross2012 
+Festkörper können in Folge der mikroskopischen Ursachen bezüglich ihres Magnetismus in drei Kategorien eingeordnet werden. Alle Materialien sind diamagnetisch. Besitzt ein Festkörper bereits ohne äußeres Magnetfeld magnetische Momente, die nicht miteinander wechselwirken, so handelt es sich um einen Paramagneten. Wechselwirken die magnetischen Momente, führt dies zu einer spontanen Magnetisierung und unter anderem zu Ferro- oder Antiferromagnetismus.cite:gross2012 
 
 Wird Materie in eine äußere magnetische Erregung $H$ gebracht, resultiert meistens ein magnetisches Moment. Makroskopisch dient die Magnetisierung $\vec{M}$ zur Beschreibung der magnetischen Momente von Materie pro Volumeneinheit. Die Magnetisierung ist proportional zum extern angelegen Magnetfeld $\vec{H}$, wobei die magnetische Suszeptibilität $\chi$ ein materialabhängiger dimensionsloser Proportionalitätsfaktor ist:cite:Kassing
 
@@ -211,7 +214,7 @@ In einem Antiferromagneten liegen zwei ineinander gestellte Untergitter im Krist
 Ist das Volumen eines ferromagnetischen Festkörpers so gering, dass er nur aus einer einzelnen Domäne besteht, spricht man von Superparamagnetismus. Die Suszeptibilität solcher Superparamagneten ist größer als die Suszeptibilität von Paramagneten, jedoch verhalten sie sich ohne äußeres Magnetfeld ähnlich, da die Magnetisierung in solchen einzelnen Domänen nicht thermisch stabil ist, und sich beliebig ausrichten kann.cite:gross2012 
     
 *** TODO Exchange Bias Effekt label:sec-EB
- Der Exchange Bias Effekt wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten Co-Partikeln entdeckt.cite:Meiklejohn1957
+    Der Exchange Bias Effekt wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten Co-Partikeln entdeckt.cite:Meiklejohn1957
 * TODO Experimentelle Methoden label:sec-methoden
   
 ** TODO Programm zur Erstellung von Magnetfeldsequenzen label:sec-py
