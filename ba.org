@@ -9,18 +9,20 @@
 ** TODO Zitieren von Bildern aus Buch?
 
 ** TODO Induktivität gemessen in Elektrowerkstatt?
-* TODO [1/5] Noch zu tun:                                            :ignore:
+* TODO [2/6] Noch zu tun:                                            :ignore:
 ** TODO minted
    SCHEDULED: <2019-09-20 Fr>
 ** TODO Para und Diamagnetismus
 ** TODO Simulierte Trajektorien durch step_evaluate laufen lassen
    SCHEDULED: <2019-09-19 Do>
-** TODO Ein und Auschalten in ein Bild mit Schaltbild
+** DONE Ein und Ausschalten in ein Bild mit Schaltbild
+   CLOSED: [2019-09-19 Do 16:08]
    schaltbild links, spannung/strom ein mitte, spannung/strom aus rechts
    neue bilder erstellt
 ** DONE ein und auschaltcode in eigenes Kapitel?
    CLOSED: [2019-09-17 Di 16:11]
    in drawer, drawer werden ignoriert dank options: d:nil
+** TODO Néel-Wände
 * Header                                                             :ignore:
    #+latex_class:scrbook
    #+latex_class_options:[page,pdftex,12pt,a4paper,twoside,openright]
