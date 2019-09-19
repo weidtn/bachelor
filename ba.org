@@ -202,7 +202,7 @@ Einschalten:
 \caption{Abschaltvorgang.}
 \label{fig-abschalten}
 \end{subfigure}
-\caption{Schematische Darstellung der Stromstärke und Spannung bei Ein- und Abschaltvorgang in einem Stromkreis mit Widerstand $R$, Induktion $L$ und einer Diode um einen Weg für den Abschaltinduktionsstrom zu liefern.}
+\caption{Schematische Darstellung der Stromstärke und Spannung bei Ein- und Abschaltvorgang in einem Stromkreis mit Widerstand $R$, Induktion $L$ und einer Diode um einen Weg für den Abschaltinduktionsstrom zu liefern. Ein- bzw. Abschalten geschehen dabei zum Zeitpunkt $t=0$.}
 \end{figure}
 
 ** TODO [0/5] Magnetismus in Materie label:sec-magnetismus
@@ -234,38 +234,40 @@ ergibt sich zu dem magnetischen Gesamtmoment $\mu_j$:
 \mu_\mathrm{j} = \mu_\mathrm{l} + \mu_\mathrm{s}
 \end{equation}
 
-Festkörper können in Folge der mikroskopischen Ursachen bezüglich ihres Magnetismus in drei Kategorien eingeordnet werden. Alle Materialien sind diamagnetisch. Besitzt ein Festkörper bereits ohne äußeres Magnetfeld magnetische Momente, die nicht miteinander wechselwirken, so handelt es sich um einen Paramagneten. Wechselwirken die magnetischen Momente, führt dies zu einer spontanen Magnetisierung und unter anderem zu Ferro- oder Antiferromagnetismus.cite:gross2012 
-
-Wird Materie in eine äußere magnetische Erregung $H$ gebracht, resultiert meistens ein magnetisches Moment. Makroskopisch dient die Magnetisierung $\vec{M}$ zur Beschreibung der magnetischen Momente von Materie pro Volumeneinheit. Die Magnetisierung ist proportional zum extern angelegen Magnetfeld $\vec{H}$, wobei die magnetische Suszeptibilität $\chi$ ein materialabhängiger dimensionsloser Proportionalitätsfaktor ist:cite:Kassing
+Wird Materie in eine äußere magnetische Erregung $H$ gebracht, resultiert meistens ein magnetisches Moment. Makroskopisch dient die Magnetisierung $\vec{M}$ zur Beschreibung der magnetischen Momente von Materie pro Volumeneinheit. Die Magnetisierung ist proportional zum extern angelegen Magnetfeld $\vec{H}$, wobei die magnetische Suszeptibilität $\chi$ ein materialabhängiger, temperaturabhängiger dimensionsloser Proportionalitätsfaktor ist:cite:Kassing
 
 #+name:eq-magnetisierung
 \begin{equation}
 \vec{M} = \chi \cdot \vec{H}
 \end{equation}
 
-Die magnetische Suszeptibilität $\chi$ ist materialabhängig, da Bahn- und Spinmoment verschieden auf Magnetfelder reagieren, und diese je nach vorhandenen Elektronen unterschiedlich stark in das Gesamtmoment einfließen. 
-Das Bahnmoment wird in Anwesenheit eines externen magnetischen Feldes abgeschwächt, da nach Lenzscher Regel ein Gegenstrom induziert wird. Für das Spinmoment hingegen wird die Energie minimiert, wenn es sich parallel zum externen Magnetfeld ausrichtet.cite:Kassing
+Festkörper können in Folge der mikroskopischen Ursachen bezüglich ihres Magnetismus in drei Kategorien eingeordnet werden. Ein Material ohne magnetische Momente wird diamagnetisch genannt. Besitzt ein Material bereits ohne äußeres Magnetfeld magnetische Momente, die nicht miteinander wechselwirken, so handelt es sich um einen Paramagneten. Wechselwirken die magnetischen Momente, führt dies zu einer spontanen Magnetisierung und unter anderem zu Ferro- oder Antiferromagnetismus.cite:gross2012 
 
+Im Folgenden soll näher auf diese Klassifizierungen eingegangen werden.
 
-*** TODO Para- und Diamagnetismus label:sec-para-und-dia
-Untereinander nicht gekoppelte magnetische Momente äußern sich in Festkörpern durch Para- und Diamagnetismus.cite:Kassing 
-Ein Stoff ist paramagnetisch, wenn zwar magnetische Momente der Elektronen vorhanden sind, diese sich aber infolge der thermischen Bewegung im Mittelwert über das Volumen gegenseitig aufheben:cite:Demtroder2017
+*** TODO Dia- und Paramagnetismus label:sec-dia-und-para
+Diamagnetismus ist ein magnetischer Effekt in jeglicher Materie, welcher durch induzierte magnetische Momente auftritt. In einem externen Magnetfeld wird im Atom ein magnetisches Moment induziert, welches dem induzierenden Magnetfeld entgegen wirkt (Lenzsche Regel). Ein Festkörper wird als diamagnetisch bezeichnet, wenn ohne äußeres magnetisches Feld keine magnetischen Momente vorliegen. Vor allem abgeschlossene äußere Elektronenschalen tragen zum diamagnetischen Effekt eines Atoms bei. Die Spin- und Bahnmomente der gepaarten Elektronen heben sich in Summe auf. Diamagnetische Materialien haben eine negative Suszeptibilität und werden aus dem externen Magnetfeld heraus gedrängt.cite:gross2012
 
-#+name:eq-paramagnetismus
+#+name:eq-dia
 \begin{equation}
-\vec{M} = \frac{1}{V} \sum \mu_\mathrm{j} = 0
+\chi_\mathrm{dia} < 0
 \end{equation}
 
-Dies ist dann möglich, wenn ungepaarte Elektronen vorliegen. Bringt man einen paramagnetischen Stoff in ein äußeres Magnetfeld, so wird dieser in das Feld gezogen, da sich die Dipole teilweise ausrichten können. Die Suszeptibilität $\chi$ ist antiproportional zur Temperatur $T$.cite:Demtroder2017
+# Paramagnetismus:
+# ------
+Ein paramagnetischer Festkörper besitzt bereits ohne äußeres Magnetfeld magnetische Momente. Jedoch ist die Richtung der magnetischen Momente durch die thermische Energie in alle Raumrichtungen verteilt, und die magnetischen Momente wechselwirken untereinander nicht. In Summe ist makroskopisch keine Magnetisierung erkennbar:cite:Demtroder2017
 
-# #+name:eq-chi(temp)
-# \begin{equation}
-# \chi = N_\mathrm{0} \cdot \frac{\mu_\mathrm{0} \cdot \mu_\mathrm{m}^{2}}{k_\mathrm{B} T}
-# \end{equation}
+#+name:eq-m-para
+\begin{equation}
+M = \frac{1}{V} \sum \mu_\mathrm{j} = 0.
+\end{equation}
 
-Stoffe sind Diamagnetisch, wenn kein permanentes magnetisches Dipolmoment vorliegt. Die magnetischen Momente von gepaarten Elektronen sind antiparallel zueinander und heben sich auf. Durch Anlegen eines externen Magnetfeldes werden jedoch magnetische Dipole induziert. Der Stoff wird aus dem Magnetfeld gedrängt und besitzt eine negative Suszeptibilität $\chi$, da diese induzierten Dipole dem Magnetfeld entgegengerichtet sind.cite:Demtroder2017
-
-Liegen abgeschlossene äußere Schalen vor, heben sich die magnetischen Momente der dort befindlichen Elektronen gegenseitig auf. Die Elektronen befinden sich auf einer größeren Kreisbahn als Elektronen innerer Schalen. Da das magnetische Moment von der umkreisten Fläche abhängig ist, überwiegt der Diamagnetismus der äußeren Elektronen dem Paramagnetismus der inneren Elektronen.cite:Kassing
+Legt man ein äußeres Magnetfeld an, richten sich die magnetischen Momente nach diesem aus, und ein paramagnetischer Festkörper wird in das Magnetfeld gezogen. Es existiert auch Diamagnetismus in einem paramagnetischen Festkörper, jedoch ist dieser schwächer und der Paramagnetismus dominiert. Ein paramagnetischer Festkörper besitzt eine positive Suszeptibilität:cite:gross2012
+ 
+#+name:eq-susz-para
+\begin{equation}
+\chi_\mathrm{para} > 0
+\end{equation}
 
 *** TODO Ferromagnetismus label:sec-ferro
     
