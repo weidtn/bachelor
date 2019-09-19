@@ -9,7 +9,7 @@
 ** TODO Zitieren von Bildern aus Buch?
 
 ** TODO Induktivität gemessen in Elektrowerkstatt?
-* Noch zu tun:                                                       :ignore:
+* TODO [1/5] Noch zu tun:                                            :ignore:
 ** TODO minted
    SCHEDULED: <2019-09-20 Fr>
 ** TODO Para und Diamagnetismus
@@ -42,6 +42,7 @@
    #+latex_header: \usepackage[output-decimal-marker={,}]{siunitx}
    #+latex_header: \usepackage{minted}
    #+latex_header: \usemintedstyle{monokai}
+   #+latex_header: \usepackage{mhchem}
    #+latex_header: \include{titlepage/titlepage}
    #+latex_header: \newgeometry{bottom=2.5cm,left=2.5cm,right=2cm}
      
@@ -310,7 +311,7 @@ In einem Antiferromagneten liegen zwei ineinander gestellte Untergitter im Krist
 Ist das Volumen eines ferromagnetischen Festkörpers so gering, dass er nur aus einer einzelnen Domäne besteht, spricht man von Superparamagnetismus. Die Suszeptibilität solcher Superparamagneten ist größer als die Suszeptibilität von Paramagneten, jedoch verhalten sie sich ohne äußeres Magnetfeld ähnlich, da die Magnetisierung in solchen einzelnen Domänen nicht thermisch stabil ist, und sich beliebig ausrichten kann.cite:gross2012 
     
 *** TODO Exchange Bias Effekt label:sec-EB
-    Der Exchange Bias Effekt wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten Co-Partikeln entdeckt.cite:Meiklejohn1957
+    Der Exchange Bias Effekt wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten \ce{Co}-Partikeln entdeckt.cite:Meiklejohn1957
 * TODO Experimentelle Methoden label:sec-methoden
   
 ** TODO Programm zur Erstellung von Magnetfeldsequenzen label:sec-py
@@ -318,6 +319,7 @@ Ist das Volumen eines ferromagnetischen Festkörpers so gering, dass er nur aus 
 ** TODO Experimenteller Aufbau label:sec-aufbau
 
 Um den Transport von SPP über das Substrat zu realisieren und zu beobachten, wurde der Versuchsaufbau, der in Abbildung ref:img-aufbau zu sehen ist, verwendet.
+
 
 #+caption: Partikeltransport Versuchsaufbau.
 #+attr_latex: :width 0.75\textwidth
@@ -422,7 +424,12 @@ if __name__ == "__main__":
     plt.show()
 #+end_src
 
+#+RESULTS:
+
 * 
+  :PROPERTIES:
+  :UNNUMBERED: t
+  :END:
 # Literaturverzeichnis:
   bibliographystyle:alpha
   bibliography:library.bib
