@@ -1,6 +1,6 @@
 #+Title: Bachelorarbeit
 #+Author: Nikolai Weidt
-#+Options: toc:2 tasks:t title:nil d:nil
+#+Options: toc:2 tasks:t title:nil d:nil todo:nil
 #+Todo: TODO(t) | DONE(d) 
 #+EXCLUDE_TAGS: ignore
 #+LANGUAGE: de
