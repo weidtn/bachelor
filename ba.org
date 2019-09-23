@@ -9,10 +9,11 @@
 ** TODO Zitieren von Bildern aus Buch?
 
 ** TODO Induktivität gemessen in Elektrowerkstatt?
-* TODO [2/6] Noch zu tun:                                            :ignore:
+* TODO [3/8] Noch zu tun:                                            :ignore:
 ** TODO minted
    SCHEDULED: <2019-09-20 Fr>
-** TODO Para und Diamagnetismus
+** DONE Para und Diamagnetismus
+CLOSED: [2019-09-21 Sa 15:05]
 ** TODO Simulierte Trajektorien durch step_evaluate laufen lassen
    SCHEDULED: <2019-09-19 Do>
 ** DONE Ein und Ausschalten in ein Bild mit Schaltbild
@@ -23,6 +24,8 @@
    CLOSED: [2019-09-17 Di 16:11]
    in drawer, drawer werden ignoriert dank options: d:nil
 ** TODO Néel-Wände
+** TODO Superparamagnetismus Zeitskala
+** TODO Suszeptibilität
 * Header                                                             :ignore:
    #+latex_class:scrbook
    #+latex_class_options:[page,pdftex,12pt,a4paper,twoside,openright]
