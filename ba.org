@@ -205,7 +205,7 @@ Einschalten:
 \caption{Abschaltvorgang.}
 \label{fig-abschalten}
 \end{subfigure}
-\caption{Schematische Darstellung der Stromstärke und Spannung bei Ein- und Abschaltvorgang in einem Stromkreis mit Widerstand $R$, Induktion $L$ und einer Diode um einen Weg für den Abschaltinduktionsstrom zu liefern. Ein- bzw. Abschalten geschehen dabei zum Zeitpunkt $t=0$.}
+\caption{Schematische Darstellung der Stromstärke und Spannung bei Ein- und Abschaltvorgang in einem Stromkreis mit Widerstand $R$, Induktion $L$ und einer Diode um einen Weg für den Abschaltinduktionsstrom zu liefern.}
 \end{figure}
 
 ** TODO [0/5] Magnetismus in Materie label:sec-magnetismus
@@ -213,7 +213,7 @@ Wie bereits in Kapitel ref:sec-elektromagnetismus erläutert, erzeugen bewegte L
    
 #+name:eq-moment:
 \begin{equation}
-\mu = I * A
+\mu = I \cdot A
 \end{equation}
 
 Da Elektronen sowohl eine Bahnbewegung als auch eine Spinbewegung durchführen, existieren auch zwei magnetische Momente, jeweils abhängig von $l$ und $s$ den Quantenzahlen des Bahn- und Spindrehimpulses, $g_\mathrm{e}$ dem gyromagnetischen Verhältnis des Elektrons, $m_\mathrm{e}$ der Masse des Elektrons und $e$ der Elementarladung:cite:Kassing
@@ -244,7 +244,7 @@ Wird Materie in eine äußere magnetische Erregung $H$ gebracht, resultiert meis
 \vec{M} = \chi \cdot \vec{H}
 \end{equation}
 
-Festkörper können in Folge der mikroskopischen Ursachen bezüglich ihres Magnetismus in drei Kategorien eingeordnet werden. Ein Material ohne magnetische Momente wird diamagnetisch genannt. Besitzt ein Material bereits ohne äußeres Magnetfeld magnetische Momente, die nicht miteinander wechselwirken, so handelt es sich um einen Paramagneten. Wechselwirken die magnetischen Momente, führt dies zu einer spontanen Magnetisierung und unter anderem zu Ferro- oder Antiferromagnetismus.cite:gross2012 
+Festkörper können in Folge der mikroskopischen Ursachen bezüglich ihres Magnetismus in drei Kategorien eingeordnet werden. Ein Material, in dem keine permanenten magnetischen Momente vorliegen, in dem aber in Anwesendheit eines äußeren Magnetfeldes magnetische Momente induziert werden, wird diamagnetisch genannt. Besitzt ein Material bereits ohne äußeres Magnetfeld permanente magnetische Momente, die nicht miteinander wechselwirken, so handelt es sich um einen Paramagneten. Wechselwirken die magnetischen Momente, kann dies zu einer spontanen Magnetisierung und unter anderem zu Ferro- oder Antiferromagnetismus führen.cite:gross2012 
 
 Im Folgenden soll näher auf diese Klassifizierungen eingegangen werden.
 
@@ -294,28 +294,28 @@ Die Suszeptibilität ferromagnetischer Materialien ist um bis zu mehrere Größe
 \caption{Schematische Darstellung der magnetischen Momente innerhalb eines Weissschen Bezirkes in Festkörpern.}
 \end{figure}
 
-Die magnetischen Dipole in einem ferromagnetischen Festkörper weisen innerhalb der so genannten *Weissschen Bezirke* aufgrund der Austausch-Wechselwirkung eine spontane Magnetisierung auf, und zeigen in die selbe Richtung (vgl. Abbildung ref:fig-ferro). Ohne externes Magnetfeld zeigen die magnetischen Momente verschiedener Weissscher Bezirke in verschiedene Richtungen. Zwischen den Weissschen Bezirken befinden sich die Domänenwände, welche als *Bloch-(Domänen)wände* bezeichnet werden. Bloch-Wände bestehen aus atomaren Dipolen die sich innerhalb der Wandebene drehen.cite:gross2012 Durch die hohe Anzahl der Weissschen Bezirke ist makroskopisch keine Magnetisierung erkennbar.cite:rybach2008  
+Die magnetischen Dipole in einem ferromagnetischen Festkörper weisen innerhalb der so genannten *Weissschen Bezirke* (auch Domänen) eine spontane Magnetisierung auf, da die Austausch-Wechselwirkung zu einer parallelen Kopplung der magnetischen Momente führt (vgl. Abbildung ref:fig-ferro). Ohne externes Magnetfeld zeigen die magnetischen Momente verschiedener Weissscher Bezirke in verschiedene Richtungen. Durch die hohe Anzahl der Weissschen Bezirke ist makroskopisch keine Magnetisierung erkennbar.cite:rybach2008 Der Übergang zwischen den Weissschen Bezirken wird als Domänenwand bezeichnet, welche als *Bloch-(Domänen)wände* bezeichnet werden. Bloch-Wände bestehen aus atomaren Dipolen die sich innerhalb der Wandebene drehen.cite:gross2012  
 
 #+caption: Hysteresekurve der Magnetisierung $M$ in Abhängigkeit vom äußeren Feld $B$.cite:Demtroder2017
 #+name: fig-hysterese
 #+attr_latex: :placement [h] :width 0.4\textwidth
 [[file:img/hysterese.png]]
 
-Da die magnetischen Momente sich nach dem externen Magnetfeld ausrichten, ist die resultierende Magnetisierung abhängig von vorherigen erfolgten Magnetisierungsprozessen. Abbildung ref:fig-hysterese stellt eine Hysteresekurve dar, die für einen ferromagnetischen Festkörper charakteristisch ist. Wird eine vollkommen entmagnetisierte ferromagnetische Probe in ein äußeres Magnetfeld gebracht, so steigt die Magnetisierung zunächst linear. Die Weissschen Bezirke, dessen magnetisches Moment bereits annähernd in Richtung des Magnetfeldes zeigen, wachsen. Die Bloch-Wände verschieben sich, da sich die atomaren Dipole drehen. Da sich alle Weissschen Bezirke aufgrund von Größe und Lage energetisch unterscheiden, klappen dann nach und nach in anderen Weissschen Bezirken zunächst die magnetischen Momente um (*Barkhausen Sprünge)*, bevor auch hier die Domänenwände sich verschieben.
-Die Magnetisierung erreicht schließlich eine Sättigung. In diesem Zustand zeigen alle mikroskopischen magnetischen Momente in die selbe Richtung parallel zum Feld. Zu sehen ist dies in der Teilkurve a in ref:fig-hysterese welche *jungfräuliche Kurve* oder *Neukurve* genannt wird.
-Wird das externe Feld wieder zurück gefahren, folgt die Magnetisierung einer neuen Kurve b. Hierbei durchläuft die Kurve den Punkt $\mathrm{M_{R}}$ die Restmagnetisierung, auch *Remaneszenz* genannt, bei $B=0$. Die Bloch-Wände sind wieder in ihren ursprünglichen Positionen, jedoch bleiben innerhalb der Domänen die parallelen Ausrichtungen der magnetischen Momente erhalten.
-Wird nun das Magnetfeld weiter bis $-B$ verringert, ergibt sich erneut eine Sättigung, in der sich nun die magnetischen Momente in die andere Richtung ausgerichtet haben. Dabei durchläuft die Magnetisierungskurve die Feldstärke $\mathrm{B_{K}}$, welche *Koerzitivkraft* oder *Koerzitivfeldstärke* genannt wird. Dies ist die Feldstärke, welche benötigt wird, um die Restmagnetisierung durch parallele magnetische Momente aufzuheben.
-Ändert sich das externe Feld nun wieder in Richtung $+B$, erhält man Teilkurve c, welche wiederum in Sättigung übergeht. Die Teilkurven a und b stellen hierbei die typische *Hysteresekurve* eines ferromagnetischen Festkörpers dar, und werden immer wieder bei erneuten Umpolungen des externen Magnetfeldes durchlaufen.cite:rybach2008,Demtroder2017
-
-Der Festkörper kann seine ferromagnetischen Eigenschaften verlieren, wenn er über eine bestimmte, für das Material charakteristische, Temperatur $T_\mathrm{C}$, die *Curie-Temperatur* erhitzt wird. Die Wärmebewegung zerstört dann die magnetische Ausrichtung der Dipole und der Stoff zeigt nur noch paramagnetisches Verhalten.cite:Demtroder2017 
+Die resultierende Magnetisierung ist abhängig von vorherigen erfolgten Magnetisierungsprozessen. Abbildung ref:fig-hysterese stellt eine Hysteresekurve dar, die für das Ummagnetisierungsverhalten eines ferromagnetischen Festkörper charakteristisch ist. Wird eine vollkommen entmagnetisierte ferromagnetische Probe in ein äußeres Magnetfeld gebracht, so steigt die Magnetisierung zunächst linear. Die Weissschen Bezirke, deren magnetisches Moment bereits annähernd in Richtung des Magnetfeldes zeigen, wachsen. Die Bloch-Wände verschieben sich, da sich die atomaren Dipole drehen. Da sich alle Weissschen Bezirke aufgrund von Größe und Lage energetisch unterscheiden, klappen dann nach und nach in anderen Weissschen Bezirken zunächst die magnetischen Momente um (*Barkhausen Sprünge)*, bevor sich auch hier die Domänenwände verschieben.
+Die Magnetisierung erreicht schließlich ab einem Sättigungsfeld $B_\mathrm{S}$. In diesem Zustand zeigen alle mikroskopischen magnetischen Momente in die selbe Richtung parallel zum Feld. Zu sehen ist dies in der Teilkurve a in ref:fig-hysterese welche *jungfräuliche Kurve* oder *Neukurve* genannt wird.
+Wird das externe Feld wieder zurück gefahren, folgt die Magnetisierung einer neuen Kurve b. Hierbei durchläuft die Kurve den Punkt $M_\mathrm{R}$ die Restmagnetisierung, auch *Remanenz* genannt, bei $B=0$. Die Bloch-Wände sind wieder in ihren ursprünglichen Positionen, jedoch bleiben innerhalb der Domänen die parallelen Ausrichtungen der magnetischen Momente erhalten.
+Wird nun das Magnetfeld weiter bis $-B_\mathrm{S}$ verringert, ergibt sich erneut eine Sättigung, in der sich nun die magnetischen Momente in die andere Richtung ausgerichtet haben. Dabei durchläuft die Magnetisierungskurve die Feldstärke $B_\mathrm{K}$, welche *Koerzitivfeldstärke* genannt wird. Dies ist die Feldstärke, welche benötigt wird, um die Restmagnetisierung aufzuheben.
+Ändert sich das externe Feld nun wieder in Richtung $+B_\mathrm{S}$, zeigt sich Teilkurve c, welche wiederum in Sättigung übergeht. Die Teilkurven b und c stellen hierbei die typische *Hysteresekurve* eines ferromagnetischen Festkörpers dar, und werden immer wieder bei erneuten Umpolungen des externen Magnetfeldes durchlaufen.cite:rybach2008,Demtroder2017
 
 Beim Ausrichten der magnetischen Dipole in einem ferromagnetischen Stoff wird Energie benötigt. Diese entspricht der Fläche, die von der Hysteresekurve eingeschlossen ist und wird beim Ummagnetisieren in Wärme umgewandelt.cite:rybach2008
+
+Der Festkörper kann seine ferromagnetischen Eigenschaften verlieren, wenn er über eine bestimmte, für das Material charakteristische, Temperatur $T_\mathrm{C}$, die *Curie-Temperatur* erhitzt wird. Die Wärmebewegung zerstört dann die magnetische Ausrichtung der Dipole und der Stoff zeigt nur noch paramagnetisches Verhalten.cite:Demtroder2017 
 
 *** TODO Antiferromagnetismus label:sec-antiferro
 In einem Antiferromagneten liegen zwei ineinander gestellte Untergitter im Kristallgitter vor. Die magnetischen Momente jener Untergitter zeigen jeweils in entgegengesetzte Richtungen und haben den gleichen Betrag. Somit heben sie sich insgesamt auf und es ist keine makroskopische Magnetisierung sichtbar. Oberhalb der *Néel-Temperatur* $T_\mathrm{N}$, dem Analogon zur Curie-Temperatur, geht der Festkörper in den paramagnetischen Zustand über. cite:Demtroder2017 
 
 *** TODO Superparamagnetismus
-Ist das Volumen eines ferromagnetischen Festkörpers so gering, dass er nur aus einer einzelnen Domäne besteht, spricht man von Superparamagnetismus. Die Suszeptibilität solcher Superparamagneten ist größer als die Suszeptibilität von Paramagneten, jedoch verhalten sie sich ohne äußeres Magnetfeld ähnlich, da die Magnetisierung in solchen einzelnen Domänen nicht thermisch stabil ist, und sich beliebig ausrichten kann.cite:gross2012 
+Ist das Volumen eines ferromagnetischen Festkörpers so gering, dass er nur aus einer einzelnen Domäne besteht, spricht man von Superparamagnetismus. Die Suszeptibilität solcher Superparamagneten ist größer als die Suszeptibilität von Paramagneten, jedoch verhalten sie sich ohne äußeres Magnetfeld ähnlich, da die Magnetisierung in solchen einzelnen Domänen nicht thermisch stabil ist und sich beliebig ausrichten kann.cite:gross2012 
     
 *** TODO Exchange Bias Effekt label:sec-EB
     Der Exchange Bias Effekt wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten \ce{Co}-Partikeln entdeckt.cite:Meiklejohn1957
@@ -388,7 +388,7 @@ Die Aufzeichnung der Daten der NI USB-6002 Box erfolgte für beide Messungen mit
 ** TODO Python-Script zur Messung von Stromstärke und Magnetfeld: label:anh-messung :ignore:
    
 
-#+begin_src python :exports code
+#+begin_src python
 """ Measure magnetic fieldstrength with NI USB-6002 """
 import numpy as np
 import nidaqmx
