@@ -108,6 +108,7 @@ I(t) = I_{\mathrm{0}} \cdot e^{ -\frac{t}{\tau}}= I_{\mathrm{0}} \cdot e^{ -\fra
 \end{equation}
 
 Der Abschaltvorgang ist in Abbildung ref:fig-abschalten abgebildet
+\begin{figure}
 \centering
 \begin{subfigure}[b]{0.5\textwidth}
 \includegraphics[width=\textwidth]{./img/schaltbild.pdf}
