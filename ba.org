@@ -9,7 +9,7 @@
 ** TODO Zitieren von Bildern aus Buch?
 
 ** TODO Induktivität gemessen in Elektrowerkstatt?
-* TODO [3/8] Noch zu tun:                                            :ignore:
+* TODO [4/8] Noch zu tun:                                            :ignore:
 ** TODO minted
    SCHEDULED: <2019-09-20 Fr>
 ** DONE Para und Diamagnetismus
@@ -23,7 +23,8 @@ CLOSED: [2019-09-21 Sa 15:05]
 ** DONE ein und auschaltcode in eigenes Kapitel?
    CLOSED: [2019-09-17 Di 16:11]
    in drawer, drawer werden ignoriert dank options: d:nil
-** TODO Néel-Wände
+** DONE Néel-Wände
+   CLOSED: [2019-09-23 Mo 12:13]
 ** TODO Superparamagnetismus Zeitskala
 ** TODO Suszeptibilität
 * Header                                                             :ignore:
@@ -61,7 +62,7 @@ CLOSED: [2019-09-21 Sa 15:05]
 * PDF:                                                               :ignore:
  [[file:ba.pdf][ba.pdf]] 
 * TODO Einleitung label:sec-einleitung
-* TODO [0/5] Theoretische Grundlagen label:sec-grundlagen
+* TODO [0/3] Theoretische Grundlagen label:sec-grundlagen
   In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt. Dann werden die in dieser Arbeit verwendeten /Exchange Bias Systeme/ eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene /Exchange Bias Systeme/ beschrieben, wobei die auf sie wirkenden Kräfte genauer betrachtet werden sollen.
 
 ** TODO Elektromagnetismus label:sec-elektromagnetismus
@@ -216,7 +217,7 @@ Die Suszeptibilität ferromagnetischer Materialien ist um bis zu mehrere Größe
 \caption{Schematische Darstellung der magnetischen Momente innerhalb eines Weissschen Bezirkes in Festkörpern.}
 \end{figure}
 
-Die magnetischen Dipole in einem ferromagnetischen Festkörper weisen innerhalb der so genannten *Weissschen Bezirke* (auch Domänen) eine spontane Magnetisierung auf, da die Austausch-Wechselwirkung zu einer parallelen Kopplung der magnetischen Momente führt (vgl. Abbildung ref:fig-ferro). Ohne externes Magnetfeld zeigen die magnetischen Momente verschiedener Weissscher Bezirke in verschiedene Richtungen. Durch die hohe Anzahl der Weissschen Bezirke ist makroskopisch keine Magnetisierung erkennbar cite:rybach_physik_2008. Der Übergang zwischen den Weissschen Bezirken wird als Domänenwand bezeichnet, welche als *Bloch-(Domänen)wände* bezeichnet werden. Bloch-Wände bestehen aus atomaren Dipolen die sich innerhalb der Wandebene drehen cite:gross_festkorperphysik_2012.
+Die magnetischen Dipole in einem ferromagnetischen Festkörper weisen innerhalb der so genannten *Weissschen Bezirke* (auch Domänen) eine spontane Magnetisierung auf, da die Austausch-Wechselwirkung zu einer parallelen Kopplung der magnetischen Momente führt (vgl. Abbildung ref:fig-ferro). Ohne externes Magnetfeld zeigen die magnetischen Momente verschiedener Weissscher Bezirke in verschiedene Richtungen. Durch die hohe Anzahl der Weissschen Bezirke ist makroskopisch keine Magnetisierung erkennbar cite:rybach_physik_2008. Der Übergang zwischen den Weissschen Bezirken wird als Domänenwand bezeichnet, welche als *Bloch-(Domänen)wände* bezeichnet werden. Bloch-Wände bestehen aus atomaren Dipolen die sich innerhalb bzw. parallel zur Wandebene drehen cite:gross_festkorperphysik_2012. Ein zweiter möglicher Domänentyp, in dem sich die magnetischen Momente um eine Achse innerhalb der Wandebene drehen, wird *Néel-Wand* genannt. Dieser Domänenwandtyp wird in dünnen Schichten gegenüber Bloch-Domänenwänden favorisiert, wenn die Schichtdicke im Bereich der Domänenwandbreite liegt, da Néel-Wände hier energetisch günstiger sind cite:hubert_magnetic_2008. 
 
 #+caption: Hysteresekurve der Magnetisierung $M$ in Abhängigkeit vom äußeren Feld $B$.cite:Demtroder2017
 #+name: fig-hysterese
