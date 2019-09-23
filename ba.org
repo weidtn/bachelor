@@ -9,7 +9,7 @@
 ** TODO Zitieren von Bildern aus Buch?
 
 ** TODO Induktivität gemessen in Elektrowerkstatt?
-* TODO [4/8] Noch zu tun:                                            :ignore:
+* TODO [5/8] Noch zu tun:                                            :ignore:
 ** TODO minted
    SCHEDULED: <2019-09-20 Fr>
 ** DONE Para und Diamagnetismus
@@ -26,7 +26,8 @@ CLOSED: [2019-09-21 Sa 15:05]
 ** DONE Néel-Wände
    CLOSED: [2019-09-23 Mo 12:13]
 ** TODO Superparamagnetismus Zeitskala
-** TODO Suszeptibilität
+** DONE Suszeptibilität
+   CLOSED: [2019-09-23 Mo 15:15]
 * Header                                                             :ignore:
    #+latex_class:scrbook
    #+latex_class_options:[page,pdftex,12pt,a4paper,twoside,openright]
@@ -159,7 +160,7 @@ ergibt sich zu dem magnetischen Gesamtmoment $\mu_j$:
 \mu_\mathrm{j} = \mu_\mathrm{l} + \mu_\mathrm{s}
 \end{equation}
 
-Wird Materie in eine äußere magnetische Erregung $H$ gebracht, resultiert meistens ein magnetisches Moment. Makroskopisch dient die Magnetisierung $\vec{M}$ zur Beschreibung der magnetischen Momente von Materie pro Volumeneinheit. Die Magnetisierung ist proportional zum extern angelegen Magnetfeld $\vec{H}$, wobei die magnetische Suszeptibilität $\chi$ ein materialabhängiger, temperaturabhängiger dimensionsloser Proportionalitätsfaktor ist cite:kassing_bergmann_2005:
+Wird Materie in eine äußere magnetische Erregung $H$ gebracht, resultiert meistens ein magnetisches Moment. Makroskopisch dient die Magnetisierung $\vec{M}$ zur Beschreibung der magnetischen Momente von Materie pro Volumeneinheit. Die Magnetisierung ist für isotrope und lineare Medien, in denen die magnetischen Momente nicht wechselwirken, proportional zum extern angelegen Magnetfeld $\vec{H}$, wobei die magnetische Suszeptibilität $\chi$ ein materialabhängiger, temperaturabhängiger dimensionsloser Proportionalitätsfaktor ist cite:kassing_bergmann_2005,nolting_grundkurs_2013:
 
 #+name:eq-magnetisierung
 \begin{equation}
