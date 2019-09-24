@@ -132,7 +132,7 @@ Der Abschaltvorgang ist in Abbildung ref:fig-abschalten abgebildet
 \caption{Schematische Darstellung der Stromstärke und Spannung bei Ein- und Abschaltvorgang in einem Stromkreis mit Widerstand $R$, Induktion $L$ und einer Diode um einen Weg für den Abschaltinduktionsstrom zu liefern.}
 \end{figure}
 
-** TODO [2/5] Magnetismus in Materie label:sec-magnetismus
+** TODO [4/5] Magnetismus in Materie label:sec-magnetismus
 Wie bereits in Kapitel ref:sec-elektromagnetismus erläutert, erzeugen bewegte Ladungen Magnetfelder. Eine solche bewegte Ladung ist auch das Elektron, das in einer vereinfachten Vorstellung um den Atomkern kreist. Folglich besitzen Atome ein magnetisches Moment $\mu$, welches abhängig ist von der umkreisten Fläche $A$ und dem Kreisstrom des Elektrons $I$ cite:kassing_bergmann_2005:
    
 #+name:eq-moment:
@@ -197,7 +197,8 @@ Legt man ein äußeres Magnetfeld an, richten sich die magnetischen Momente nach
 \chi_\mathrm{para} > 0
 \end{equation}
 
-*** TODO Ferromagnetismus label:sec-ferro
+*** DONE Ferromagnetismus label:sec-ferro
+    CLOSED: [2019-09-24 Di 16:42]
     
 Beeinflussen sich die einzelnen magnetischen Momente gegenseitig, sind sie also gekoppelt, kann das System einen magnetisch geordneten Zustand einnehmen. Dieser geordnete Zustand unterliegt jedoch einer Temperaturabhängigkeit. Eine Ursache für das Vorliegen von kollektivem Magnetismus ist die quantenmechanische *Austausch-Wechselwirkung* cite:kassing_bergmann_2005.
 
@@ -240,7 +241,8 @@ Der Festkörper kann seine ferromagnetischen Eigenschaften verlieren, wenn er ü
     CLOSED: [2019-09-23 Mo 12:00]
 In einem Antiferromagneten liegen zwei ineinander gestellte Untergitter im Kristallgitter vor. Die magnetischen Momente jener Untergitter zeigen jeweils in entgegengesetzte Richtungen und haben den gleichen Betrag. Somit heben sie sich insgesamt auf und es ist keine makroskopische Magnetisierung sichtbar. Oberhalb der *Néel-Temperatur* $T_\mathrm{N}$, dem Analogon zur Curie-Temperatur, geht der Festkörper in den paramagnetischen Zustand über cite:demtroder_experimentalphysik_2017. 
 
-*** TODO Superparamagnetismus
+*** DONE Superparamagnetismus
+    CLOSED: [2019-09-24 Di 16:42]
 Ist das Volumen eines ferromagnetischen Festkörpers so gering, dass er nur aus einer einzelnen Domäne besteht, spricht man von Superparamagnetismus. Die Suszeptibilität solcher Superparamagneten ist größer als die Suszeptibilität von Paramagneten, jedoch verhalten sie sich ohne äußeres Magnetfeld ähnlich, da die Magnetisierung in solchen einzelnen Domänen nicht thermisch stabil ist und sich beliebig ausrichten kann cite:gross_festkorperphysik_2012.
 Jedoch ist die Zeitskala des Experiments, und ob in dieser thermische Aktivierungs- und Relaxationsprozesse statt finden können, wichtig, um Aussagen über das magnetische Verhalten eines Partikels machen zu können. Bei ausreichend großen Zeitskalen wird über die durch thermische Energie unterschiedlichen magnetischen Momente gemittelt und man erhält insgesamt keine Magnetisierung. Wird jedoch sehr kurz gemessen, kann eine Richtung der Magnetisierung für diesen kurzen Zeitausschnitt bestimmt werden cite:leslie-pelecky_magnetic_nodate.
     
@@ -310,6 +312,7 @@ Die Aufzeichnung der Daten der NI USB-6002 Box erfolgte für beide Messungen mit
  
 ** TODO Strom und Magnetfeld der Helmholtzspulen
 ** TODO Partikeltransport 
+** TODO Partikelgeschwindigkeiten
 * TODO Zusammenfassung und Ausblick label:sec-zusammenfassung
 
 * Anhang
