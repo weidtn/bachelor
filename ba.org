@@ -76,7 +76,7 @@ B = \mu_{\mathrm{0}} \cdot n \cdot I .
 \end{equation}
 
 *** TODO Helmholtzspulen
-    Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen erzeugt. Eine Helmholtzspule besteht aus zwei parallelen Ringspulen in Reihe. Diese erzeugen ein homogenes Magnetfeld in ihrem Inneren, wenn die Helmholtz-Bedingung erfüllt ist, d.h. Radius und Abstand der Teilspulen gleich sind. Dieses Magnetfeld hängt in Näherung von der Stromstärke $I$, der Windungszahl $N$ und dem Radius einer einzelnen Spule $r$ ab cite:reginka_charakterisierung_2015:
+Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen erzeugt. Eine Helmholtzspule besteht aus zwei parallelen Ringspulen in Reihe. Diese erzeugen ein homogenes Magnetfeld in ihrem Inneren, wenn die Helmholtz-Bedingung erfüllt ist, d.h. Radius und Abstand der Teilspulen gleich sind. Dieses Magnetfeld hängt in Näherung von der Stromstärke $I$, der Windungszahl $N$ und dem Radius einer einzelnen Spule $r$ ab cite:reginka_charakterisierung_2015:
     
 #+name: eq-helmholtz
 \begin{equation}
@@ -248,7 +248,7 @@ Jedoch ist die Zeitskala des Experiments, und ob in dieser thermische Aktivierun
     
 *** TODO Exchange Bias Effekt label:sec-EB
     Der Exchange Bias Effekt wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten \ce{Co}-Partikeln entdeckt cite:meiklejohn_new_1957.
-** TODO Partikeltransport
+** TODO Partikeltransport label:sec-partikeltransport
 * TODO Experimentelle Methoden label:sec-methoden
   
 ** TODO Programm zur Erstellung von Magnetfeldsequenzen label:sec-py
