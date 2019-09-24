@@ -246,6 +246,7 @@ Jedoch ist die Zeitskala des Experiments, und ob in dieser thermische Aktivierun
     
 *** TODO Exchange Bias Effekt label:sec-EB
     Der Exchange Bias Effekt wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten \ce{Co}-Partikeln entdeckt cite:meiklejohn_new_1957.
+** TODO Partikeltransport
 * TODO Experimentelle Methoden label:sec-methoden
   
 ** TODO Programm zur Erstellung von Magnetfeldsequenzen label:sec-py
