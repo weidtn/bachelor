@@ -9,7 +9,7 @@
 ** TODO Zitieren von Bildern aus Buch?
 
 ** TODO Induktivität gemessen in Elektrowerkstatt?
-* TODO [5/8] Noch zu tun:                                            :ignore:
+* TODO [6/8] Noch zu tun:                                            :ignore:
 ** TODO minted
    SCHEDULED: <2019-09-20 Fr>
 ** DONE Para und Diamagnetismus
@@ -25,7 +25,8 @@ CLOSED: [2019-09-21 Sa 15:05]
    in drawer, drawer werden ignoriert dank options: d:nil
 ** DONE Néel-Wände
    CLOSED: [2019-09-23 Mo 12:13]
-** TODO Superparamagnetismus Zeitskala
+** DONE Superparamagnetismus Zeitskala
+   CLOSED: [2019-09-24 Di 16:37]
 ** DONE Suszeptibilität
    CLOSED: [2019-09-23 Mo 15:15]
 * Header                                                             :ignore:
@@ -241,6 +242,7 @@ In einem Antiferromagneten liegen zwei ineinander gestellte Untergitter im Krist
 
 *** TODO Superparamagnetismus
 Ist das Volumen eines ferromagnetischen Festkörpers so gering, dass er nur aus einer einzelnen Domäne besteht, spricht man von Superparamagnetismus. Die Suszeptibilität solcher Superparamagneten ist größer als die Suszeptibilität von Paramagneten, jedoch verhalten sie sich ohne äußeres Magnetfeld ähnlich, da die Magnetisierung in solchen einzelnen Domänen nicht thermisch stabil ist und sich beliebig ausrichten kann cite:gross_festkorperphysik_2012.
+Jedoch ist die Zeitskala des Experiments, und ob in dieser thermische Aktivierungs- und Relaxationsprozesse statt finden können, wichtig, um Aussagen über das magnetische Verhalten eines Partikels machen zu können. Bei ausreichend großen Zeitskalen wird über die durch thermische Energie unterschiedlichen magnetischen Momente gemittelt und man erhält insgesamt keine Magnetisierung. Wird jedoch sehr kurz gemessen, kann eine Richtung der Magnetisierung für diesen kurzen Zeitausschnitt bestimmt werden cite:leslie-pelecky_magnetic_nodate.
     
 *** TODO Exchange Bias Effekt label:sec-EB
     Der Exchange Bias Effekt wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten \ce{Co}-Partikeln entdeckt cite:meiklejohn_new_1957.
