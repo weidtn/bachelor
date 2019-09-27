@@ -247,7 +247,15 @@ Ist das Volumen eines ferromagnetischen Festkörpers so gering, dass er nur aus 
 Jedoch ist die Zeitskala des Experiments, und ob in dieser thermische Aktivierungs- und Relaxationsprozesse statt finden können, wichtig, um Aussagen über das magnetische Verhalten eines Partikels machen zu können. Bei ausreichend großen Zeitskalen wird über die durch thermische Energie unterschiedlichen magnetischen Momente gemittelt und man erhält insgesamt keine Magnetisierung. Wird jedoch sehr kurz gemessen, kann eine Richtung der Magnetisierung für diesen kurzen Zeitausschnitt bestimmt werden cite:leslie-pelecky_magnetic_nodate.
     
 *** TODO Exchange Bias Effekt label:sec-EB
-    Der Exchange Bias Effekt wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten \ce{Co}-Partikeln entdeckt. Diese Partikel bestehen im Kern aus \ce{Co}, einem Ferromagneten, und besitzen eine äußere dünne \ce{CoO}-Schicht, welche antiferromagnetisch ist. Sie entdeckten eine Verschiebung der Hysteresekurve aufgrund einer Austauschwechselwirkung zwischen antiferromagnetischer und ferromagnetischer Schicht cite:meiklejohn_new_1957. Der Exchange Bias Effekt bewirkt eine unidirektionale Anisotropie in der ferromagnetischen Schicht, das heißt, es wird nur eine Richtung für die Magnetisierung bevorzugt, im Gegensatz zur sonst üblichen uniaxialen Anisotropie in Ferromagneten, welche parallele und antiparallele Ausrichtungen entlang der "leichten Achse" der Magnetisierung favorisiert cite:stohr_magnetism_2006.
+# Ionenstrahlbeschuss?
+# Bezug auf bild
+# Bildbeschriftung
+Der Exchange Bias Effekt wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten \ce{Co}-Partikeln entdeckt. Diese Partikel bestehen im Kern aus Cobalt, einem Ferromagneten, und besitzen eine äußere dünne \ce{CoO}-Schicht, welche antiferromagnetisch ist. Die Autoren entdeckten eine Verschiebung der Hysteresekurve um das sogenannte Austauschverschiebungsfeld $H_\mathrm{EB}$ zwischen antiferromagnetischer und ferromagnetischer Schicht, wenn die Partikel in einem externen Magnetfeld unter die Néel-Temperatur der antiferromagnetischen Schicht gekühlt wurden cite:meiklejohn_new_1957. Der Exchange Bias Effekt bewirkt eine unidirektionale Anisotropie in der ferromagnetischen Schicht, das heißt, es wird nur eine Richtung für die Magnetisierung bevorzugt. Dies steht im Gegensatz zur sonst üblichen uniaxialen Anisotropie in Ferromagneten, welche parallele und antiparallele Ausrichtungen entlang der /leichten Achse/ der Magnetisierung favorisiert. Die Ursache für den Exchange Bias Effekt ist die quantenmechanische Austauschwechselwirkung zwischen antiferromagnetischen und ferromagnetischen magnetischen Momenten an der Grenzfläche zwischen den Schichten cite:stohr_magnetism_2006. 
+#+name:img-eb
+#+caption: text cite:merkel_einfluss_2018 
+#+attr_latex: :width \textwidth :placement [h]
+[[file:img/eb.png]]
+
 ** TODO Partikeltransport label:sec-partikeltransport
 * TODO Experimentelle Methoden label:sec-methoden
   
