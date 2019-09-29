@@ -252,18 +252,29 @@ Jedoch ist die Zeitskala des Experiments, und ob in dieser thermische Aktivierun
 # Bildbeschriftung
 Der Exchange Bias Effekt wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten \ce{Co}-Partikeln entdeckt. Diese Partikel bestehen im Kern aus Cobalt, einem Ferromagneten, und besitzen eine äußere dünne \ce{CoO}-Schicht, welche antiferromagnetisch ist. Die Autoren entdeckten eine Verschiebung der Hysteresekurve um das sogenannte Austauschverschiebungsfeld $H_\mathrm{EB}$ zwischen antiferromagnetischer und ferromagnetischer Schicht, wenn die Partikel in einem externen Magnetfeld unter die Néel-Temperatur der antiferromagnetischen Schicht gekühlt wurden cite:meiklejohn_new_1957. Der Exchange Bias Effekt bewirkt eine unidirektionale Anisotropie in der ferromagnetischen Schicht, das heißt, es wird nur eine Richtung für die Magnetisierung bevorzugt. Dies steht im Gegensatz zur sonst üblichen uniaxialen Anisotropie in Ferromagneten, welche parallele und antiparallele Ausrichtungen entlang der /leichten Achse/ der Magnetisierung favorisiert. Die Ursache für den Exchange Bias Effekt ist die quantenmechanische Austauschwechselwirkung zwischen antiferromagnetischen und ferromagnetischen magnetischen Momenten an der Grenzfläche zwischen den Schichten cite:stohr_magnetism_2006. 
 #+name:img-eb
-#+caption: text cite:merkel_einfluss_2018 
-#+attr_latex: :width \textwidth :placement [h]
+#+caption: Schematische Darstellung der Hysteresekurve  cite:merkel_einfluss_2018 
+#+attr_latex: :width 0.5\textwidth :placement [h]
 [[file:img/eb.png]]
 
 ** TODO Partikeltransport label:sec-partikeltransport
+Der Transport von superparamagnetischen Partikeln über die zuvor beschriebenen Exchange-Bias-Systeme erfolgt durch zeitliche Veränderungen der magnetischen Potentiallandschaft über der Probe. Dabei setzt sich das effektive Magnetfeld, das die Partikel erfahren aus der Magnetfeldlandschaft des Exchange-Bias Systems und einem externen Magnetfeld zusammen cite:holzinger_directed_2015:
+
+\begin{equation}
+\vec{H}_\mathrm{eff} = \vec{H}_\mathrm{MFL} + \vec{H}_\mathrm{ext} 
+\end{equation}
+
+#+name:fig-transport
+#+caption: transport cite:holzinger_transport_2015 
+#+attr_latex: :width 0.75\textwidth :placement [h]
+[[file:img/trapez.png]]
+
 * TODO Experimentelle Methoden label:sec-methoden
-  
+
 ** TODO Programm zur Erstellung von Magnetfeldsequenzen label:sec-py
 
 ** TODO Experimenteller Aufbau label:sec-aufbau
 
-Um den Transport von SPP über das Substrat zu realisieren und zu beobachten, wurde der Versuchsaufbau, der in Abbildung ref:img-aufbau zu sehen ist, verwendet.
+Um den Transport von superparamagnetischen Partikeln über das Substrat zu realisieren und zu beobachten, wurde der Versuchsaufbau, der in Abbildung ref:img-aufbau zu sehen ist, verwendet.
 
 
 #+caption: Partikeltransport Versuchsaufbau.
