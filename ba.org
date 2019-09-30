@@ -258,19 +258,22 @@ Der /Exchange Bias/ (EB) Effekt  wurde 1956 von \textsc{Meiklejohn} und \textsc{
 [[file:img/eb.png]]
 
 ** TODO Partikeltransport label:sec-partikeltransport
-Der Transport von superparamagnetischen Partikeln über die zuvor beschriebenen Exchange-Bias-Systeme erfolgt durch zeitliche Veränderungen der magnetischen Potentiallandschaft über der Probe. Dabei setzt sich das effektive Magnetfeld, das die Partikel erfahren, aus der Magnetfeldlandschaft des Exchange-Bias Systems und einem externen Magnetfeld zusammen cite:holzinger_directed_2015.
+Superparamagnetische Partikel (SPP) lassen sich durch Verwendung von EB-Systemen, im Vergleich zu Transport über nichtmagnetischen Substraten, in kontrollierten Abständen zum Substrat und in geordneter Reihenform transportieren. Außerdem wird durch die magnetische Abstoßung zwischen den Partikeln eine Agglomeration erschwert und die Partikelgeschwindigkeiten können durch Modifikationen am EB-System oder externen Magnetfeld beeinflusst werden cite:holzinger_directed_2015.
 
-\begin{equation}
-\vec{H}_\mathrm{eff} = \vec{H}_\mathrm{MFL} + \vec{H}_\mathrm{ext} 
-\end{equation}
-
-Die Partikel lassen sich durch diese Methode im Vergleich zu Transport in wässriger Lösung über nichtmagnetischen Substraten in kontrollierten Abständen und in Reihen transportieren (s. Abbildung ref:fig-mfl). Außerdem wird durch die magnetische Abstoßung zwischen den Partikeln eine Agglomeration verhindert und die Partikelgeschwindigkeiten können durch Modifikationen am EB-System oder externen Magnetfeld beeinflusst werden cite:holzinger_directed_2015.
- 
+Werden SPP in wässriger Lösung auf das EB-Substrat gegeben, so positionieren sie sich in Reihen über den Domänenwänden. Dabei befinden sie sich in einem Gleichgewichtsabstand über dem Substrat in /Tälern/ der potentiellen Energielandschaft (vgl. Abbildung ref:fig-mfl) cite:holzinger_directed_2015.
 #+name:fig-mfl
 #+caption: Schematische Darstellung der potentiellen Energielandschaft $U_\mathrm{SPP,z(x,y)}$ superparamagnetischer Partikel über einer EB-Streifendomänenstruktur. Das magnetische Moment der Partikel ist parallel zur Magnetfeldlandschaft ausgerichtet und die Partikel befinden sich in Reihen über den /head-to-head/ (hh) und /tail-to-tail/ (tt) Domänenwänden. Aus cite:holzinger_transport_2015.
 #+attr_latex: :width 0.75\textwidth :placement [h]
 #+attr_org: :width 100px
 [[file:img/mfl.png]]
+
+Der Transport von superparamagnetischen Partikeln über die zuvor beschriebenen Exchange-Bias-Systeme erfolgt durch zeitliche Veränderungen der magnetischen Potentiallandschaft über der Probe. Dabei setzt sich das effektive Magnetfeld, das die Partikel erfahren, aus der Magnetfeldlandschaft des Exchange-Bias Systems und dem externen Magnetfeld zusammen cite:holzinger_directed_2015.
+ 
+\begin{equation}
+\vec{H}_\mathrm{eff} = \vec{H}_\mathrm{MFL} + \vec{H}_\mathrm{ext} 
+\end{equation}
+
+Durch Verschiebung der Minima der Potentiallandschaft werden auch die Partikel transportiert. Der genaue Vorgang kann Abbildung ref:fig-transport entnommen werden.
 
 #+name:fig-transport
 #+caption: transport cite:holzinger_transport_2015 
@@ -339,7 +342,7 @@ Die Aufzeichnung der Daten der NI USB-6002 Box erfolgte für beide Messungen mit
  #+name: img-traj_real
  file:./img/traj_sim.png
 
-#+caption: Screenshot der /Video Spot Tracker/ Software nach erfolgreicher Auswertung eines Videos. Gelb markiert sind die Trajektorien der verschiedenen getrackten Partikel.
+#+caption: Screenshot der /Video Spot Tracker/ Software nach erfolgreicher Auswertung eines Videos. Gelb markiert sind die Trajektorien der verschiedenen Partikel, blau die Endpunkte der Partikel.
 #+attr_latex: :placement [h] :width 0.75\textwidth
 #+name: img-videospottracker
 file:./img/videospottracker.png
