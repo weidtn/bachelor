@@ -247,26 +247,26 @@ Der /Exchange Bias/ (EB) Effekt  wurde 1956 von \textsc{Meiklejohn} und \textsc{
 [[file:img/eb.png]]
 
 ** TODO Partikeltransport label:sec-partikeltransport
-Superparamagnetische Partikel (SPP) lassen sich durch Verwendung von EB-Systemen, im Vergleich zu Transport über nichtmagnetischen Substraten, in kontrollierten Abständen zum Substrat und in geordneter Reihenform transportieren. Außerdem wird durch die magnetische Abstoßung zwischen den Partikeln eine Agglomeration erschwert und die Partikelgeschwindigkeiten können durch Modifikationen am EB-System oder externen Magnetfeld beeinflusst werden cite:holzinger_directed_2015.
+Superparamagnetische Partikel (SPP) lassen sich durch Verwendung von den zuvor beschriebenen EB-Systemen (im Vergleich zum Transport über nichtmagnetischen Substraten) in kontrollierten Abständen zum Substrat und in geordneter Reihenform transportieren. Außerdem wird durch die magnetische Abstoßung zwischen den Partikeln eine Agglomeration erschwert und die Partikelgeschwindigkeiten können durch Modifikationen am EB-System oder externen Magnetfeld beeinflusst werden cite:holzinger_directed_2015.
 
-Werden SPP in wässriger Lösung auf das EB-Substrat gegeben, so positionieren sie sich in Reihen über den Domänenwänden. Dabei befinden sie sich in einem Gleichgewichtsabstand über dem Substrat in /Tälern/ der potentiellen Energielandschaft (vgl. Abbildung ref:fig-mfl) cite:holzinger_directed_2015.
+Werden SPP in wässriger Lösung ohne externes Magnetfeld auf das EB-Substrat gegeben, so positionieren sie sich in Reihen über den Domänenwänden. Dabei befinden sie sich in einem Gleichgewichtsabstand über dem Substrat an den x-Positionen, in denen die potentielle Energielandschaft Minima besitzt. Diese Minima sind ohne externes Magnetfeld über sowohl /head-to-head/ (hh) als auch /tail-to-tail/ (tt) Domänenwänden vorhanden (vgl. Abbildung ref:fig-mfl) cite:holzinger_directed_2015.
 #+name:fig-mfl
 #+caption: Schematische Darstellung der potentiellen Energielandschaft $U_\mathrm{SPP,z(x,y)}$ superparamagnetischer Partikel über einer EB-Streifendomänenstruktur. Das magnetische Moment der Partikel ist parallel zur Magnetfeldlandschaft ausgerichtet und die Partikel befinden sich in Reihen über den /head-to-head/ (hh) und /tail-to-tail/ (tt) Domänenwänden. Aus cite:holzinger_transport_2015.
 #+attr_latex: :width 0.75\textwidth :placement [h]
 #+attr_org: :width 100px
 [[file:img/mfl.png]]
 
-Der Transport von superparamagnetischen Partikeln über die zuvor beschriebenen Exchange-Bias-Systeme erfolgt durch zeitliche Veränderungen der magnetischen Potentiallandschaft über der Probe. Dabei setzt sich das effektive Magnetfeld, das die Partikel erfahren, aus der Magnetfeldlandschaft des Exchange-Bias Systems und dem externen Magnetfeld zusammen cite:holzinger_directed_2015.
+Der Transport von superparamagnetischen Partikeln über Exchange-Bias-Systeme erfolgt durch zeitliche Veränderungen der magnetischen Potentiallandschaft über der Probe. Dabei setzt sich das effektive Magnetfeld, das die Partikel erfahren, aus der Magnetfeldlandschaft des Exchange-Bias Systems und dem externen Magnetfeld zusammen cite:holzinger_directed_2015.
  
 \begin{equation}
 \vec{H}_\mathrm{eff} = \vec{H}_\mathrm{MFL} + \vec{H}_\mathrm{ext} 
 \end{equation}
 
-Durch Verschiebung der Minima der Potentiallandschaft werden auch die Partikel transportiert. Der genaue Vorgang kann Abbildung ref:fig-transport entnommen werden.
+Durch Verschiebung der Minima der Potentiallandschaft bewegen sich die Partikel. Zuerst befinden sich die Partikel in Abwesenheit eines externen Feldes über alle Domänenwände verteilt (vgl. Abbildung ref:fig-mfl). Der genaue Transportvorgang kann in Abbildung ref:fig-transport nachverfolgt werden. Durch Einschalten des Magnetfeldes $H_\mathrm{z}$ wird die Magnetfeldlandschaft über den Domänenwänden verändert. hh-Domänenwände werden energetisch begünstigt und die Partikel bewegen sich in Richtung dieser (a). Der Vorzeichenwechsel von $H_\mathrm{x,max}$ bewirkt eine Verschiebung der Magnetfeldlandschaft in x-Richtung, welche das magnetische Moment der SPP leicht in Richtung nächster Domänenwand kippt (b), so dass nach erneuter Umpolung von $H_\mathrm{z,max}$ das magnetische Moment in die entgegengesetzte Richtung drehen kann, und das Partikel eine Vorzugsrichtung hat, in die es sich bewegt. Andererseits würden die Partikel zufällig in eins der beiden benachbarten Energieminima wandern. Die Minima der Energielandschaft verschieben sich auf die nächstgelegene Domänenwand, da nun statt hh-Domänenwänden die tt-Domänenwände energetisch günstiger sind (c). Anschließend wird der Prozess mit umgekehrten Vorzeichen durchgeführt (d) und die Partikel befinden sich dann erneut über einer hh-Domänenwand (e) cite:holzinger_directed_2015. 
 
 #+name:fig-transport
-#+caption: transport cite:holzinger_transport_2015 
-#+attr_latex: :width 0.75\textwidth :placement [h]
+#+caption: (a-e): Berechnete magnetische Potentiallandschaft $U_\mathrm{SPP,z(x)}$ als Funktion der x-Position im Partikelzentrum $\SI{2}{\mu\meter}$ über dem EB-System. Die superparamagnetischen Partikel sind schematisch in braun dargestellt. (f): Angelegte Magnetfeldsequenzen. Die Zeitskala der Magnetfeldsequenzen ist passend zu den Potentiallandschaften aufgetragen. Aus cite:holzinger_transport_2015.
+#+attr_latex: :width \textwidth :placement [h]
 #+attr_org: :width 100px
 [[file:img/trapez.png]]
 
