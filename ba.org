@@ -9,26 +9,15 @@
 ** TODO Zitieren von Bildern aus Buch?
 
 ** TODO Induktivität gemessen in Elektrowerkstatt?
-* TODO [6/8] Noch zu tun:                                            :ignore:
+* TODO [0/4] Noch zu tun:                                            :ignore:
 ** TODO minted
    SCHEDULED: <2019-09-20 Fr>
-** DONE Para und Diamagnetismus
-CLOSED: [2019-09-21 Sa 15:05]
 ** TODO Simulierte Trajektorien durch step_evaluate laufen lassen
    SCHEDULED: <2019-09-19 Do>
-** DONE Ein und Ausschalten in ein Bild mit Schaltbild
-   CLOSED: [2019-09-19 Do 16:08]
-   schaltbild links, spannung/strom ein mitte, spannung/strom aus rechts
-   neue bilder erstellt
-** DONE ein und auschaltcode in eigenes Kapitel?
-   CLOSED: [2019-09-17 Di 16:11]
-   in drawer, drawer werden ignoriert dank options: d:nil
-** DONE Néel-Wände
-   CLOSED: [2019-09-23 Mo 12:13]
-** DONE Superparamagnetismus Zeitskala
-   CLOSED: [2019-09-24 Di 16:37]
-** DONE Suszeptibilität
-   CLOSED: [2019-09-23 Mo 15:15]
+** TODO EB-Bild und Beschreibung
+Bildunterschrift allgemein halten, genauer dann im text
+** TODO Transportkonzept
+Bildunterschirft allgemein halten, genauer dann im text
 * Header                                                             :ignore:
    #+latex_class:scrbook
    #+latex_class_options:[page,pdftex,12pt,a4paper,twoside,openright]
