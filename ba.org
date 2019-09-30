@@ -64,7 +64,7 @@ CLOSED: [2019-09-21 Sa 15:05]
 * PDF:                                                               :ignore:
  [[file:ba.pdf][ba.pdf]] 
 * TODO Einleitung label:sec-einleitung
-* TODO [0/3] Theoretische Grundlagen label:sec-grundlagen
+* TODO [1/5] Theoretische Grundlagen label:sec-grundlagen
   In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt. Dann werden die in dieser Arbeit verwendeten /Exchange Bias Systeme/ eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene /Exchange Bias Systeme/ beschrieben, wobei die auf sie wirkenden Kräfte genauer betrachtet werden sollen.
 
 ** TODO Elektromagnetismus label:sec-elektromagnetismus
@@ -132,7 +132,8 @@ Der Abschaltvorgang ist in Abbildung ref:fig-abschalten abgebildet
 \caption{Schematische Darstellung der Stromstärke und Spannung bei Ein- und Abschaltvorgang in einem Stromkreis mit Widerstand $R$, Induktion $L$ und einer Diode um einen Weg für den Abschaltinduktionsstrom zu liefern.}
 \end{figure}
 
-** TODO [4/5] Magnetismus in Materie label:sec-magnetismus
+** DONE [4/4] Magnetismus in Materie label:sec-magnetismus
+   CLOSED: [2019-09-30 Mo 11:12]
 Wie bereits in Kapitel ref:sec-elektromagnetismus erläutert, erzeugen bewegte Ladungen Magnetfelder. Eine solche bewegte Ladung ist auch das Elektron, das in einer vereinfachten Vorstellung um den Atomkern kreist. Folglich besitzen Atome ein magnetisches Moment $\mu$, welches abhängig ist von der umkreisten Fläche $A$ und dem Kreisstrom des Elektrons $I$ cite:kassing_bergmann_2005:
    
 #+name:eq-moment:
