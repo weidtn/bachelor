@@ -329,7 +329,12 @@ Die Aufzeichnung der Daten der NI USB-6002 Box erfolgte für beide Messungen mit
  #+attr_latex: :placmeent [!h] :width 0.7\textwidth
  #+name: img-traj_real
  file:./img/traj_sim.png
- 
+
+#+caption: Screenshot der /Video Spot Tracker/ Software nach erfolgreicher Auswertung eines Videos. Gelb markiert sind die Trajektorien der verschiedenen getrackten Partikel.
+#+attr_latex: :placement [h] :width 0.75\textwidth
+#+name: img-videospottracker
+file:./img/videospottracker.png
+
 ** TODO Strom und Magnetfeld der Helmholtzspulen
 ** TODO Partikeltransport 
 ** TODO Partikelgeschwindigkeiten
