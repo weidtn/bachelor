@@ -213,7 +213,7 @@ Die Suszeptibilität ferromagnetischer Materialien ist um bis zu mehrere Größe
 
 Die magnetischen Dipole in einem ferromagnetischen Festkörper weisen innerhalb der so genannten *Weissschen Bezirke* (auch Domänen) eine spontane Magnetisierung auf, da die Austausch-Wechselwirkung zu einer parallelen Kopplung der magnetischen Momente führt (vgl. Abbildung ref:fig-ferro). Ohne externes Magnetfeld zeigen die magnetischen Momente verschiedener Weissscher Bezirke in verschiedene Richtungen. Durch die hohe Anzahl der Weissschen Bezirke ist makroskopisch keine Magnetisierung erkennbar cite:rybach_physik_2008. Der Übergang zwischen den Weissschen Bezirken wird als Domänenwand bezeichnet, welche als *Bloch-(Domänen)wände* bezeichnet werden. Bloch-Wände bestehen aus atomaren Dipolen die sich innerhalb bzw. parallel zur Wandebene drehen cite:gross_festkorperphysik_2012. Ein zweiter möglicher Domänentyp, in dem sich die magnetischen Momente um eine Achse innerhalb der Wandebene drehen, wird *Néel-Wand* genannt. Dieser Domänenwandtyp wird in dünnen Schichten gegenüber Bloch-Domänenwänden favorisiert, wenn die Schichtdicke im Bereich der Domänenwandbreite liegt, da Néel-Wände hier energetisch günstiger sind cite:hubert_magnetic_2008. In den in dieser Arbeit verwendeten Proben liegen aufgrund der dünnen ferromagnetischen Schichten Néel-Wände vor. 
 
-#+caption: Hysteresekurve der Magnetisierung $M$ in Abhängigkeit vom äußeren Feld $B$.cite:Demtroder2017
+#+caption: Hysteresekurve der Magnetisierung $M$ in Abhängigkeit vom äußeren Feld $B$. Aus cite:demtroder_experimentalphysik_2017.
 #+name: fig-hysterese
 #+attr_latex: :placement [h] :width 0.4\textwidth
 [[file:img/hysterese.png]]
