@@ -39,8 +39,9 @@ Bildunterschirft allgemein halten, genauer dann im text
    #+latex_header: \usepackage{amsmath,amssymb,amstext,bbm}
    #+latex_header: \usepackage[labelfont=bf, up, textfont=small, figurename=Abb., tablename=Tab.]{caption}
    #+latex_header: \usepackage[output-decimal-marker={,}]{siunitx}
-   #+latex_header: \usepackage{minted}
-   #+latex_header: \usemintedstyle{monokai}
+   #+latex_header: \usepackage[cache=false]{minted}
+   #+latex_header: \setminted{fontsize=\footnotesize}
+   #+latex_header: \usemintedstyle{emacs}
    #+latex_header: \usepackage{mhchem}
    #+latex_header: \include{titlepage/titlepage}
    #+latex_header: \newgeometry{bottom=2.5cm,left=2.5cm,right=2cm}
@@ -101,22 +102,92 @@ Analog hierzu fällt die Stromstärke beim Abschalten nicht direkt auf Null sond
 I(t) = I_{\mathrm{0}} \cdot e^{ -\frac{t}{\tau}}= I_{\mathrm{0}} \cdot e^{ -\frac{t \cdot R}{L}}.
 \end{equation}
 
-Der Abschaltvorgang ist in Abbildung ref:fig-abschalten abgebildet
+Der Abschaltvorgang ist in Abbildung ref:fig-abschalten abgebildet.
+
+:CODE:
+#+begin_src python :session einaus :results output :exports none
+  import numpy as np
+  import matplotlib
+  matplotlib.use("Agg")
+  import matplotlib.pyplot as plt
+  from scipy.signal import square
+  import os
+
+  figsize = (5,5)
+
+  def I(x,L):
+      return U0 * (1 - np.exp(-x / L))
+
+  def I_aus(x,L):
+      return U0 * (np.exp(-x / L))
+
+  L = 1 
+  x = np.linspace(-0.5,3,10000) 
+  U0 = square(x) * 2.5
+  U0 += 2.5
+  U0[0] = 0
+  I = I(x,L)
+  Uind = L * U0 * (x/L) * np.exp(-x/L)
+  plt.clf()
+  fig, axes = plt.subplots(2,1, figsize=figsize)
+  axes[0].plot(x, U0, label="U0")
+  axes[0].set_ylabel("U [V]")
+  axes[0].set_xlabel("t")
+  axes[0].tick_params(axis="x", labelbottom=False)
+  axes[1].tick_params(axis="x", labelbottom=False)
+  axes[0].tick_params(axis="y", labelleft=False)
+  axes[1].tick_params(axis="y", labelleft=False)
+  axes[0].legend()
+  axes[1].plot(x, I, label="I")
+  axes[1].set_ylabel("I [A]")
+  axes[1].set_xlabel("t")
+  axes[1].legend()
+
+  plt.tight_layout()
+  plt.savefig("./img/einschalten.png")
+
+  U1 = square(x * -1)
+  I2 = I_aus(x,L)
+  fig,axes = plt.subplots(2,1, figsize=figsize)
+  axes[0].plot(x, U1, label="U0")
+  axes[0].set_ylabel("U [V]")
+  axes[0].set_xlabel("t")
+  axes[0].tick_params(axis="x", labelbottom=False)
+  axes[1].tick_params(axis="x", labelbottom=False)
+  axes[0].tick_params(axis="y", labelleft=False)
+  axes[1].tick_params(axis="y", labelleft=False)
+  axes[0].legend()
+  axes[1].plot(x, I2, label="I")
+  axes[1].set_ylabel("I [A]")
+  axes[1].set_xlabel("t")
+  axes[1].legend()
+  plt.tight_layout()
+  plt.savefig("./img/ausschalten.png")
+  "ausschalten.png"
+#+end_src
+
+#+RESULTS:
+
+:END:
+
 \begin{figure}
 \centering
-\begin{subfigure}[b]{0.5\textwidth}
-\includegraphics[width=\textwidth]{./img/schaltbild.pdf}
+\begin{subfigure}[b]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{./img/schaltbild.png}
 \caption{Schaltbild.}
 \label{fig-schaltbild}
 \end{subfigure}
-\\
+\newline
 \begin{subfigure}[b]{0.49\textwidth}
-\includegraphics[width=\textwidth]{./img/einschalten.pdf}
+\centering
+\includegraphics[width=\textwidth]{./img/einschalten.png}
 \caption{Einschaltvorgang.}
 \label{fig-einschalten}
 \end{subfigure}
 \begin{subfigure}[b]{0.49\textwidth}
-\includegraphics[width=\textwidth]{./img/ausschalten.pdf}
+\centering
+\includegraphics[width=\textwidth]{./img/ausschalten.png}
 \caption{Abschaltvorgang.}
 \label{fig-abschalten}
 \end{subfigure}
