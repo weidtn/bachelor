@@ -310,7 +310,6 @@ Ist das Volumen eines ferromagnetischen Festkörpers so gering, dass er nur aus 
 Jedoch ist die Zeitskala des Experiments, und ob in dieser thermische Aktivierungs- und Relaxationsprozesse statt finden können, wichtig, um Aussagen über das magnetische Verhalten eines Partikels machen zu können. Bei ausreichend großen Zeitskalen wird über die durch thermische Energie unterschiedlichen magnetischen Momente gemittelt und man erhält insgesamt keine Magnetisierung. Wird jedoch sehr kurz gemessen, kann eine Richtung der Magnetisierung für diesen kurzen Zeitausschnitt bestimmt werden cite:leslie-pelecky_magnetic_nodate.
     
 ** TODO Exchange Bias Effekt label:sec-EB
-# Ionenstrahlbeschuss?
 Der /Exchange Bias/ (EB) Effekt  wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten \ce{Co}-Partikeln entdeckt. Diese Partikel bestehen im Kern aus Cobalt, einem Ferromagneten, und besitzen eine äußere dünne \ce{CoO}-Schicht, welche antiferromagnetisch ist. Die Autoren entdeckten eine Verschiebung der Hysteresekurve um das sogenannte Austauschverschiebungsfeld $H_\mathrm{EB}$ zwischen antiferro magnetischer und ferromagnetischer Schicht, wenn die Partikel in einem externen Magnetfeld unter die Néel-Temperatur der antiferromagnetischen Schicht gekühlt wurden cite:meiklejohn_new_1957.
 Der Exchange Bias Effekt bewirkt eine unidirektionale Anisotropie in der ferromagnetischen Schicht, das heißt es wird nur eine Richtung für die Magnetisierung bevorzugt. Dies steht im Gegensatz zur sonst üblichen uniaxialen Anisotropie in Ferromagneten, welche parallele und antiparallele Ausrichtungen entlang der /leichten Achse/ der Magnetisierung favorisiert. Die Ursache für den Exchange Bias Effekt ist die quantenmechanische Austauschwechselwirkung zwischen antiferromagnetischen und ferromagnetischen magnetischen Momenten an der Grenzfläche zwischen den Schichten cite:stohr_magnetism_2006. 
 
@@ -318,18 +317,19 @@ Die Hysteresekurve eines eines EB-Systems (Abbildung ref:fig-eb links in magenta
 
 #+name:fig-eb
 #+caption: Schematische Darstellung der ferromagnetischen Hysteresekurve eines EB-Systems in Abhängigkeit des externen Magnetfeldes parallel zur leichten Achse der unidirektionalen Anisotropie (links) und schematische Darstellung des Feldkühlprozesses zur Herstellung des EB-Effektes (rechts). cite:merkel_einfluss_2018.
-#+attr_latex: :width 0.75\textwidth :placement [!h]
+#+attr_latex: :width \textwidth :placement [!h]
 [[file:img/eb.png]]
 
-Durch Helium-Ionenbeschuss kann der EB-Effekt eines Substrates verändert werden. So kann zum Beispiel die Richtung des Austauschwechselfeldes lokal umgekehrt werden cite:mougin_local_2001. Dies ermöglicht magnetische Strukturierung von EB-Systemen, womit wiederum Transport von superparamagnetischen Partikeln realisiert werden kann cite:holzinger_directed_2015. 
+Durch Helium-Ionenbeschuss kann der EB-Effekt eines Substrates verändert werden. So kann zum Beispiel die Richtung des Austauschwechselfeldes lokal umgekehrt werden cite:mougin_local_2001. Dies ermöglicht magnetische Strukturierung von EB-Systemen, zum Beispiel in einer /in-plane/ Anisotropie, welche zu /head-to-head/ und /tail-to-tail/-Domänenwänden führt, womit wiederum Transport von superparamagnetischen Partikeln realisiert werden kann cite:holzinger_directed_2015. 
 
 ** TODO Partikeltransport label:sec-partikeltransport
 Superparamagnetische Partikel (SPP) lassen sich durch Verwendung von den zuvor beschriebenen EB-Systemen (im Vergleich zum Transport über nichtmagnetischen Substraten) in kontrollierten Abständen zum Substrat und in geordneter Reihenform transportieren. Außerdem wird durch die magnetische Abstoßung zwischen den Partikeln eine Agglomeration erschwert und die Partikelgeschwindigkeiten können durch Modifikationen am EB-System oder externen Magnetfeld beeinflusst werden cite:holzinger_directed_2015.
 
 Werden SPP in wässriger Lösung ohne externes Magnetfeld auf das EB-Substrat gegeben, so positionieren sie sich in Reihen über den Domänenwänden. Dabei befinden sie sich in einem Gleichgewichtsabstand über dem Substrat an den x-Positionen, in denen die potentielle Energielandschaft Minima besitzt. Diese Minima sind ohne externes Magnetfeld über sowohl /head-to-head/ (hh) als auch /tail-to-tail/ (tt) Domänenwänden vorhanden (vgl. Abbildung ref:fig-mfl) cite:holzinger_directed_2015.
+
 #+name:fig-mfl
 #+caption: Schematische Darstellung der potentiellen Energielandschaft $U_\mathrm{SPP,z(x,y)}$ superparamagnetischer Partikel über einer EB-Streifendomänenstruktur. Das magnetische Moment der Partikel ist parallel zur Magnetfeldlandschaft ausgerichtet und die Partikel befinden sich in Reihen über den /head-to-head/ (hh) und /tail-to-tail/ (tt) Domänenwänden. Aus cite:holzinger_transport_2015.
-#+attr_latex: :width 0.75\textwidth :placement [h]
+#+attr_latex: :width \textwidth :placement [h]
 #+attr_org: :width 100px
 [[file:img/mfl.png]]
 
@@ -339,7 +339,7 @@ Der Transport von superparamagnetischen Partikeln über Exchange-Bias-Systeme er
 \vec{H}_\mathrm{eff} = \vec{H}_\mathrm{MFL} + \vec{H}_\mathrm{ext}.
 \end{equation}
 
-Durch Verschiebung der Minima der Potentiallandschaft bewegen sich die Partikel. Zuerst befinden sich die Partikel in Abwesenheit eines externen Feldes in Reihen über alle Domänenwände verteilt (vgl. Abbildung ref:fig-mfl). Der genaue Transportvorgang kann in Abbildung ref:fig-transport nachverfolgt werden. Durch Einschalten des Magnetfeldes $H_\mathrm{z}$ wird die Magnetfeldlandschaft über den Domänenwänden verändert. hh-Domänenwände werden energetisch begünstigt und die Partikel bewegen sich ungeleitet in Richtung dieser (a). So bilden sich Reihen aus SPP, welche jeweils die doppelte Domänenbreite voneinander entfernt sind. Der Vorzeichenwechsel von $H_\mathrm{x,max}$ bewirkt eine Verschiebung der Magnetfeldlandschaft in x-Richtung, welche das magnetische Moment der SPP leicht in Richtung nächster Domänenwand kippt (b), so dass nach erneuter Umpolung von $H_\mathrm{z,max}$ das magnetische Moment in die entgegengesetzte Richtung drehen kann, und das Partikel eine Vorzugsrichtung hat, in die es sich bewegt. Andererseits würden die Partikel zufällig in eins der beiden benachbarten Energieminima wandern. Die Minima der Energielandschaft verschieben sich auf die nächstgelegene Domänenwand, da nun statt hh-Domänenwänden die tt-Domänenwände energetisch günstiger sind (c). Anschließend wird der Prozess mit umgekehrten Vorzeichen durchgeführt (d) und die Partikel befinden sich dann erneut über einer hh-Domänenwand (e) cite:holzinger_directed_2015. 
+Die Partikel positionieren sich in Abwesenheit eines externen Feldes in Reihen über alle Domänenwände verteilt (vgl. Abbildung ref:fig-mfl). Der genaue Transportvorgang kann in Abbildung ref:fig-transport nachverfolgt werden. Durch Einschalten des Magnetfeldes $H_\mathrm{z}$ wird die Magnetfeldlandschaft über den Domänenwänden verändert. hh-Domänenwände werden energetisch begünstigt und die Partikel bewegen sich ungeleitet in Richtung dieser (a). So bilden sich Reihen aus SPP, welche jeweils die doppelte Domänenbreite voneinander entfernt sind. Der Vorzeichenwechsel von $H_\mathrm{x,max}$ bewirkt eine Verschiebung der Magnetfeldlandschaft in x-Richtung, welche das magnetische Moment der SPP leicht in Richtung nächster Domänenwand kippt (b), so dass nach erneuter Umpolung von $H_\mathrm{z,max}$ das magnetische Moment in die entgegengesetzte Richtung drehen kann, und das Partikel eine Vorzugsrichtung hat, in die es sich bewegt. Andererseits würden die Partikel zufällig in eins der beiden benachbarten Energieminima wandern. Die Minima der Energielandschaft verschieben sich auf die nächstgelegene Domänenwand, da nun statt hh-Domänenwänden die tt-Domänenwände energetisch günstiger sind (c). Anschließend wird der Prozess mit umgekehrten Vorzeichen durchgeführt (d) und die Partikel befinden sich dann erneut über einer hh-Domänenwand (e) cite:holzinger_directed_2015. 
 
 #+name:fig-transport
 #+caption: (a-e): Berechnete magnetische Potentiallandschaft $U_\mathrm{SPP,z(x)}$ als Funktion der x-Position im Partikelzentrum $\SI{2}{\mu\meter}$ über dem EB-System. Die superparamagnetischen Partikel sind schematisch in braun dargestellt. (f): Angelegte Magnetfeldsequenzen. Die Zeitskala der Magnetfeldsequenzen ist passend zu den Potentiallandschaften aufgetragen. Aus cite:holzinger_transport_2015.
@@ -357,7 +357,7 @@ Um den Transport von superparamagnetischen Partikeln über das Substrat zu reali
 
 
 #+caption: Partikeltransport Versuchsaufbau.
-#+attr_latex: :width 0.75\textwidth
+#+attr_latex: :width \textwidth
 #+name: img-aufbau
 file:./img/aufbau.png
 
