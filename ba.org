@@ -389,12 +389,42 @@ Hierfür wurde einerseits der zeitliche Verlauf der Stromstärke in der Spule ge
 
 Um den zeitlichen Verlauf des Magnetfeldes zu messen, wurde der Messkopf eines Teslameters auf dem Probentisch in den Helmholtzspulen platziert. Das FM210 Teslameter der /Projekt Elektronik GmbH/ besitzt einen BNC-Anschluss, über welchen widerum eine NI USB-6002 Box angeschlossen wurde, um den zeitlichen Verlauf des Magnetfeldes aufzuzeichnen.
 
-Die Aufzeichnung der Daten der NI USB-6002 Box erfolgte für beide Messungen mittels eines selbst geschriebenen Python-Scriptes (siehe Kapitel *12345*).
+Die Aufzeichnung der Daten der NI USB-6002 Box erfolgte für beide Messungen mittels eines selbst geschriebenen Python-Scriptes (siehe Kapitel [[ref:anh-messung]]).
 
 * TODO Ergebnisse und Diskussion label:sec-ergebnisse
-  
+ 
+:CODE:
+#+begin_src python :session v :exports none :results output
+  import numpy as np
+  import matplotlib
+  matplotlib.use("Agg")
+  import matplotlib.pyplot as plt
+  from matplotlib import rc
+  rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
+  rc('text', usetex=True)
+
+  t_plateau = [0.25, 0.2, 0.15, 0.1, 0.05, 0]
+  v1 = [54.86, 51.09, 51.51, 60.8, 87.9, 130.91] 
+  err1 = [0.8, 1.19, 1.97, 0.7, 1.44, 2.62]
+  v2 = [65.55, 59.60, 63.13, 75.53, 108.23, 119.98]
+  err2 = [1.09, 0.76, 1.07, 1.07, 1.05, 1.34]
+
+  plt.clf()
+  fig, ax = plt.subplots(1,1)
+  ax.errorbar(t_plateau, v1, yerr=err1, label="B(z) = B(x) = 3.29 mT", capsize=3)
+  ax.errorbar(t_plateau, v2, yerr=err2, label="B(z) = 3.29 mT,  B(x) = 1,19 mT", capsize=3)
+  ax.legend()
+  ax.set_xlabel("Startzeit Plateau [s]")
+  ax.set_ylabel("Geschwindigkeit gr. Schritt [mT/s]")
+  ax.grid()
+  plt.savefig("./img/v.png", dpi=600)
+#+end_src
+
+#+RESULTS:
+
+:END: 
   #+caption: Gemessene Partikelgeschwindigkeiten für verschiedene Startzeiten des Plateaus in der angelegten Trapezspannung für eine Frequenz von 1 Hz.
-  #+attr_latex: :placement [!h] :width 0.55\textwidth
+  #+attr_latex: :placement [!h] :width .75\textwidth
   #+name: img-v
   [[file:./img/v.png]]
 
