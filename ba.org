@@ -320,8 +320,9 @@ Der Exchange Bias Effekt bewirkt eine unidirektionale Anisotropie in der ferroma
 Die Hysteresekurve eines eines EB-Systems (Abbildung ref:fig-eb links in magenta) ist um das Austauschwechselfeld $H_\mathrm{EB}$ verschoben im Vergleich zum alleinigen Ferromagneten (grau gestrichelt). Während des Feldkühlprozesses wird der Antiferromagnet auf eine Temperatur zwischen Néel-Temperatur und Curie-Temperatur gebracht, hier verhält er sich paramagnetisch (Abb. ref:fig-eb rechts oben). Anschließend wird die Temperatur unter die Néel-Temperatur verringert. Die magnetischen Momente im AF koppeln an der Grenzfläche über $J_\mathrm{AF/F}$ an die Sättigungsmagnetisierung des Ferromagneten (Abb. ref:fig-eb rechts unten). So wird eine magnetische Ordnung hergestellt, welche die unidirektionale Anisotropie im Ferromagneten bewirkt cite:merkel_einfluss_2018.
 
 #+name:fig-eb
-#+caption: Schematische Darstellung der ferromagnetischen Hysteresekurve eines EB-Systems in Abhängigkeit des externen Magnetfeldes parallel zur leichten Achse der unidirektionalen Anisotropie (links) und schematische Darstellung des Feldkühlprozesses zur Herstellung des EB-Effektes (rechts). cite:merkel_einfluss_2018.
+#+caption: Schematische Darstellung der ferromagnetischen Hysteresekurve eines EB-Systems in Abhängigkeit des externen Magnetfeldes parallel zur leichten Achse der unidirektionalen Anisotropie (links) und schematische Darstellung des Feldkühlprozesses zur Herstellung des EB-Effektes (rechts) cite:merkel_einfluss_2018.
 #+attr_latex: :width \textwidth :placement [!h]
+#+attr_org: :width 50px
 [[file:img/eb.png]]
 
 Durch Helium-Ionenbeschuss kann der EB-Effekt eines Substrates verändert werden. So kann zum Beispiel die Richtung des Austauschwechselfeldes lokal umgekehrt werden cite:mougin_local_2001. Dies ermöglicht magnetische Strukturierung von EB-Systemen, zum Beispiel in einer /in-plane/ Anisotropie, welche zu /head-to-head/ und /tail-to-tail/-Domänenwänden führt, womit wiederum Transport von superparamagnetischen Partikeln realisiert werden kann cite:holzinger_directed_2015. 
@@ -454,9 +455,8 @@ file:./img/videospottracker.png
 
 * Anhang
 ** TODO Python-Script zur Messung von Stromstärke und Magnetfeld: label:anh-messung
-   
 
-#+begin_src python
+#+begin_src python :exports code
   """ Measure magnetic fieldstrength with NI USB-6002 """
   import numpy as np
   import nidaqmx
