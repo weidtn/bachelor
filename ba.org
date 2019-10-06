@@ -406,6 +406,10 @@ Die Aufzeichnung der Daten der NI USB-6002 Box erfolgte für beide Messungen mit
 
 * TODO Ergebnisse und Diskussion label:sec-ergebnisse
  
+** TODO Strom und Magnetfeld der Helmholtzspulen
+Um die verwendeten Helmholtzspulen näher charakterisieren zu können wurden sowohl die Stromstärke als auch das resultierende Magnetfeld gemessen.
+** TODO Partikelgeschwindigkeiten
+
 :CODE:
 #+begin_src python :session v :exports none :results output
   import numpy as np
