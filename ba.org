@@ -357,6 +357,17 @@ Die Partikel positionieren sich in Abwesenheit eines externen Feldes in Reihen �
 * TODO Experimentelle Methoden label:sec-methoden
 
 ** TODO Programm zur Erstellung von Magnetfeldsequenzen label:sec-py
+Um die in dieser Arbeit benötigten externen Magnetfelder zu erzeugen wurde ein neues Python Programm entwickelt, mit dessen Hilfe verschiedene Wellenformen als Magnetfeld ausgegeben werden können. Hierbei stand der modulare Ansatz im Vordergrund, weshalb durch einfache Änderungen am Programmcode andere Geräte am Aufbau verwendet werden können. Ziel war es sowohl sinus- und rechteckförmige Magnetfelder erzeugen zu können, als auch die für diese Arbeit benötigten trapezförmigen Magnetfelder. Dabei ist es möglich einfach jeden wichtigen Parameter der Wellenform zu ändern, und die Magnetfeldsequenzen als Plot dargestellt zu sehen. In Abbildung ref:fig-uml ist ein UML-Diagramm zu sehen, um den strukturellen Aufbau der Programmierung zu verdeutlichen. Abbildung ref:fig-prog zeigt einen Screenshot des Programms.
+
+#+name:fig-uml
+#+caption: UML-Diagramm des Pythonprogramms zur Erstellung von beliebigen Magnetfeldsequenzen.
+#+attr_latex: :width \textwidth
+[[file:img/uml.png]]
+
+#+name:fig-prog
+#+caption: Screenshot des Pythonprogramms zur Erstellung von beliebigen Magnetfeldsequenzen.
+#+attr_latex: :width \textwidth
+[[file:img/prog.png]]
 
 ** TODO Experimenteller Aufbau label:sec-aufbau
 
