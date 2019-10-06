@@ -459,10 +459,6 @@ Um die verwendeten Helmholtzspulen näher charakterisieren zu können wurden sow
 #+attr_latex: :placement [h] :width 0.75\textwidth
 #+name: img-videospottracker
 file:./img/videospottracker.png
-
-** TODO Strom und Magnetfeld der Helmholtzspulen
-** TODO Partikeltransport 
-** TODO Partikelgeschwindigkeiten
 * TODO Zusammenfassung und Ausblick label:sec-zusammenfassung
 
 * Anhang
