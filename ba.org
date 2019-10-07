@@ -383,35 +383,39 @@ Dieser Versuchsaufbau kann in zwei Teile unterteilt werden. Der erste Teil beste
 Bei den Versuchen in dieser Arbeit wurden nur zwei der drei Helmholtzspulen verwendet. Dabei handelte es sich um die Spulen für die x- und z-Richtung. Die Partikel wurden in einer mikrofluidischen Zelle auf den Proben platziert, um dann untersucht werden zu können. Hierfür wird Parafilm zuerst in Größe der Probe zurecht geschnitten, und dann ein Rechteck im Inneren des Parafilms ausgeschnitten. So entsteht eine Aussparung in der Mitte, in die circa \SI{10}{\micro\litre} Partikelsuspension gegeben werden. Anschließend wird die Probe auf dem Probentisch platziert, die LED eingeschaltet, und die Kamera mittels Livebild auf die Partikel fokussiert.
 
 ** TODO Programm zur Erstellung von Magnetfeldsequenzen label:sec-py
-Um die in dieser Arbeit benötigten externen Magnetfelder zu erzeugen wurde ein neues Python Programm entwickelt, mit dessen Hilfe verschiedene Wellenformen als Magnetfeld ausgegeben werden können. Hierbei stand ein modularer Ansatz im Vordergrund, weshalb durch einfache Änderungen am Programmcode andere Geräte im Aufbau verwendet werden können. So kann zum Beispiel ein anderes Netzteil verwendet werden, um dann auch drei Helmholtzspulen für Magnetfelder in drei Dimensionen anzusteuern. Ziel war es sowohl sinus- und rechteckförmige Magnetfelder, als auch die für diese Arbeit benötigten trapezförmigen Magnetfelder erzeugen zu können. Dabei ist es möglich jeden wichtigen Parameter der Wellenform zu ändern, und die Magnetfeldsequenzen als Plot dargestellt zu sehen. Abbildung ref:fig-prog zeigt einen Screenshot des Programms.
+Um die in dieser Arbeit benötigten externen Magnetfelder zu erzeugen wurde ein neues Programm in Python entwickelt, mit dessen Hilfe verschiedene Wellenformen als Magnetfeld ausgegeben werden können. Hierbei stand ein modularer Ansatz im Vordergrund, weshalb durch einfache Änderungen am Programmcode andere Geräte im Aufbau verwendet werden können. So kann zum Beispiel ein anderes Netzteil verwendet werden, um dann auch drei Helmholtzspulen für Magnetfelder in drei Dimensionen anzusteuern. Ziel war es sowohl sinus- und rechteckförmige Magnetfelder, als auch die für diese Arbeit benötigten trapezförmigen Magnetfelder erzeugen zu können. Dabei ist es möglich jeden wichtigen Parameter der Wellenform zu ändern, und die Magnetfeldsequenzen als Plot dargestellt zu sehen. Abbildung ref:fig-prog zeigt einen Screenshot des Programms.
 
-Momentan ist es nur möglich die Spannungsausgabe der NI USB-6002 Box zu modifizieren und anzuzeigen. In Zukunft soll es jedoch möglich sein bereits das entstehende Magnetfeld im Programm auszuwählen und angezeigt zu bekommen. Hierzu wurden zunächst die verwendeten Spulen und das Netzteil charakterisiert (siehe Kapitel ref:sec-stromundmagnet).
+Momentan ist es nur möglich die Spannungsausgabe des DAQ-Gerätes zu modifizieren und anzuzeigen. In Zukunft soll es jedoch möglich sein bereits das entstehende Magnetfeld im Programm auszuwählen und angezeigt zu bekommen. Hierzu wurden zunächst die verwendeten Spulen und das Netzteil charakterisiert (siehe Kapitel ref:sec-stromundmagnet).
 
 #+name:fig-prog
-#+caption: Screenshot des Pythonprogramms zur Erstellung von beliebigen Magnetfeldsequenzen. Rechts dargestellt werden zwei trapezförmige Spannungen, die so von der NI USB-6002 Box an das Netzteil ausgegeben werden können.
+#+caption: Screenshot des entwickelen Programms zur Erstellung von beliebigen Magnetfeldsequenzen. Rechts dargestellt werden zwei trapezförmige Spannungen, die so von dem DAQ-Gerät an das Netzteil ausgegeben werden können.
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/prog.png]]
 
 ** TODO Zeitabhängige Messung von Strom und Magnetfeld label:sec-stromundmagnet
 Um das Verhalten der im Experiment verwendeten Helmholtzspulen nachvollziehen zu können und um die gegebenen technischen Daten und Modelle zu Überprüfen, wurden Messungen des Magnetfeldes und des Stromes an eben jenen Spulen durchgeführt.
 
-Hierfür wurde einerseits der zeitliche Verlauf der Stromstärke in der Spule gemessen, um Induktivität und ohmschen Widerstand zu überprüfen. Es wurde ein Keramikwiderstand in Reihe mit der zu messenden Helmholtzspule angebracht. Über diesem Widerstand $R$ wurde nun die Spannung $U$ gemessen, indem eine NI USB-6002 Box parallel dazu angeschlossen wurde. Mithilfe des Ohmschen Gesetzes lässt sich so der Strom $I$, der durch den bekannten Widerstand $R$ fließt, berechnen. Da Spule und Widerstand in Reihe geschaltet sind, fließt durch beide die selbe Stromstärke.
+Hierfür wurde einerseits der zeitliche Verlauf der Stromstärke in der Spule gemessen, um Induktivität und ohmschen Widerstand zu überprüfen. Es wurde ein Keramikwiderstand in Reihe mit der zu messenden Helmholtzspule angebracht. Über diesem Widerstand $R$ wurde nun die Spannung $U$ gemessen, indem eine NI USB-6002 Box (im folgenden /DAQ/ für /Data Acquisition/) parallel dazu angeschlossen wurde. Mithilfe des Ohmschen Gesetzes lässt sich so der Strom $I$, der durch den bekannten Widerstand $R$ fließt, berechnen. Da Spule und Widerstand in Reihe geschaltet sind, fließt durch beide die selbe Stromstärke.
 
 #+name: fig-strommessung-aufbau
-#+caption: Schaltbild zur Strommessung
+#+caption: Schematisches Schaltbild zur zeitlich aufgelösten Strommessung am Aufbau.
 #+attr_latex: :width 0.7\textwidth :placement [h]
 [[file:img/strommessung.pdf]]
 
-Um den zeitlichen Verlauf des Magnetfeldes zu messen, wurde der Messkopf eines Teslameters auf dem Probentisch in den Helmholtzspulen platziert. Das FM210 Teslameter der /Projekt Elektronik GmbH/ besitzt einen BNC-Anschluss, über welchen widerum eine NI USB-6002 Box angeschlossen wurde, um den zeitlichen Verlauf des Magnetfeldes aufzuzeichnen.
+Um den zeitlichen Verlauf des Magnetfeldes zu messen, wurde der Messkopf eines Teslameters auf dem Probentisch in den Helmholtzspulen platziert. Das FM210 Teslameter der /Projekt Elektronik GmbH/ besitzt einen BNC-Anschluss, über welchen widerum ein DAQ-Gerät angeschlossen wurde, um den zeitlichen Verlauf des Magnetfeldes aufzuzeichnen.
 
-Die Aufzeichnung der Daten der NI USB-6002 Box erfolgte für beide Messungen mittels eines selbst geschriebenen Python-Scriptes (siehe Anhang [[ref:anh-messung]]).
+Die Aufzeichnung der Daten des DAQ-Gerätes erfolgte für beide Messungen mittels eines selbst geschriebenen Python-Scriptes (siehe Anhang [[ref:anh-messung]]).
 
 * TODO Ergebnisse und Diskussion label:sec-ergebnisse
- 
-** TODO Strom und Magnetfeld der Helmholtzspulen
+Allgemein kann die Auswertung in zwei Teile unterteilt werden.
+Zu Beginn der Auswertung wird in Kapitel ref:sec-b_helmholtz auf Messungen von Stromstärke und Magnetfeldstärke an den im Experiment verwendeten Helmholtzspulen eingegangen. Diese Messungen werden benötigt um das Programm zur Erstellung von Magnetfeldsequenzen zukünftig sinnvoll weiter entwickeln zu können. Es wurden sowohl statische Messungen der Amplitude der Magnetfeldstärke als auch der zeitliche Verlauf der Magnetfeldstärke in Abhängigkeit der Stromstärke durchgeführt.
+
+Anschließend wird Kapitel ref:sec-partikelgeschwindigkeiten der Einfluss der Änderungsrate der trapezförmigen Magnetfeldsequenzen auf die Partikelgeschwindigkeiten näher betrachtet. Hierzu werden außerdem die Auswirkungen auf die Trajektorien der Partikel genauer untersucht und mit simulierten Werten verglichen.
+
+** TODO Strom und Magnetfeld der Helmholtzspulen label:sec-b_helmholtz
 Um die verwendeten Helmholtzspulen näher charakterisieren zu können wurden sowohl die Stromstärke als auch das resultierende Magnetfeld gemessen.
 
-Zuerst wurde der Zusammenhang zwischen Stromstärke $I$ und Magnetfeldstärke $B$ gemessen. Dabei wurde die Stromstärke an einem in Reihe geschalteten Multimeter abgelesen, die Magnetfeldstärke an einem Teslameter der Firma /Projekt Elektronik GmbH$, wessen Messkopf sich in der Probenhalterung der Helmholtzspulen zur Messung der z-Spule befand. Der Zusammenhang von Stromstärke und Magnetfeldstärke sollte gemäß Gleichung ref:eq-spule linear sein, deswegen wurde eine lineare Regression durch die Messwerte gelegt.
+Zuerst wurde der Zusammenhang zwischen Stromstärke $I$ und Magnetfeldstärke $B$ gemessen. Dabei wurde die Stromstärke an einem in Reihe geschalteten Multimeter abgelesen, die Magnetfeldstärke an einem Teslameter der Firma /Projekt Elektronik GmbH/, dessen Messkopf sich in der Probenhalterung der Helmholtzspulen zur Messung des Magnetfeldes in z-Dimension befand. Der Zusammenhang von Stromstärke und Magnetfeldstärke sollte gemäß Gleichung ref:eq-spule linear sein, deswegen wurde  in Abbildung ref:fig-magnetfeldstrom eine lineare Regression durch die Messwerte gelegt.
 
 :TABLE:
 #+name: Zusammenhang zwischen Magnetfeldstärke und Stromstärke. Hierbei wurde die Spannung an der NI USB-6002 Box erhöht und dazugehörige Stromstärke am Netzteilausgang $I$ und Magnetfeldstärke im inneren der z-Spule $B_\mathrm{z}$ gemessen.
@@ -453,13 +457,19 @@ Zuerst wurde der Zusammenhang zwischen Stromstärke $I$ und Magnetfeldstärke $B
 
   csv = pd.read_csv("B(I).csv", sep=";", index_col=False)
   plt.clf()
-  x=csv['Netzteil [A]']
-  B=csv['Teslameter [mT]']
-  plt.plot(x, B, 'o', label="Messwerte")
+  x=csv['Netzteil [A]'].to_numpy()
+  x = np.insert(x, 0, 0)
+  xerr = np.full(len(x), 0.001)
+  B=csv['Teslameter [mT]'].to_numpy()
+  B = np.insert(B, 0, 0)
+  Berr = np.full(len(B), 0.01)
   plt.xlabel("$I$ [A]")
   plt.ylabel("$B_\mathrm{z}$ [mT]")
   slope, intercept, r, p, stderr = scipy.stats.linregress(x, B)
   plt.plot(x, slope * x + intercept, 'r--', label="lin. Regression m={:2.2f}, b={:2.2f}, R^2={:2.5f}".format(slope, intercept, r**2))
+  # plt.errorbar(x, B, xerr=xerr, yerr=Berr, capsize=3, label="Messwerte")
+  plt.plot(x, B, '.', label="Messwerte")
+  plt.grid()
   plt.legend()
   plt.savefig("./img/B(I).png", dpi=600)
   "./img/B(I).png"
@@ -469,12 +479,56 @@ Zuerst wurde der Zusammenhang zwischen Stromstärke $I$ und Magnetfeldstärke $B
 
 :END:
 
-#+caption: Messung der Magnetfeldstärke in der z-Spule $B_\mathrm{z}$ in Abhängigkeit der Stromstärke am Netzteil $I$. Die Messwerte sind blau dargestellt, eine lineare Regression über diese in rot.
-#+attr_latex: :width \textwidth :placement [h]
+#+name: fig-magnetfeldstrom
+#+caption: Messung der Magnetfeldstärke in der z-Spule $B_\mathrm{z}$ in Abhängigkeit der Stromstärke am Netzteil $I$. Die Messwerte sind blau dargestellt, eine lineare Regression über diese in rot. Fehlerbalken sind aufgrund der Sichtbarkeit des niedrigen Fehlers nicht dargestellt.
+#+attr_latex: :width 0.75\textwidth :placement [h]
 #+attr_org: :width 100px
 [[file:img/B(I).png]]
 
-** TODO Partikelgeschwindigkeiten
+Um die Validität der Näherung aus Gleichung ref:eq-helmholtz für die verwendeten Spulen zu überprüfen, wurde die Gleichung nach einigen mathematischen Umformungen als Pythoncode geschrieben und Radius und Windungszahl der verwendeten Spule vorgegeben:
+#+begin_src python :session magnetfeld :exports code
+  def B_helmholtz(I, c):
+      n = 330
+      r = 0.030
+      B = 4*np.pi * 10**(-7) * (8* I * n)/(np.sqrt(125)*r) + c
+#+end_src
+
+#+RESULTS:
+
+Anschließend wurden die vorher gemessenen Stromstärken verwendet um die zu erwartende Magnetfeldstärke zu berechnen. Der Vergleich zwischen gemessenen und berechneten Werten ist in Abbildung ref:fig-b_helmholtz zu sehen.
+:CODE:
+#+begin_src python :session magnetfeld :results output :export none
+  def B_helmholtz(I, c):
+      n = 330
+      r = 0.030
+      B = 4*np.pi * 10**(-7) * (8* I * n)/(np.sqrt(125)*r) + c
+      return B
+
+  B_calc = B_helmholtz(x, c=0) * 1000
+  plt.clf()
+  ax1 = plt.subplot(1,1,1)
+  ax1.plot(x, B, label="Messwerte")
+  ax1.plot(x, B_calc, label="Berechnete Werte")
+  ax1.set_ylabel("$B_\mathrm{z}$ [mT]")
+  ax1.set_xlabel("$I$ [A]")
+  ax1.legend()
+  plt.grid()
+  plt.tight_layout()
+  plt.savefig("./img/B_calc.png")
+  "./img/B_calc.png"
+#+end_src
+
+#+RESULTS:
+
+:END:
+
+#+name:fig-b_helmholtz
+#+caption: Vergleich von gemessener und mit Näherung aus Gleichung ref:eq-helmholtz berechneter Magnetfeldstärke in z-Dimension.
+#+attr_latex: :width 0.75\textwidth :placement [h]
+[[file:img/b_calc.png]]
+
+Hierbei wird deutlich, dass die Näherung für höhere Stromstärken nicht hinreichend genügt. Jedoch liegen für den verwendeten Aufbau benötigte Magnetfeldstärken im Bereich von unter \SI{8}{\milli\tesla}, weswegen die Näherung in Zukunft im Partikeltransport Programm verwendet werden könnte, um die Amplitude des entstehenden Magnetfeldes bereits im Voraus zu berechnen.
+** TODO Partikelgeschwindigkeiten label:sec-partikelgeschwindigkeiten
 
 :CODE:
 #+begin_src python :session v :exports none :results output
