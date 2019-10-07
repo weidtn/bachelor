@@ -360,12 +360,10 @@ Die Partikel positionieren sich in Abwesenheit eines externen Feldes in Reihen �
 
 Um den Transport von superparamagnetischen Partikeln über das Substrat zu realisieren und zu beobachten, wurde der Versuchsaufbau, der in Abbildung ref:img-aufbau zu sehen ist, verwendet.
 
-
 #+caption: Partikeltransport Versuchsaufbau.
 #+attr_latex: :width \textwidth
 #+name: img-aufbau
 file:./img/aufbau.png
-
 
 Dieser Versuchsaufbau kann in zwei Teile unterteilt werden. Der erste Teil besteht aus einer Optronis Hochgeschwindigkeitskamera (1), welche durch ein Mikroskop (2) die Partikelbewegung in Videos aufzeichnet. Zur Belichtung der Probe wird eine Weißlicht-LED (3) verwendet. Die Position der Kamera über der Probe, und somit der Fokus des Mikroskops wird über einen Schrittmotor (4) verändert, welcher von einem LabView-Programm über eine NI USB-6002 Box (im Folgenden /DAQ/ für /Data Acquisition/) (5) gesteuert wird. Der zweite Teil erzeugt das elektromagnetische Feld, um die Partikel zu transportieren. Er besteht aus drei senkrecht zueinander stehenden Helmholtzspulen (6), in deren Mitte ein beweglicher Probentisch liegt. Hiermit können Magnetfelder für alle drei Raumdimensionen erzeugt werden. Die Helmholtzspulen werden über ein spannungsgesteuertes Netzteil (7) mit Strom versorgt, welches wiederum von einem NI USB-6002 Box (DAQ) (8) über ein Python-Programm (siehe Kapitel ref:sec-py) angesteuert wird. So können beliebige Magnetfeldsequenzen im Inneren der Helmholtzspulen realisiert werden. Die Helmholtzspulen bestehen aus gewickeltem Kupferdraht, nähere Daten können Tabelle ref:tab-spulen entnommen werden.
 
@@ -491,6 +489,7 @@ Um die Validität der Näherung aus Gleichung ref:eq-helmholtz für die verwende
       n = 330
       r = 0.030
       B = 4*np.pi * 10**(-7) * (8* I * n)/(np.sqrt(125)*r) + c
+      return B
 #+end_src
 
 #+RESULTS:
@@ -528,6 +527,9 @@ Anschließend wurden die vorher gemessenen Stromstärken verwendet um die zu erw
 [[file:img/b_calc.png]]
 
 Hierbei wird deutlich, dass die Näherung für höhere Stromstärken nicht hinreichend genügt. Jedoch liegen für den verwendeten Aufbau benötigte Magnetfeldstärken im Bereich von unter \SI{8}{\milli\tesla}, weswegen die Näherung in Zukunft im Partikeltransport Programm verwendet werden könnte, um die Amplitude des entstehenden Magnetfeldes bereits im Voraus zu berechnen.
+
+Um den zeitlichen Verlauf der Stromstärke zu bestimmen wurde der Aufbau aus Kapitel ref:sec-stromundmagnet verwendet.
+
 ** TODO Partikelgeschwindigkeiten label:sec-partikelgeschwindigkeiten
 
 :CODE:
