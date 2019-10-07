@@ -356,14 +356,6 @@ Die Partikel positionieren sich in Abwesenheit eines externen Feldes in Reihen �
 
 * TODO Experimentelle Methoden label:sec-methoden
 
-** TODO Programm zur Erstellung von Magnetfeldsequenzen label:sec-py
-Um die in dieser Arbeit benötigten externen Magnetfelder zu erzeugen wurde ein neues Python Programm entwickelt, mit dessen Hilfe verschiedene Wellenformen als Magnetfeld ausgegeben werden können. Hierbei stand der modulare Ansatz im Vordergrund, weshalb durch einfache Änderungen am Programmcode andere Geräte am Aufbau verwendet werden können. Ziel war es sowohl sinus- und rechteckförmige Magnetfelder erzeugen zu können, als auch die für diese Arbeit benötigten trapezförmigen Magnetfelder. Dabei ist es möglich einfach jeden wichtigen Parameter der Wellenform zu ändern, und die Magnetfeldsequenzen als Plot dargestellt zu sehen. Abbildung ref:fig-prog zeigt einen Screenshot des Programms.
-
-#+name:fig-prog
-#+caption: Screenshot des Pythonprogramms zur Erstellung von beliebigen Magnetfeldsequenzen.
-#+attr_latex: :width \textwidth :placement [!h]
-[[file:img/prog.png]]
-
 ** TODO Experimenteller Aufbau label:sec-aufbau
 
 Um den Transport von superparamagnetischen Partikeln über das Substrat zu realisieren und zu beobachten, wurde der Versuchsaufbau, der in Abbildung ref:img-aufbau zu sehen ist, verwendet.
@@ -390,7 +382,17 @@ Dieser Versuchsaufbau kann in zwei Teile unterteilt werden. Der erste Teil beste
 
 Bei den Versuchen in dieser Arbeit wurden nur zwei der drei Helmholtzspulen verwendet. Dabei handelte es sich um die Spulen für die x- und z-Richtung. Die Partikel wurden in einer mikrofluidischen Zelle auf den Proben platziert, um dann untersucht werden zu können. Hierfür wird Parafilm zuerst in Größe der Probe zurecht geschnitten, und dann ein Rechteck im Inneren des Parafilms ausgeschnitten. So entsteht eine Aussparung in der Mitte, in die circa \SI{10}{\micro\litre} Partikelsuspension gegeben werden. Anschließend wird die Probe auf dem Probentisch platziert, die LED eingeschaltet, und die Kamera mittels Livebild auf die Partikel fokussiert.
 
-** TODO Zeitabhängige Messung von Strom und Magnetfeld
+** TODO Programm zur Erstellung von Magnetfeldsequenzen label:sec-py
+Um die in dieser Arbeit benötigten externen Magnetfelder zu erzeugen wurde ein neues Python Programm entwickelt, mit dessen Hilfe verschiedene Wellenformen als Magnetfeld ausgegeben werden können. Hierbei stand ein modularer Ansatz im Vordergrund, weshalb durch einfache Änderungen am Programmcode andere Geräte im Aufbau verwendet werden können. So kann zum Beispiel ein anderes Netzteil verwendet werden, um dann auch drei Helmholtzspulen für Magnetfelder in drei Dimensionen anzusteuern. Ziel war es sowohl sinus- und rechteckförmige Magnetfelder, als auch die für diese Arbeit benötigten trapezförmigen Magnetfelder erzeugen zu können. Dabei ist es möglich jeden wichtigen Parameter der Wellenform zu ändern, und die Magnetfeldsequenzen als Plot dargestellt zu sehen. Abbildung ref:fig-prog zeigt einen Screenshot des Programms.
+
+Momentan ist es nur möglich die Spannungsausgabe der NI USB-6002 Box zu modifizieren und anzuzeigen. In Zukunft soll es jedoch möglich sein bereits das entstehende Magnetfeld im Programm auszuwählen und angezeigt zu bekommen. Hierzu wurden zunächst die verwendeten Spulen und das Netzteil charakterisiert (siehe Kapitel ref:sec-stromundmagnet).
+
+#+name:fig-prog
+#+caption: Screenshot des Pythonprogramms zur Erstellung von beliebigen Magnetfeldsequenzen. Rechts dargestellt werden zwei trapezförmige Spannungen, die so von der NI USB-6002 Box an das Netzteil ausgegeben werden können.
+#+attr_latex: :width \textwidth :placement [H]
+[[file:img/prog.png]]
+
+** TODO Zeitabhängige Messung von Strom und Magnetfeld label:sec-stromundmagnet
 Um das Verhalten der im Experiment verwendeten Helmholtzspulen nachvollziehen zu können und um die gegebenen technischen Daten und Modelle zu Überprüfen, wurden Messungen des Magnetfeldes und des Stromes an eben jenen Spulen durchgeführt.
 
 Hierfür wurde einerseits der zeitliche Verlauf der Stromstärke in der Spule gemessen, um Induktivität und ohmschen Widerstand zu überprüfen. Es wurde ein Keramikwiderstand in Reihe mit der zu messenden Helmholtzspule angebracht. Über diesem Widerstand $R$ wurde nun die Spannung $U$ gemessen, indem eine NI USB-6002 Box parallel dazu angeschlossen wurde. Mithilfe des Ohmschen Gesetzes lässt sich so der Strom $I$, der durch den bekannten Widerstand $R$ fließt, berechnen. Da Spule und Widerstand in Reihe geschaltet sind, fließt durch beide die selbe Stromstärke.
