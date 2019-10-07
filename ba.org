@@ -526,7 +526,8 @@ Zuerst wurde der Zusammenhang zwischen Stromstärke $I$ und Magnetfeldstärke $B
 #+name: img-videospottracker
 file:./img/videospottracker.png
 * TODO Zusammenfassung und Ausblick label:sec-zusammenfassung
-
+# Beliebige Magnetfeldsequenzen
+# Trigger Camera
 * Anhang
 ** TODO Python-Script zur Messung von Stromstärke und Magnetfeld: label:anh-messung
 
