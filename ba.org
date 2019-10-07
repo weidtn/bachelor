@@ -404,12 +404,75 @@ Hierfür wurde einerseits der zeitliche Verlauf der Stromstärke in der Spule ge
 
 Um den zeitlichen Verlauf des Magnetfeldes zu messen, wurde der Messkopf eines Teslameters auf dem Probentisch in den Helmholtzspulen platziert. Das FM210 Teslameter der /Projekt Elektronik GmbH/ besitzt einen BNC-Anschluss, über welchen widerum eine NI USB-6002 Box angeschlossen wurde, um den zeitlichen Verlauf des Magnetfeldes aufzuzeichnen.
 
-Die Aufzeichnung der Daten der NI USB-6002 Box erfolgte für beide Messungen mittels eines selbst geschriebenen Python-Scriptes (siehe Kapitel [[ref:anh-messung]]).
+Die Aufzeichnung der Daten der NI USB-6002 Box erfolgte für beide Messungen mittels eines selbst geschriebenen Python-Scriptes (siehe Anhang [[ref:anh-messung]]).
 
 * TODO Ergebnisse und Diskussion label:sec-ergebnisse
  
 ** TODO Strom und Magnetfeld der Helmholtzspulen
 Um die verwendeten Helmholtzspulen näher charakterisieren zu können wurden sowohl die Stromstärke als auch das resultierende Magnetfeld gemessen.
+
+Zuerst wurde der Zusammenhang zwischen Stromstärke $I$ und Magnetfeldstärke $B$ gemessen. Dabei wurde die Stromstärke an einem in Reihe geschalteten Multimeter abgelesen, die Magnetfeldstärke an einem Teslameter der Firma /Projekt Elektronik GmbH$, wessen Messkopf sich in der Probenhalterung der Helmholtzspulen zur Messung der z-Spule befand. Der Zusammenhang von Stromstärke und Magnetfeldstärke sollte gemäß Gleichung ref:eq-spule linear sein, deswegen wurde eine lineare Regression durch die Messwerte gelegt.
+
+:TABLE:
+#+name: Zusammenhang zwischen Magnetfeldstärke und Stromstärke. Hierbei wurde die Spannung an der NI USB-6002 Box erhöht und dazugehörige Stromstärke am Netzteilausgang $I$ und Magnetfeldstärke im inneren der z-Spule $B_\mathrm{z}$ gemessen.
+#+attr_latex: :center t :align nil
+| $U_\mathrm{DAQ}\nbsp[\si{\volt}]$ | $I\nbsp[\si{\ampere}]$ | $B_\mathrm{z}\nbsp[\si{\milli\tesla}]$ |
+|                                 / |                      < |                                      < |
+|                               0.1 |                  0.079 |                                   0.73 |
+|                               0.2 |                  0.158 |                                   1.53 |
+|                               0.3 |                  0.238 |                                   2.29 |
+|                               0.4 |                  0.317 |                                   3.15 |
+|                               0.5 |                  0.396 |                                   3.95 |
+|                               0.6 |                  0.476 |                                   4.78 |
+|                               0.7 |                  0.555 |                                   5.59 |
+|                               0.8 |                  0.635 |                                   6.41 |
+|                               0.9 |                  0.714 |                                   7.23 |
+|                               1.0 |                  0.793 |                                   8.05 |
+|                               1.1 |                  0.873 |                                   8.88 |
+|                               1.2 |                  0.953 |                                   9.70 |
+|                               1.3 |                  1.032 |                                  10.52 |
+|                               1.4 |                  1.111 |                                  11.36 |
+|                               1.5 |                  1.191 |                                  12.20 |
+|                               1.6 |                  1.271 |                                  13.01 |
+|                               1.7 |                   1.35 |                                  13.85 |
+|                               1.8 |                   1.43 |                                  14.69 |
+|                               1.9 |                  1.509 |                                  15.52 |
+|                               2.0 |                  1.588 |                                  16.35 |
+
+:END:
+
+:CODE:
+
+#+begin_src python :session magnetfeld :results output :exports none
+  import numpy as np
+  import pandas as pd
+  import matplotlib
+  matplotlib.use("Agg")
+  import matplotlib.pyplot as plt
+  import scipy.stats
+
+  csv = pd.read_csv("B(I).csv", sep=";", index_col=False)
+  plt.clf()
+  x=csv['Netzteil [A]']
+  B=csv['Teslameter [mT]']
+  plt.plot(x, B, 'o', label="Messwerte")
+  plt.xlabel("$I$ [A]")
+  plt.ylabel("$B_\mathrm{z}$ [mT]")
+  slope, intercept, r, p, stderr = scipy.stats.linregress(x, B)
+  plt.plot(x, slope * x + intercept, 'r--', label="lin. Regression m={:2.2f}, b={:2.2f}, R^2={:2.5f}".format(slope, intercept, r**2))
+  plt.legend()
+  plt.savefig("./img/B(I).png", dpi=600)
+  "./img/B(I).png"
+#+end_src 
+
+#+RESULTS:
+
+:END:
+
+#+caption: Messung der Magnetfeldstärke in der z-Spule $B_\mathrm{z}$ in Abhängigkeit der Stromstärke am Netzteil $I$. Die Messwerte sind blau dargestellt, eine lineare Regression über diese in rot.
+#+attr_latex: :width \textwidth :placement [h]
+#+attr_org: :width 100px
+[[file:img/B(I).png]]
 
 ** TODO Partikelgeschwindigkeiten
 
