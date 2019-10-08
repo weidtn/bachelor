@@ -45,6 +45,10 @@ Bildunterschirft allgemein halten, genauer dann im text
    #+latex_header: \usepackage{mhchem}
    #+latex_header: \include{titlepage/titlepage}
    #+latex_header: \newgeometry{bottom=2.5cm,left=2.5cm,right=2.5cm}
+   # #+latex_header: \usepackage[maxbibnames=5,maxcitenames=2,backend=biber]{biblatex}
+   # #+latex_header: \bibliography{test}
+   # #+latex_header: \bibliographystyle{alpha}
+   # #+latex_header: \usepackage[alpha]{natbib}
      
 * Andere Arbeiten                                                    :ignore:
 
@@ -631,11 +635,17 @@ file:./img/videospottracker.png
 
 #+RESULTS:
 
-** 
+* 
   :PROPERTIES:
   :UNNUMBERED: t
   :END:
 # Literaturverzeichnis:
-  bibliographystyle:alpha
-  bibliography:library.bib
+# \printbibliography
+  bibliographystyle:agem
+  bibliography:test.bib
   
+* Danksagung :ignore:
+:PROPERTIES:
+:UNNUMBERED: t
+:END:
+Danke.
