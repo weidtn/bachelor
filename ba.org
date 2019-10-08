@@ -37,18 +37,16 @@ Bildunterschirft allgemein halten, genauer dann im text
    #+latex_header: \usepackage[onehalfspacing]{setspace}
    #+latex_header: \usepackage{graphicx}
    #+latex_header: \usepackage{amsmath,amssymb,amstext,bbm}
-   #+latex_header: \usepackage[labelfont=bf, up, textfont=small, figurename=Abb., tablename=Tab.]{caption}
+   #+latex_header: \usepackage[labelfont=bf, textfont=small, figurename=Abb., tablename=Tab.]{caption}
    #+latex_header: \usepackage[output-decimal-marker={,}]{siunitx}
-   #+latex_header: \usepackage[cache=false]{minted}
+   #+latex_header: \usepackage{csquotes}
+   # #+latex_header: \usepackage[cache=false]{minted}
    #+latex_header: \setminted{fontsize=\footnotesize}
    #+latex_header: \usemintedstyle{emacs}
-   #+latex_header: \usepackage{mhchem}
-   #+latex_header: \include{titlepage/titlepage}
+   #+latex_header: \usepackage[version=4]{mhchem}
    #+latex_header: \newgeometry{bottom=2.5cm,left=2.5cm,right=2.5cm}
-   # #+latex_header: \usepackage[maxbibnames=5,maxcitenames=2,backend=biber]{biblatex}
-   # #+latex_header: \bibliography{test}
-   # #+latex_header: \bibliographystyle{alpha}
-   # #+latex_header: \usepackage[alpha]{natbib}
+   #+latex_header: \usepackage[style=alphabetic,maxbibnames=5,maxcitenames=4,backend=biber,language=german]{biblatex}
+   #+latex_header: \addbibresource{library.bib}
      
 * Andere Arbeiten                                                    :ignore:
 
@@ -59,13 +57,14 @@ Bildunterschirft allgemein halten, genauer dann im text
 
 * PDF:                                                               :ignore:
  [[file:ba.pdf][ba.pdf]] 
+\include{titlepage/titlepage}
 * TODO Einleitung label:sec-einleitung
-Durch die allgemeine Zunahme der Weltbevölkerung, den demographischen Wandel und die steigende Lebenserwartung wird eine Zunahme von Krankheiten wie Krebs oder Diabetes erwartet cite:bray_Global_2018,zhou_Worldwide_2016. Um dieser Entwicklung entgegen zu wirken, werden kostengünstige patientennahe Diagnoseprozesse für die Individualmedizin entwickelt. So können bereits früh Krankheitsanzeichen und -ursachen entdeckt und bekämpft werden.
+Durch die allgemeine Zunahme der Weltbevölkerung, den demographischen Wandel und die steigende Lebenserwartung wird eine Zunahme von Krankheiten wie Krebs oder Diabetes erwartet cite:bray_global_2018,zhou_worldwide_2016. Um dieser Entwicklung entgegen zu wirken, werden kostengünstige patientennahe Diagnoseprozesse für die Individualmedizin entwickelt. So können bereits früh Krankheitsanzeichen und -ursachen entdeckt und bekämpft werden.
 
-Neuartigen Analysesystemen wie /Lab-on-a-Chip/ (LOC) werden deswegen großes Potential für Biomedizin und Medizindiagnostik in der Zukunft zugesprochen. Durch Miniaturisierung der Chips stellen sich viele Vorteile heraus cite:stone_Microfluidics_2001,knight_Honey_2002.
-Möglich sind unter anderem Biochips zur Analyse und Detektion von bestimmten Molekülen cite:papadea_Evaluation_2002, Zellen (beispielsweise T-Zellen für die HIV/AIDS Diagnostik cite:cheng_Microchip_2007), Protein- und Molekülmarkern cite:wang_Selfpowered_2010, sowie DNA/RNA-Analysen (z.B. Identifizierung von resistenten Pathogenen cite:boehme_Rapid_2010). Es können bereits geringe Probenvolumina innerhalb kürzester Zeit analysiert werden und es werden nur geringe Mengen von Reagenzien benötigt cite:chin_Commercialization_2012. So können relativ kostengünstige Biochips und Analyseverfahren entwickelt werden, um zum Beispiel auch in Schwellen- und Entwicklungsländern die medizinische Versorgung zu verbessern. Ein wichtiger Bestandteil dieser LOCs ist Transport und Separation der Analyte innerhalb des Chips. Hier hat sich die Nutzung von magnetischen Partikeln bewährt. Verschiedene mikromagnetische Oberflächenstrukturierungen machen dabei den gezielten Transport der Partikel möglich cite:rampini_Micromagnet_2016.  
+Neuartigen Analysesystemen wie /Lab-on-a-Chip/ (LOC) werden deswegen großes Potential für Biomedizin und Medizindiagnostik in der Zukunft zugesprochen. Durch Miniaturisierung der Chips stellen sich viele Vorteile heraus cite:stone_microfluidics_2001,knight_honey_2002.
+Möglich sind unter anderem Biochips zur Analyse und Detektion von bestimmten Molekülen cite:papadea_evaluation_2002, Zellen (beispielsweise T-Zellen für die HIV/AIDS Diagnostik cite:cheng_microchip_2007), Protein- und Molekülmarkern cite:wang_self-powered_2010, sowie DNA/RNA-Analysen (z.B. Identifizierung von resistenten Pathogenen cite:boehme_rapid_2010). Es können bereits geringe Probenvolumina innerhalb kürzester Zeit analysiert werden und es werden nur geringe Mengen von Reagenzien benötigt cite:chin_commercialization_2012. So können relativ kostengünstige Biochips und Analyseverfahren entwickelt werden, um zum Beispiel auch in Schwellen- und Entwicklungsländern die medizinische Versorgung zu verbessern. Ein wichtiger Bestandteil dieser LOCs ist Transport und Separation der Analyte innerhalb des Chips. Hier hat sich die Nutzung von magnetischen Partikeln bewährt. Verschiedene mikromagnetische Oberflächenstrukturierungen machen dabei den gezielten Transport der Partikel möglich cite:rampini_micromagnet_2016.  
 
-Das in der Arbeitsgruppe \textsc{Ehresmann} etablierte Transportkonzept von superparamagnetischen Partikeln (SPP) oberhalb magnetisch strukturierter /Exchange-Bias/ (EB) Dünnschichtsysteme kann hierbei ein wichtiger Bestandteil zukünftiger Analysesysteme werden. Die Grundidee ist es durch ein extern angelegtes Magnetfeld die magnetische Feldlandschaft (MFL) so zu transformieren, dass ein gerichteter Transport der SPP zwischen /head-to-head/ und /tail-to-tail/-Domänenwänen möglich wird. Dabei können diese SPP in verschiedenen Prozessschritten eines LOCs verwendet werden. Einerseits können Analyte die an Partikel gebunden sind in bestimmte Analysebereiche transportiert werden cite:ehresmann_Asymmetric_2011, andererseits können aber auch Strömungsfelder durch den Partikeltransport erzeugt werden, welche das Analyt durchmischen und so höhere biochemische Reaktionsraten bewirken cite:holzinger_Controlled_2012. Ein weiteres Anwendungsgebiet ist die magnetophoretische Auftrennung der Partikel, um so verschiedene Partikelgrößen und -typen aufgrund unterschiedlicher Bewegungsgeschwindigkeiten voneinander trennen zu können, um so möglichst homogene Partikeldispersionen für Analysen zu erhalten cite:zhou_Magnetic_2016. Für jede dieser Anwendungen werden verschiedene Formen eines externen Magnetfeldes benötigt. Bisher wurden für den Partikeltransport trapezförmige Magnetfeldsequenzen mit konstanten Änderungsraten verwendet. In dieser Arbeit soll der Einfluss der Änderungsrate auf die Transportgeschwindigkeit und Trajektorie der Partikel genauer betrachtet werden, um Optimierungen bezüglich des Partikeltransports für das jeweilige Anwendungsgebiet möglich zu machen.
+Das in der Arbeitsgruppe \textsc{Ehresmann} etablierte Transportkonzept von superparamagnetischen Partikeln (SPP) oberhalb magnetisch strukturierter /Exchange-Bias/ (EB) Dünnschichtsysteme kann hierbei ein wichtiger Bestandteil zukünftiger Analysesysteme werden. Die Grundidee ist es durch ein extern angelegtes Magnetfeld die magnetische Feldlandschaft (MFL) so zu transformieren, dass ein gerichteter Transport der SPP zwischen /head-to-head/ und /tail-to-tail/-Domänenwänen möglich wird. Dabei können diese SPP in verschiedenen Prozessschritten eines LOCs verwendet werden. Einerseits können Analyte die an Partikel gebunden sind in bestimmte Analysebereiche transportiert werden cite:ehresmann_asymmetric_2011, andererseits können aber auch Strömungsfelder durch den Partikeltransport erzeugt werden, welche das Analyt durchmischen und so höhere biochemische Reaktionsraten bewirken cite:holzinger_controlled_2012. Ein weiteres Anwendungsgebiet ist die magnetophoretische Auftrennung der Partikel, um so verschiedene Partikelgrößen und -typen aufgrund unterschiedlicher Bewegungsgeschwindigkeiten voneinander trennen zu können, um so möglichst homogene Partikeldispersionen für Analysen zu erhalten cite:zhou_magnetic_2016. Für jede dieser Anwendungen werden verschiedene Formen eines externen Magnetfeldes benötigt. Bisher wurden für den Partikeltransport trapezförmige Magnetfeldsequenzen mit konstanten Änderungsraten verwendet. In dieser Arbeit soll der Einfluss der Änderungsrate auf die Transportgeschwindigkeit und Trajektorie der Partikel genauer betrachtet werden, um Optimierungen bezüglich des Partikeltransports für das jeweilige Anwendungsgebiet möglich zu machen.
 * TODO [1/5] Theoretische Grundlagen label:sec-grundlagen
   In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt. Dann werden die in dieser Arbeit verwendeten /Exchange Bias Systeme/ eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene /Exchange Bias Systeme/ beschrieben, wobei die auf sie wirkenden Kräfte genauer betrachtet werden sollen.
 
@@ -317,7 +316,7 @@ In einem Antiferromagneten liegen zwei ineinander gestellte Untergitter im Krist
 *** DONE Superparamagnetismus
     CLOSED: [2019-09-24 Di 16:42]
 Ist das Volumen eines ferromagnetischen Festkörpers so gering, dass er nur aus einer einzelnen Domäne besteht, spricht man von Superparamagnetismus. Die Suszeptibilität solcher Superparamagneten ist größer als die Suszeptibilität von Paramagneten, jedoch verhalten sie sich ohne äußeres Magnetfeld ähnlich, da die Magnetisierung in solchen einzelnen Domänen nicht thermisch stabil ist und sich beliebig ausrichten kann cite:gross_festkorperphysik_2012.
-Jedoch ist die Zeitskala des Experiments, und ob in dieser thermische Aktivierungs- und Relaxationsprozesse statt finden können, wichtig, um Aussagen über das magnetische Verhalten eines Partikels machen zu können. Bei ausreichend großen Zeitskalen wird über die durch thermische Energie unterschiedlichen magnetischen Momente gemittelt und man erhält insgesamt keine Magnetisierung. Wird jedoch sehr kurz gemessen, kann eine Richtung der Magnetisierung für diesen kurzen Zeitausschnitt bestimmt werden cite:leslie-pelecky_magnetic_nodate.
+Jedoch ist die Zeitskala des Experiments, und ob in dieser thermische Aktivierungs- und Relaxationsprozesse statt finden können, wichtig, um Aussagen über das magnetische Verhalten eines Partikels machen zu können. Bei ausreichend großen Zeitskalen wird über die durch thermische Energie unterschiedlichen magnetischen Momente gemittelt und man erhält insgesamt keine Magnetisierung. Wird jedoch sehr kurz gemessen, kann eine Richtung der Magnetisierung für diesen kurzen Zeitausschnitt bestimmt werden cite:leslie-pelecky_magnetic_1996.
     
 ** TODO Exchange Bias Effekt label:sec-EB
 Der /Exchange Bias/ (EB) Effekt  wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten \ce{Co}-Partikeln entdeckt. Diese Partikel bestehen im Kern aus Cobalt, einem Ferromagneten, und besitzen eine äußere dünne \ce{CoO}-Schicht, welche antiferromagnetisch ist. Die Autoren entdeckten eine Verschiebung der Hysteresekurve um das sogenannte Austauschverschiebungsfeld $H_\mathrm{EB}$ zwischen antiferro magnetischer und ferromagnetischer Schicht, wenn die Partikel in einem externen Magnetfeld unter die Néel-Temperatur der antiferromagnetischen Schicht gekühlt wurden cite:meiklejohn_new_1957.
@@ -597,12 +596,12 @@ Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt.
  #+caption: Darstellung der einzelnen Trajektorien von ausgewählten Partikeln bei verschiedenen Änderungsraten des Magnetfeldes. 
  #+attr_latex: :placmeent [!h] :width 0.7\textwidth
  #+name: img-traj_real
- file:./img/traj_real.png
+ # file:./img/traj_real.png
  
  #+caption: Simulierte Trajektorien für verschiedene Änderungsraten des Magnetfeldes. 
  #+attr_latex: :placmeent [!h] :width 0.7\textwidth
  #+name: img-traj_real
- file:./img/traj_sim.png
+ # file:./img/traj_sim.png
 
 #+caption: Screenshot der /Video Spot Tracker/ Software nach erfolgreicher Auswertung eines Videos. Gelb markiert sind die Trajektorien der verschiedenen Partikel, blau die Endpunkte der Partikel.
 #+attr_latex: :placement [h] :width 0.75\textwidth
@@ -664,10 +663,7 @@ file:./img/videospottracker.png
   :PROPERTIES:
   :UNNUMBERED: t
   :END:
-# Literaturverzeichnis:
-# \printbibliography
-  bibliographystyle:agem
-  bibliography:test.bib
+\printbibliography
   
 * Danksagung
 :PROPERTIES:
