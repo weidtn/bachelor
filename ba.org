@@ -621,10 +621,11 @@ file:./img/videospottracker.png
   import matplotlib.pyplot as plt
   import pandas as pd
 
-  CHANNEL = "Dev1/ai0"
-  SAMPLE_RATE = 48000
-  TIME = 10 # s
-  SAMPS_PER_CHAN = 48000 * TIME
+  ''' You may have to adjust these values '''
+  CHANNEL = "Dev1/ai0" # DAQ Device on your PC
+  SAMPLE_RATE = 48000 # Depends on the Device
+  TIME = 10 # Measurement time in sec
+  SAMPS_PER_CHAN = 48000 * TIME 
   CONVERSION_FACTOR = 10 # Depends on the measuring range of the teslameter
 
   def measure(file):
@@ -648,7 +649,8 @@ file:./img/videospottracker.png
       #Uncomment if you want to measure new data
       #data = measure("data_200mt.csv")
       # Uncomment if you want to read a datafile:
-      data = read_csv("z_1V_1Hz_200mT_1.csv")['0'].to_numpy()
+      filename = "z_1V_1Hz_200mT_1.csv"
+      data = read_csv(filename)['0'].to_numpy()
       #####
 
       plt.tight_layout()
