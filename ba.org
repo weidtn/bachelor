@@ -669,7 +669,7 @@ file:./img/videospottracker.png
   bibliographystyle:agem
   bibliography:test.bib
   
-* Danksagung :ignore:
+* Danksagung
 :PROPERTIES:
 :UNNUMBERED: t
 :END:
