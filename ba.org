@@ -157,7 +157,7 @@ Der Abschaltvorgang ist in Abbildung ref:fig-abschalten abgebildet.
   axes[1].legend()
 
   plt.tight_layout()
-  plt.savefig("./img/einschalten.png")
+  plt.savefig("./img/einschalten.png", dpi=600)
 
   U1 = square(x * -1)
   I2 = I_aus(x,L)
@@ -175,7 +175,7 @@ Der Abschaltvorgang ist in Abbildung ref:fig-abschalten abgebildet.
   axes[1].set_xlabel("t")
   axes[1].legend()
   plt.tight_layout()
-  plt.savefig("./img/ausschalten.png")
+  plt.savefig("./img/ausschalten.png", dpi=600)
   "ausschalten.png"
 #+end_src
 
@@ -420,7 +420,7 @@ Anschließend wird Kapitel ref:sec-partikelgeschwindigkeiten der Einfluss der Ä
 ** TODO Strom und Magnetfeld der Helmholtzspulen label:sec-b_helmholtz
 Um die verwendeten Helmholtzspulen näher charakterisieren zu können wurden sowohl die Stromstärke als auch das resultierende Magnetfeld gemessen.
 
-Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke $I$ und Magnetfeldstärke $B$ gemessen. Dabei wurde die Stromstärke an einem in Reihe geschalteten Multimeter abgelesen, die Magnetfeldstärke an einem Teslameter der Firma /Projekt Elektronik GmbH/, dessen Messkopf sich in der Probenhalterung der Helmholtzspulen zur Messung des Magnetfeldes in z-Dimension befand. Der Zusammenhang von Stromstärke und Magnetfeldstärke sollte gemäß Gleichung ref:eq-spule linear sein, deswegen wurde  in Abbildung ref:fig-magnetfeldstrom eine lineare Regression durch die Messwerte gelegt.
+Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke $I$ und Magnetfeldstärke $B$ gemessen. Dabei wurde die Stromstärke an einem in Reihe geschalteten Multimeter abgelesen, die Magnetfeldstärke an einem Teslameter der Firma /Projekt Elektronik GmbH/, dessen Messkopf sich in der Probenhalterung der Helmholtzspulen zur Messung des Magnetfeldes in z-Richtung befand. Der Zusammenhang von Stromstärke und Magnetfeldstärke sollte gemäß Gleichung ref:eq-spule linear sein, deswegen wurde  in Abbildung ref:fig-magnetfeldstrom eine lineare Regression durch die Messwerte gelegt.
 
 :TABLE:
 #+name: Zusammenhang zwischen Magnetfeldstärke und Stromstärke. Hierbei wurde die Spannung an der NI USB-6002 Box erhöht und dazugehörige Stromstärke am Netzteilausgang $I$ und Magnetfeldstärke im inneren der z-Spule $B_\mathrm{z}$ gemessen.
@@ -515,7 +515,7 @@ Anschließend wurden die vorher gemessenen Stromstärken verwendet um die zu erw
   ax1.legend()
   plt.grid()
   plt.tight_layout()
-  plt.savefig("./img/B_calc.png")
+  plt.savefig("./img/B_calc.png", dpi=600)
   "./img/B_calc.png"
 #+end_src
 
@@ -539,7 +539,7 @@ Anschließend wurden die vorher gemessenen Stromstärken verwendet um die zu erw
 \end{subfigure}%
 \begin{subfigure}[t]{0.5\textwidth}
 \includegraphics[width=\textwidth]{img/b_calc.png}
-\caption{Vergleich von gemessener und mit Näherung aus Gleichung ref:eq-helmholtz berechneter Magnetfeldstärke in z-Dimension.}
+\caption{Vergleich von gemessener und mit Näherung aus Gleichung ref:eq-helmholtz berechneter Magnetfeldstärke in z-Richtung.}
 \label{fig-b_helmholtz}
 \end{subfigure}
 \end{figure}
@@ -559,7 +559,7 @@ Hierbei wird deutlich, dass die Näherung für höhere Stromstärken nicht hinre
 
 Um den zeitlichen Verlauf der Stromstärke zu bestimmen wurde der Aufbau aus Kapitel ref:sec-stromundmagnet verwendet.
 
-Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang eine Rechteckspannung mit zwei verschiedene Amplituden angelegt. Es wurden die Helmholtzspulen für x- und z-Dimension vermessen, da gegenwärtig nur zwei Spulen gleichzeitig verwendet werden. Dies ergibt die in Abbildung ref:fig-stromraw sichtbaren Messreihen.
+Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang eine Rechteckspannung mit zwei verschiedene Amplituden angelegt. Es wurden die Helmholtzspulen für x- und z-Richtung vermessen, da gegenwärtig nur zwei Spulen gleichzeitig verwendet werden. Dies ergibt die in Abbildung ref:fig-stromraw sichtbaren Messreihen.
 
 :CODE:
  
@@ -621,7 +621,7 @@ Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit de
 :END:
 
 #+name: fig-stromraw
-#+caption: Zeitlicher Verlauf der Stromstärke in den Spulen für x- und z-Dimension. Links Messungen unterschiedlicher Amplitude an der x-Spule, rechts Messungen unterschiedlicher Amplitude an der z-Spule.
+#+caption: Zeitlicher Verlauf der Stromstärke in den Spulen für x- und z-Richtung. Links Messungen unterschiedlicher Amplitude an der x-Spule, rechts Messungen unterschiedlicher Amplitude an der z-Spule.
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/strom.png]]
  
@@ -661,7 +661,7 @@ Um eine Aussage über die Änderungsrate (Steigung) des Magnetfeldes machen zu k
 :END:
 
 #+name: fig-stromavg
-#+caption: Über alle zehn Perioden gemittelter zeitlicher Verlauf der Stromstärke für x- und z-Dimension. Links sind jeweils Stromstärkenmessungen für die x-Spule dargestellt, rechts Messungen der z-Spule.
+#+caption: Über alle zehn Perioden gemittelter zeitlicher Verlauf der Stromstärke für x- und z-Richtung. Links sind jeweils Stromstärkenmessungen für die x-Spule dargestellt, rechts Messungen der z-Spule.
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/strom_avg.png]]
 
@@ -671,7 +671,7 @@ Vor allem für die Strommessungen der x-Spule sieht man klar eine Stromspitze zu
 #+begin_src python :session strom :results file
   plt.clf()
   plt.plot(avglist[3][:500], '.')
-  plt.savefig("./img/strom_anfang.png")
+  plt.savefig("./img/strom_anfang.png", dpi=600)
   "./img/strom_anfang.png"
 
 #+end_src
@@ -719,7 +719,7 @@ Vor allem für die Strommessungen der x-Spule sieht man klar eine Stromspitze zu
   ax[0].plot(x, square)
   ax[1].plot(x, plat)
   plt.tight_layout()
-  plt.savefig("plateau.png")
+  plt.savefig("plateau.png", dpi=100)
   "plateau.png"
 #+end_src
 
