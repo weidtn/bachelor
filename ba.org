@@ -667,20 +667,37 @@ Um eine Aussage über die Änderungsrate (Steigung) des Magnetfeldes machen zu k
 
 Vor allem für die Strommessungen der x-Spule sieht man klar eine Stromspitze zu Beginn der Plateaus. Dies ist wahrscheinlich auf das spannungsgesteuerte Netzteil zurückzuführen, welches einen konstanten Strom erzeugen soll. Jedoch ist durch die Impedanz der Spule bei abrupten Änderungen des Stromes ein hoher Blindwiderstand vorhanden, welcher durch das Netzteil versucht wird zu kompensieren. Dieser Blindwiderstand fällt dann ab, da sich die Stromstärke nicht mehr ändert, und das Netzteil passt den Ausgangsstrom an, um die gewünschte Amplitude zu erreichen.
 
+Da vor allem das Ein- und Ausschaltverhalten der Spulen von Interesse ist, wurde der Beginn der Perioden, in dem die Stromstärke auf das Maximum ansteigt, genauer betrachtet. Zu sehen sind diese in Abbildung ref:fig-strom_anfang.
 :CODE:
-#+begin_src python :session strom :results file
+#+begin_src python :session strom :results output
   plt.clf()
-  plt.plot(avglist[3][:500], '.')
-  plt.savefig("./img/strom_anfang.png", dpi=600)
+  markersize = 3
+  cut = 500
+  fig, ax = plt.subplots(2,2, sharex=True)
+  ax[0,0].set_title("x")
+  ax[0,0].set_ylabel("$I$ [A]")
+  ax[1,0].set_xlabel("Datenpunkte")
+  ax[0,0].plot(avglist[0][:cut], '.', markersize=markersize)
+  ax[0,1].plot(avglist[2][:cut], '.', markersize=markersize)
+  ax[1,0].plot(avglist[1][:cut], '.', markersize=markersize)
+  ax[1,1].plot(avglist[3][:cut], '.', markersize=markersize)
+  ax[0,1].set_title("z")
+  ax[1,0].set_ylabel("$I$ [A]")
+  ax[1,1].set_xlabel("Datenpunkte")
+  plt.tight_layout()
+  plt.savefig("./img/strom_anfang.png", dpi=100)
   "./img/strom_anfang.png"
 
 #+end_src
 
 #+RESULTS:
-[[file:./img/strom_anfang.png]]
 
 :END:
 
+#+name: fig-strom_anfang
+#+caption: Verlauf der Stromstärke kurz nach dem "Einschalten". Links Stromstärken der x-Spule, rechts der z-Spule.
+#+attr_latex: :width \textwidth :placement [H]
+[[file:img/strom_anfang.png]]
 
 ** TODO Partikelgeschwindigkeiten label:sec-partikelgeschwindigkeiten
 \blindtext
