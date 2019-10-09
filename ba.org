@@ -595,16 +595,16 @@ Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit de
   # Anfang und Ende abschneiden
   for i, data in enumerate(datalist):
       sr = 48000
-      end = np.argmax(data>0.03)
+      end = np.argmax(data>0.05)
       data = data[end:end+10*sr]
       datalist[i] = data
 
   fig, ax = plt.subplots(2,2, sharex=True)
   ax[0,0].plot(datalist[0])
   ax[0,1].plot(datalist[2])
-  ax[0,0].set_title("x")
   ax[1,0].plot(datalist[1])
   ax[1,1].plot(datalist[3])
+  ax[0,0].set_title("x")
   ax[0,1].set_title("z")
   ax[0,0].set_ylabel("$I$ [A]")
   ax[1,0].set_ylabel("$I$ [A]")
@@ -612,7 +612,7 @@ Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit de
   ax[1,1].set_xlabel("Datenpunkte")
   ax[1,1].set_xticks(np.arange(0,500000,step=150000))
   plt.tight_layout()
-  plt.savefig("./img/strom.png", dpi=600)
+  plt.savefig("./img/strom.png", dpi=100)
   "./img/strom.png"
 #+end_src
 
@@ -642,16 +642,16 @@ Um eine Aussage über die Änderungsrate (Steigung) des Magnetfeldes machen zu k
   ax[0,0].set_title("x")
   ax[0,0].set_ylabel("$I$ [A]")
   ax[1,0].set_xlabel("Datenpunkte")
-  ax[0,0].plot(avglist[0])
-  ax[0,1].plot(avglist[2])
-  ax[1,0].plot(avglist[1])
-  ax[1,1].plot(avglist[3])
+  ax[0,0].plot(avglist[0], '.', markersize=3)
+  ax[0,1].plot(avglist[2], '.', markersize=3)
+  ax[1,0].plot(avglist[1], '.', markersize=3)
+  ax[1,1].plot(avglist[3], '.', markersize=3)
   ax[0,1].set_title("z")
   ax[1,0].set_ylabel("$I$ [A]")
   ax[1,1].set_xlabel("Datenpunkte")
   ax[0,0].set_xticks(np.arange(0,50000,15000))
   plt.tight_layout()
-  plt.savefig("./img/strom_avg.png", dpi=600)
+  plt.savefig("./img/strom_avg.png", dpi=100)
   "./img/strom_avg.png"
 
 #+end_src
@@ -698,6 +698,44 @@ Da vor allem das Ein- und Ausschaltverhalten der Spulen von Interesse ist, wurde
 #+caption: Verlauf der Stromstärke kurz nach dem "Einschalten". Links Stromstärken der x-Spule, rechts der z-Spule.
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/strom_anfang.png]]
+
+Anschließend wurde versucht Gleichung ref:eq-einschalten an die Kurve zu fitten. Die Fitkurven und Parameter sind in Abbildung ref:fig-stromfit dargestellt.
+
+:CODE:
+
+#+begin_src python :session strom :results output
+  from scipy.optimize import curve_fit
+
+  def I(x, U, R, L, sr=48000):
+      """
+      Current for measurement with 48k Samplerate
+      U = Voltage
+      R = Resistance
+      L = Inductance
+      sr = Sample Rate (48000 for NI USB-6008)
+      """
+      return (U/R) * (1- np.exp((-x*R/sr) / L))
+
+  x = np.arange(0,cut,sr)
+  R_z = 10.6
+  L_z = 0.0056
+  try:
+      popt, pcov = curve_fit(I, x, avglist[2], p0=(3,R_z,L_z), bounds=(0,[20,20,5]), method="trf")
+  except RuntimeError as e:
+      print(e)
+  plt.clf()
+  # plt.plot(avglist[2])
+  plt.plot(I(x, *popt), 'r--')
+  print(*popt)
+  plt.savefig("./img/strom_fit.png")
+  "./img/strom_fit.png"
+
+#+end_src
+
+#+RESULTS:
+: 3.0 10.6 0.0056
+
+:END:
 
 ** TODO Partikelgeschwindigkeiten label:sec-partikelgeschwindigkeiten
 \blindtext
