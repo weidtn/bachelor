@@ -456,7 +456,7 @@ Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke $I$ und M
   import matplotlib.pyplot as plt
   import scipy.stats
 
-  csv = pd.read_csv("B(I).csv", sep=";", index_col=False)
+  csv = pd.read_csv("B(I).CSV", sep=";", index_col=False)
   plt.clf()
   x=csv['Netzteil [A]'].to_numpy()
   x = np.insert(x, 0, 0)
@@ -555,8 +555,174 @@ Hierbei wird deutlich, dass die Näherung für höhere Stromstärken nicht hinre
 
 Um den zeitlichen Verlauf der Stromstärke zu bestimmen wurde der Aufbau aus Kapitel ref:sec-stromundmagnet verwendet.
 
-Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt.
+Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang eine Rechteckspannung mit zwei verschiedene Amplituden angelegt. Es wurden die Helmholtzspulen für x- und z-Dimension vermessen, da gegenwärtig nur zwei Spulen gleichzeitig verwendet werden. Dies ergibt die in Abbildung ref:fig-stromraw sichtbaren Messreihen.
+
+:CODE:
+ 
+#+begin_src python :session strom :exports none :results output
+  import matplotlib
+  matplotlib.use("agg")
+  import matplotlib.pyplot as plt
+  import numpy as np
+  import pandas as pd
+
+  file1 = "./Messung/I/x/2mT_square_0.csv"
+  file2 = "./Messung/I/x/3mT_square_0.csv"
+  file3 = "./Messung/I/z/2mT_square_0.csv"
+  file4 = "./Messung/I/z/3mT_square_0.csv"
+  B_file1 = "./Messung/B/x/2mT_square_0.csv"
+  B_file2 = "./Messung/B/x/3mT_square_0.csv"
+  B_file3 = "./Messung/B/z/2mT_square_0.csv"
+  B_file4 = "./Messung/B/z/3mT_square_0.csv"
+
+
+  datalist = [
+      pd.read_csv(file1).to_numpy(),
+      pd.read_csv(file2).to_numpy(),
+      pd.read_csv(file3).to_numpy(),
+      pd.read_csv(file4).to_numpy()]
+  """
+        pd.read_csv(B_file1).to_numpy() * 10,
+        pd.read_csv(B_file2).to_numpy() * 10,
+        pd.read_csv(B_file3).to_numpy() * 10,
+        pd.read_csv(B_file4).to_numpy() * 10]
+  """
+
+  # Anfang und Ende abschneiden
+  for i, data in enumerate(datalist):
+      sr = 48000
+      end = np.argmax(data>0.03)
+      data = data[end:end+10*sr]
+      datalist[i] = data
+
+  fig, ax = plt.subplots(2,2, sharex=True)
+  ax[0,0].plot(datalist[0])
+  ax[0,1].plot(datalist[2])
+  ax[0,0].set_title("x")
+  ax[1,0].plot(datalist[1])
+  ax[1,1].plot(datalist[3])
+  ax[0,1].set_title("z")
+  ax[0,0].set_ylabel("$I$ [A]")
+  ax[1,0].set_ylabel("$I$ [A]")
+  ax[1,0].set_xlabel("Datenpunkte")
+  ax[1,1].set_xlabel("Datenpunkte")
+  ax[1,1].set_xticks(np.arange(0,500000,step=150000))
+  plt.tight_layout()
+  plt.savefig("./img/strom.png", dpi=600)
+  "./img/strom.png"
+#+end_src
+
+#+RESULTS:
+
+:END:
+
+#+name: fig-stromraw
+#+caption: Zeitlicher Verlauf der Stromstärke in den Spulen für x- und z-Dimension. Links Messungen unterschiedlicher Amplitude an der x-Spule, rechts Messungen unterschiedlicher Amplitude an der z-Spule.
+#+attr_latex: :width \textwidth :placement [H]
+[[file:img/strom.png]]
+ 
+Um eine Aussage über die Änderungsrate (Steigung) des Magnetfeldes machen zu können, ist es vorteilhaft das Verhalten für eine einzelne Periode zu betrachten. Dazu wurde der über alle zehn Perioden gemittelt. Diese gemittelten Messwerte sind zu sehen in Abbildung ref:fig-stromavg.
+
+:CODE:
+
+#+begin_src python :session strom :results output
+  # in 10 Perioden schneiden:
+  n_periods = 10
+  avglist = []
+  for i, data in enumerate(datalist):
+      periodic = data.reshape(n_periods, sr)
+      avg = periodic.mean(axis=0)
+      avglist.append(avg)
+  plt.clf()
+  fig, ax = plt.subplots(2,2, sharex=True)
+  ax[0,0].set_title("x")
+  ax[0,0].set_ylabel("$I$ [A]")
+  ax[1,0].set_xlabel("Datenpunkte")
+  ax[0,0].plot(avglist[0])
+  ax[0,1].plot(avglist[2])
+  ax[1,0].plot(avglist[1])
+  ax[1,1].plot(avglist[3])
+  ax[0,1].set_title("z")
+  ax[1,0].set_ylabel("$I$ [A]")
+  ax[1,1].set_xlabel("Datenpunkte")
+  ax[0,0].set_xticks(np.arange(0,50000,15000))
+  plt.tight_layout()
+  plt.savefig("./img/strom_avg.png", dpi=600)
+  "./img/strom_avg.png"
+
+#+end_src
+
+#+RESULTS:
+
+:END:
+
+#+name: fig-stromavg
+#+caption: Über alle zehn Perioden gemittelter zeitlicher Verlauf der Stromstärke für x- und z-Dimension. Links sind jeweils Stromstärkenmessungen für die x-Spule dargestellt, rechts Messungen der z-Spule.
+#+attr_latex: :width \textwidth :placement [H]
+[[file:img/strom_avg.png]]
+
+Vor allem für die Strommessungen der x-Spule sieht man klar eine Stromspitze zu Beginn der Plateaus. Dies ist wahrscheinlich auf das spannungsgesteuerte Netzteil zurückzuführen, welches einen konstanten Strom erzeugen soll. Jedoch ist durch die Impedanz der Spule bei abrupten Änderungen des Stromes ein hoher Blindwiderstand vorhanden, welcher durch das Netzteil versucht wird zu kompensieren. Dieser Blindwiderstand fällt dann ab, da sich die Stromstärke nicht mehr ändert, und das Netzteil passt seinen Ausgangsstrom an, um die gewünschte Amplitude zu erreichen.
+
+:CODE:
+#+begin_src python :session strom :results file
+  plt.clf()
+  plt.plot(avglist[3][:500], '.')
+  plt.savefig("./img/strom_anfang.png")
+  "./img/strom_anfang.png"
+
+#+end_src
+
+#+RESULTS:
+[[file:./img/strom_anfang.png]]
+
+:END:
+
+
 ** TODO Partikelgeschwindigkeiten label:sec-partikelgeschwindigkeiten
+\blindtext
+
+:CODE:
+#+begin_src python :session plateau :results file
+  import matplotlib
+  matplotlib.use("agg")
+  import numpy as np
+  import matplotlib.pyplot as plt
+  import scipy.signal as signal
+
+
+  def trapez_signal(x, freq, width=2., slope=1., amp=1., offs=0, phase=0):
+      """
+      Easier construction of trapezoid_signal
+      """
+      amp = amp * 2
+      offs = -1 * amp / 2
+      phase = phase * np.pi / 180
+      slope = slope / (2 * np.pi * freq)
+      a = slope*width * \
+          signal.sawtooth(2*np.pi*x*freq/width + 90*np.pi /
+                          180 + phase, width=0.5)/4.
+      a[a > amp / 2.] = amp / 2.
+      a[a < -amp / 2.] = -amp / 2.
+      return a + amp / 2. + offs
+
+
+  x = np.linspace(0, 2 * np.pi, 10000)
+  square = signal.square(x)
+  square[0] = 0
+  square2 = square * 4
+  plat = trapez_signal(x, 1, slope=1, width=x[-1])
+  fig, ax = plt.subplots(2, 1)
+  ax[0].plot(x, square)
+  ax[1].plot(x, plat)
+  plt.tight_layout()
+  plt.savefig("plateau.png")
+  "plateau.png"
+#+end_src
+
+#+RESULTS:
+[[file:plateau.png]]
+
+:END:
 
 :CODE:
 #+begin_src python :session v :exports none :results output
