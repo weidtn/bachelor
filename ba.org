@@ -22,6 +22,8 @@ Bildunterschrift allgemein halten, genauer dann im text
 ** DONE Transportkonzept
    CLOSED: [2019-10-01 Di 14:35]
 Bildunterschirft allgemein halten, genauer dann im text
+** TODO Fit Stromstärke mit Formel
+** TODO Fit Magnetfeld mit Formel
 * Header                                                             :ignore:
    #+latex_class:scrbook
    #+latex_class_options:[page,pdftex,12pt,a4paper,twoside,openright]
