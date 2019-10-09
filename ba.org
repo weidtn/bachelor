@@ -47,7 +47,7 @@ Bildunterschirft allgemein halten, genauer dann im text
    #+latex_header: \usemintedstyle{emacs}
    #+latex_header: \usepackage[version=4]{mhchem}
    #+latex_header: \newgeometry{bottom=2.5cm,left=2.5cm,right=2.5cm}
-   #+latex_header: \usepackage[style=alphabetic,maxbibnames=5,maxcitenames=4,backend=biber,language=german]{biblatex}
+   #+latex_header: \usepackage[style=alphabetic,maxbibnames=5,maxcitenames=5,backend=biber,language=german]{biblatex}
    #+latex_header: \addbibresource{library.bib}
      
 * Andere Arbeiten                                                    :ignore:
