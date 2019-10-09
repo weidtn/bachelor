@@ -665,9 +665,9 @@ Um eine Aussage über die Änderungsrate (Steigung) des Magnetfeldes machen zu k
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/strom_avg.png]]
 
-Vor allem für die Strommessungen der x-Spule sieht man klar eine Stromspitze zu Beginn der Plateaus. Dies ist wahrscheinlich auf das spannungsgesteuerte Netzteil zurückzuführen, welches einen konstanten Strom erzeugen soll. Jedoch ist durch die Impedanz der Spule bei abrupten Änderungen des Stromes ein hoher Blindwiderstand vorhanden, welcher durch das Netzteil versucht wird zu kompensieren. Dieser Blindwiderstand fällt dann ab, da sich die Stromstärke nicht mehr ändert, und das Netzteil passt den Ausgangsstrom an, um die gewünschte Amplitude zu erreichen.
+Vor allem für die Strommessungen der x-Spule sieht man klar eine Stromspitze zu Beginn der Plateaus. Dies ist wahrscheinlich auf das spannungsgesteuerte Netzteil zurückzuführen, welches einen konstanten Strom erzeugen soll. Jedoch ist durch die Impedanz der Spule bei abrupten Änderungen des Stromes ein hoher Blindwiderstand vorhanden, welcher durch das Netzteil versucht wird zu kompensieren. Da der Blindwiderstand dann wieder sinkt "übersteuert" das Netzteil und erreicht eine höhere Stromstärke als eigentlich angestrebt. Da sich die Stromstärke im Plateau zunächst nicht mehr ändert, passt das Netzteil den Ausgangsstrom an, und erreicht die gewünschte Amplitude.
 
-Da vor allem das Ein- und Ausschaltverhalten der Spulen von Interesse ist, wurde der Beginn der Perioden, in dem die Stromstärke auf das Maximum ansteigt, genauer betrachtet. Zu sehen sind diese in Abbildung ref:fig-strom_anfang.
+Da vor allem das Einschaltverhalten der Spulen von Interesse ist, wurde der Beginn der Perioden, in dem die Stromstärke auf das Maximum ansteigt, genauer betrachtet. Zu sehen sind diese in Abbildung ref:fig-strom_anfang.
 :CODE:
 #+begin_src python :session strom :results output
   plt.clf()
@@ -695,7 +695,7 @@ Da vor allem das Ein- und Ausschaltverhalten der Spulen von Interesse ist, wurde
 :END:
 
 #+name: fig-strom_anfang
-#+caption: Verlauf der Stromstärke kurz nach dem "Einschalten". Links Stromstärken der x-Spule, rechts der z-Spule.
+#+caption: Verlauf der Stromstärke kurz nach Beginn der gemittelten Periode. Links Stromstärken der x-Spule, rechts der z-Spule.
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/strom_anfang.png]]
 
@@ -795,6 +795,81 @@ Analog dazu wurden die selben Schritte für die Magnetfeldstärke durchgeführt.
 #+caption: Zeitlicher Verlauf des Magnetfeldes bei einer angelegten Rechteckspannung. Links ist das Magnetfeld der x-Spulen dargestellt, rechts das der z-Spulen.
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/mag.png]]
+
+Auch hier wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe Rauschen aus dem Signal zu entfernen, andererseits um eine einzelne Periode betrachten zu können. Die gemittelten Messwerte sind in Abbildung ref:fig-mag_avg.png zu sehen.
+
+:CODE:
+
+#+begin_src python :session mag :results output
+  # in 10 Perioden schneiden:
+  n_periods = 10
+  avglist = []
+  for i, data in enumerate(datalist):
+      periodic = data.reshape(n_periods, sr)
+      avg = periodic.mean(axis=0)
+      avglist.append(avg)
+  plt.clf()
+  fig, ax = plt.subplots(2,2, sharex=True)
+  ax[0,0].set_title("x")
+  ax[0,0].set_ylabel("$B$ [mT]")
+  ax[1,0].set_xlabel("Datenpunkte")
+  ax[0,0].plot(avglist[0], '.', markersize=3)
+  ax[0,1].plot(avglist[2], '.', markersize=3)
+  ax[1,0].plot(avglist[1], '.', markersize=3)
+  ax[1,1].plot(avglist[3], '.', markersize=3)
+  ax[0,1].set_title("z")
+  ax[1,0].set_ylabel("$B$ [mT]")
+  ax[1,1].set_xlabel("Datenpunkte")
+  ax[0,0].set_xticks(np.arange(0,50000,15000))
+  plt.tight_layout()
+  plt.savefig("./img/mag_avg.png", dpi=100)
+  "./img/mag_avg.png"
+#+end_src
+
+#+RESULTS:
+
+:END:
+
+#+name: fig-mag_avg
+#+caption: Über alle zehn Perioden gemittelte Messwerte des Magnetfeldes für x-Spule (links) und z-Spule (rechts).
+#+attr_latex: :width \textwidth :placement [H]
+[[file:img/mag_avg.png]]
+
+Auch hier sind Spitzen am Beginn des Plateaus zu sehen. Diese haben die gleichen Ursachen wie bereits für die Stromstärke genannt, und wurden deswegen erwartet, da das Magnetfeld aus dem bereits gemessenen durch die Spulen fließenden Strom resultiert.
+
+Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse. Diesen kann man in Abbildung ref:fig-mag_anfang sehen.
+
+:CODE:
+
+#+begin_src python :session mag :results output
+  plt.clf()
+  markersize = 3
+  cut = 500
+  fig, ax = plt.subplots(2,2, sharex=True)
+  ax[0,0].set_title("x")
+  ax[0,0].set_ylabel("$B$ [mT]")
+  ax[1,0].set_xlabel("Datenpunkte")
+  ax[0,0].plot(avglist[0][:cut], '.', markersize=markersize)
+  ax[0,1].plot(avglist[2][:cut], '.', markersize=markersize)
+  ax[1,0].plot(avglist[1][:cut], '.', markersize=markersize)
+  ax[1,1].plot(avglist[3][:cut], '.', markersize=markersize)
+  ax[0,1].set_title("z")
+  ax[1,0].set_ylabel("$B$ [mT]")
+  ax[1,1].set_xlabel("Datenpunkte")
+  plt.tight_layout()
+  plt.savefig("./img/mag_anfang.png", dpi=100)
+  "./img/mag_anfang.png"
+#+end_src
+
+#+RESULTS:
+
+:END:
+
+
+#+name: fig-mag_anfang
+#+caption: Verlauf des Magnetfeldes kurz nach Beginn der gemittelten Periode. Links für x-Spule, rechts für z-Spule.
+#+attr_latex: :width \textwidth :placement [H]
+[[file:img/mag_anfang.png]]
 
 ** TODO Partikelgeschwindigkeiten label:sec-partikelgeschwindigkeiten
 \blindtext
