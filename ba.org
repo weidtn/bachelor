@@ -724,7 +724,7 @@ Anschließend wurde versucht Gleichung ref:eq-einschalten an die Kurve zu fitten
   except RuntimeError as e:
       print(e)
   plt.clf()
-  # plt.plot(avglist[2])
+  plt.plot(avglist[2])
   plt.plot(I(x, *popt), 'r--')
   print(*popt)
   plt.savefig("./img/strom_fit.png")
@@ -736,6 +736,65 @@ Anschließend wurde versucht Gleichung ref:eq-einschalten an die Kurve zu fitten
 : 3.0 10.6 0.0056
 
 :END:
+
+# #####
+
+Analog dazu wurden die selben Schritte für die Magnetfeldstärke durchgeführt. Abbildung ref:fig-mag zeigt den zeitlichen Verlauf des Magnetfeldes.
+
+:CODE:
+
+#+begin_src python :session mag :results file
+  import matplotlib
+  matplotlib.use("agg")
+  import matplotlib.pyplot as plt
+  import numpy as np
+  import pandas as pd
+
+  B_file1 = "./Messung/B/x/2mT_square_0.csv"
+  B_file2 = "./Messung/B/x/3mT_square_0.csv"
+  B_file3 = "./Messung/B/z/2mT_square_0.csv"
+  B_file4 = "./Messung/B/z/3mT_square_0.csv"
+
+  datalist = [
+        pd.read_csv(B_file1).to_numpy() * 10,
+        pd.read_csv(B_file2).to_numpy() * 10,
+        pd.read_csv(B_file3).to_numpy() * 10,
+        pd.read_csv(B_file4).to_numpy() * 10]
+
+  # Anfang und Ende abschneiden
+  for i, data in enumerate(datalist):
+      sr = 48000
+      end = np.argmax(data>0.4)
+      data = data[end:end+10*sr]
+      datalist[i] = data
+
+  fig, ax = plt.subplots(2,2, sharex=True)
+  ax[0,0].plot(datalist[0])
+  ax[0,1].plot(datalist[2])
+  ax[1,0].plot(datalist[1])
+  ax[1,1].plot(datalist[3])
+  ax[0,0].set_title("x")
+  ax[0,1].set_title("z")
+  ax[0,0].set_ylabel("$B$ [mT]")
+  ax[1,0].set_ylabel("$B$ [mT]")
+  ax[1,0].set_xlabel("Datenpunkte")
+  ax[1,1].set_xlabel("Datenpunkte")
+  ax[1,1].set_xticks(np.arange(0,500000,step=150000))
+  plt.tight_layout()
+  plt.savefig("./img/mag.png", dpi=100)
+  "./img/mag.png"
+
+#+end_src
+
+#+RESULTS:
+[[file:./img/mag.png]]
+
+:END:
+
+#+name: fig-mag
+#+caption: Zeitlicher Verlauf des Magnetfeldes bei einer angelegten Rechteckspannung. Links ist das Magnetfeld der x-Spulen dargestellt, rechts das der z-Spulen.
+#+attr_latex: :width \textwidth :placement [H]
+[[file:img/mag.png]]
 
 ** TODO Partikelgeschwindigkeiten label:sec-partikelgeschwindigkeiten
 \blindtext
