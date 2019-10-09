@@ -180,6 +180,10 @@ Der Abschaltvorgang ist in Abbildung ref:fig-abschalten abgebildet.
 #+end_src
 
 #+RESULTS:
+: Python 3.7.4 (default, Jul 16 2019, 07:12:58) 
+: [GCC 9.1.0] on linux
+: Type "help", "copyright", "credits" or "license" for more information.
+: >>> python.el: native completion setup loaded
 
 :END:
 
@@ -328,7 +332,7 @@ Der Exchange Bias Effekt bewirkt eine unidirektionale Anisotropie in der ferroma
 
 Die Hysteresekurve eines eines EB-Systems (Abbildung ref:fig-eb links in magenta) ist um das Austauschwechselfeld $H_\mathrm{EB}$ verschoben im Vergleich zum alleinigen Ferromagneten (grau gestrichelt). Während des Feldkühlprozesses wird der Antiferromagnet auf eine Temperatur zwischen Néel-Temperatur und Curie-Temperatur gebracht, hier verhält er sich paramagnetisch (Abb. ref:fig-eb rechts oben). Anschließend wird die Temperatur unter die Néel-Temperatur verringert. Die magnetischen Momente im AF koppeln an der Grenzfläche über $J_\mathrm{AF/F}$ an die Sättigungsmagnetisierung des Ferromagneten (Abb. ref:fig-eb rechts unten). So wird eine magnetische Ordnung hergestellt, welche die unidirektionale Anisotropie im Ferromagneten bewirkt cite:merkel_einfluss_2018.
 
-#+name:fig-eb
+#+name: fig-eb
 #+caption: Schematische Darstellung der ferromagnetischen Hysteresekurve eines EB-Systems in Abhängigkeit des externen Magnetfeldes parallel zur leichten Achse der unidirektionalen Anisotropie (links) und schematische Darstellung des Feldkühlprozesses zur Herstellung des EB-Effektes (rechts) cite:merkel_einfluss_2018.
 #+attr_latex: :width \textwidth :placement [!h]
 #+attr_org: :width 50px
@@ -481,6 +485,10 @@ Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke $I$ und M
 #+end_src 
 
 #+RESULTS:
+: Python 3.7.4 (default, Jul 16 2019, 07:12:58) 
+: [GCC 9.1.0] on linux
+: Type "help", "copyright", "credits" or "license" for more information.
+: >>> python.el: native completion setup loaded
 
 :END:
 
@@ -617,6 +625,10 @@ Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit de
 #+end_src
 
 #+RESULTS:
+: Python 3.7.4 (default, Jul 16 2019, 07:12:58) 
+: [GCC 9.1.0] on linux
+: Type "help", "copyright", "credits" or "license" for more information.
+: >>> python.el: native completion setup loaded
 
 :END:
 
@@ -699,7 +711,7 @@ Da vor allem das Einschaltverhalten der Spulen von Interesse ist, wurde der Begi
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/strom_anfang.png]]
 
-Anschließend wurde versucht Gleichung ref:eq-einschalten an die Kurve zu fitten. Die Fitkurven und Parameter sind in Abbildung ref:fig-stromfit dargestellt.
+Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten. Die Fitkurven und Parameter sind in Abbildung ref:fig-stromfit dargestellt.
 
 :CODE:
 
@@ -719,23 +731,27 @@ Anschließend wurde versucht Gleichung ref:eq-einschalten an die Kurve zu fitten
   x = np.arange(0,cut,sr)
   R_z = 10.6
   L_z = 0.0056
+  x = np.linspace(0,sr,cut)
   try:
-      popt, pcov = curve_fit(I, x, avglist[2], p0=(3,R_z,L_z), bounds=(0,[20,20,5]), method="trf")
+      popt, pcov = curve_fit(I, x, avglist[2][:cut], p0=(3,R_z,L_z), bounds=(0,[20,20,5]), method="trf")
   except RuntimeError as e:
       print(e)
   plt.clf()
-  plt.plot(avglist[2])
-  plt.plot(I(x, *popt), 'r--')
-  print(*popt)
+  plt.plot(avglist[0][:cut], '.', markersize=3)
+  plt.plot(x, I(x, *popt), 'r--')
   plt.savefig("./img/strom_fit.png")
   "./img/strom_fit.png"
 
 #+end_src
 
 #+RESULTS:
-: 3.0 10.6 0.0056
 
 :END:
+
+#+name: fig-stromfit
+#+caption: Fitfunktion zu Gleichung ref:eq-strom-spule durch die gemessenen Stromstärken.
+#+attr_latex: :width \textwidth :placement [h]
+[[file:img/strom_fit.png]]
 
 # #####
 
@@ -796,7 +812,7 @@ Analog dazu wurden die selben Schritte für die Magnetfeldstärke durchgeführt.
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/mag.png]]
 
-Auch hier wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe Rauschen aus dem Signal zu entfernen, andererseits um eine einzelne Periode betrachten zu können. Die gemittelten Messwerte sind in Abbildung ref:fig-mag_avg.png zu sehen.
+Auch hier wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe Rauschen aus dem Signal zu entfernen, andererseits um eine einzelne Periode betrachten zu können. Die gemittelten Messwerte sind in Abbildung ref:fig-mag_avg zu sehen.
 
 :CODE:
 
@@ -875,9 +891,9 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 \blindtext
 
 :CODE:
-#+begin_src python :session plateau :results file
+#+begin_src python :session plateau :results output
   import matplotlib
-  matplotlib.use("agg")
+  matplotlib.use("Agg")
   import numpy as np
   import matplotlib.pyplot as plt
   import scipy.signal as signal
@@ -899,23 +915,37 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
       return a + amp / 2. + offs
 
 
-  x = np.linspace(0, 2 * np.pi, 10000)
-  square = signal.square(x)
-  square[0] = 0
-  square2 = square * 4
-  plat = trapez_signal(x, 1, slope=1, width=x[-1])
-  fig, ax = plt.subplots(2, 1)
-  ax[0].plot(x, square)
-  ax[1].plot(x, plat)
+  x = np.linspace(0, 2 * np.pi, 1000)
+  t = np.linspace (0,1,len(x))
+  plat1 = trapez_signal(x, 1, slope=10000, amp=0.2, width=x[-1])
+  plat2 = trapez_signal(x, 1, slope=5, amp=0.2, width=x[-1])
+  plat3 = trapez_signal(x, 1, slope=2, amp=0.2, width=x[-1])
+  plat4 = trapez_signal(x, 1, slope=1.333, amp=0.2, width=x[-1])
+  plat5 = trapez_signal(x, 1, slope=1, amp=0.2, width=x[-1])
+  plat6 = trapez_signal(x, 1, slope=0.8, amp=0.2, width=x[-1])
+  plt.clf()
+  plt.plot(t, plat1, label="0 s")
+  plt.plot(t, plat2, '--', label="0.05 s")
+  plt.plot(t, plat3, '--', label="0.1 s")
+  plt.plot(t, plat4, '--', label="0.15 s")
+  plt.plot(t, plat5, '--', label="0.2 s")
+  plt.plot(t, plat6, label="0.25 s")
   plt.tight_layout()
-  plt.savefig("plateau.png", dpi=100)
-  "plateau.png"
+  plt.legend()
+  plt.xticks(np.arange(0,1.1,0.1))
+  plt.grid()
+  plt.savefig("./img/plateau.png", dpi=100)
+  "./img/plateau.png"
 #+end_src
 
 #+RESULTS:
-[[file:plateau.png]]
 
 :END:
+
+#+name: fig-plateau
+#+caption: Trapezförmige Magnetfeldsequenzen mit verschiedenen Plateaustartzeiten. Eine Plateaustartzeit von $\SI{0}{\s}$ bedeutet es liegt ein Rechteck vor. Eine Plateaustartzeit von $\SI{0.25}{\s}$ bedeutet es liegt ein Dreieck für eine Frequenz $f = \SI{1}{\hertz}$ vor.
+#+attr_latex: :width \textwidth :placement [h]
+[[file:./img/plateau.png]]
 
 :CODE:
 #+begin_src python :session v :exports none :results output
@@ -941,7 +971,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
   ax.set_xlabel("Startzeit Plateau [s]")
   ax.set_ylabel("Geschwindigkeit gr. Schritt [mT/s]")
   ax.grid()
-  plt.savefig("./img/v.png", dpi=600)
+  plt.savefig("./img/v.png", dpi=100)
 #+end_src
 
 #+RESULTS:
