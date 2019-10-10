@@ -8,6 +8,7 @@
 
 * Fragen                                                             :ignore:
 * TODO [1/10] Noch zu tun:                                           :ignore:
+** TODO REIHENFOLGE FÜR FITS!!
 ** TODO Blindwiderstand erklärt?
 ** TODO Ausschaltstrom
 ** TODO Samplerate für jede Messung rausfinden
@@ -757,11 +758,21 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
   R_z = 10.6
   L_z = 0.0056
   x = np.linspace(0,sr,cut)
-  popt0, pcov0 = curve_fit(I, np.linspace(0,len(avglist[0]),cut), avglist[0][:cut], p0=(1,R_z,L_z), bounds=(0,[10,25,5]), method="trf")
   plt.clf()
+  fits = []
   fig, ax = plt.subplots(2,2)
-  ax[0,0].plot(avglist[0][:cut])
-  ax[0,0].plot(I(np.linspace(0,len(avglist[0]),cut), *popt0), 'r--')
+  for i, data in enumerate(avglist):
+      x = np.linspace(0,len(data),cut)
+      popt, pcov = curve_fit(I, x, data[:cut], p0=(1,R_z,L_z), bounds=(0,[10,25,5]), method="trf")
+      if i < 2:
+          ax[0,i].plot(data[:cut])
+          ax[0,i].plot(I(x,*popt), 'r--', label=f"U={popt[0]}")
+          ax[0,i].legend()
+      else:
+          ax[1,i-2].plot(data[:cut])
+          ax[1,i-2].plot(I(x,*popt), 'r--', label=f"U={popt[0]}")
+          ax[1,i-2].legend()
+
   plt.savefig("./img/strom_fit.png")
   plt.close()
   "./img/strom_fit.png"
