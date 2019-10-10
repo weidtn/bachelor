@@ -7,26 +7,23 @@
 #+LANGUAGE: de
 
 * Fragen                                                             :ignore:
-* TODO [4/11] Noch zu tun:                                           :ignore:
-** TODO Magnetfeld -> Flussdichte
+* TODO [1/10] Noch zu tun:                                           :ignore:
+** TODO Blindwiderstand erklärt?
+** TODO Ausschaltstrom
 ** TODO Samplerate für jede Messung rausfinden
-** DONE layer.png
-   CLOSED: [2019-10-10 Do 16:09]
 ** TODO Auschaltstrom Plot
 ** TODO Einleitung magnetophoretische Mobilität
 ** TODO DPI
-** DONE minted
-   CLOSED: [2019-10-09 Mi 09:54] SCHEDULED: <2019-09-20 Fr>
 ** TODO Simulierte Trajektorien durch step_evaluate laufen lassen
    SCHEDULED: <2019-09-19 Do>
-** DONE EB-Bild und Beschreibung
-CLOSED: [2019-10-09 Mi 09:54]
+** TODO EB-Bild und Beschreibung
 Bildunterschrift allgemein halten, genauer dann im text
-** DONE Transportkonzept
-   CLOSED: [2019-10-01 Di 14:35]
+** TODO Transportkonzept
 Bildunterschirft allgemein halten, genauer dann im text
 ** TODO Fit Stromstärke mit Formel
 ** TODO Fit Magnetfeld mit Formel
+** DONE Magnetfeld -> Flussdichte
+CLOSED: [2019-10-10 Do 20:51]
 * Header                                                             :ignore:
    #+latex_class:scrbook
    #+latex_class_options:[page,pdftex,12pt,a4paper,twoside,openright]
@@ -84,7 +81,7 @@ Durch die allgemeine Zunahme der Weltbevölkerung, den demographischen Wandel un
 Neuartigen Analysesystemen wie /Lab-on-a-Chip/ (LOC) werden deswegen großes Potential für Biomedizin und Medizindiagnostik in der Zukunft zugesprochen. Durch Miniaturisierung der Chips stellen sich viele Vorteile heraus cite:stone_microfluidics_2001,knight_honey_2002.
 Möglich sind unter anderem Biochips zur Analyse und Detektion von bestimmten Molekülen cite:papadea_evaluation_2002, Zellen (beispielsweise T-Zellen für die HIV/AIDS Diagnostik cite:cheng_microchip_2007), Protein- und Molekülmarkern cite:wang_self-powered_2010, sowie DNA/RNA-Analysen (z.B. Identifizierung von resistenten Pathogenen cite:boehme_rapid_2010). Es können bereits geringe Probenvolumina innerhalb kürzester Zeit analysiert werden und es werden nur geringe Mengen von Reagenzien benötigt cite:chin_commercialization_2012. So können relativ kostengünstige Biochips und Analyseverfahren entwickelt werden, um zum Beispiel auch in Schwellen- und Entwicklungsländern die medizinische Versorgung zu verbessern. Ein wichtiger Bestandteil dieser LOCs ist Transport und Separation der Analyte innerhalb des Chips. Hier hat sich die Nutzung von magnetischen Partikeln bewährt. Verschiedene mikromagnetische Oberflächenstrukturierungen machen dabei den gezielten Transport der Partikel möglich cite:rampini_micromagnet_2016.  
 
-Das in der Arbeitsgruppe \textsc{Ehresmann} etablierte Transportkonzept von superparamagnetischen Partikeln (SPP) oberhalb magnetisch strukturierter /Exchange-Bias/ (EB) Dünnschichtsysteme kann hierbei ein wichtiger Bestandteil zukünftiger Analysesysteme werden. Die Grundidee ist es durch ein extern angelegtes Magnetfeld die magnetische Feldlandschaft (MFL) eines künstlichen Domänenmusters so zu transformieren, dass ein gerichteter Transport der SPP zwischen /head-to-head/ und /tail-to-tail/-Domänenwänden möglich wird. Dabei können diese SPP in verschiedenen Prozessschritten eines LOCs verwendet werden. Einerseits können Analyte, die an Partikel gebunden sind, in bestimmte Analysebereiche transportiert werden cite:ehresmann_asymmetric_2011, andererseits können aber auch Strömungsfelder durch den Partikeltransport erzeugt werden, welche die Analyten und Reagenzien durchmischen und so höhere biochemische Reaktionsraten bewirken cite:holzinger_controlled_2012. Ein weiteres Anwendungsgebiet ist die magnetophoretische Auftrennung der Partikel, um so verschiedene Partikelgrößen und -typen aufgrund unterschiedlicher Bewegungsgeschwindigkeiten voneinander trennen zu können, damit möglichst homogene Partikeldispersionen für Analysen erreicht werden können cite:zhou_magnetic_2016. Für jede dieser Anwendungen werden verschiedene Formen eines externen Magnetfeldes benötigt. Bisher wurden für den Partikeltransport trapezförmige Magnetfeldsequenzen mit konstanten Änderungsraten verwendet. In dieser Arbeit soll der Einfluss der Änderungsrate auf die Transportgeschwindigkeit und Trajektorie der Partikel genauer betrachtet werden, um Optimierungen bezüglich des Partikeltransports für das jeweilige Anwendungsgebiet möglich zu machen.
+Das in der Arbeitsgruppe \textsc{Ehresmann} etablierte Transportkonzept von superparamagnetischen Partikeln (SPP) oberhalb magnetisch strukturierter /Exchange-Bias/ (EB) Dünnschichtsysteme kann hierbei ein wichtiger Bestandteil zukünftiger Analysesysteme werden. Die Grundidee ist es durch ein extern angelegtes Magnetfeld die magnetische Feldlandschaft (MFL) eines künstlichen Domänenmusters so zu transformieren, dass ein gerichteter Transport der SPP zwischen /head-to-head/ und /tail-to-tail/-Domänenwänden möglich wird. Dabei können diese SPP in verschiedenen Prozessschritten eines LOCs verwendet werden. Einerseits können Analyte, die an Partikel gebunden sind, in bestimmte Analysebereiche transportiert werden cite:ehresmann_asymmetric_2011, andererseits können aber auch Strömungsfelder durch den Partikeltransport erzeugt werden, welche die Analyten und Reagenzien durchmischen und so höhere biochemische Reaktionsraten bewirken cite:holzinger_controlled_2012. Ein weiteres Anwendungsgebiet ist die magnetophoretische Auftrennung der Partikel, um so verschiedene Partikelgrößen aufgrund unterschiedlicher magnetophoretischer Mobilitäten voneinander trennen zu können, damit zum Beispiel möglichst homogene Partikeldispersionen für Analysen erreicht werden können cite:zhou_magnetic_2016. Für jede dieser Anwendungen werden verschiedene Formen eines externen Magnetfeldes benötigt. Bisher wurden für den Partikeltransport trapezförmige Magnetfeldsequenzen mit konstanten Änderungsraten verwendet. In dieser Arbeit soll der Einfluss der Änderungsrate auf die Transportgeschwindigkeit und Trajektorie der Partikel genauer betrachtet werden, um Optimierungen bezüglich des Partikeltransports für das jeweilige Anwendungsgebiet möglich zu machen.
 * TODO Theoretische Grundlagen label:sec-grundlagen
   In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt. Dann werden die in dieser Arbeit verwendeten /Exchange Bias Systeme/ eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene /Exchange Bias Systeme/ beschrieben, wobei die auf sie wirkenden Kräfte genauer betrachtet werden sollen.
 
@@ -188,12 +185,14 @@ Der Abschaltvorgang ist in Abbildung ref:fig-abschalten abgebildet.
   axes[0].tick_params(axis="y", labelleft=False)
   axes[1].tick_params(axis="y", labelleft=False)
   axes[0].legend()
+  I2[I2==0] = max(I2)
   axes[1].plot(x, I2, label="I")
   axes[1].set_ylabel("I [A]")
   axes[1].set_xlabel("t")
   axes[1].legend()
   plt.tight_layout()
   plt.savefig("./img/ausschalten.png", dpi=600)
+  plt.close()
   "ausschalten.png"
 #+end_src
 
@@ -440,7 +439,7 @@ Anschließend wird Kapitel ref:sec-partikelgeschwindigkeiten der Einfluss der Ä
 
 #+name: fig-layer
 #+caption: Zusammensetzung der verwendeten Schichtsysteme. Die obere Siliziumschicht wurde erst nach der magnetischen Strukturierung der Probe abgeschieden. Modifiziert aus cite:janzen_fernsteuerbarer_2018.
-#+attr_latex: :width 0.5\textwidth :placement [h]
+#+attr_latex: :width 0.3\textwidth :placement [h]
 #+attr_org: :width 100px
 [[file:img/layer.png]]
 
