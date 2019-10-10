@@ -441,6 +441,7 @@ Anschließend wird Kapitel ref:sec-partikelgeschwindigkeiten der Einfluss der Ä
 #+name: fig-layer
 #+caption: Zusammensetzung der verwendeten Schichtsysteme. Die obere Siliziumschicht wurde erst nach der magnetischen Strukturierung der Probe abgeschieden. Modifiziert aus cite:janzen_fernsteuerbarer_2018.
 #+attr_latex: :width 0.5\textwidth :placement [h]
+#+attr_org: :width 100px
 [[file:img/layer.png]]
 
 ** TODO Stromstärke und magnetische Flussdichte der Helmholtzspulen label:sec-b_helmholtz
@@ -611,18 +612,22 @@ Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit de
       pd.read_csv(file2).to_numpy(),
       pd.read_csv(file3).to_numpy(),
       pd.read_csv(file4).to_numpy()]
-  """
-        pd.read_csv(B_file1).to_numpy() * 10,
-        pd.read_csv(B_file2).to_numpy() * 10,
-        pd.read_csv(B_file3).to_numpy() * 10,
-        pd.read_csv(B_file4).to_numpy() * 10]
-  """
 
   # Anfang und Ende abschneiden
   for i, data in enumerate(datalist):
       sr = 48000
-      end = np.argmax(data>0.018)
-      data = data[end:end+10*(sr+20)]
+      end = np.argmax(data>0.03)
+      if i == 0:
+          sr_off = sr + 20
+      elif i == 1:
+          sr_off = sr + 20 
+      elif i == 2:
+          sr_off = sr + 20
+      elif i == 3:
+          sr_off = sr + 20
+      else:
+          sr_off = 0
+      data = data[end:end+10*(sr_off)]
       datalist[i] = data
 
   fig, ax = plt.subplots(2,2, sharex=True)
@@ -636,7 +641,7 @@ Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit de
   ax[1,0].set_ylabel("$I$ [A]")
   ax[1,0].set_xlabel("Datenpunkte")
   ax[1,1].set_xlabel("Datenpunkte")
-  ax[1,1].set_xticks(np.arange(0,500000,step=150000))
+  # ax[1,1].set_xticks(np.arange(0,500000,step=150000))
   plt.tight_layout()
   plt.savefig("./img/strom.png", dpi=100)
   "./img/strom.png"

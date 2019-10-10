@@ -1,4 +1,4 @@
-% Created 2019-10-09 Mi 21:59
+% Created 2019-10-10 Do 16:35
 % Intended LaTeX compiler: pdflatex
 \documentclass[page,pdftex,12pt,a4paper,twoside,openright]{scrbook}
 \usepackage[utf8]{inputenc}
@@ -15,6 +15,17 @@
 \usepackage{capt-of}
 \usepackage{hyperref}
 \usepackage{minted}
+\makeatletter
+\def\set@curr@file#1{%
+\begingroup
+\escapechar\m@ne
+\xdef\@curr@file{\expandafter\string\csname #1\endcsname}%
+\endgroup
+}
+\def\quote@name#1{"\quote@@name#1\@gobble""}
+\def\quote@@name#1"{#1\quote@@name}
+\def\unquote@name#1{\quote@@name#1\@gobble"}
+\makeatother
 \usepackage[T1]{fontenc}
 \usepackage[ngerman, germanb]{babel}
 \usepackage[bottom=2.5cm,left=2.5cm,right=2cm]{geometry}
@@ -52,19 +63,19 @@
 
 
 \chapter{Einleitung \label{sec-einleitung}}
-\label{sec:orgf4e2b04}
+\label{sec:orge0cbd60}
 Durch die allgemeine Zunahme der Weltbevölkerung, den demographischen Wandel und die steigende Lebenserwartung wird eine Zunahme von Krankheiten wie Krebs oder Diabetes erwartet \cite{bray_global_2018,zhou_worldwide_2016}. Um dieser Entwicklung entgegen zu wirken, werden kostengünstige, patientennahe Diagnoseprozesse für die Individualmedizin entwickelt. So können bereits früh Krankheitsanzeichen und -ursachen entdeckt und bekämpft werden.
 
 Neuartigen Analysesystemen wie \emph{Lab-on-a-Chip} (LOC) werden deswegen großes Potential für Biomedizin und Medizindiagnostik in der Zukunft zugesprochen. Durch Miniaturisierung der Chips stellen sich viele Vorteile heraus \cite{stone_microfluidics_2001,knight_honey_2002}.
 Möglich sind unter anderem Biochips zur Analyse und Detektion von bestimmten Molekülen \cite{papadea_evaluation_2002}, Zellen (beispielsweise T-Zellen für die HIV/AIDS Diagnostik \cite{cheng_microchip_2007}), Protein- und Molekülmarkern \cite{wang_self-powered_2010}, sowie DNA/RNA-Analysen (z.B. Identifizierung von resistenten Pathogenen \cite{boehme_rapid_2010}). Es können bereits geringe Probenvolumina innerhalb kürzester Zeit analysiert werden und es werden nur geringe Mengen von Reagenzien benötigt \cite{chin_commercialization_2012}. So können relativ kostengünstige Biochips und Analyseverfahren entwickelt werden, um zum Beispiel auch in Schwellen- und Entwicklungsländern die medizinische Versorgung zu verbessern. Ein wichtiger Bestandteil dieser LOCs ist Transport und Separation der Analyte innerhalb des Chips. Hier hat sich die Nutzung von magnetischen Partikeln bewährt. Verschiedene mikromagnetische Oberflächenstrukturierungen machen dabei den gezielten Transport der Partikel möglich \cite{rampini_micromagnet_2016}.  
 
-Das in der Arbeitsgruppe \textsc{Ehresmann} etablierte Transportkonzept von superparamagnetischen Partikeln (SPP) oberhalb magnetisch strukturierter \emph{Exchange-Bias} (EB) Dünnschichtsysteme kann hierbei ein wichtiger Bestandteil zukünftiger Analysesysteme werden. Die Grundidee ist es durch ein extern angelegtes Magnetfeld die magnetische Feldlandschaft (MFL) so zu transformieren, dass ein gerichteter Transport der SPP zwischen \emph{head-to-head} und \emph{tail-to-tail}-Domänenwänden möglich wird. Dabei können diese SPP in verschiedenen Prozessschritten eines LOCs verwendet werden. Einerseits können Analyte die an Partikel gebunden sind in bestimmte Analysebereiche transportiert werden \cite{ehresmann_asymmetric_2011}, andererseits können aber auch Strömungsfelder durch den Partikeltransport erzeugt werden, welche das Analyt durchmischen und so höhere biochemische Reaktionsraten bewirken \cite{holzinger_controlled_2012}. Ein weiteres Anwendungsgebiet ist die magnetophoretische Auftrennung der Partikel, um so verschiedene Partikelgrößen und -typen aufgrund unterschiedlicher Bewegungsgeschwindigkeiten voneinander trennen zu können, damit möglichst homogene Partikeldispersionen für Analysen erreicht werden können \cite{zhou_magnetic_2016}. Für jede dieser Anwendungen werden verschiedene Formen eines externen Magnetfeldes benötigt. Bisher wurden für den Partikeltransport trapezförmige Magnetfeldsequenzen mit konstanten Änderungsraten verwendet. In dieser Arbeit soll der Einfluss der Änderungsrate auf die Transportgeschwindigkeit und Trajektorie der Partikel genauer betrachtet werden, um Optimierungen bezüglich des Partikeltransports für das jeweilige Anwendungsgebiet möglich zu machen.
-\chapter{[1/5] Theoretische Grundlagen \label{sec-grundlagen}}
-\label{sec:org18a965a}
+Das in der Arbeitsgruppe \textsc{Ehresmann} etablierte Transportkonzept von superparamagnetischen Partikeln (SPP) oberhalb magnetisch strukturierter \emph{Exchange-Bias} (EB) Dünnschichtsysteme kann hierbei ein wichtiger Bestandteil zukünftiger Analysesysteme werden. Die Grundidee ist es durch ein extern angelegtes Magnetfeld die magnetische Feldlandschaft (MFL) eines künstlichen Domänenmusters so zu transformieren, dass ein gerichteter Transport der SPP zwischen \emph{head-to-head} und \emph{tail-to-tail}-Domänenwänden möglich wird. Dabei können diese SPP in verschiedenen Prozessschritten eines LOCs verwendet werden. Einerseits können Analyte, die an Partikel gebunden sind, in bestimmte Analysebereiche transportiert werden \cite{ehresmann_asymmetric_2011}, andererseits können aber auch Strömungsfelder durch den Partikeltransport erzeugt werden, welche die Analyten und Reagenzien durchmischen und so höhere biochemische Reaktionsraten bewirken \cite{holzinger_controlled_2012}. Ein weiteres Anwendungsgebiet ist die magnetophoretische Auftrennung der Partikel, um so verschiedene Partikelgrößen und -typen aufgrund unterschiedlicher Bewegungsgeschwindigkeiten voneinander trennen zu können, damit möglichst homogene Partikeldispersionen für Analysen erreicht werden können \cite{zhou_magnetic_2016}. Für jede dieser Anwendungen werden verschiedene Formen eines externen Magnetfeldes benötigt. Bisher wurden für den Partikeltransport trapezförmige Magnetfeldsequenzen mit konstanten Änderungsraten verwendet. In dieser Arbeit soll der Einfluss der Änderungsrate auf die Transportgeschwindigkeit und Trajektorie der Partikel genauer betrachtet werden, um Optimierungen bezüglich des Partikeltransports für das jeweilige Anwendungsgebiet möglich zu machen.
+\chapter{Theoretische Grundlagen \label{sec-grundlagen}}
+\label{sec:org8434a43}
 In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt. Dann werden die in dieser Arbeit verwendeten \emph{Exchange Bias Systeme} eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene \emph{Exchange Bias Systeme} beschrieben, wobei die auf sie wirkenden Kräfte genauer betrachtet werden sollen.
 
 \section{Elektromagnetismus \label{sec-elektromagnetismus}}
-\label{sec:org9c9b4e4}
+\label{sec:orgaf8f983}
 Allgemein gilt, dass bewegte Ladungsträger (Ströme) ein Magnetfeld erzeugen. Fließt zum Beispiel ein Strom \(I\) durch einen langen geraden Draht, erzeugt dies ein kreisförmiges Magnetfeld. Entlang der Stromrichtung ergibt sich eine Rechtsschraube für das Magnetfeld B. Eine Spule besteht aus mehreren Windungen stromdurchflossenen Drahtes und erzeugt so durch Überlagerung ein Magnetfeld ähnlich eines Stabmagneten mit Nord- und Südpol. Die Magnetische Flussdichte \(B\) im Vakuum hängt dabei von Stromstärke \(I\) und Windungsdichte \(n = \frac{N}{L}\) (Windungen pro Länge) ab. Hierbei ist \(\mu_\mathrm{0}\) die magnetische Feldkonstante \cite{demtroder_experimentalphysik_2017}:
 
 \begin{equation}
@@ -73,7 +84,7 @@ B = \mu_{\mathrm{0}} \cdot n \cdot I .
 \end{equation}
 
 \subsection{Helmholtzspulen}
-\label{sec:org6556440}
+\label{sec:org2d6a68e}
 Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen erzeugt. Eine Helmholtzspule besteht aus zwei parallelen Ringspulen in Reihe. Diese erzeugen ein homogenes Magnetfeld in ihrem Inneren, wenn die Helmholtz-Bedingung erfüllt ist, d.h. Radius und Abstand der Teilspulen gleich sind. Dieses Magnetfeld hängt in Näherung von der Stromstärke \(I\), der Windungszahl \(N\) und dem Radius einer einzelnen Spule \(r\) ab \cite{reginka_charakterisierung_2015}:
 
 \begin{equation}
@@ -82,7 +93,7 @@ B = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot \mu_{\mathrm{0}} \cdot \frac{N 
 \end{equation}
 
 \section{Spulen als elektrische Bauteile \label{sec-spulen}}
-\label{sec:orgc621f3a}
+\label{sec:org5347adb}
 Beim Anlegen einer Spannung an eine Spule, wird innerhalb dieser eine Gegenspannung induziert. Hierbei ist die induzierte Spannung
 
 \begin{equation}
@@ -115,7 +126,7 @@ Der Abschaltvorgang ist in Abbildung \ref{fig-abschalten} abgebildet.
 \centering
 \begin{subfigure}[b]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{./img/schaltbild.png}
+\includegraphics[width=0.9\textwidth]{./img/schaltbild.png}
 \caption{Schaltbild.}
 \label{fig-schaltbild}
 \end{subfigure}
@@ -135,8 +146,8 @@ Der Abschaltvorgang ist in Abbildung \ref{fig-abschalten} abgebildet.
 \caption{Schematische Darstellung der Stromstärke und Spannung bei Ein- und Abschaltvorgang in einem Stromkreis mit Widerstand $R$, Induktion $L$ und einer Diode um einen Weg für den Abschaltinduktionsstrom zu liefern.}
 \end{figure}
 
-\section{[4/4] Magnetismus in Materie \label{sec-magnetismus}}
-\label{sec:org14fb434}
+\section{Magnetismus in Materie \label{sec-magnetismus}}
+\label{sec:org0138554}
 Wie bereits in Kapitel \ref{sec-elektromagnetismus} erläutert, erzeugen bewegte Ladungen Magnetfelder. Eine solche bewegte Ladung ist auch das Elektron, das in einer vereinfachten Vorstellung um den Atomkern kreist. Folglich besitzen Atome ein magnetisches Moment \(\mu\), welches abhängig ist von der umkreisten Fläche \(A\) und dem Kreisstrom des Elektrons \(I\) \cite{kassing_bergmann_2005}:
 
 \begin{equation}
@@ -177,7 +188,7 @@ Festkörper können in Folge der mikroskopischen Ursachen bezüglich ihres Magne
 Im Folgenden soll näher auf diese Klassifizierungen eingegangen werden.
 
 \subsection{Dia- und Paramagnetismus \label{sec-dia-und-para}}
-\label{sec:org882a5dc}
+\label{sec:org33152b9}
 Diamagnetismus ist ein magnetischer Effekt in jeglicher Materie, welcher durch induzierte magnetische Momente auftritt. In einem externen Magnetfeld wird im Atom ein magnetisches Moment induziert, welches dem induzierenden Magnetfeld entgegen wirkt (Lenzsche Regel). Ein Festkörper wird als diamagnetisch bezeichnet, wenn ohne äußeres magnetisches Feld keine magnetischen Momente vorliegen. Vor allem abgeschlossene äußere Elektronenschalen tragen zum diamagnetischen Effekt eines Atoms bei. Die Spin- und Bahnmomente der gepaarten Elektronen heben sich in Summe auf. Diamagnetische Materialien haben eine negative Suszeptibilität und werden aus dem externen Magnetfeld heraus gedrängt \cite{gross_festkorperphysik_2012}.
 
 \begin{equation}
@@ -200,7 +211,7 @@ Legt man ein äußeres Magnetfeld an, richten sich die magnetischen Momente nach
 \end{equation}
 
 \subsection{Ferromagnetismus \label{sec-ferro}}
-\label{sec:orgf5f77de}
+\label{sec:org8fc1fd1}
 Beeinflussen sich die einzelnen magnetischen Momente gegenseitig, sind sie also gekoppelt, kann das System einen magnetisch geordneten Zustand einnehmen. Dieser geordnete Zustand unterliegt jedoch einer Temperaturabhängigkeit. Eine Ursache für das Vorliegen von kollektivem Magnetismus ist die quantenmechanische \textbf{Austausch-Wechselwirkung} \cite{kassing_bergmann_2005}.
 
 Die Suszeptibilität ferromagnetischer Materialien ist um bis zu mehrere Größenordnungen größer als bei paramagnetischen Materialien \cite{demtroder_experimentalphysik_2017}.
@@ -241,35 +252,41 @@ Beim Ausrichten der magnetischen Dipole in einem ferromagnetischen Stoff wird En
 Der Festkörper kann seine ferromagnetischen Eigenschaften verlieren, wenn er über eine bestimmte, für das Material charakteristische, Temperatur \(T_\mathrm{C}\), die \textbf{Curie-Temperatur} erhitzt wird. Die Wärmebewegung zerstört dann die magnetische Ausrichtung der Dipole und der Stoff zeigt nur noch paramagnetisches Verhalten \cite{demtroder_experimentalphysik_2017}.
 
 \subsection{Antiferromagnetismus \label{sec-antiferro}}
-\label{sec:org3539d22}
+\label{sec:orgf7e33ed}
 In einem Antiferromagneten liegen zwei ineinander gestellte Untergitter im Kristallgitter vor. Die magnetischen Momente jener Untergitter zeigen jeweils in entgegengesetzte Richtungen und haben den gleichen Betrag. Somit heben sie sich insgesamt auf und es ist keine makroskopische Magnetisierung sichtbar. Oberhalb der \textbf{Néel-Temperatur} \(T_\mathrm{N}\), dem Analogon zur Curie-Temperatur, geht der Festkörper in den paramagnetischen Zustand über \cite{demtroder_experimentalphysik_2017}. 
 
 \subsection{Superparamagnetismus}
-\label{sec:orga9de9c7}
+\label{sec:orgf609dbd}
 Ist das Volumen eines ferromagnetischen Festkörpers so gering, dass er nur aus einer einzelnen Domäne besteht, spricht man von Superparamagnetismus. Die Suszeptibilität solcher Superparamagneten ist größer als die Suszeptibilität von Paramagneten, jedoch verhalten sie sich ohne äußeres Magnetfeld ähnlich, da die Magnetisierung in solchen einzelnen Domänen nicht thermisch stabil ist und sich beliebig ausrichten kann \cite{gross_festkorperphysik_2012}.
 Jedoch ist die Zeitskala des Experiments, und ob in dieser thermische Aktivierungs- und Relaxationsprozesse statt finden können, wichtig, um Aussagen über das magnetische Verhalten eines Partikels machen zu können. Bei ausreichend großen Zeitskalen wird über die durch thermische Energie unterschiedlichen magnetischen Momente gemittelt und man erhält insgesamt keine Magnetisierung. Wird jedoch sehr kurz gemessen, kann eine Richtung der Magnetisierung für diesen kurzen Zeitausschnitt bestimmt werden \cite{leslie-pelecky_magnetic_1996}.
 
 \section{Exchange Bias Effekt \label{sec-EB}}
-\label{sec:org93eb2f5}
-Der \emph{Exchange Bias} (EB) Effekt  wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten \ce{Co}-Partikeln entdeckt. Diese Partikel bestehen im Kern aus Cobalt, einem Ferromagneten, und besitzen eine äußere dünne \ce{CoO}-Schicht, welche antiferromagnetisch ist. Die Autoren entdeckten eine Verschiebung der Hysteresekurve um das sogenannte Austauschverschiebungsfeld \(H_\mathrm{EB}\) zwischen antiferro magnetischer und ferromagnetischer Schicht, wenn die Partikel in einem externen Magnetfeld unter die Néel-Temperatur der antiferromagnetischen Schicht gekühlt wurden \cite{meiklejohn_new_1957}.
-Der Exchange Bias Effekt bewirkt eine unidirektionale Anisotropie in der ferromagnetischen Schicht, das heißt es wird nur eine Richtung für die Magnetisierung bevorzugt. Dies steht im Gegensatz zur sonst üblichen uniaxialen Anisotropie in Ferromagneten, welche parallele und antiparallele Ausrichtungen entlang der \emph{leichten Achse} der Magnetisierung favorisiert. Die Ursache für den Exchange Bias Effekt ist die quantenmechanische Austauschwechselwirkung zwischen antiferromagnetischen und ferromagnetischen magnetischen Momenten an der Grenzfläche zwischen den Schichten \cite{stohr_magnetism_2006}. 
+\label{sec:org9b1facc}
+Der \emph{Exchange Bias} (EB) Effekt  wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten \ce{Co}-Partikeln entdeckt. Diese Partikel bestehen im Kern aus Cobalt, einem Ferromagneten, und besitzen eine äußere dünne \ce{CoO}-Schicht, welche antiferromagnetisch ist. Die Autoren entdeckten eine Verschiebung der Hysteresekurve um das sogenannte Austauschverschiebungsfeld \(H_\mathrm{EB}\). Diese Beobachtung kann durch den Austauschverschiebungseffekt (\emph{engl. exchange bias}) erklärt werden. Dieser tritt an der Grenzfläche zwischen antiferromagnetischer (AF) und ferromagnetischer (F) Schicht auf, wenn die Partikel innerhalb eines externen Magnetfeldes unter die Néel-Temperatur der antiferromagnetischen Schicht gekühlt wurden. \cite{meiklejohn_new_1957} .
+Der Exchange Bias Effekt bewirkt eine unidirektionale Anisotropie in der ferromagnetischen Schicht, das heißt es wird nur eine Richtung für die Magnetisierung bevorzugt. Dies steht im Gegensatz zur sonst üblichen uniaxialen Anisotropie in Ferromagneten, welche parallele und antiparallele Ausrichtungen entlang der \emph{leichten Achse} der Magnetisierung favorisiert. Die Ursache für den Exchange Bias Effekt ist die quantenmechanische Austauschwechselwirkung zwischen antiferromagnetischen und ferromagnetischen Momenten an der Grenzfläche zwischen den Schichten \cite{stohr_magnetism_2006}. 
 
-Die Hysteresekurve eines eines EB-Systems (Abbildung \ref{fig-eb} links in magenta) ist um das Austauschwechselfeld \(H_\mathrm{EB}\) verschoben im Vergleich zum alleinigen Ferromagneten (grau gestrichelt). Während des Feldkühlprozesses wird der Antiferromagnet auf eine Temperatur zwischen Néel-Temperatur und Curie-Temperatur gebracht, hier verhält er sich paramagnetisch (Abb. \ref{fig-eb} rechts oben). Anschließend wird die Temperatur unter die Néel-Temperatur verringert. Die magnetischen Momente im AF koppeln an der Grenzfläche über \(J_\mathrm{AF/F}\) an die Sättigungsmagnetisierung des Ferromagneten (Abb. \ref{fig-eb} rechts unten). So wird eine magnetische Ordnung hergestellt, welche die unidirektionale Anisotropie im Ferromagneten bewirkt \cite{merkel_einfluss_2018}.
+Die Hysteresekurve eines EB-Systems (Abbildung \ref{fig-eb} links in magenta) ist um das Austauschwechselfeld \(H_\mathrm{EB}\) verschoben im Vergleich zum alleinigen Ferromagneten (grau gestrichelt). Während des Feldkühlprozesses wird die Probe auf eine Temperatur zwischen Néel-Temperatur und Curie-Temperatur gebracht, hier verhält sich der AF paramagnetisch, während der F weiterhin seine ferromagnetischen Eigenschaften behält, so dass seine Magnetisierung innerhalb des externen Feldes gezielt ausgerichtet werden kann (Abb. \ref{fig-eb} rechts oben). Anschließend wird die Temperatur unter die Néel-Temperatur verringert. Die magnetischen Momente im AF koppeln an der Grenzfläche über \(J_\mathrm{AF/F}\) an die magnetischen Momente des gesättigten Ferromagneten (Abb. \ref{fig-eb} rechts unten). So wird eine magnetische Ordnung hergestellt, welche die unidirektionale Anisotropie im Ferromagneten bewirkt \cite{merkel_einfluss_2018}.
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=\textwidth]{img/eb.png}
+\includegraphics[width=0.5\textwidth]{img/eb.png}
 \caption{\label{fig-eb}
 Schematische Darstellung der ferromagnetischen Hysteresekurve eines EB-Systems in Abhängigkeit des externen Magnetfeldes parallel zur leichten Achse der unidirektionalen Anisotropie (links) und schematische Darstellung des Feldkühlprozesses zur Herstellung des EB-Effektes (rechts) \cite{merkel_einfluss_2018}.}
 \end{figure}
 
-Durch Helium-Ionenbeschuss kann der EB-Effekt eines Substrates verändert werden. So kann zum Beispiel die Richtung des Austauschwechselfeldes lokal umgekehrt werden \cite{mougin_local_2001}. Dies ermöglicht magnetische Strukturierung von EB-Systemen, zum Beispiel in einer \emph{in-plane} Anisotropie, welche zu \emph{head-to-head} und \emph{tail-to-tail}-Domänenwänden führt, womit wiederum Transport von superparamagnetischen Partikeln realisiert werden kann \cite{holzinger_directed_2015}. 
+Durch Helium-Ionenbeschuss kann der EB-Effekt eines Schichtsystems verändert werden. So kann zum Beispiel die Richtung des Austauschverschiebungsfeldes lokal umgekehrt werden \cite{mougin_local_2001}. Dies ermöglicht magnetische Strukturierung von EB-Systemen, zum Beispiel in einer \emph{in-plane} Anisotropie, welche zu \emph{head-to-head} und \emph{tail-to-tail}-Domänenwänden führt, womit wiederum Transport von superparamagnetischen Partikeln realisiert werden kann \cite{holzinger_directed_2015}. 
 
 \section{Partikeltransport \label{sec-partikeltransport}}
-\label{sec:org6205e16}
-Superparamagnetische Partikel (SPP) lassen sich durch Verwendung von den zuvor beschriebenen EB-Systemen (im Vergleich zum Transport über nichtmagnetischen Substraten) in kontrollierten Abständen zum Substrat und in geordneter Reihenform transportieren. Außerdem wird durch die magnetische Abstoßung zwischen den Partikeln eine Agglomeration erschwert und die Partikelgeschwindigkeiten können durch Modifikationen am EB-System oder externen Magnetfeld beeinflusst werden \cite{holzinger_directed_2015}.
+\label{sec:org660af07}
+Superparamagnetische Partikel (SPP) lassen sich durch Verwendung von den zuvor beschriebenen streifenstrukturierten (hh und tt) EB-Systemen (im Vergleich zum Transport über nichtmagnetischen Substraten) in kontrollierten Abständen zum Substrat und in geordneter Reihenform transportieren. Dabei setzt sich das effektive Magnetfeld, das die Partikel erfahren, aus der Magnetfeldlandschaft des Exchange-Bias Systems und dem externen Magnetfeld zusammen \cite{holzinger_directed_2015}:
 
-Werden SPP in wässriger Lösung ohne externes Magnetfeld auf das EB-Substrat gegeben, so positionieren sie sich in Reihen über den Domänenwänden. Dabei befinden sie sich in einem Gleichgewichtsabstand über dem Substrat an den x-Positionen, in denen die potentielle Energielandschaft Minima besitzt. Diese Minima sind ohne externes Magnetfeld über sowohl \emph{head-to-head} (hh) als auch \emph{tail-to-tail} (tt) Domänenwänden vorhanden (vgl. Abbildung \ref{fig-mfl}) \cite{holzinger_directed_2015}.
+\begin{equation}
+\vec{H}_\mathrm{eff} = \vec{H}_\mathrm{MFL} + \vec{H}_\mathrm{ext}.
+\end{equation}
+
+Bei der Verwendung superparamagnetischer Partikel werden diese innerhalb des effektiven Magnetfeldes aufmagnetisiert, so dass benachbarte Partikel parallele Magnetisierungen aufweisen, was zu ihrer magnetostatischen Abstoßung führt und die Agglomeration der Partikel verhindert. Außerdem können die Partikelgeschwindigkeiten durch Modifikation am EB-System doer externen Magnetfedl beeinflusst werden \cite{holzinger_directed_2015}.
+
+Werden SPP in wässriger Lösung ohne externes Magnetfeld auf das EB-Substrat gegeben, so positionieren sie sich in Reihen über den Domänenwänden, da die Minima der potentiellen Energie der SPP an der stelle der größten Streufelddichte liegt. Dabei befinden sie sich in einem Gleichgewichtsabstand über dem Substrat an den x-Positionen, in denen die potentielle Energielandschaft Minima besitzt. Diese Minima sind ohne externes Magnetfeld über sowohl \emph{head-to-head} (hh) als auch \emph{tail-to-tail} (tt) Domänenwänden vorhanden (vgl. Abbildung \ref{fig-mfl}) \cite{holzinger_directed_2015}.
 
 \begin{figure}[h]
 \centering
@@ -278,11 +295,8 @@ Werden SPP in wässriger Lösung ohne externes Magnetfeld auf das EB-Substrat ge
 Schematische Darstellung der potentiellen Energielandschaft \(U_\mathrm{SPP,z(x,y)}\) superparamagnetischer Partikel über einer EB-Streifendomänenstruktur. Das magnetische Moment der Partikel ist parallel zur Magnetfeldlandschaft ausgerichtet und die Partikel befinden sich in Reihen über den \emph{head-to-head} (hh) und \emph{tail-to-tail} (tt) Domänenwänden. Aus \cite{holzinger_transport_2015}.}
 \end{figure}
 
-Der Transport von superparamagnetischen Partikeln über Exchange-Bias-Systeme erfolgt durch zeitliche Veränderungen der magnetischen Potentiallandschaft über der Probe. Dabei setzt sich das effektive Magnetfeld, das die Partikel erfahren, aus der Magnetfeldlandschaft des Exchange-Bias Systems und dem externen Magnetfeld zusammen \cite{holzinger_directed_2015}:
+Der Transport von superparamagnetischen Partikeln über Exchange-Bias-Systeme erfolgt durch zeitliche Veränderungen der magnetischen Potentiallandschaft über der Probe. 
 
-\begin{equation}
-\vec{H}_\mathrm{eff} = \vec{H}_\mathrm{MFL} + \vec{H}_\mathrm{ext}.
-\end{equation}
 
 Die Partikel positionieren sich in Abwesenheit eines externen Feldes in Reihen über alle Domänenwände verteilt (vgl. Abbildung \ref{fig-mfl}). Der genaue Transportvorgang kann in Abbildung \ref{fig-transport} nachverfolgt werden. Durch Einschalten des Magnetfeldes \(H_\mathrm{z}\) wird die Magnetfeldlandschaft über den Domänenwänden verändert. hh-Domänenwände werden energetisch begünstigt und die Partikel bewegen sich ungeleitet in Richtung dieser (a). So bilden sich Reihen aus SPP, welche jeweils die doppelte Domänenbreite voneinander entfernt sind. Der Vorzeichenwechsel von \(H_\mathrm{x,max}\) bewirkt eine Verschiebung der Magnetfeldlandschaft in x-Richtung, welche das magnetische Moment der SPP leicht in Richtung nächster Domänenwand kippt (b), so dass nach erneuter Umpolung von \(H_\mathrm{z,max}\) das magnetische Moment in die entgegengesetzte Richtung drehen kann, und das Partikel eine Vorzugsrichtung hat, in die es sich bewegt. Andererseits würden die Partikel zufällig in eins der beiden benachbarten Energieminima wandern. Die Minima der Energielandschaft verschieben sich auf die nächstgelegene Domänenwand, da nun statt hh-Domänenwänden die tt-Domänenwände energetisch günstiger sind (c). Anschließend wird der Prozess mit umgekehrten Vorzeichen durchgeführt (d) und die Partikel befinden sich dann erneut über einer hh-Domänenwand (e) \cite{holzinger_directed_2015}. 
 
@@ -290,14 +304,14 @@ Die Partikel positionieren sich in Abwesenheit eines externen Feldes in Reihen �
 \centering
 \includegraphics[width=\textwidth]{img/trapez.png}
 \caption{\label{fig-transport}
-(a-e): Berechnete magnetische Potentiallandschaft \(U_\mathrm{SPP,z(x)}\) als Funktion der x-Position im Partikelzentrum \(\SI{2}{\mu\meter}\) über dem EB-System. Die superparamagnetischen Partikel sind schematisch in braun dargestellt. (f): Angelegte Magnetfeldsequenzen. Die Zeitskala der Magnetfeldsequenzen ist passend zu den Potentiallandschaften aufgetragen. Aus \cite{holzinger_transport_2015}.}
+(a-e): Berechnete magnetische Potentiallandschaft \(U_\mathrm{SPP,z(x)}\) als Funktion der x-Position im Partikelzentrum \(\SI{2}{\mu\meter}\) über dem EB-System. Die superparamagnetischen Partikel sind schematisch in braun dargestellt. (f): Angelegte Magnetfeldsequenzen. Die Zeitskala der Magnetfeldsequenzen ist passend zu den Darstellungen der Potentiallandschaften zu verschiedenen Zeiten aufgetragen. Aus \cite{holzinger_transport_2015}.}
 \end{figure}
 
 \chapter{Experimentelle Methoden \label{sec-methoden}}
-\label{sec:orgd367639}
+\label{sec:org0140a7d}
 
 \section{Experimenteller Aufbau \label{sec-aufbau}}
-\label{sec:org6118c95}
+\label{sec:orgaa8bece}
 
 Um den Transport von superparamagnetischen Partikeln über das Substrat zu realisieren und zu beobachten, wurde der Versuchsaufbau, der in Abbildung \ref{img-aufbau} zu sehen ist, verwendet.
 
@@ -305,10 +319,10 @@ Um den Transport von superparamagnetischen Partikeln über das Substrat zu reali
 \centering
 \includegraphics[width=\textwidth]{./img/aufbau.png}
 \caption{\label{img-aufbau}
-Partikeltransport Versuchsaufbau.}
+Partikeltransport Versuchsaufbau. Erleuterungen findne sich im Text.}
 \end{figure}
 
-Dieser Versuchsaufbau kann in zwei Teile unterteilt werden. Der erste Teil besteht aus einer Optronis Hochgeschwindigkeitskamera (1), welche durch ein Mikroskop (2) die Partikelbewegung in Videos aufzeichnet. Zur Belichtung der Probe wird eine Weißlicht-LED (3) verwendet. Die Position der Kamera über der Probe, und somit der Fokus des Mikroskops wird über einen Schrittmotor (4) verändert, welcher von einem LabView-Programm über eine NI USB-6002 Box (im Folgenden \emph{DAQ} für \emph{Data Acquisition}) (5) gesteuert wird. Der zweite Teil erzeugt das elektromagnetische Feld, um die Partikel zu transportieren. Er besteht aus drei senkrecht zueinander stehenden Helmholtzspulen (6), in deren Mitte ein beweglicher Probentisch liegt. Hiermit können Magnetfelder für alle drei Raumdimensionen erzeugt werden. Die Helmholtzspulen werden über ein spannungsgesteuertes Netzteil (7) mit Strom versorgt, welches wiederum von einem NI USB-6002 Box (DAQ) (8) über ein Python-Programm (siehe Kapitel \ref{sec-py}) angesteuert wird. So können beliebige Magnetfeldsequenzen im Inneren der Helmholtzspulen realisiert werden. Die Helmholtzspulen bestehen aus gewickeltem Kupferdraht, nähere Daten können Tabelle \ref{tab-spulen} entnommen werden.
+Dieser Versuchsaufbau kann in zwei Teile unterteilt werden. Der erste Teil besteht aus einer Optronis Hochgeschwindigkeitskamera (1), welche durch ein Mikroskop (2) die Partikelbewegung in Videos aufzeichnet. Zur Belichtung der Probe wird eine Weißlicht-LED (3) verwendet. Die Position der Kamera über der Probe, und somit der Fokus des Mikroskops wird über einen Schrittmotor (4) verändert, welcher von einem LabView-Programm über eine NI USB-6002 Box (im Folgenden \emph{DAQ} für \emph{Data Acquisition}) (5) gesteuert wird. Der zweite Teil zur Erzeugung der Magnetfeldsequenzen im Partikeltransportexperiment. Er besteht aus drei senkrecht zueinander stehenden Helmholtzspulen (6), in deren Mitte ein beweglicher Probentisch liegt. Hiermit können Magnetfelder für alle drei Raumdimensionen erzeugt werden. Die Helmholtzspulen werden über ein spannungsgesteuertes Netzteil (7) mit Strom versorgt, welches wiederum von einer NI USB-6002 Box (DAQ) (8) über ein Python-Programm (siehe Kapitel \ref{sec-py}) angesteuert wird. So können beliebige Magnetfeldsequenzen im Inneren der Helmholtzspulen realisiert werden. Die Helmholtzspulen bestehen aus gewickeltem Kupferdraht, nähere Daten können Tabelle \ref{tab-spulen} entnommen werden.
 
 \begin{table}[htbp]
 \caption{\label{tab-spulen}
@@ -327,10 +341,10 @@ z & \num{330} & \num{0,030} & \num{11,5} & \num{70} & \num{5,6}\\
 Bei den Versuchen in dieser Arbeit wurden nur zwei der drei Helmholtzspulen verwendet. Dabei handelte es sich um die Spulen für die x- und z-Richtung. Die Partikel wurden in einer mikrofluidischen Zelle auf den Proben platziert, um dann untersucht werden zu können. Hierfür wird Parafilm zuerst in Größe der Probe zurecht geschnitten, und dann ein Rechteck im Inneren des Parafilms ausgeschnitten. So entsteht eine Aussparung in der Mitte, in die circa \SI{10}{\micro\litre} Partikelsuspension gegeben werden. Anschließend wird die Probe auf dem Probentisch platziert, die LED eingeschaltet, und die Kamera mittels Livebild auf die Partikel fokussiert.
 
 \section{Programm zur Erstellung von Magnetfeldsequenzen \label{sec-py}}
-\label{sec:orga9413a6}
-Um die in dieser Arbeit benötigten externen Magnetfelder zu erzeugen wurde ein neues Programm in Python entwickelt, mit dessen Hilfe verschiedene Wellenformen als Magnetfeld ausgegeben werden können. Hierbei stand ein modularer Ansatz im Vordergrund, weshalb durch einfache Änderungen am Programmcode andere Geräte im Aufbau verwendet werden können. So kann zum Beispiel ein anderes Netzteil verwendet werden, um dann auch drei Helmholtzspulen für Magnetfelder in drei Dimensionen anzusteuern. Ziel war es sowohl sinus- und rechteckförmige Magnetfelder, als auch die für diese Arbeit benötigten trapezförmigen Magnetfelder erzeugen zu können. Dabei ist es möglich jeden wichtigen Parameter der Wellenform zu ändern, und die Magnetfeldsequenzen als Plot dargestellt zu sehen. Abbildung \ref{fig-prog} zeigt einen Screenshot des Programms.
+\label{sec:orgc15fd5c}
+Um die in dieser Arbeit benötigten externen Magnetfelder zu erzeugen, wurde ein neues Programm in Python entwickelt, mit dessen Hilfe verschiedene Wellenformen als Magnetfeld ausgegeben werden können. Hierbei stand ein modularer Ansatz im Vordergrund, weshalb durch einfache Änderungen am Programmcode andere Geräte im Aufbau verwendet werden können. So kann zum Beispiel ein anderes Netzteil verwendet werden, um dann auch drei Helmholtzspulen für Magnetfelder in drei Dimensionen anzusteuern. Ziel war es sowohl sinus- und rechteckförmige Magnetfelder, als auch die für diese Arbeit benötigten trapezförmigen Magnetfelder erzeugen zu können. Dabei ist es möglich jeden Parameter der Wellenform zu ändern, und die Magnetfeldsequenzen als Plot dargestellt zu sehen. Abbildung \ref{fig-prog} zeigt einen Screenshot der graphischen Benutzeroberfläche des Programms.
 
-Momentan ist es nur möglich die Spannungsausgabe des DAQ-Gerätes zu modifizieren und anzuzeigen. In Zukunft soll es jedoch möglich sein bereits das entstehende Magnetfeld im Programm auszuwählen und angezeigt zu bekommen. Hierzu wurden zunächst die verwendeten Spulen und das Netzteil charakterisiert (siehe Kapitel \ref{sec-stromundmagnet}).
+Mit der in dieser Arbeit entwickelten ersten Version des Programms ist es bisher nur möglich, die Spannungsausgabe des DAQ-Gerätes an das jeweilige verwendete Netzteil zu steuern und anzuzeigen. In Zukunft soll es jedoch möglich sein bereits das entstehende Magnetfeld im Programm auszuwählen und angezeigt zu bekommen. Hierzu wurden zunächst die verwendeten Spulen und das Netzteil charakterisiert (siehe Kapitel \ref{sec-stromundmagnet}).
 
 \begin{figure}[H]
 \centering
@@ -339,11 +353,11 @@ Momentan ist es nur möglich die Spannungsausgabe des DAQ-Gerätes zu modifizier
 Screenshot des entwickelen Programms zur Erstellung von beliebigen Magnetfeldsequenzen. Rechts dargestellt werden zwei trapezförmige Spannungen, die so von dem DAQ-Gerät an das Netzteil ausgegeben werden können.}
 \end{figure}
 
-\section{Zeitabhängige Messung von Strom und Magnetfeld \label{sec-stromundmagnet}}
-\label{sec:orgaa64625}
+\section{Zeitabhängige Messung von Strom und magnetischer Flussdichte \label{sec-stromundmagnet}}
+\label{sec:org33cdee1}
 Um das Verhalten der im Experiment verwendeten Helmholtzspulen nachvollziehen zu können und um die gegebenen technischen Daten und Modelle zu Überprüfen, wurden Messungen des Magnetfeldes und des Stromes an eben jenen Spulen durchgeführt.
 
-Hierfür wurde einerseits der zeitliche Verlauf der Stromstärke in der Spule gemessen, um Induktivität und ohmschen Widerstand zu überprüfen. Es wurde ein Keramikwiderstand in Reihe mit der zu messenden Helmholtzspule angebracht. Über diesem Widerstand \(R\) wurde nun die Spannung \(U\) gemessen, indem eine NI USB-6002 Box (im folgenden \emph{DAQ} für \emph{Data Acquisition}) parallel dazu angeschlossen wurde. Mithilfe des Ohmschen Gesetzes lässt sich so der Strom \(I\), der durch den bekannten Widerstand \(R\) fließt, berechnen. Da Spule und Widerstand in Reihe geschaltet sind, fließt durch beide die selbe Stromstärke.
+Hierfür wurde einerseits der zeitliche Verlauf der Stromstärke in der Spule gemessen, um Induktivität und ohmschen Widerstand zu überprüfen. Es wurde ein Keramikwiderstand in Reihe mit der zu messenden Helmholtzspule angebracht. Über diesem Widerstand \(R\) wurde nun die Spannung \(U\) gemessen, indem eine NI USB-6002 Box (im folgenden \emph{DAQ} für \emph{Data Acquisition}) parallel dazu angeschlossen wurde. Dieses DAQ-Gerät besitzt eine maximale Samplerate von \SI{50000}{\per\s} und eine Bittiefe von 16-bit am \emph{Analog Input} (AI). Damit ist dieses Gerät hinreichend geeignet für Erfassung der Messdaten. Mithilfe des Ohmschen Gesetzes lässt sich so der Strom \(I\), der durch den bekannten Widerstand \(R\) fließt, berechnen. Da Spule und Widerstand in Reihe geschaltet sind, fließt durch beide die selbe Stromstärke.
 
 \begin{figure}[h]
 \centering
@@ -352,24 +366,31 @@ Hierfür wurde einerseits der zeitliche Verlauf der Stromstärke in der Spule ge
 Schematisches Schaltbild zur zeitlich aufgelösten Strommessung am Aufbau.}
 \end{figure}
 
-Um den zeitlichen Verlauf des Magnetfeldes zu messen, wurde der Messkopf eines Teslameters auf dem Probentisch in den Helmholtzspulen platziert. Das FM210 Teslameter der \emph{Projekt Elektronik GmbH} besitzt einen BNC-Anschluss, über welchen widerum ein DAQ-Gerät angeschlossen wurde, um den zeitlichen Verlauf des Magnetfeldes aufzuzeichnen.
+Um den zeitlichen Verlauf der magnetischen Flussdichte zu messen, wurde der Messkopf eines Teslameters auf dem Probentisch zwischen den Helmholtzspulen platziert. Das FM210 Teslameter der \emph{Projekt Elektronik GmbH} besitzt einen BNC-Anschluss, über welchen widerum ein DAQ-Gerät an einem AI angeschlossen wurde, um den zeitlichen Verlauf der magnetischen Flussdichte aufzuzeichnen.
 
 Die Aufzeichnung der Daten des DAQ-Gerätes erfolgte für beide Messungen mittels eines selbst geschriebenen Python-Scriptes (siehe Anhang \ref{anh-messung}).
 
 \chapter{Ergebnisse und Diskussion \label{sec-ergebnisse}}
-\label{sec:orge201587}
+\label{sec:org16e3d95}
 Allgemein kann die Auswertung in zwei Teile unterteilt werden.
-Zu Beginn der Auswertung wird in Kapitel \ref{sec-b_helmholtz} auf Messungen von Stromstärke und Magnetfeldstärke an den im Experiment verwendeten Helmholtzspulen eingegangen. Diese Messungen werden benötigt um das Programm zur Erstellung von Magnetfeldsequenzen zukünftig sinnvoll weiter entwickeln zu können. Es wurden sowohl statische Messungen der Amplitude der Magnetfeldstärke als auch der zeitliche Verlauf der Magnetfeldstärke in Abhängigkeit der Stromstärke durchgeführt.
+Zu Beginn der Auswertung wird in Kapitel \ref{sec-b_helmholtz} auf Messungen von Stromstärke und magnetischer Flussdichte an den im Experiment verwendeten Helmholtzspulen eingegangen. Diese Messungen werden zum einen benötigt um das Programm zur Erstellung von Magnetfeldsequenzen zukünftig sinnvoll weiter entwickeln zu können. Weiterhin ist die Kentniss über den realen zeitlichen Verlauf der angelegten Magnetfeldsequenzen wichtig, um die Simulationen und Vorhersagen aus dem theoretischen Modell zum Partikeltransport einordnen, diskutieren und möglicherweise optimieren zu können. Es wurden sowohl statische Messungen der Amplitude der magnetischen Flussdichte als auch der zeitliche Verlauf der magnetischen Flussdichte in Abhängigkeit der Stromstärke durchgeführt.
 
-Anschließend wird Kapitel \ref{sec-partikelgeschwindigkeiten} der Einfluss der Änderungsrate der trapezförmigen Magnetfeldsequenzen auf die Partikelgeschwindigkeiten näher betrachtet. Hierzu werden außerdem die Auswirkungen auf die Trajektorien der Partikel genauer untersucht und mit simulierten Werten verglichen.
+Anschließend wird Kapitel \ref{sec-partikelgeschwindigkeiten} der Einfluss der Änderungsrate der trapezförmigen Magnetfeldsequenzen auf die Partikelgeschwindigkeiten näher betrachtet. Hierzu werden außerdem die Auswirkungen der verschiedenen Pulsformen auf die Trajektorien der Partikel genauer untersucht und mit simulierten Werten verglichen. In beiden Fällen wird sich auf ein strukturiertes EB-System mit \SI{5}{\mu\meter} breiten Domänen in hh- und tt-Konfiguration und dem standardmäßig in der Arbeitsgruppe \textsc{Ehresmann} verwendeten Schichtstapel \(\ce{ Cu(\SI{10}{\nano\meter}) / IrMn(\SI{30}{\nano\meter}) / CoFe(\SI{10}{\nano\meter}) }\) mit einer \SI{800}{\nano\meter} \ce{Si}-Deckschicht (siehe Abbildung \ref{fig-layer}).
 
-\section{Strom und Magnetfeld der Helmholtzspulen \label{sec-b_helmholtz}}
-\label{sec:orge442808}
-Um die verwendeten Helmholtzspulen näher charakterisieren zu können wurden sowohl die Stromstärke als auch das resultierende Magnetfeld gemessen.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{img/layer.png}
+\caption{\label{fig-layer}
+Zusammensetzung der verwendeten Schichtsysteme. Die obere Siliziumschicht wurde erst nach der magnetischen Strukturierung der Probe abgeschieden. Modifiziert aus \cite{janzen_fernsteuerbarer_2018}.}
+\end{figure}
 
-Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke \(I\) und Magnetfeldstärke \(B\) gemessen. Dabei wurde die Stromstärke an einem in Reihe geschalteten Multimeter abgelesen, die Magnetfeldstärke an einem Teslameter der Firma \emph{Projekt Elektronik GmbH}, dessen Messkopf sich in der Probenhalterung der Helmholtzspulen zur Messung des Magnetfeldes in z-Richtung befand. Der Zusammenhang von Stromstärke und Magnetfeldstärke sollte gemäß Gleichung \ref{eq-spule} linear sein, deswegen wurde in Abbildung \ref{fig-magnetfeldstrom} eine lineare Regression durch die Messwerte gelegt.
+\section{Stromstärke und magnetische Flussdichte der Helmholtzspulen \label{sec-b_helmholtz}}
+\label{sec:org760f217}
+Um die verwendeten Helmholtzspulen näher charakterisieren zu können wurden sowohl die Stromstärke als auch die resultierende magnetische Flussdichte gemessen.
 
-Um die Validität der Näherung für die Magnetfeldstärke von Helmholtzspulen in Abhängigkeit der Stromstärke (Gleichung \ref{eq-helmholtz}) für die verwendeten Spulen zu überprüfen, wurde die Gleichung nach einigen mathematischen Umformungen als Pythoncode geschrieben und Radius und Windungszahl der verwendeten Spule vorgegeben:
+Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke \(I\) und magnetischen Flussdichte \(B\) gemessen. Dabei wurde die Stromstärke an einem in Reihe geschalteten Multimeter abgelesen, die magnetischen Flussdichte an einem Teslameter der Firma \emph{Projekt Elektronik GmbH}, dessen Messkopf sich in der Probenhalterung der Helmholtzspulen zur Messung des Magnetfeldes in z-Richtung befand. Der Zusammenhang von Stromstärke und magnetischer Flussdichte sollte gemäß Gleichung \ref{eq-spule} linear sein, deswegen wurde in Abbildung \ref{fig-magnetfeldstrom} eine lineare Regression durch die Messwerte gelegt.
+
+Um die Validität der Näherung für die magnetische Flussdichte von Helmholtzspulen in Abhängigkeit der Stromstärke (Gleichung \ref{eq-helmholtz}) für die verwendeten Spulen zu überprüfen, wurde die Gleichung nach einigen mathematischen Umformungen als Pythoncode geschrieben und Radius und Windungszahl der verwendeten Spule vorgegeben:
 
 \begin{listing}[htbp]
 \begin{minted}[]{python}
@@ -379,20 +400,20 @@ def B_helmholtz(I, c):
     B = 4*np.pi * 10**(-7) * (8* I * n)/(np.sqrt(125)*r) + c
     return B
 \end{minted}
-\caption{Funktion zur Berechnung der Magnetfeldstärke einer Helmholtzspule in Abhängigkeit von der Stromstärke.}
+\caption{Funktion zur Berechnung der magnetischen Flussdichte einer Helmholtzspule in Abhängigkeit von der Stromstärke.}
 \end{listing}
 
-Anschließend wurden die vorher gemessenen Stromstärken verwendet um die zu erwartende Magnetfeldstärke zu berechnen. Der Vergleich zwischen gemessenen und berechneten Werten ist in Abbildung \ref{fig-b_helmholtz} zu sehen.
+Anschließend wurden die vorher gemessenen Stromstärken verwendet um die zu erwartende magnetische Flussdichte zu berechnen. Der Vergleich zwischen gemessenen und berechneten Werten ist in Abbildung \ref{fig-b_helmholtz} zu sehen.
 
 \begin{figure}[h]
 \begin{subfigure}[t]{0.5\textwidth}
 \includegraphics[width=\textwidth]{img/B(I).png}
-\caption{Messung der Magnetfeldstärke in z-Richtung $B_\mathrm{z}$ in Abhängigkeit der Stromstärke am Netzteil $I$. Die Messwerte sind blau dargestellt, eine lineare Regression über diese in rot. Fehlerbalken sind aufgrund der Sichtbarkeit des niedrigen Fehlers nicht dargestellt.}
+\caption{Messung der magnetischen Flussdichte in z-Richtung $B_\mathrm{z}$ in Abhängigkeit der Stromstärke am Netzteil $I$. Die Messwerte sind blau dargestellt, eine lineare Regression über diese in rot. Fehlerbalken sind aufgrund der Sichtbarkeit des niedrigen Fehlers nicht dargestellt.}
 \label{fig-magnetfeldstrom}
 \end{subfigure}%
 \begin{subfigure}[t]{0.5\textwidth}
 \includegraphics[width=\textwidth]{img/b_calc.png}
-\caption{Vergleich von gemessener und mit Näherung aus Gleichung ref:eq-helmholtz berechneter Magnetfeldstärke in z-Richtung.}
+\caption{Vergleich von gemessener und mit Näherung aus Gleichung ref:eq-helmholtz berechneter magnetischen Flussdichte in z-Richtung.}
 \label{fig-b_helmholtz}
 \end{subfigure}
 \end{figure}
@@ -408,7 +429,7 @@ m = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot \mu_{\mathrm{0}} \cdot \frac{N}
 = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot 4\pi \cdot 10^{-7}\si{\newton\per\square\ampere} \cdot \frac{330}{\SI{0.03}{m}} = \SI{0.00989}{\tesla\per\ampere}
 \end{equation}
 
-Hierbei wird deutlich, dass die Näherung für höhere Stromstärken nicht hinreichend genügt. Jedoch liegen für den verwendeten Aufbau benötigte Magnetfeldstärken im Bereich von unter \SI{8}{\milli\tesla}, weswegen die Näherung in Zukunft im Partikeltransport Programm verwendet werden könnte, um die Amplitude des entstehenden Magnetfeldes bereits im Voraus zu berechnen.
+Hierbei wird deutlich, dass die Näherung für höhere Stromstärken nicht hinreichend genügt. Jedoch liegen für den verwendeten Aufbau benötigte magnetische Flussdichten im Bereich von unter \SI{8}{\milli\tesla}, weswegen die Näherung in Zukunft im Partikeltransport Programm verwendet werden könnte, um die Amplitude der entstehenden magnetischen Flussdichte bereits im Voraus zu berechnen.
 
 Um den zeitlichen Verlauf der Stromstärke zu bestimmen wurde der Aufbau aus Kapitel \ref{sec-stromundmagnet} verwendet.
 
@@ -449,13 +470,13 @@ Anschließend wurde versucht Gleichung \ref{eq-strom-spule} an die Kurve zu fitt
 Fitfunktion zu Gleichung \ref{eq-strom-spule} durch die gemessenen Stromstärken.}
 \end{figure}
 
-Analog dazu wurden die selben Schritte für die Magnetfeldstärke durchgeführt. Abbildung \ref{fig-mag} zeigt den zeitlichen Verlauf des Magnetfeldes.
+Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgeführt. Abbildung \ref{fig-mag} zeigt den zeitlichen Verlauf des Flussdichte.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{img/mag.png}
 \caption{\label{fig-mag}
-Zeitlicher Verlauf des Magnetfeldes bei einer angelegten Rechteckspannung. Links ist das Magnetfeld der x-Spulen dargestellt, rechts das der z-Spulen.}
+Zeitlicher Verlauf der magnetischen Flussdichte bei einer angelegten Rechteckspannung. Links ist die magnetische Flussdichte der x-Spulen dargestellt, rechts das der z-Spulen.}
 \end{figure}
 
 Auch hier wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe Rauschen aus dem Signal zu entfernen, andererseits um eine einzelne Periode betrachten zu können. Die gemittelten Messwerte sind in Abbildung \ref{fig-mag_avg} zu sehen.
@@ -464,10 +485,10 @@ Auch hier wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe
 \centering
 \includegraphics[width=\textwidth]{img/mag_avg.png}
 \caption{\label{fig-mag_avg}
-Über alle zehn Perioden gemittelte Messwerte des Magnetfeldes für x-Spule (links) und z-Spule (rechts).}
+Über alle zehn Perioden gemittelte Messwerte der magnetischen Flussdichte für x-Spule (links) und z-Spule (rechts).}
 \end{figure}
 
-Auch hier sind Spitzen am Beginn des Plateaus zu sehen. Diese haben die gleichen Ursachen wie bereits für die Stromstärke genannt, und wurden deswegen erwartet, da das Magnetfeld aus dem bereits gemessenen durch die Spulen fließenden Strom resultiert.
+Auch hier sind Spitzen am Beginn des Plateaus zu sehen. Diese haben die gleichen Ursachen wie bereits für die Stromstärke genannt, und wurden deswegen erwartet, da die magnetische Flussdichte aus dem bereits gemessenen durch die Spulen fließenden Strom resultiert.
 
 Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse. Diesen kann man in Abbildung \ref{fig-mag_anfang} sehen.
 
@@ -475,11 +496,11 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 \centering
 \includegraphics[width=\textwidth]{img/mag_anfang.png}
 \caption{\label{fig-mag_anfang}
-Verlauf des Magnetfeldes kurz nach Beginn der gemittelten Periode. Links für x-Spule, rechts für z-Spule.}
+Verlauf der magnetischen Flussdichte kurz nach Beginn der gemittelten Periode. Links für x-Spule, rechts für z-Spule.}
 \end{figure}
 
 \section{Partikelgeschwindigkeiten \label{sec-partikelgeschwindigkeiten}}
-\label{sec:org3901eba}
+\label{sec:orge6b6038}
 \blindtext
 
 \begin{figure}[h]
@@ -496,6 +517,13 @@ Trapezförmige Magnetfeldsequenzen mit verschiedenen Plateaustartzeiten. Eine Pl
 Gemessene Partikelgeschwindigkeiten für verschiedene Startzeiten des Plateaus in der angelegten Trapezspannung für eine Frequenz von 1 Hz.}
 \end{figure}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{./img/sim.png}
+\caption{\label{img-traj_real}
+Simulierte Trajektorien für verschiedene Änderungsraten des Magnetfeldes.}
+\end{figure}
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.75\textwidth]{./img/videospottracker.png}
@@ -503,12 +531,11 @@ Gemessene Partikelgeschwindigkeiten für verschiedene Startzeiten des Plateaus i
 Screenshot der \emph{Video Spot Tracker} Software nach erfolgreicher Auswertung eines Videos. Gelb markiert sind die Trajektorien der verschiedenen Partikel, blau die Endpunkte der Partikel.}
 \end{figure}
 \chapter{Zusammenfassung und Ausblick \label{sec-zusammenfassung}}
-\label{sec:orgcb79456}
+\label{sec:org60d8e6f}
 \chapter{Anhang}
-\label{sec:org291a4ea}
-\section{Python-Script zur Messung von Stromstärke und Magnetfeld: \label{anh-messung}}
-\label{sec:org72955bf}
-
+\label{sec:orge2820cc}
+\section{Python-Script zur Messung von Stromstärke und magnetischer Flussdichte: \label{anh-messung}}
+\label{sec:orgb1296dd}
 \begin{minted}[]{python}
 """ Measure magnetic fieldstrength with NI USB-6002 """
 import numpy as np
@@ -554,10 +581,10 @@ if __name__ == "__main__":
 \end{minted}
 
 \chapter*{}
-\label{sec:org1ccf3d8}
+\label{sec:orgb71a8e0}
 \printbibliography
 
 \chapter*{Danksagung}
-\label{sec:org8f8f105}
+\label{sec:orga6d78f4}
 Danke.
 \end{document}
