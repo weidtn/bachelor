@@ -615,18 +615,23 @@ Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit de
   # Anfang und Ende abschneiden
   for i, data in enumerate(datalist):
       sr = 48000
-      end = np.argmax(data>0.03)
+      end = np.argmax(data>0.025)
       if i == 0:
           sr_off = sr + 20
+          end_off = end - 1
       elif i == 1:
-          sr_off = sr + 20 
+          sr_off = sr + 20
+          end_off = end + 30
       elif i == 2:
-          sr_off = sr + 20
+          sr_off = sr + 19 
+          end_off = end - 1
       elif i == 3:
-          sr_off = sr + 20
+          sr_off = sr + 19 
+          end_off = end - 0
       else:
           sr_off = 0
-      data = data[end:end+10*(sr_off)]
+          end_off = 0
+      data = data[end_off:end_off+10*(sr_off)]
       datalist[i] = data
 
   fig, ax = plt.subplots(2,2, sharex=True)
@@ -643,6 +648,7 @@ Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit de
   ax[1,1].set_xticks(np.arange(0,500000,step=150000))
   plt.tight_layout()
   plt.savefig("./img/strom.png", dpi=100)
+  plt.close()
   "./img/strom.png"
 #+end_src
 
@@ -664,7 +670,7 @@ Um eine Aussage über die Änderungsrate (Steigung) des Magnetfeldes machen zu k
   n_periods = 10
   avglist = []
   for i, data in enumerate(datalist):
-      periodic = data.reshape(n_periods, sr+20)
+      periodic = data.reshape(n_periods, (len(data)//n_periods))
       avg = periodic.mean(axis=0)
       avglist.append(avg)
   plt.clf()
@@ -716,6 +722,7 @@ Da vor allem das Einschaltverhalten der Spulen von Interesse ist, wurde der Begi
   ax[1,1].set_xlabel("Datenpunkte")
   plt.tight_layout()
   plt.savefig("./img/strom_anfang.png", dpi=100)
+  plt.close()
   "./img/strom_anfang.png"
 
 #+end_src
@@ -755,7 +762,7 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
   except RuntimeError as e:
       print(e)
   plt.clf()
-  plt.plot(avglist[0][:cut], '.', markersize=3)
+  plt.plot(x, avglist[0][:cut], '.', markersize=3)
   plt.plot(x, I(x, *popt), 'r--')
   plt.savefig("./img/strom_fit.png")
   "./img/strom_fit.png"
