@@ -8,6 +8,7 @@
 
 * Fragen                                                             :ignore:
 * TODO [4/11] Noch zu tun:                                           :ignore:
+** TODO Magnetfeld -> Flussdichte
 ** TODO Samplerate für jede Messung rausfinden
 ** DONE layer.png
    CLOSED: [2019-10-10 Do 16:09]
@@ -84,10 +85,11 @@ Neuartigen Analysesystemen wie /Lab-on-a-Chip/ (LOC) werden deswegen großes Pot
 Möglich sind unter anderem Biochips zur Analyse und Detektion von bestimmten Molekülen cite:papadea_evaluation_2002, Zellen (beispielsweise T-Zellen für die HIV/AIDS Diagnostik cite:cheng_microchip_2007), Protein- und Molekülmarkern cite:wang_self-powered_2010, sowie DNA/RNA-Analysen (z.B. Identifizierung von resistenten Pathogenen cite:boehme_rapid_2010). Es können bereits geringe Probenvolumina innerhalb kürzester Zeit analysiert werden und es werden nur geringe Mengen von Reagenzien benötigt cite:chin_commercialization_2012. So können relativ kostengünstige Biochips und Analyseverfahren entwickelt werden, um zum Beispiel auch in Schwellen- und Entwicklungsländern die medizinische Versorgung zu verbessern. Ein wichtiger Bestandteil dieser LOCs ist Transport und Separation der Analyte innerhalb des Chips. Hier hat sich die Nutzung von magnetischen Partikeln bewährt. Verschiedene mikromagnetische Oberflächenstrukturierungen machen dabei den gezielten Transport der Partikel möglich cite:rampini_micromagnet_2016.  
 
 Das in der Arbeitsgruppe \textsc{Ehresmann} etablierte Transportkonzept von superparamagnetischen Partikeln (SPP) oberhalb magnetisch strukturierter /Exchange-Bias/ (EB) Dünnschichtsysteme kann hierbei ein wichtiger Bestandteil zukünftiger Analysesysteme werden. Die Grundidee ist es durch ein extern angelegtes Magnetfeld die magnetische Feldlandschaft (MFL) eines künstlichen Domänenmusters so zu transformieren, dass ein gerichteter Transport der SPP zwischen /head-to-head/ und /tail-to-tail/-Domänenwänden möglich wird. Dabei können diese SPP in verschiedenen Prozessschritten eines LOCs verwendet werden. Einerseits können Analyte, die an Partikel gebunden sind, in bestimmte Analysebereiche transportiert werden cite:ehresmann_asymmetric_2011, andererseits können aber auch Strömungsfelder durch den Partikeltransport erzeugt werden, welche die Analyten und Reagenzien durchmischen und so höhere biochemische Reaktionsraten bewirken cite:holzinger_controlled_2012. Ein weiteres Anwendungsgebiet ist die magnetophoretische Auftrennung der Partikel, um so verschiedene Partikelgrößen und -typen aufgrund unterschiedlicher Bewegungsgeschwindigkeiten voneinander trennen zu können, damit möglichst homogene Partikeldispersionen für Analysen erreicht werden können cite:zhou_magnetic_2016. Für jede dieser Anwendungen werden verschiedene Formen eines externen Magnetfeldes benötigt. Bisher wurden für den Partikeltransport trapezförmige Magnetfeldsequenzen mit konstanten Änderungsraten verwendet. In dieser Arbeit soll der Einfluss der Änderungsrate auf die Transportgeschwindigkeit und Trajektorie der Partikel genauer betrachtet werden, um Optimierungen bezüglich des Partikeltransports für das jeweilige Anwendungsgebiet möglich zu machen.
-* TODO [1/5] Theoretische Grundlagen label:sec-grundlagen
+* TODO Theoretische Grundlagen label:sec-grundlagen
   In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt. Dann werden die in dieser Arbeit verwendeten /Exchange Bias Systeme/ eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene /Exchange Bias Systeme/ beschrieben, wobei die auf sie wirkenden Kräfte genauer betrachtet werden sollen.
 
-** TODO Elektromagnetismus label:sec-elektromagnetismus
+** DONE Elektromagnetismus label:sec-elektromagnetismus
+   CLOSED: [2019-10-10 Do 16:13]
    Allgemein gilt, dass bewegte Ladungsträger (Ströme) ein Magnetfeld erzeugen. Fließt zum Beispiel ein Strom $I$ durch einen langen geraden Draht, erzeugt dies ein kreisförmiges Magnetfeld. Entlang der Stromrichtung ergibt sich eine Rechtsschraube für das Magnetfeld B. Eine Spule besteht aus mehreren Windungen stromdurchflossenen Drahtes und erzeugt so durch Überlagerung ein Magnetfeld ähnlich eines Stabmagneten mit Nord- und Südpol. Die Magnetische Flussdichte $B$ im Vakuum hängt dabei von Stromstärke $I$ und Windungsdichte $n = \frac{N}{L}$ (Windungen pro Länge) ab. Hierbei ist $\mu_\mathrm{0}$ die magnetische Feldkonstante cite:demtroder_experimentalphysik_2017:
 
 #+name: eq-spule
@@ -103,7 +105,8 @@ Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von He
 B = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot \mu_{\mathrm{0}} \cdot \frac{N \cdot I}{r} .
 \end{equation}
 
-** TODO Spulen als elektrische Bauteile label:sec-spulen
+** DONE Spulen als elektrische Bauteile label:sec-spulen
+   CLOSED: [2019-10-10 Do 16:13]
 Beim Anlegen einer Spannung an eine Spule, wird innerhalb dieser eine Gegenspannung induziert. Hierbei ist die induzierte Spannung
     
  #+name: eq-induktivitaet
@@ -222,7 +225,7 @@ Der Abschaltvorgang ist in Abbildung ref:fig-abschalten abgebildet.
 \caption{Schematische Darstellung der Stromstärke und Spannung bei Ein- und Abschaltvorgang in einem Stromkreis mit Widerstand $R$, Induktion $L$ und einer Diode um einen Weg für den Abschaltinduktionsstrom zu liefern.}
 \end{figure}
 
-** DONE [4/4] Magnetismus in Materie label:sec-magnetismus
+** DONE Magnetismus in Materie label:sec-magnetismus
    CLOSED: [2019-09-30 Mo 11:12]
 Wie bereits in Kapitel ref:sec-elektromagnetismus erläutert, erzeugen bewegte Ladungen Magnetfelder. Eine solche bewegte Ladung ist auch das Elektron, das in einer vereinfachten Vorstellung um den Atomkern kreist. Folglich besitzen Atome ein magnetisches Moment $\mu$, welches abhängig ist von der umkreisten Fläche $A$ und dem Kreisstrom des Elektrons $I$ cite:kassing_bergmann_2005:
    
@@ -415,7 +418,7 @@ Mit der in dieser Arbeit entwickelten ersten Version des Programms ist es bisher
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/prog.png]]
 
-** TODO Zeitabhängige Messung von Strom und Magnetfeld label:sec-stromundmagnet
+** TODO Zeitabhängige Messung von Strom und magnetischer Flussdichte label:sec-stromundmagnet
 Um das Verhalten der im Experiment verwendeten Helmholtzspulen nachvollziehen zu können und um die gegebenen technischen Daten und Modelle zu Überprüfen, wurden Messungen des Magnetfeldes und des Stromes an eben jenen Spulen durchgeführt.
 
 Hierfür wurde einerseits der zeitliche Verlauf der Stromstärke in der Spule gemessen, um Induktivität und ohmschen Widerstand zu überprüfen. Es wurde ein Keramikwiderstand in Reihe mit der zu messenden Helmholtzspule angebracht. Über diesem Widerstand $R$ wurde nun die Spannung $U$ gemessen, indem eine NI USB-6002 Box (im folgenden /DAQ/ für /Data Acquisition/) parallel dazu angeschlossen wurde. Dieses DAQ-Gerät besitzt eine maximale Samplerate von \SI{50000}{\per\s} und eine Bittiefe von 16-bit am /Analog Input/ (AI). Damit ist dieses Gerät hinreichend geeignet für Erfassung der Messdaten. Mithilfe des Ohmschen Gesetzes lässt sich so der Strom $I$, der durch den bekannten Widerstand $R$ fließt, berechnen. Da Spule und Widerstand in Reihe geschaltet sind, fließt durch beide die selbe Stromstärke.
@@ -425,13 +428,13 @@ Hierfür wurde einerseits der zeitliche Verlauf der Stromstärke in der Spule ge
 #+attr_latex: :width 0.7\textwidth :placement [h]
 [[file:img/strommessung.pdf]]
 
-Um den zeitlichen Verlauf des Magnetfeldes zu messen, wurde der Messkopf eines Teslameters auf dem Probentisch zwischen den Helmholtzspulen platziert. Das FM210 Teslameter der /Projekt Elektronik GmbH/ besitzt einen BNC-Anschluss, über welchen widerum ein DAQ-Gerät an einem AI angeschlossen wurde, um den zeitlichen Verlauf des Magnetfeldes aufzuzeichnen.
+Um den zeitlichen Verlauf der magnetischen Flussdichte zu messen, wurde der Messkopf eines Teslameters auf dem Probentisch zwischen den Helmholtzspulen platziert. Das FM210 Teslameter der /Projekt Elektronik GmbH/ besitzt einen BNC-Anschluss, über welchen widerum ein DAQ-Gerät an einem AI angeschlossen wurde, um den zeitlichen Verlauf der magnetischen Flussdichte aufzuzeichnen.
 
 Die Aufzeichnung der Daten des DAQ-Gerätes erfolgte für beide Messungen mittels eines selbst geschriebenen Python-Scriptes (siehe Anhang [[ref:anh-messung]]).
 
 * TODO Ergebnisse und Diskussion label:sec-ergebnisse
 Allgemein kann die Auswertung in zwei Teile unterteilt werden.
-Zu Beginn der Auswertung wird in Kapitel ref:sec-b_helmholtz auf Messungen von Stromstärke und Magnetfeldstärke an den im Experiment verwendeten Helmholtzspulen eingegangen. Diese Messungen werden zum einen benötigt um das Programm zur Erstellung von Magnetfeldsequenzen zukünftig sinnvoll weiter entwickeln zu können. Weiterhin ist die Kentniss über den realen zeitlichen Verlauf der angelegten Magnetfeldsequenzen wichtig, um die Simulationen und Vorhersagen aus dem theoretischen Modell zum Partikeltransport einordnen, diskutieren und möglicherweise optimieren zu können. Es wurden sowohl statische Messungen der Amplitude der Magnetfeldstärke als auch der zeitliche Verlauf der Magnetfeldstärke in Abhängigkeit der Stromstärke durchgeführt.
+Zu Beginn der Auswertung wird in Kapitel ref:sec-b_helmholtz auf Messungen von Stromstärke und magnetischer Flussdichte an den im Experiment verwendeten Helmholtzspulen eingegangen. Diese Messungen werden zum einen benötigt um das Programm zur Erstellung von Magnetfeldsequenzen zukünftig sinnvoll weiter entwickeln zu können. Weiterhin ist die Kentniss über den realen zeitlichen Verlauf der angelegten Magnetfeldsequenzen wichtig, um die Simulationen und Vorhersagen aus dem theoretischen Modell zum Partikeltransport einordnen, diskutieren und möglicherweise optimieren zu können. Es wurden sowohl statische Messungen der Amplitude der magnetischen Flussdichte als auch der zeitliche Verlauf der magnetischen Flussdichte in Abhängigkeit der Stromstärke durchgeführt.
 
 Anschließend wird Kapitel ref:sec-partikelgeschwindigkeiten der Einfluss der Änderungsrate der trapezförmigen Magnetfeldsequenzen auf die Partikelgeschwindigkeiten näher betrachtet. Hierzu werden außerdem die Auswirkungen der verschiedenen Pulsformen auf die Trajektorien der Partikel genauer untersucht und mit simulierten Werten verglichen. In beiden Fällen wird sich auf ein strukturiertes EB-System mit \SI{5}{\mu\meter} breiten Domänen in hh- und tt-Konfiguration und dem standardmäßig in der Arbeitsgruppe \textsc{Ehresmann} verwendeten Schichtstapel $\ce{ Cu(\SI{10}{\nano\meter}) / IrMn(\SI{30}{\nano\meter}) / CoFe(\SI{10}{\nano\meter}) }$ mit einer \SI{800}{\nano\meter} \ce{Si}-Deckschicht (siehe Abbildung ref:fig-layer).
 
@@ -440,13 +443,13 @@ Anschließend wird Kapitel ref:sec-partikelgeschwindigkeiten der Einfluss der Ä
 #+attr_latex: :width 0.5\textwidth :placement [h]
 [[file:img/layer.png]]
 
-** TODO Strom und Magnetfeld der Helmholtzspulen label:sec-b_helmholtz
-Um die verwendeten Helmholtzspulen näher charakterisieren zu können wurden sowohl die Stromstärke als auch das resultierende Magnetfeld gemessen.
+** TODO Stromstärke und magnetische Flussdichte der Helmholtzspulen label:sec-b_helmholtz
+Um die verwendeten Helmholtzspulen näher charakterisieren zu können wurden sowohl die Stromstärke als auch die resultierende magnetische Flussdichte gemessen.
 
-Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke $I$ und Magnetfeldstärke $B$ gemessen. Dabei wurde die Stromstärke an einem in Reihe geschalteten Multimeter abgelesen, die Magnetfeldstärke an einem Teslameter der Firma /Projekt Elektronik GmbH/, dessen Messkopf sich in der Probenhalterung der Helmholtzspulen zur Messung des Magnetfeldes in z-Richtung befand. Der Zusammenhang von Stromstärke und Magnetfeldstärke sollte gemäß Gleichung ref:eq-spule linear sein, deswegen wurde in Abbildung ref:fig-magnetfeldstrom eine lineare Regression durch die Messwerte gelegt.
+Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke $I$ und magnetischen Flussdichte $B$ gemessen. Dabei wurde die Stromstärke an einem in Reihe geschalteten Multimeter abgelesen, die magnetischen Flussdichte an einem Teslameter der Firma /Projekt Elektronik GmbH/, dessen Messkopf sich in der Probenhalterung der Helmholtzspulen zur Messung des Magnetfeldes in z-Richtung befand. Der Zusammenhang von Stromstärke und magnetischer Flussdichte sollte gemäß Gleichung ref:eq-spule linear sein, deswegen wurde in Abbildung ref:fig-magnetfeldstrom eine lineare Regression durch die Messwerte gelegt.
 
 :TABLE:
-#+name: Zusammenhang zwischen Magnetfeldstärke und Stromstärke. Hierbei wurde die Spannung an der NI USB-6002 Box erhöht und dazugehörige Stromstärke am Netzteilausgang $I$ und Magnetfeldstärke im inneren der z-Spule $B_\mathrm{z}$ gemessen.
+#+name: Zusammenhang zwischen magnetischer Flussdichte und Stromstärke. Hierbei wurde die Spannung an der NI USB-6002 Box erhöht und dazugehörige Stromstärke am Netzteilausgang $I$ und magnetische Flussdichte im inneren der z-Spule $B_\mathrm{z}$ gemessen.
 #+attr_latex: :center t :align nil
 | $U_\mathrm{DAQ}\nbsp[\si{\volt}]$ | $I\nbsp[\si{\ampere}]$ | $B_\mathrm{z}\nbsp[\si{\milli\tesla}]$ |
 |                            / |                  < |                                 < |
@@ -507,9 +510,9 @@ Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke $I$ und M
 
 :END:
 
-Um die Validität der Näherung für die Magnetfeldstärke von Helmholtzspulen in Abhängigkeit der Stromstärke (Gleichung ref:eq-helmholtz) für die verwendeten Spulen zu überprüfen, wurde die Gleichung nach einigen mathematischen Umformungen als Pythoncode geschrieben und Radius und Windungszahl der verwendeten Spule vorgegeben:
+Um die Validität der Näherung für die magnetische Flussdichte von Helmholtzspulen in Abhängigkeit der Stromstärke (Gleichung ref:eq-helmholtz) für die verwendeten Spulen zu überprüfen, wurde die Gleichung nach einigen mathematischen Umformungen als Pythoncode geschrieben und Radius und Windungszahl der verwendeten Spule vorgegeben:
 
-#+caption: Funktion zur Berechnung der Magnetfeldstärke einer Helmholtzspule in Abhängigkeit von der Stromstärke.
+#+caption: Funktion zur Berechnung der magnetischen Flussdichte einer Helmholtzspule in Abhängigkeit von der Stromstärke.
 #+begin_src python :session magnetfeld :exports code
   def B_helmholtz(I, c):
       n = 330
@@ -519,7 +522,7 @@ Um die Validität der Näherung für die Magnetfeldstärke von Helmholtzspulen i
 #+end_src
 #+RESULTS:
 
-Anschließend wurden die vorher gemessenen Stromstärken verwendet um die zu erwartende Magnetfeldstärke zu berechnen. Der Vergleich zwischen gemessenen und berechneten Werten ist in Abbildung ref:fig-b_helmholtz zu sehen.
+Anschließend wurden die vorher gemessenen Stromstärken verwendet um die zu erwartende magnetische Flussdichte zu berechnen. Der Vergleich zwischen gemessenen und berechneten Werten ist in Abbildung ref:fig-b_helmholtz zu sehen.
 
 :CODE:
 #+begin_src python :session magnetfeld :results output :export none
@@ -557,12 +560,12 @@ Anschließend wurden die vorher gemessenen Stromstärken verwendet um die zu erw
 \begin{figure}[h]
 \begin{subfigure}[t]{0.5\textwidth}
 \includegraphics[width=\textwidth]{img/B(I).png}
-\caption{Messung der Magnetfeldstärke in z-Richtung $B_\mathrm{z}$ in Abhängigkeit der Stromstärke am Netzteil $I$. Die Messwerte sind blau dargestellt, eine lineare Regression über diese in rot. Fehlerbalken sind aufgrund der Sichtbarkeit des niedrigen Fehlers nicht dargestellt.}
+\caption{Messung der magnetischen Flussdichte in z-Richtung $B_\mathrm{z}$ in Abhängigkeit der Stromstärke am Netzteil $I$. Die Messwerte sind blau dargestellt, eine lineare Regression über diese in rot. Fehlerbalken sind aufgrund der Sichtbarkeit des niedrigen Fehlers nicht dargestellt.}
 \label{fig-magnetfeldstrom}
 \end{subfigure}%
 \begin{subfigure}[t]{0.5\textwidth}
 \includegraphics[width=\textwidth]{img/b_calc.png}
-\caption{Vergleich von gemessener und mit Näherung aus Gleichung ref:eq-helmholtz berechneter Magnetfeldstärke in z-Richtung.}
+\caption{Vergleich von gemessener und mit Näherung aus Gleichung ref:eq-helmholtz berechneter magnetischen Flussdichte in z-Richtung.}
 \label{fig-b_helmholtz}
 \end{subfigure}
 \end{figure}
@@ -578,7 +581,7 @@ m = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot \mu_{\mathrm{0}} \cdot \frac{N}
 = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot 4\pi \cdot 10^{-7}\si{\newton\per\square\ampere} \cdot \frac{330}{\SI{0.03}{m}} = \SI{0.00989}{\tesla\per\ampere}
 \end{equation}
 
-Hierbei wird deutlich, dass die Näherung für höhere Stromstärken nicht hinreichend genügt. Jedoch liegen für den verwendeten Aufbau benötigte Magnetfeldstärken im Bereich von unter \SI{8}{\milli\tesla}, weswegen die Näherung in Zukunft im Partikeltransport Programm verwendet werden könnte, um die Amplitude des entstehenden Magnetfeldes bereits im Voraus zu berechnen.
+Hierbei wird deutlich, dass die Näherung für höhere Stromstärken nicht hinreichend genügt. Jedoch liegen für den verwendeten Aufbau benötigte magnetische Flussdichten im Bereich von unter \SI{8}{\milli\tesla}, weswegen die Näherung in Zukunft im Partikeltransport Programm verwendet werden könnte, um die Amplitude der entstehenden magnetischen Flussdichte bereits im Voraus zu berechnen.
 
 Um den zeitlichen Verlauf der Stromstärke zu bestimmen wurde der Aufbau aus Kapitel ref:sec-stromundmagnet verwendet.
 
@@ -766,7 +769,7 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
 
 # #####
 
-Analog dazu wurden die selben Schritte für die Magnetfeldstärke durchgeführt. Abbildung ref:fig-mag zeigt den zeitlichen Verlauf des Magnetfeldes.
+Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgeführt. Abbildung ref:fig-mag zeigt den zeitlichen Verlauf des Flussdichte.
 
 :CODE:
 
@@ -819,7 +822,7 @@ Analog dazu wurden die selben Schritte für die Magnetfeldstärke durchgeführt.
 :END:
 
 #+name: fig-mag
-#+caption: Zeitlicher Verlauf des Magnetfeldes bei einer angelegten Rechteckspannung. Links ist das Magnetfeld der x-Spulen dargestellt, rechts das der z-Spulen.
+#+caption: Zeitlicher Verlauf der magnetischen Flussdichte bei einer angelegten Rechteckspannung. Links ist die magnetische Flussdichte der x-Spulen dargestellt, rechts das der z-Spulen.
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/mag.png]]
 
@@ -858,11 +861,11 @@ Auch hier wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe
 :END:
 
 #+name: fig-mag_avg
-#+caption: Über alle zehn Perioden gemittelte Messwerte des Magnetfeldes für x-Spule (links) und z-Spule (rechts).
+#+caption: Über alle zehn Perioden gemittelte Messwerte der magnetischen Flussdichte für x-Spule (links) und z-Spule (rechts).
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/mag_avg.png]]
 
-Auch hier sind Spitzen am Beginn des Plateaus zu sehen. Diese haben die gleichen Ursachen wie bereits für die Stromstärke genannt, und wurden deswegen erwartet, da das Magnetfeld aus dem bereits gemessenen durch die Spulen fließenden Strom resultiert.
+Auch hier sind Spitzen am Beginn des Plateaus zu sehen. Diese haben die gleichen Ursachen wie bereits für die Stromstärke genannt, und wurden deswegen erwartet, da die magnetische Flussdichte aus dem bereits gemessenen durch die Spulen fließenden Strom resultiert.
 
 Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse. Diesen kann man in Abbildung ref:fig-mag_anfang sehen.
 
@@ -894,7 +897,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 
 
 #+name: fig-mag_anfang
-#+caption: Verlauf des Magnetfeldes kurz nach Beginn der gemittelten Periode. Links für x-Spule, rechts für z-Spule.
+#+caption: Verlauf der magnetischen Flussdichte kurz nach Beginn der gemittelten Periode. Links für x-Spule, rechts für z-Spule.
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/mag_anfang.png]]
 
@@ -1011,7 +1014,7 @@ file:./img/videospottracker.png
 # Beliebige Magnetfeldsequenzen
 # Trigger Camera
 * Anhang
-** DONE Python-Script zur Messung von Stromstärke und Magnetfeld: label:anh-messung
+** DONE Python-Script zur Messung von Stromstärke und magnetischer Flussdichte: label:anh-messung
    CLOSED: [2019-10-10 Do 16:04]
 
 #+begin_src python :exports code
