@@ -955,6 +955,8 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
   plt.plot(t, plat4, '--', label="0.15 s")
   plt.plot(t, plat5, '--', label="0.2 s")
   plt.plot(t, plat6, label="0.25 s")
+  plt.xlabel("Zeit [s]")
+  plt.ylabel("B [mT]")
   plt.tight_layout()
   plt.legend()
   plt.xticks(np.arange(0,1.1,0.1))
