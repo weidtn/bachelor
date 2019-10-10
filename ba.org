@@ -7,10 +7,12 @@
 #+LANGUAGE: de
 
 * Fragen                                                             :ignore:
-** TODO Zitieren von Bildern aus Buch?
-
-** TODO Induktivität gemessen in Elektrowerkstatt?
-* TODO [3/4] Noch zu tun:                                            :ignore:
+* TODO [4/11] Noch zu tun:                                           :ignore:
+** TODO Samplerate für jede Messung rausfinden
+** DONE layer.png
+   CLOSED: [2019-10-10 Do 16:09]
+** TODO Auschaltstrom Plot
+** TODO Einleitung magnetophoretische Mobilität
 ** TODO DPI
 ** DONE minted
    CLOSED: [2019-10-09 Mi 09:54] SCHEDULED: <2019-09-20 Fr>
