@@ -631,17 +631,17 @@ Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit de
       datalist[i] = data
 
   fig, ax = plt.subplots(2,2, sharex=True)
-  ax[0,0].plot(datalist[0], '.', markersize=4)
-  ax[0,1].plot(datalist[2], '.', markersize=4)
-  ax[1,0].plot(datalist[1], '.', markersize=4)
-  ax[1,1].plot(datalist[3], '.', markersize=4)
+  ax[0,0].plot(datalist[0]) #, '.', markersize=4)
+  ax[0,1].plot(datalist[2]) #, '.', markersize=4)
+  ax[1,0].plot(datalist[1]) #, '.', markersize=4)
+  ax[1,1].plot(datalist[3]) #, '.', markersize=4)
   ax[0,0].set_title("x")
   ax[0,1].set_title("z")
   ax[0,0].set_ylabel("$I$ [A]")
   ax[1,0].set_ylabel("$I$ [A]")
   ax[1,0].set_xlabel("Datenpunkte")
   ax[1,1].set_xlabel("Datenpunkte")
-  # ax[1,1].set_xticks(np.arange(0,500000,step=150000))
+  ax[1,1].set_xticks(np.arange(0,500000,step=150000))
   plt.tight_layout()
   plt.savefig("./img/strom.png", dpi=100)
   "./img/strom.png"
