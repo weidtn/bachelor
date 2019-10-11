@@ -791,6 +791,7 @@ Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgef
   import matplotlib.pyplot as plt
   import numpy as np
   import pandas as pd
+  from scipy.optimize import curve_fit
 
   B_file1 = "./Messung/B/x/2mT_square_0.csv"
   B_file2 = "./Messung/B/x/3mT_square_0.csv"
@@ -909,9 +910,79 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 
 
 #+name: fig-mag_anfang
-#+caption: Verlauf der magnetischen Flussdichte kurz nach Beginn der gemittelten Periode. Links für $x$-Spule, rechts für $z$-Spule.
+#+caption: Verlauf der magnetischen Flussdichte kurz nach Beginn der gemittelten Periode. Links für x-Spule, rechts für z-Spule.
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/mag_anfang.png]]
+
+:CODE:
+
+#+begin_src python :session mag :results output
+  def I(x, U, R, L, sr=48000):
+      """
+      Current for measurement with 48k Samplerate
+      U = Voltage
+      R = Resistance
+      L = Inductance
+      sr = Sample Rate (48000 for NI USB-6008)
+      """
+      return (U / R) * (1 - np.exp((-x / sr) * R / L))
+
+
+  def B_helmholtz(x, U, R, L, c):
+      """
+    U = Voltage
+    R = ohmic resistance
+    L = Inductance
+    c = offset
+    -----------
+    n = Turns per coil
+    r = radius
+    """
+      n = 330
+      r = 0.030
+      b = 4 * np.pi * 10**(-7) * (8 * I(x, U, R, L, sr=48000) *
+                                  n) / (np.sqrt(125) * r) + c
+      return b
+
+  plt.clf()
+  fig, ax = plt.subplots(2, 2, figsize=(8,5), sharex=True, sharey="row")
+  R_z = 10.6
+  L_z = 0.0056
+  for i, data in enumerate(avglist):
+      x = np.linspace(0, len(data), cut)
+      popt, pcov = curve_fit(B_helmholtz,
+                             x,
+                             data[:cut],
+                             p0=(1, R_z, L_z, 1),
+                             bounds=([0, 0, 0, -20], [50, 50, 5, 20]),
+                             method="trf")
+      if i < 2:
+          ax[0,i].plot(data[:cut], label="Messwerte")
+          ax[0, i].plot(B_helmholtz(x, *popt),
+                        'r--',
+                        label=f"Fit: U={popt[0]:.3}, R={popt[1]:.2}, L={popt[2]:.2}")
+          ax[0,i].legend()
+      else:
+          ax[1,i-2].plot(data[:cut], label="Messwerte")
+          ax[1, i-2].plot(B_helmholtz(x, *popt),
+                        'r--',
+                        label=f"Fit: U={popt[0]:.3}, R={popt[1]:.2}, L={popt[2]:.2}")
+          ax[1,i-2].legend()
+
+  plt.tight_layout()
+  plt.savefig("./img/mag_fit.png")
+  plt.close()
+  "./img/mag_fit.png"
+#+end_src
+
+#+RESULTS:
+
+:END:
+
+#+name: fig-mag_fit
+#+caption:
+#+attr_latex: :width \textwidth :placement [h]
+[[file:img/mag_fit.png]]
 
 ** TODO Partikelgeschwindigkeiten label:sec-partikelgeschwindigkeiten
 \blindtext
