@@ -28,21 +28,6 @@ CLOSED: [2019-10-10 Do 20:51]
 * Header                                                             :ignore:
    #+latex_class:scrbook
    #+latex_class_options:[page,pdftex,12pt,a4paper,twoside,openright]
-   
-   # Workaround für grffile  Fehler:
-   #+latex_header: \makeatletter
-   #+latex_header: \def\set@curr@file#1{%
-   #+latex_header: \begingroup
-   #+latex_header: \escapechar\m@ne
-   #+latex_header: \xdef\@curr@file{\expandafter\string\csname #1\endcsname}%
-   #+latex_header: \endgroup
-   #+latex_header: }
-   #+latex_header: \def\quote@name#1{"\quote@@name#1\@gobble""}
-   #+latex_header: \def\quote@@name#1"{#1\quote@@name}
-   #+latex_header: \def\unquote@name#1{\quote@@name#1\@gobble"}
-   #+latex_header: \makeatother
-   
-   # #+latex_header: \usepackage[latin1]{inputenc}
    #+latex_header: \usepackage[T1]{fontenc}
    #+latex_header: \usepackage[ngerman]{babel} 
    #+latex_header: \usepackage[bottom=2.5cm,left=2.5cm,right=2cm]{geometry}
@@ -51,14 +36,12 @@ CLOSED: [2019-10-10 Do 20:51]
    #+latex_header: \usepackage{blindtext}
    #+latex_header: \usepackage{booktabs}
    #+latex_header: \usepackage{subcaption}
-   # #+latex_header: \usepackage[hidelinks]{hyperref}
    #+latex_header: \usepackage[onehalfspacing]{setspace}
    #+latex_header: \usepackage{graphicx}
    #+latex_header: \usepackage{amsmath,amssymb,amstext,bbm}
    #+latex_header: \usepackage[labelfont=bf, textfont=small, figurename=Abb., tablename=Tab.]{caption}
    #+latex_header: \usepackage[output-decimal-marker={,}]{siunitx}
    #+latex_header: \usepackage{csquotes}
-   # #+latex_header: \usepackage[cache=false]{minted}
    #+latex_header: \setminted{fontsize=\footnotesize}
    #+latex_header: \usemintedstyle{emacs}
    #+latex_header: \usepackage[version=4]{mhchem}
