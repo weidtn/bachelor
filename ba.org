@@ -582,8 +582,8 @@ Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit de
   import pandas as pd
 
   file1 = "./Messung/I/x/2mT_square_0.csv"
-  file2 = "./Messung/I/x/3mT_square_0.csv"
-  file3 = "./Messung/I/z/2mT_square_0.csv"
+  file2 = "./Messung/I/z/2mT_square_0.csv"
+  file3 = "./Messung/I/x/3mT_square_0.csv"
   file4 = "./Messung/I/z/3mT_square_0.csv"
   B_file1 = "./Messung/B/x/2mT_square_0.csv"
   B_file2 = "./Messung/B/x/3mT_square_0.csv"
@@ -605,11 +605,11 @@ Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit de
           sr_off = sr + 20
           end_off = end - 1
       elif i == 1:
-          sr_off = sr + 20
-          end_off = end + 30
-      elif i == 2:
-          sr_off = sr + 19 
+          sr_off = sr + 19
           end_off = end - 1
+      elif i == 2:
+          sr_off = sr + 20
+          end_off = end - 10
       elif i == 3:
           sr_off = sr + 19 
           end_off = end - 0
@@ -619,10 +619,10 @@ Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit de
       data = data[end_off:end_off+10*(sr_off)]
       datalist[i] = data
 
-  fig, ax = plt.subplots(2,2, sharex=True)
+  fig, ax = plt.subplots(2,2, sharex=True, sharey="row")
   ax[0,0].plot(datalist[0]) #, '.', markersize=4)
-  ax[1,0].plot(datalist[1]) #, '.', markersize=4)
-  ax[0,1].plot(datalist[2]) #, '.', markersize=4)
+  ax[0,1].plot(datalist[1]) #, '.', markersize=4)
+  ax[1,0].plot(datalist[2]) #, '.', markersize=4)
   ax[1,1].plot(datalist[3]) #, '.', markersize=4)
   ax[0,0].set_title("x")
   ax[0,1].set_title("z")
@@ -659,13 +659,13 @@ Um eine Aussage über die Änderungsrate (Steigung) des Magnetfeldes machen zu k
       avg = periodic.mean(axis=0)
       avglist.append(avg)
   plt.clf()
-  fig, ax = plt.subplots(2,2, sharex=True)
+  fig, ax = plt.subplots(2,2, sharex=True, sharey="row")
   ax[0,0].set_title("x")
   ax[0,0].set_ylabel("$I$ [A]")
   ax[1,0].set_xlabel("Datenpunkte")
   ax[0,0].plot(avglist[0], '.', markersize=3)
-  ax[1,0].plot(avglist[1], '.', markersize=3)
-  ax[0,1].plot(avglist[2], '.', markersize=3)
+  ax[0,1].plot(avglist[1], '.', markersize=3)
+  ax[1,0].plot(avglist[2], '.', markersize=3)
   ax[1,1].plot(avglist[3], '.', markersize=3)
   ax[0,1].set_title("z")
   ax[1,0].set_ylabel("$I$ [A]")
@@ -694,13 +694,13 @@ Da vor allem das Einschaltverhalten der Spulen von Interesse ist, wurde der Begi
   plt.clf()
   markersize = 3
   cut = 500
-  fig, ax = plt.subplots(2,2, sharex=True)
+  fig, ax = plt.subplots(2,2, sharex=True, sharey="row")
   ax[0,0].set_title("x")
   ax[0,0].set_ylabel("$I$ [A]")
   ax[1,0].set_xlabel("Datenpunkte")
   ax[0,0].plot(avglist[0][:cut], '.', markersize=markersize)
-  ax[1,0].plot(avglist[1][:cut], '.', markersize=markersize)
-  ax[0,1].plot(avglist[2][:cut], '.', markersize=markersize)
+  ax[0,1].plot(avglist[1][:cut], '.', markersize=markersize)
+  ax[1,0].plot(avglist[2][:cut], '.', markersize=markersize)
   ax[1,1].plot(avglist[3][:cut], '.', markersize=markersize)
   ax[0,1].set_title("z")
   ax[1,0].set_ylabel("$I$ [A]")
@@ -744,19 +744,22 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
   x = np.linspace(0,sr,cut)
   plt.clf()
   fits = []
-  fig, ax = plt.subplots(2,2)
+  fig, ax = plt.subplots(2,2, figsize=(8,5), sharex=True, sharey="row")
   for i, data in enumerate(avglist):
       x = np.linspace(0,len(data),cut)
-      popt, pcov = curve_fit(I, x, data[:cut], p0=(1,R_z,L_z), bounds=(0,[10,25,5]), method="trf")
+      popt, pcov = curve_fit(I, x, data[:cut], p0=(1,R_z,L_z), bounds=(0,[20,25,5]), method="trf")
       if i < 2:
           ax[0,i].plot(data[:cut], '.', markersize=2, label="Messwerte")
-          ax[0,i].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}")
+          ax[0,i].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}, R={popt[1]:.2}, L={popt[2]:.2}")
           ax[0,i].legend()
       else:
           ax[1,i-2].plot(data[:cut], '.', markersize=2, label="Messwerte")
-          ax[1,i-2].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}")
+          ax[1,i-2].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}, R={popt[1]:.2}, L={popt[2]:.2}")
           ax[1,i-2].legend()
-
+  ax[1,0].set_xlabel("Datenpunkte")
+  ax[1,1].set_xlabel("Datenpunkte")
+  ax[0,0].set_ylabel("$I$ [A]")
+  ax[1,0].set_ylabel("$I$ [A]")
   plt.tight_layout()
   plt.savefig("./img/strom_fit.png")
   plt.close()
