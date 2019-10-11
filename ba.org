@@ -548,7 +548,7 @@ Anschließend wurden die vorher gemessenen Stromstärken verwendet um die zu erw
 \begin{figure}[h]
 \begin{subfigure}[t]{0.5\textwidth}
 \includegraphics[width=\textwidth]{img/B(I).png}
-\caption{Messung der magnetischen Flussdichte in $z$-Richtung $B_\mathrm{z}$ in Abhängigkeit der Stromstärke am Netzteil $I$. Die Messwerte sind blau dargestellt, eine lineare Regression über diese in rot. Fehlerbalken sind aufgrund der Sichtbarkeit des niedrigen Fehlers nicht dargestellt.}
+\caption{Messung der magnetischen Flussdichte in z-Richtung $B_\mathrm{z}$ in Abhängigkeit der Stromstärke am Netzteil $I$. Die Messwerte sind blau dargestellt, eine lineare Regression über diese in rot. Fehlerbalken sind aufgrund der Sichtbarkeit des niedrigen Fehlers nicht dargestellt.}
 \label{fig-magnetfeldstrom}
 \end{subfigure}%
 \begin{subfigure}[t]{0.5\textwidth}
@@ -558,7 +558,7 @@ Anschließend wurden die vorher gemessenen Stromstärken verwendet um die zu erw
 \end{subfigure}
 \end{figure}
 
-Mit Gleichung ref:eq-helmholtz, kann der Proportionalitätsfaktor $m$ der Regression mithilfe von gegebenem Radius $r$ und Windungszahl $N$ berechnet werden, was hier exemplarisch für die Spulen zur Magnetfelderzeugung in $z$-Richtung gezeigt ist:
+Mit Gleichung ref:eq-helmholtz, kann der Proportionalitätsfaktor $m$ der Regression mithilfe von gegebenem Radius $r$ und Windungszahl $N$ berechnet werden, was hier exemplarisch für die Spulen zur Magnetfelderzeugung in z-Richtung gezeigt ist:
 
 \begin{equation}
 B = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot \mu_{\mathrm{0}} \cdot \frac{N}{r} \cdot I = m \cdot I.
@@ -573,7 +573,7 @@ Anhand von Abbildung ref:fig-b_helmholtz und der Abweichung dem berechneten und 
 
 Um den zeitlichen Verlauf der Stromstärke zu bestimmen wurde der Aufbau aus Kapitel ref:sec-stromundmagnet verwendet.
 
-Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang eine Rechteckspannung mit zwei verschiedene Amplituden angelegt. Es wurden die Helmholtzspulen für $x$- und $z$-Richtung vermessen, da gegenwärtig nur zwei Spulen gleichzeitig verwendet werden. Dies ergibt die in Abbildung ref:fig-stromraw sichtbaren Messreihen.
+Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang eine Rechteckspannung mit zwei verschiedene Amplituden angelegt. Es wurden die Helmholtzspulen für x- und z-Richtung vermessen, da gegenwärtig nur zwei Spulen gleichzeitig verwendet werden. Dies ergibt die in Abbildung ref:fig-stromraw sichtbaren Messreihen.
 
 :CODE:
  
@@ -645,7 +645,7 @@ Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit de
 :END:
 
 #+name: fig-stromraw
-#+caption: Zeitlicher Verlauf der Stromstärke in den Spulen für $x$- und $z$-Richtung. Links Messungen unterschiedlicher Amplitude an der $x$-Spule, rechts Messungen unterschiedlicher Amplitude an der $z$-Spule.
+#+caption: Zeitlicher Verlauf der Stromstärke in den Spulen für x- und z-Richtung. Links Messungen unterschiedlicher Amplitude an der x-Spule, rechts Messungen unterschiedlicher Amplitude an der z-Spule.
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/strom.png]]
  
@@ -685,7 +685,7 @@ Um eine Aussage über die Änderungsrate (Steigung) des Magnetfeldes machen zu k
 :END:
 
 #+name: fig-stromavg
-#+caption: Über alle zehn Perioden gemittelter zeitlicher Verlauf der Stromstärke für $x$- und $z$-Richtung. Links sind jeweils Stromstärkenmessungen für die $x$-Spule dargestellt, rechts Messungen der $z$-Spule.
+#+caption: Über alle zehn Perioden gemittelter zeitlicher Verlauf der Stromstärke für x- und z-Richtung. Links sind jeweils Stromstärkenmessungen für die x-Spule dargestellt, rechts Messungen der z-Spule.
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/strom_avg.png]]
 
@@ -720,7 +720,7 @@ Da vor allem das Einschaltverhalten der Spulen von Interesse ist, wurde der Begi
 :END:
 
 #+name: fig-strom_anfang
-#+caption: Verlauf der Stromstärke kurz nach Beginn der gemittelten Periode. Links Stromstärken der $x$-Spule, rechts der $z$-Spule.
+#+caption: Verlauf der Stromstärke kurz nach Beginn der gemittelten Periode. Links Stromstärken der x-Spule, rechts der z-Spule.
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/strom_anfang.png]]
 
@@ -834,7 +834,7 @@ Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgef
 :END:
 
 #+name: fig-mag
-#+caption: Zeitlicher Verlauf der magnetischen Flussdichte bei einer angelegten Rechteckspannung. Links ist die magnetische Flussdichte der $x$-Spulen dargestellt, rechts das der $z$-Spulen.
+#+caption: Zeitlicher Verlauf der magnetischen Flussdichte bei einer angelegten Rechteckspannung. Links ist die magnetische Flussdichte der x-Spulen dargestellt, rechts das der z-Spulen.
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/mag.png]]
 
@@ -873,7 +873,7 @@ Auch hier wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe
 :END:
 
 #+name: fig-mag_avg
-#+caption: Über alle zehn Perioden gemittelte Messwerte der magnetischen Flussdichte für $x$-Spule (links) und $z$-Spule (rechts).
+#+caption: Über alle zehn Perioden gemittelte Messwerte der magnetischen Flussdichte für x-Spule (links) und z-Spule (rechts).
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/mag_avg.png]]
 
