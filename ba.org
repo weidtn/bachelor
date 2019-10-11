@@ -612,7 +612,7 @@ Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit de
           end_off = end - 1
       elif i == 2:
           sr_off = sr + 20
-          end_off = end - 10
+          end_off = end + 11
       elif i == 3:
           sr_off = sr + 19 
           end_off = end - 0
@@ -739,7 +739,7 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
       L = Inductance
       sr = Sample Rate (48000 for NI USB-6008)
       """
-      return (U/R) * (1- np.exp((-x*R/sr) / L))
+      return (U/R) * (1- np.exp((-x/sr) * R / L))
 
   x = np.arange(0,cut,sr)
   R_z = 10.6
@@ -750,7 +750,7 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
   fig, ax = plt.subplots(2,2, figsize=(8,5), sharex=True, sharey="row")
   for i, data in enumerate(avglist):
       x = np.linspace(0,len(data),cut)
-      popt, pcov = curve_fit(I, x, data[:cut], p0=(1,R_z,L_z), bounds=(0,[20,25,5]), method="trf")
+      popt, pcov = curve_fit(I, x, data[:cut], p0=(1,R_z,L_z), bounds=(0,[40,25,.05]), method="trf")
       if i < 2:
           ax[0,i].plot(data[:cut], '.', markersize=2, label="Messwerte")
           ax[0,i].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}, R={popt[1]:.2}, L={popt[2]:.2}")
