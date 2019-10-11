@@ -785,7 +785,7 @@ Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgef
 
 :CODE:
 
-#+begin_src python :session mag :results file
+#+begin_src python :session mag :results output
   import matplotlib
   matplotlib.use("agg")
   import matplotlib.pyplot as plt
@@ -794,8 +794,8 @@ Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgef
   from scipy.optimize import curve_fit
 
   B_file1 = "./Messung/B/x/2mT_square_0.csv"
-  B_file2 = "./Messung/B/x/3mT_square_0.csv"
-  B_file3 = "./Messung/B/z/2mT_square_0.csv"
+  B_file2 = "./Messung/B/z/2mT_square_0.csv"
+  B_file3 = "./Messung/B/x/3mT_square_0.csv"
   B_file4 = "./Messung/B/z/3mT_square_0.csv"
 
   datalist = [
@@ -808,13 +808,28 @@ Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgef
   for i, data in enumerate(datalist):
       sr = 48000
       end = np.argmax(data>0.4)
-      data = data[end:end+10*sr]
+      if i == 0:
+          end_off = end - 29
+          sr_off = sr + 23
+      elif i == 1:
+          end_off = end - 15 
+          sr_off = sr + 22
+      elif i == 2:
+          end_off = end - 15
+          sr_off = sr + 22
+      elif i == 3:
+          end_off = end - 10
+          sr_off = sr + 22
+      else:
+          end_off = end
+          sr_off = sr
+      data = data[end_off:end_off+10*sr_off]
       datalist[i] = data
 
   fig, ax = plt.subplots(2,2, sharex=True)
   ax[0,0].plot(datalist[0])
-  ax[0,1].plot(datalist[2])
-  ax[1,0].plot(datalist[1])
+  ax[0,1].plot(datalist[1])
+  ax[1,0].plot(datalist[2])
   ax[1,1].plot(datalist[3])
   ax[0,0].set_title("x")
   ax[0,1].set_title("z")
@@ -825,12 +840,11 @@ Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgef
   ax[1,1].set_xticks(np.arange(0,500000,step=150000))
   plt.tight_layout()
   plt.savefig("./img/mag.png", dpi=100)
+  plt.close('all')
   "./img/mag.png"
-
 #+end_src
 
 #+RESULTS:
-[[file:./img/mag.png]]
 
 :END:
 
@@ -848,7 +862,7 @@ Auch hier wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe
   n_periods = 10
   avglist = []
   for i, data in enumerate(datalist):
-      periodic = data.reshape(n_periods, sr)
+      periodic = data.reshape(n_periods, len(data)//n_periods)
       avg = periodic.mean(axis=0)
       avglist.append(avg)
   plt.clf()
@@ -866,6 +880,7 @@ Auch hier wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe
   ax[0,0].set_xticks(np.arange(0,50000,15000))
   plt.tight_layout()
   plt.savefig("./img/mag_avg.png", dpi=100)
+  plt.close()
   "./img/mag_avg.png"
 #+end_src
 
@@ -888,7 +903,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
   plt.clf()
   markersize = 3
   cut = 500
-  fig, ax = plt.subplots(2,2, sharex=True)
+  fig, ax = plt.subplots(2,2, figsize=(8,5), sharex=True, sharey="row")
   ax[0,0].set_title("x")
   ax[0,0].set_ylabel("$B$ [mT]")
   ax[1,0].set_xlabel("Datenpunkte")
@@ -901,6 +916,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
   ax[1,1].set_xlabel("Datenpunkte")
   plt.tight_layout()
   plt.savefig("./img/mag_anfang.png", dpi=100)
+  plt.close()
   "./img/mag_anfang.png"
 #+end_src
 
@@ -945,7 +961,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
       return b
 
   plt.clf()
-  fig, ax = plt.subplots(2, 2, figsize=(8,5), sharex=True, sharey="row")
+  fig, ax = plt.subplots(2, 2, figsize=(8,5), sharex=True)
   R_z = 10.6
   L_z = 0.0056
   for i, data in enumerate(avglist):
