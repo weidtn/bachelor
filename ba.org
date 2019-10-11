@@ -481,12 +481,12 @@ Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke $I$ und m
   plt.xlabel("$I$ [A]")
   plt.ylabel("$B_\mathrm{z}$ [mT]")
   slope, intercept, r, p, stderr = scipy.stats.linregress(x, B)
-  plt.plot(x, slope * x + intercept, 'r--', label="lin. Regression m={:2.2f}, b={:2.2f}, R^2={:2.5f}".format(slope, intercept, r**2))
+  plt.plot(x, slope * x + intercept, 'r--', label="lin. Regression m={:2.2f} mT/A, b={:2.2f} mT, R^2={:2.5f}".format(slope, intercept, r**2))
   # plt.errorbar(x, B, xerr=xerr, yerr=Berr, capsize=3, label="Messwerte")
   plt.plot(x, B, '.', label="Messwerte")
   plt.grid()
   plt.legend()
-  plt.savefig("./img/B(I).png", dpi=600)
+  plt.savefig("./img/B(I).png", dpi=100)
   "./img/B(I).png"
 #+end_src 
 
@@ -525,7 +525,8 @@ Anschließend wurden die vorher gemessenen Stromstärken verwendet um die zu erw
   ax1.legend()
   plt.grid()
   plt.tight_layout()
-  plt.savefig("./img/B_calc.png", dpi=600)
+  plt.savefig("./img/B_calc.png", dpi=100)
+  plt.close()
   "./img/B_calc.png"
 #+end_src
 
@@ -748,14 +749,15 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
       x = np.linspace(0,len(data),cut)
       popt, pcov = curve_fit(I, x, data[:cut], p0=(1,R_z,L_z), bounds=(0,[10,25,5]), method="trf")
       if i < 2:
-          ax[0,i].plot(data[:cut])
-          ax[0,i].plot(I(x,*popt), 'r--', label=f"U={popt[0]}")
+          ax[0,i].plot(data[:cut], '.', markersize=2, label="Messwerte")
+          ax[0,i].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}")
           ax[0,i].legend()
       else:
-          ax[1,i-2].plot(data[:cut])
-          ax[1,i-2].plot(I(x,*popt), 'r--', label=f"U={popt[0]}")
+          ax[1,i-2].plot(data[:cut], '.', markersize=2, label="Messwerte")
+          ax[1,i-2].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}")
           ax[1,i-2].legend()
 
+  plt.tight_layout()
   plt.savefig("./img/strom_fit.png")
   plt.close()
   "./img/strom_fit.png"
@@ -1080,4 +1082,3 @@ file:./img/videospottracker.png
 :UNNUMBERED: t
 :END:
 Danke.
-
