@@ -1031,7 +1031,9 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 ** TODO Partikelgeschwindigkeiten label:sec-partikelgeschwindigkeiten
 Um aus den aufgenommen Videos aus dem Partikeltransportexperiment die Trajektorien und Partikelgeschwindigkeiten zu erhalten, wird das Programm VideoSpotTracker verwendet. Hierzu wurden möglichst alle sich bewegenden Partikel als "/dark spot/" der Größe $3$ ausgewählt, und dann mittels "/follow jumps/" die x- und z-Positionen in Pixeln der einzelnen Partikel in einer csv-Datei aufgezeichnet. Da die Größe eines Pixels sowie die Framerate (und somit die Zeit) bekannt sind, lässt sich so die Geschwindigkeit der Partikel berechnen.
 
-Um die Geschwindigkeit der Partikel in einem großen Transportschritt (im Folgenden nur noch Transportschritt genannt) zu berechnen, wird die zuvor aufgenommene csv-Datei in einem Pythonscript eingelesen. Zunächst werden die Trajektorien der Partikel während der gesamten Aufnahme anhand der bekannten Frequenz des externen Magnetfeldes in einzelne Transportschritte aufgeteilt. Um die Geschwindigkeit der einzelnen Schritte zu bestimmen wird zunächst eine gaußsche Fehlerfunktion an die gemessenen Werte gefittet. Unzureichend genaue Fits werden nicht weiter betrachtet. Da die Ableitung der gaußschen Fehlerfunktion eine gaußsche Glockenkurve ist, lässt sich durch Ableiten der einzelnen  Fitfunktionen die durchschnittliche Geschwindigkeit des Partikels für einen Schritt bestimmen. Der Mittelwert dieser durchschnittlichen Geschwindigkeiten für alle erfolgreich gefitteten Transportschritte der Partikel in einer Messung wird schließlich vom Programm ausgegeben.
+Um die Gleichgewichtsgeschwindigkeit der Partikel in einem großen Transportschritt (im Folgenden nur noch Transportschritt genannt) zu berechnen, wird die zuvor aufgenommene csv-Datei in einem Pythonscript eingelesen. Zunächst werden die Trajektorien der Partikel während der gesamten Aufnahme anhand der bekannten Frequenz des externen Magnetfeldes in einzelne Transportschritte aufgeteilt. Um die Geschwindigkeit der einzelnen Schritte zu bestimmen wird zunächst eine gaußsche Fehlerfunktion an die gemessenen Werte gefittet. Unzureichend genaue Fits werden nicht weiter betrachtet. Da die Ableitung der gaußschen Fehlerfunktion eine gaußsche Glockenkurve ist, lässt sich durch Ableiten der einzelnen  Fitfunktionen die durchschnittliche Geschwindigkeit des Partikels für einen Schritt bestimmen. Der Mittelwert dieser durchschnittlichen Gleichgewichtsgeschwindigkeiten für alle erfolgreich gefitteten Transportschritte der Partikel in einer Messung wird schließlich vom Programm ausgegeben.
+
+Um den Einfluss der Änderungsrate des Magnetfeldes auf die Partikelgeschwindigkeit zu bestimmen, wurden sechs verschiedene Magnetfeldsequenzen mit unterschiedlichen Änderungsraten erstellt. Amplitude und die Frequenz des Magnetfeldes wurden konstant gewählt. Variiert wurde lediglich die Plateaustartzeit, also jene Zeit nach der die maximale Amplitude des Magnetfeldes das erste Mal erreicht sein sollte (siehe Abbildung ref:fig-plateau).
 
 :CODE:
 #+begin_src python :session plateau :results output
@@ -1092,6 +1094,8 @@ Um die Geschwindigkeit der Partikel in einem großen Transportschritt (im Folgen
 #+attr_latex: :width \textwidth :placement [h]
 [[file:./img/plateau.png]]
 
+In Abbildung ref:fig-img_v sind die Gleichgewichtsgeschwindigkeiten der Partikel für unterschiedliche Plateaustartzeiten und als Fehler die Standardabweichung vom Mittelwert aufgetragen. Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfeldes auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken.
+
 :CODE:
 #+begin_src python :session v :exports none :results output
   import numpy as np
@@ -1122,11 +1126,13 @@ Um die Geschwindigkeit der Partikel in einem großen Transportschritt (im Folgen
 #+RESULTS:
 
 :END: 
-  #+caption: Gemessene Partikelgeschwindigkeiten für verschiedene Startzeiten des Plateaus in der angelegten Trapezspannung für eine Frequenz von 1 Hz.
+  #+caption: Gemessene Partikelgeschwindigkeiten für verschiedene Startzeiten des Plateaus in der angelegten Trapezspannung für eine Frequenz von 1 Hz und deren Standardabweichung vom Mittelwert.
   #+attr_latex: :placement [!h] :width .75\textwidth
-  #+name: img-v
+  #+name: fig-img_v
   [[file:./img/v.png]]
 
+  
+Es sind jedoch nicht nur die Gleichgewichtsgeschwindigkeiten der Partikel von Interesse, sondern auch die Form der Bewegung.
  #+caption: Darstellung der einzelnen Trajektorien von ausgewählten Partikeln bei verschiedenen Änderungsraten des Magnetfeldes. 
  #+attr_latex: :placmeent [!h] :width 0.7\textwidth
  #+name: img-traj_real
