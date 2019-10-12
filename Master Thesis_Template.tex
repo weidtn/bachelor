@@ -1,0 +1,350 @@
+\documentclass[11pt. twoside. a4paper. openright]{book}
+%\usepackage[T1]{fontenc}
+\fontfamily{uaq} %Antiqua Schrift
+\usepackage[latin1]{inputenc}
+\usepackage[english]{babel} 
+\usepackage{blindtext}
+\usepackage[dvips]{graphicx}
+\usepackage{graphics}
+\usepackage{float}
+\usepackage{floatflt}
+%\usepackage{BeamerColor}
+\usepackage{color}
+
+\usepackage{ellipsis}
+\usepackage{microtype}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true. breaklinks=true. linkcolor=black. menucolor=black. urlcolor=black. citecolor=black}
+\usepackage[fleqn]{amsmath}
+\setlength\mathindent{2cm}
+\numberwithin{equation}{section}
+\newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1}} 
+\usepackage{setspace}
+\renewcommand{\arraystretch}{1}
+%\renewcommand{\baselinestretch}{1.5}
+\onehalfspacing
+%\usepackage{epsfig}
+\usepackage{trfsigns}
+\usepackage[english]{isodate}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage[Glenn]{fncychap}
+\usepackage{tabulary}
+\usepackage{subfigure}
+\usepackage{braket}
+\usepackage{units}
+\usepackage{bpchem}
+\usepackage{siunitx}
+\usepackage[bf.hang]{caption}
+\usepackage{multirow}
+\usepackage{amsfonts}
+%\usepackage[framed.numbered.autolinebreaks.useliterate]{mcode}
+\usepackage{multicol}
+\usepackage{latexsym}
+\usepackage[square.comma.numbers.sort&compress.super]{natbib}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{textcomp}
+\usepackage[version=4]{mhchem} 
+
+%-----------------------------------
+\usepackage{xcolor}
+\definecolor{blue}{RGB}{80.149.200} % Define the blue color used for highlighting throughout the book
+\makeatletter
+\renewcommand{\@seccntformat}[1]{\llap{\textcolor{blue}{\csname the#1\endcsname}\hspace{1em}}} %Defines position of sections numbers and color      
+
+%\usepackage{pstricks}
+%\usepackage{graphicx} 
+%\usepackage{etex}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hurenkinder und Schusterjungen verhindern
+\clubpenalty10000
+\widowpenalty10000
+\displaywidowpenalty=10000
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations}
+\usetikzlibrary{shapes}%\renewcommand{\baselinestretch}{1.5}
+%% Absatzeinzug und Absatzabstand 
+\setlength{\parindent}{12pt}
+%\setlength{\parskip}{1.3ex plus 0.2ex minus 0.2ex}
+%\setlength{\parskip}{5pt plus 2pt minus 1pt}
+%\parskip2ex plus1ex minus0.5ex
+%\setlength{\parskip}{1ex}
+%\geometry{a4paper.left=25mm.right=25mm.top=25mm.bottom=25mm} %Für Latex -> PDF
+\geometry{a4paper.top=25mm.bottom=25mm} % Für Latex -> Ps -> PDF. entspricht den gleichen Maßen wie dem Format darüber: TESTED
+%Befehle%%%%%\title{\textbf{Organische Leuchtdioden}}
+
+% Für Einstellung "`Openleft"'
+
+%\makeatletter
+%\renewcommand*\cleardoublepage{\clearpage\if@twoside
+%  \ifodd\c@page \hbox{}\newpage\if@twocolumn\hbox{}%
+%  \newpage\fi\fi\fi}
+%\makeatother
+
+%%%%%%%%%%%%%%%%%% Titelseiten Einstellungen %%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% Seitengeometrie %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength{\oddsidemargin}{0.5cm} %Breite des linken Seitenrandes auf ungeraden Seiten bei twoside und book
+\setlength{\evensidemargin}{-0.5cm} %Breite des linken Seitenrandes auf geraden Seiten bei twoside und book
+%\setlength{\topmargin}{0.5cm} %Höhe des oberen Randes bis zur Oberkante der Kopfzeile
+%\setlength{\headheight}{1cm} %Höhe der Kopfzeile
+%\setlength{\headsep}{1cm} %Abstand zwischen der Unterkante der Kopfzeile und der Oberkante des Hauptteils (Rumpfes)
+%\setlength{\footskip}{1cm} %Abstand zwischen der Unterkante des Rumpfes und der Oberkante der Fusszeile
+%\textheight: %Gesamthöhe für den Seitentext
+\setlength{\textwidth}{16cm} %Textbreite
+
+%Kommentar: Mit den Einstellungen ist der Innenrand 2cm und der Außenrand 3cm
+
+
+%%%%%%%%%%%%%%%%% Kopf und Fußzeilen %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\markboth{l}
+%\markboth{r}
+
+\pagestyle{fancy}
+
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+%\renewcommand{\chaptermark}[1]{%
+%\markboth{#1}{}}
+\renewcommand{\chaptermark}[1]{%
+\markboth{\chaptername
+\ \thechapter:\ #1}{}}   % Macht Kapiter x: Kapiteltitel
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\headheight}{14pt}
+\renewcommand{\footrulewidth}{0pt}
+%\fancyhead[R]{\nouppercase{\leftmark}}
+\fancyhead[OR. EL]{\rightmark}
+\fancyhead[OL. ER]{\textit{\leftmark}}
+%\fancyfoot[OL. ER]{\textit{Diplomarbeit}}
+\fancyfoot[OR. EL]{}
+\fancyfoot[OC. EC]{-\.\thepage\.-}
+
+%%%%%%%%%%%%%%% Änderungen für Plain-Style Seiten %%%%%%%%%%%%%
+
+\fancypagestyle{plain}{%
+\fancyhf{} %%%% Löscht alle inhalte
+\fancyfoot[OC. EC]{-\.\thepage\.-}
+\renewcommand{\headrulewidth}{0pt}
+}
+
+ \fancypagestyle{leer}{
+\fancyhf{}
+%\fancyfoot[LE.RO]{\thepage}
+%\fancyfoot[CO.CE]{Alexander Gaul}
+\renewcommand{\headrulewidth}{.0pt}
+\renewcommand{\footrulewidth}{.0pt}
+}
+
+\makeatletter\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+    \hbox{}
+    \thispagestyle{leer}
+    \newpage
+    \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother \clearpage{\pagestyle{leer}\cleardoublepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\pagenumbering{roman} 
+\thispagestyle{empty}
+\newgeometry{top=10mm.bottom=10mm. left=15mm. right=8mm}
+\begin{titlepage}
+\begin{center}
+\begin{minipage}[T]{0.4\textwidth}
+	\begin{flushleft}
+		\includegraphics[width=6cm]{pic/logo_universitaet_RGB}
+	\end{flushleft}
+\end{minipage}
+\begin{minipage}[T]{0.25\textwidth}
+\centering
+		\includegraphics[width=5cm]{pic/cinsat}
+\end{minipage}
+\begin{minipage}[T]{0.25\textwidth}
+	\begin{flushright}
+		\includegraphics[width=5cm]{pic/agelogo}
+	\end{flushright}
+\end{minipage}
+\end{center}
+
+
+\begin{center}
+\rule{\columnwidth}{1 pt}\\
+\vspace{0.5cm}
+\Large{MASTER THESIS}\\
+\rule{\columnwidth}{1 pt}\\
+\vspace{2cm}
+ \LARGE{
+\textbf{Physical Characterization and Motion Dynamics of Exchange-Biased Janus Particles} \\ 
+\vspace{3cm}
+}
+\Large{submitted by \\
+B.Sc. Meike Reginka \\
+\vspace{1.5cm}
+\today \\
+
+\vspace{1cm}
+Study program: Nanoscience\\ 
+Supervised by Prof. Dr. Arno Ehresmann and Dr. Dennis Holzinger\\
+\vspace{3.5cm}
+}
+
+\end{titlepage}
+\restoregeometry
+
+\thispagestyle{plain}
+\null\vfill
+\begin{table}[b]%
+\begin{tabular}{rl}
+Assessors: & Prof. Dr. Arno Ehresmann\\
+ & Prof. Dr. Thomas Kusserow
+\end{tabular}
+\end{table}
+\noindent
+
+%\setcounter{page}{1}
+\cleardoublepage
+\setcounter{page}{1}
+%\thispagestyle{empty}
+\null\vfill
+\begin{center}
+\textit{
+} \\
+\vspace{1cm}
+
+\end{center}
+\vfill
+
+
+
+
+
+
+
+%%%%%%%%%%%%% Inhaltsverzeichnis %%%%%%%%%%%%%
+\thispagestyle{plain}
+
+\begin{center}
+	\tableofcontents
+\end{center}
+
+%%%%%%%%%%%%%%% Normaler Teil %%%%%%%
+\cleardoublepage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%\chapter{Abstract}
+%%%
+%%%\input{00_Abstract/00_Abstract}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introduction}\label{chap:Intro}
+%%
+\input{01_Introduction/01_Introduction}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Theoretical Background}\label{chap:Theo}
+%
+\input{02_Theoretical_Background/02_Theoretical_Background}
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Fabrication of Janus Particles}\label{chap:Fab}
+%
+\input{03_Fabrication/03_Fabrication}
+%%
+\chapter{Methods for Characterization}\label{chap:Meth}
+%
+\input{04_Methods/04_Methods}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Results} \label{chap:results}
+%% 
+\input{05_Results/05_Results}
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Discussion and Outlook} \label{chap:disc}
+
+%%
+\input{06_Discussion/06_Discussion}
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Conclusion}
+
+\input{07_Summary/07_Summary}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\fancyhead[OR. EL]{\rightmark}
+\fancyhead[OL. ER]{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliography{lit}
+\bibliographystyle{agem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\chapter{Anhang}
+%
+%\input{08_Anhang/08_Anhang}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%% Abkürzungen %%%%%%%%%%%%
+\thispagestyle{plain}
+
+\chapter*{Frequently used Terms and Abbreviations}
+
+\input{001_Abk/001_Abk}
+
+
+\pagestyle{plain}
+
+\chapter*{Danksagung}
+\input{09_Danksagung/09_Danksagung}
+
+\newpage
+\cleardoublepage
+\newpage
+\thispagestyle{plain}
+
+\chapter*{Statement of Authorship}
+I hereby declare that this submitted master thesis is my own work. All supporting material and sources used are acknowledged as references. I assure that 
+passages which were literally or analogously taken from published documents are marked with the corresponding citation within the text. \\
+\vspace{3cm}
+\begin{center}
+\begin{tabular}{>{\flushleft\arraybackslash}m{7cm} >{\flushright\arraybackslash}m{7cm}}
+$\overline{\text{\hspace{1.5cm} Place. Date \hspace{1.5cm}}}$ & $\overline{\text{\hspace{1.5cm} Signature \hspace{1.5cm}}}$
+\end{tabular}
+\end{center}
+\end{document}
+
+
+
+
+
+
+%%%%%%%%% Veröffentlichungen %%%%
+%
+%\thispagestyle{plain}
+%
+%\chapter*{Veröffentlichungen}
+%
+%Teile dieser Arbeit wurden für die folgende Veröffentlichung vorbereitet:
+%\begin{itemize}
+%\item{Aufzählung
+%}
+%\end{itemize}
+
+
