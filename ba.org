@@ -8,6 +8,7 @@
 
 * Fragen                                                             :ignore:
 * TODO [5/15] Noch zu tun:                                           :ignore:
+** TODO Fits passen nicht, weil nicht exponentiell. Zeigen?
 ** TODO Fit mit festen R und L
 ** TODO Samplerate im Fit für Strom
 ** TODO Blindwiderstand erklärt?
@@ -15,6 +16,11 @@
 ** TODO Simulierte Trajektorien durch step_evaluate laufen lassen
    SCHEDULED: <2019-09-19 Do>
 ** TODO EB genauer erklären
+- EB system kann genau einen makroskopisch remanenten Zustand haben, wenn die Flanken der Kurve steil genug und die Verschiebung groß genug ist. --- das ist nämlich toll an EB :)
+- Beim Feldkühlen von polykristallinene System wie sie bei uns verwendet werden: Blocking statt NEeltemp
+- Shift der Hystereses ist darin begründet, dass bei der Magnetisiseurngsumkehr ja die AF Momente den F an der Umkehr seiner Momente hindert eben wegen der Kopplungan der GRenzfläche.
+- zumindest ein bisschen was von einem EB Modell, zumindest das einfachste von Meiklejohn und bean und den Zusammenhang zwischen EB Feldstärke und Ferromagnetschichtdicke wünsche ich mir. 
+
 ** TODO Transportkonzept genauer erklären
 ** TODO Fit Stromstärke mit Formel
 ** TODO Fit Magnetfeld mit Formel
@@ -338,7 +344,7 @@ Die Hysteresekurve eines EB-Systems (Abbildung ref:fig-eb links in magenta) ist 
 #+attr_org: :width 50px
 [[file:img/eb.png]]
 
-Durch Helium-Ionenbeschuss kann der EB-Effekt eines Schichtsystems verändert werden. So kann zum Beispiel die Richtung des Austauschverschiebungsfeldes lokal umgekehrt werden cite:mougin_local_2001. Dies ermöglicht magnetische Strukturierung von EB-Systemen, zum Beispiel in einer /in-plane/ Anisotropie, welche zu /head-to-head/ und /tail-to-tail/-Domänenwänden führt, womit wiederum Transport von superparamagnetischen Partikeln realisiert werden kann cite:holzinger_directed_2015. 
+Durch Helium-Ionenbeschuss kann der EB-Effekt eines Schichtsystems verändert werden. So kann zum Beispiel die Richtung des Austauschverschiebungsfeldes lokal umgekehrt werden cite:mougin_local_2001. Hierzu kann eine Schattenmaske mittels Lithographie auf die Probe gebracht werden, um anschließend lokal das Eindringen von Ionen zu verhindern. Dies ermöglicht magnetische Strukturierung von EB-Systemen, zum Beispiel in einer /in-plane/ Anisotropie, welche zu /head-to-head/ und /tail-to-tail/-Domänenwänden in einer Streifenstruktur führt, womit wiederum Transport von superparamagnetischen Partikeln realisiert werden kann cite:holzinger_directed_2015.
 
 ** TODO Partikeltransport label:sec-partikeltransport
 Superparamagnetische Partikel (SPP) lassen sich durch Verwendung von den zuvor beschriebenen streifenstrukturierten (hh und tt) EB-Systemen (im Vergleich zum Transport über nichtmagnetischen Substraten) in kontrollierten Abständen zum Substrat und in geordneter Reihenform transportieren. Dabei setzt sich das effektive Magnetfeld, das die Partikel erfahren, aus der Magnetfeldlandschaft des Exchange-Bias Systems und dem externen Magnetfeld zusammen cite:holzinger_directed_2015:
@@ -601,8 +607,8 @@ Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit de
       pd.read_csv(file4).to_numpy()]
 
   # Anfang und Ende abschneiden
+  sr = 48000
   for i, data in enumerate(datalist):
-      sr = 48000
       end = np.argmax(data>0.025)
       if i == 0:
           sr_off = sr + 20
@@ -731,7 +737,7 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
 #+begin_src python :session strom :results output
   from scipy.optimize import curve_fit
 
-  def I(x, U, R, L, sr=48000):
+  def I(x, U, sr=48000):
       """
       Current for measurement with 48k Samplerate
       U = Voltage
@@ -739,6 +745,8 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
       L = Inductance
       sr = Sample Rate (48000 for NI USB-6008)
       """
+      R = 10.6
+      L = 0.0056
       return (U/R) * (1- np.exp((-x/sr) * R / L))
 
   x = np.arange(0,cut,sr)
@@ -750,14 +758,14 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
   fig, ax = plt.subplots(2,2, figsize=(8,5), sharex=True, sharey="row")
   for i, data in enumerate(avglist):
       x = np.linspace(0,len(data),cut)
-      popt, pcov = curve_fit(I, x, data[:cut], p0=(1,R_z,L_z), bounds=(0,[40,25,.05]), method="trf")
+      popt, pcov = curve_fit(I, x, data[:cut], p0=(10), bounds=(0,50), method="trf")
       if i < 2:
           ax[0,i].plot(data[:cut], '.', markersize=2, label="Messwerte")
-          ax[0,i].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}, R={popt[1]:.2}, L={popt[2]:.2}")
+          ax[0,i].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}")
           ax[0,i].legend()
       else:
           ax[1,i-2].plot(data[:cut], '.', markersize=2, label="Messwerte")
-          ax[1,i-2].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}, R={popt[1]:.2}, L={popt[2]:.2}")
+          ax[1,i-2].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}")
           ax[1,i-2].legend()
   ax[1,0].set_xlabel("Datenpunkte")
   ax[1,1].set_xlabel("Datenpunkte")
@@ -933,7 +941,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 :CODE:
 
 #+begin_src python :session mag :results output
-  def I(x, U, R, L, sr=48000):
+  def I(x, U, sr=48000):
       """
       Current for measurement with 48k Samplerate
       U = Voltage
@@ -941,27 +949,32 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
       L = Inductance
       sr = Sample Rate (48000 for NI USB-6008)
       """
+      R = 10.6
+      L = 0.0056
       return (U / R) * (1 - np.exp((-x / sr) * R / L))
 
 
-  def B_helmholtz(x, U, R, L, c):
+  def B_helmholtz(x, U, c):
       """
-    U = Voltage
-    R = ohmic resistance
-    L = Inductance
-    c = offset
-    -----------
-    n = Turns per coil
-    r = radius
-    """
+      U = Voltage
+      R = ohmic resistance
+      L = Inductance
+      c = offset
+      -----------
+      n = Turns per coil
+      r = radius
+      """
+      R = 10.6
+      L = 0.0056
       n = 330
       r = 0.030
-      b = 4 * np.pi * 10**(-7) * (8 * I(x, U, R, L, sr=48000) *
+      b = 4 * np.pi * 10**(-7) * (8 * I(x, U, sr=48000) *
                                   n) / (np.sqrt(125) * r) + c
       return b
 
+
   plt.clf()
-  fig, ax = plt.subplots(2, 2, figsize=(8,5), sharex=True)
+  fig, ax = plt.subplots(2, 2, figsize=(8, 5), sharex=True, sharey="row")
   R_z = 10.6
   L_z = 0.0056
   for i, data in enumerate(avglist):
@@ -969,22 +982,30 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
       popt, pcov = curve_fit(B_helmholtz,
                              x,
                              data[:cut],
-                             p0=(1, R_z, L_z, 1),
-                             bounds=([0, 0, 0, -20], [50, 50, 5, 20]),
+                             p0=(1, 1),
+                             bounds=([0, -20], [5000, 20]),
                              method="trf")
       if i < 2:
-          ax[0,i].plot(data[:cut], label="Messwerte")
-          ax[0, i].plot(B_helmholtz(x, *popt),
-                        'r--',
-                        label=f"Fit: U={popt[0]:.3}, R={popt[1]:.2}, L={popt[2]:.2}")
-          ax[0,i].legend()
+          ax[0, i].plot(data[:cut], label="Messwerte")
+          ax[0, i].plot(
+              B_helmholtz(x, *popt),
+              'r--',
+              label=f"Fit: U={popt[0]:.5}")
+          ax[0, i].legend()
       else:
-          ax[1,i-2].plot(data[:cut], label="Messwerte")
-          ax[1, i-2].plot(B_helmholtz(x, *popt),
-                        'r--',
-                        label=f"Fit: U={popt[0]:.3}, R={popt[1]:.2}, L={popt[2]:.2}")
-          ax[1,i-2].legend()
-
+          ax[1, i - 2].plot(data[:cut], label="Messwerte")
+          ax[1, i - 2].plot(
+              B_helmholtz(x, *popt),
+              'r--',
+              label=f"Fit: U={popt[0]:.5}")
+          ax[1, i - 2].legend()
+        
+  ax[0,0].set_title("x")
+  ax[0,1].set_title("z")
+  ax[0,0].set_ylabel("B [mT]")
+  ax[1,0].set_ylabel("B [mT]")
+  ax[1,0].set_xlabel("Datenpunkte")
+  ax[1,1].set_xlabel("Datenpunkte")
   plt.tight_layout()
   plt.savefig("./img/mag_fit.png")
   plt.close()
