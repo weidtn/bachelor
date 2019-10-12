@@ -7,10 +7,8 @@
 #+LANGUAGE: de
 
 * Fragen                                                             :ignore:
-* TODO [5/15] Noch zu tun:                                           :ignore:
+* TODO [9/15] Noch zu tun:                                           :ignore:
 ** TODO Fits passen nicht, weil nicht exponentiell. Zeigen?
-** TODO Fit mit festen R und L
-** TODO Samplerate im Fit für Strom
 ** TODO Blindwiderstand erklärt?
 ** TODO DPI
 ** TODO Simulierte Trajektorien durch step_evaluate laufen lassen
@@ -25,8 +23,14 @@
 Hier wäre es toll, wenn du zumindest ein bisschen noch auf die Kräfte eingehst. F_M und F_R sollten vorkommen und die Tatsache, das sie die Gleichgwichtsgeschwindigkeit bestimmen (+ Formel). Du musst nicht im Detail alle Einzelheiten der Elektrostatischen und vdW Kraft ausienandernehmen, aber zumindest nennen kannst du sie, da sie ja immerhin auch in die Simulaitonen am Ende eingehen. Du kannst beschreiben, dass die elektrostat. Kraft in unseren Experimentne abstoßend ist, während vdWaals und magnetostatische Kraft anziehend wirken, sodass aus deren Kräftegleichgewicht zunächst der Gleichgewichtsabstand resultiert...
 
 Falls du das alles aber erst im Simulationskapitel machen willst, ist es auch ok, aber zzumindest F_R und F_M sollten hier auftauchen.
-** TODO Fit Stromstärke mit Formel
-** TODO Fit Magnetfeld mit Formel
+** DONE Samplerate im Fit für Strom
+CLOSED: [2019-10-12 Sa 21:16]
+** DONE Fit Stromstärke mit Formel
+CLOSED: [2019-10-12 Sa 21:16]
+** DONE Fit Magnetfeld mit Formel
+CLOSED: [2019-10-12 Sa 21:16]
+** DONE Fit mit festen R und L
+CLOSED: [2019-10-12 Sa 21:16]
 ** DONE Samplerate für jede Messung rausfinden
 CLOSED: [2019-10-11 Fr 22:16]
 ** DONE Ausschaltstrom
