@@ -1,6 +1,6 @@
 #+Title: Bachelorarbeit
 #+Author: Nikolai Weidt
-#+OPTIONS: toc:2 tasks:t title:nil todo:nil
+#+OPTIONS: toc:2 tasks:t title:t todo:nil
 #+OPTIONS: d:nil
 #+Todo: TODO(t) | DONE(d) 
 #+EXCLUDE_TAGS: ignore
@@ -60,6 +60,8 @@ CLOSED: [2019-10-10 Do 20:51]
    #+latex_header: \newgeometry{bottom=2.5cm,left=2.5cm,right=2.5cm}
    #+latex_header: \usepackage[style=alphabetic,maxbibnames=5,maxcitenames=5,backend=biber,language=german]{biblatex}
    #+latex_header: \addbibresource{library.bib}
+   #+latex_header: \input{titlepage/titlepage}
+   # #+INCLUDE: "./titlepage/titlepage.tex" src latex
      
 * Andere Arbeiten                                                    :ignore:
 
@@ -70,7 +72,6 @@ CLOSED: [2019-10-10 Do 20:51]
 
 * PDF:                                                               :ignore:
  [[file:ba.pdf][ba.pdf]] 
-\include{titlepage/titlepage}
 * TODO Einleitung label:sec-einleitung
 Durch die allgemeine Zunahme der Weltbevölkerung, den demographischen Wandel und die steigende Lebenserwartung wird eine Zunahme von Krankheiten wie Krebs oder Diabetes erwartet cite:bray_global_2018,zhou_worldwide_2016. Um dieser Entwicklung entgegen zu wirken, werden kostengünstige, patientennahe Diagnoseprozesse für die Individualmedizin entwickelt. So können bereits früh Krankheitsanzeichen und -ursachen entdeckt und bekämpft werden.
 
@@ -1029,7 +1030,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 [[file:img/mag_fit.png]]
 
 ** TODO Partikelgeschwindigkeiten label:sec-partikelgeschwindigkeiten
-Um aus den aufgenommen Videos aus dem Partikeltransportexperiment die Trajektorien und Partikelgeschwindigkeiten zu erhalten, wird das Programm VideoSpotTracker verwendet. Hierzu wurden möglichst alle sich bewegenden Partikel als "/dark spot/" der Größe $3$ ausgewählt, und dann mittels "/follow jumps/" die x- und z-Positionen in Pixeln der einzelnen Partikel in einer csv-Datei aufgezeichnet. Da die Größe eines Pixels sowie die Framerate (und somit die Zeit) bekannt sind, lässt sich so die Geschwindigkeit der Partikel berechnen.
+Um aus den aufgenommen Videos aus dem Partikeltransportexperiment die Trajektorien und Partikelgeschwindigkeiten zu erhalten, wird das Programm VideoSpotTracker verwendet. Hierzu wurden möglichst alle sich bewegenden Partikel als /"dark spot"/ der Größe $3$ ausgewählt, und dann mittels /"follow jumps"/ die x- und z-Positionen in Pixeln der einzelnen Partikel verfolgt und in einer csv-Datei aufgezeichnet (siehe Abbildung ref:fig-videospottracker). Da die Größe eines Pixels (\SI{278}{\nano\meter}) sowie die Framerate (1000 FPS) und somit die Zeit bekannt sind, lässt sich so die Geschwindigkeit der Partikel berechnen.
 
 Um die Gleichgewichtsgeschwindigkeit der Partikel in einem großen Transportschritt (im Folgenden nur noch Transportschritt genannt) zu berechnen, wird die zuvor aufgenommene csv-Datei in einem Pythonscript eingelesen. Zunächst werden die Trajektorien der Partikel während der gesamten Aufnahme anhand der bekannten Frequenz des externen Magnetfeldes in einzelne Transportschritte aufgeteilt. Um die Geschwindigkeit der einzelnen Schritte zu bestimmen wird zunächst eine gaußsche Fehlerfunktion an die gemessenen Werte gefittet. Unzureichend genaue Fits werden nicht weiter betrachtet. Da die Ableitung der gaußschen Fehlerfunktion eine gaußsche Glockenkurve ist, lässt sich durch Ableiten der einzelnen  Fitfunktionen die durchschnittliche Geschwindigkeit des Partikels für einen Schritt bestimmen. Der Mittelwert dieser durchschnittlichen Gleichgewichtsgeschwindigkeiten für alle erfolgreich gefitteten Transportschritte der Partikel in einer Messung wird schließlich vom Programm ausgegeben.
 
@@ -1091,7 +1092,7 @@ Um den Einfluss der Änderungsrate des Magnetfeldes auf die Partikelgeschwindigk
 
 #+name: fig-plateau
 #+caption: Trapezförmige Magnetfeldsequenzen mit verschiedenen Plateaustartzeiten. Eine Plateaustartzeit von $\SI{0}{\s}$ bedeutet es liegt ein Rechteck vor. Eine Plateaustartzeit von $\SI{0.25}{\s}$ bedeutet es liegt ein Dreieck für eine Frequenz $f = \SI{1}{\hertz}$ vor.
-#+attr_latex: :width \textwidth :placement [h]
+#+attr_latex: :width 0.75\textwidth :placement [h]
 [[file:./img/plateau.png]]
 
 In Abbildung ref:fig-img_v sind die Gleichgewichtsgeschwindigkeiten der Partikel für unterschiedliche Plateaustartzeiten und als Fehler die Standardabweichung vom Mittelwert aufgetragen. Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfeldes auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken.
@@ -1126,27 +1127,29 @@ In Abbildung ref:fig-img_v sind die Gleichgewichtsgeschwindigkeiten der Partikel
 #+RESULTS:
 
 :END: 
-  #+caption: Gemessene Partikelgeschwindigkeiten für verschiedene Startzeiten des Plateaus in der angelegten Trapezspannung für eine Frequenz von 1 Hz und deren Standardabweichung vom Mittelwert.
-  #+attr_latex: :placement [!h] :width .75\textwidth
-  #+name: fig-img_v
-  [[file:./img/v.png]]
+#+caption: Gemessene Partikelgeschwindigkeiten für verschiedene Startzeiten des Plateaus in der angelegten Trapezspannung für eine Frequenz von 1 Hz und deren Standardabweichung vom Mittelwert.
+#+attr_latex: :placement [!h] :width .75\textwidth
+#+name: fig-img_v
+[[file:./img/v.png]]
 
   
 Es sind jedoch nicht nur die Gleichgewichtsgeschwindigkeiten der Partikel von Interesse, sondern auch die Form der Bewegung.
- #+caption: Darstellung der einzelnen Trajektorien von ausgewählten Partikeln bei verschiedenen Änderungsraten des Magnetfeldes. 
- #+attr_latex: :placmeent [!h] :width 0.7\textwidth
- #+name: img-traj_real
- # file:./img/traj_real.png
- 
- #+caption: Simulierte Trajektorien für verschiedene Änderungsraten des Magnetfeldes. 
- #+attr_latex: :placmeent [!h] :width 0.7\textwidth
- #+name: img-traj_real
- file:./img/sim.png
 
+#+name: fig-traj_real
+#+caption: Darstellung der einzelnen Trajektorien von ausgewählten Partikeln bei verschiedenen Änderungsraten des Magnetfeldes. 
+#+attr_latex: :placmeent [!h] :width 0.7\textwidth
+# file:./img/traj_real.png
+ 
+#+name: fig-traj_real
+#+caption: Simulierte Trajektorien für verschiedene Änderungsraten des Magnetfeldes. 
+#+attr_latex: :placmeent [!h] :width 0.7\textwidth
+file:./img/sim.png
+
+#+name: fig-videospottracker
 #+caption: Screenshot der /Video Spot Tracker/ Software nach erfolgreicher Auswertung eines Videos. Gelb markiert sind die Trajektorien der verschiedenen Partikel, blau die Endpunkte der Partikel.
 #+attr_latex: :placement [h] :width 0.75\textwidth
-#+name: img-videospottracker
 file:./img/videospottracker.png
+
 * TODO Zusammenfassung und Ausblick label:sec-zusammenfassung
 # Beliebige Magnetfeldsequenzen
 # Trigger Camera
