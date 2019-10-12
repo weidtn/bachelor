@@ -22,6 +22,9 @@
 - [X] zumindest ein bisschen was von einem EB Modell, zumindest das einfachste von Meiklejohn und bean und den Zusammenhang zwischen EB Feldstärke und Ferromagnetschichtdicke wünsche ich mir. 
 
 ** TODO Transportkonzept genauer erklären
+Hier wäre es toll, wenn du zumindest ein bisschen noch auf die Kräfte eingehst. F_M und F_R sollten vorkommen und die Tatsache, das sie die Gleichgwichtsgeschwindigkeit bestimmen (+ Formel). Du musst nicht im Detail alle Einzelheiten der Elektrostatischen und vdW Kraft ausienandernehmen, aber zumindest nennen kannst du sie, da sie ja immerhin auch in die Simulaitonen am Ende eingehen. Du kannst beschreiben, dass die elektrostat. Kraft in unseren Experimentne abstoßend ist, während vdWaals und magnetostatische Kraft anziehend wirken, sodass aus deren Kräftegleichgewicht zunächst der Gleichgewichtsabstand resultiert...
+
+Falls du das alles aber erst im Simulationskapitel machen willst, ist es auch ok, aber zzumindest F_R und F_M sollten hier auftauchen.
 ** TODO Fit Stromstärke mit Formel
 ** TODO Fit Magnetfeld mit Formel
 ** DONE Samplerate für jede Messung rausfinden
