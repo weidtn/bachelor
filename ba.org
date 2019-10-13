@@ -1145,20 +1145,28 @@ Es sind jedoch nicht nur die Gleichgewichtsgeschwindigkeiten der Partikel von In
 
 :CODE:
 
-#+begin_src python :session traj :results output
+#+begin_src python :session traj :results file
   import numpy as np
   import matplotlib
   matplotlib.use("Agg")
   import matplotlib.pyplot as plt
   import pandas as pd
-   
+
+  t_0 = pd.read_csv("./Messung/800nmSi/1um_0,4_slopeinf.csv", usecols=(0,1,2,3))   
+  t_005 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope10.csv")   
+  t_01 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope4.csv")   
+  t_015 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope2,666.csv")   
+  t_02 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope2.csv")   
+  t_025 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope1,6.csv")   
+
+  plt.savefig("./img/traj_real.png")
+  plt.close()
+  print(t_0)
+  "./img/traj_real.png"
 #+end_src
 
 #+RESULTS:
-: Python 3.7.4 (default, Oct  4 2019, 06:57:26) 
-: [GCC 9.2.0] on linux
-: Type "help", "copyright", "credits" or "license" for more information.
-: >>> python.el: native completion setup loaded
+[[file:./img/traj_real.png]]
 
 
 :END:
