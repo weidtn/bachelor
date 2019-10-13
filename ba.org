@@ -1099,7 +1099,7 @@ Um den Einfluss der Änderungsrate des Magnetfeldes auf die Partikelgeschwindigk
 #+attr_latex: :width 0.75\textwidth :placement [h]
 [[file:./img/plateau.png]]
 
-In Abbildung ref:fig-img_v sind die Gleichgewichtsgeschwindigkeiten der Partikel für unterschiedliche Plateaustartzeiten und als Fehler die Standardabweichung vom Mittelwert aufgetragen. Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfeldes auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken.
+In Abbildung ref:fig-img_v sind die Gleichgewichtsgeschwindigkeiten der Partikel für unterschiedliche Plateaustartzeiten und als Fehler die Standardabweichung vom Mittelwert der Stichprobe vom Mittelwert aller Werte aufgetragen. Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfeldes auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken.
 
 :CODE:
 #+begin_src python :session v :exports none :results output
@@ -1139,6 +1139,26 @@ In Abbildung ref:fig-img_v sind die Gleichgewichtsgeschwindigkeiten der Partikel
   
 Es sind jedoch nicht nur die Gleichgewichtsgeschwindigkeiten der Partikel von Interesse, sondern auch die Form der Bewegung.
 
+:CODE:
+
+#+begin_src python :session traj :results output
+  import numpy as np
+  import matplotlib
+  matplotlib.use("Agg")
+  import matplotlib.pyplot as plt
+  import pandas as pd
+   
+#+end_src
+
+#+RESULTS:
+: Python 3.7.4 (default, Oct  4 2019, 06:57:26) 
+: [GCC 9.2.0] on linux
+: Type "help", "copyright", "credits" or "license" for more information.
+: >>> python.el: native completion setup loaded
+
+
+:END:
+
 #+name: fig-traj_real
 #+caption: Darstellung der einzelnen Trajektorien von ausgewählten Partikeln bei verschiedenen Änderungsraten des Magnetfeldes. 
 #+attr_latex: :placmeent [!h] :width 0.7\textwidth
@@ -1150,7 +1170,7 @@ Es sind jedoch nicht nur die Gleichgewichtsgeschwindigkeiten der Partikel von In
 file:./img/sim.png
 
 #+name: fig-videospottracker
-#+caption: Screenshot der /Video Spot Tracker/ Software nach erfolgreicher Auswertung eines Videos. Gelb markiert sind die Trajektorien der verschiedenen Partikel, blau die Endpunkte der Partikel.
+#+caption: Screenshot der /Video Spot Tracker/ Software nach erfolgreicher Auswertung eines Videos. Gelb markiert sind die Trajektorien der verschiedenen Partikel, blau die Endpunkte der Partikel. Vor allem im rechten Bildbereich ist eine reihenförmige Anordnung der Partikel über den Domänenwänden erkennbar.
 #+attr_latex: :placement [h] :width 0.75\textwidth
 file:./img/videospottracker.png
 
@@ -1207,10 +1227,10 @@ file:./img/videospottracker.png
 
 #+RESULTS:
 
-* 
   :PROPERTIES:
   :UNNUMBERED: t
   :END:
+  
 \printbibliography
   
 * Danksagung
