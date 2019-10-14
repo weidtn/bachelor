@@ -781,7 +781,7 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
   x = np.linspace(0,sr,cut)
   plt.clf()
   fits = []
-  fig, ax = plt.subplots(2,2, figsize=(8,5), sharex=True, sharey="row")
+  fig, ax = plt.subplots(2,2, figsize=(10,5), sharex=True, sharey="row")
   for i, data in enumerate(avglist):
       x = np.linspace(0,len(data),cut)
       popt, pcov = curve_fit(I_fixed, x, data[:cut], p0=(10), bounds=(0,50), method="trf")
@@ -985,7 +985,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
   plt.clf()
   markersize = 3
   cut = 500
-  fig, ax = plt.subplots(2,2, figsize=(8,5), sharex=True, sharey="row")
+  fig, ax = plt.subplots(2,2, figsize=(10,5), sharex=True, sharey="row")
   ax[0,0].set_title("x")
   ax[0,0].set_ylabel("$B$ [mT]")
   ax[1,0].set_xlabel("Datenpunkte")
@@ -1076,7 +1076,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
       return b
 
   plt.clf()
-  fig, ax = plt.subplots(2, 2, figsize=(8, 5), sharex=True, sharey="row")
+  fig, ax = plt.subplots(2, 2, figsize=(10, 5), sharex=True, sharey="row")
   for i, data in enumerate(avglist):
       x = np.linspace(0, len(data), cut)
       y = data[:cut]
@@ -1096,14 +1096,14 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
           ax[0, i].plot(
               B_helmholtz(x, *popt),
               'r--',
-              label=f"Fit: U={popt[0]:.2f}, R={popt[1]:.1f},\n L={popt[2]:.3f}, c={popt[3]:.3f}")
+              label=f"Fit: U={popt[0]:.2f}, R={popt[1]:.1f},\n L={popt[2]:.3f}, c={popt[3]:.3f}, R^2={r2:.3f}")
           ax[0, i].legend()
       else:
           ax[1, i - 2].plot(data[:cut], label="Messwerte")
           ax[1, i - 2].plot(
               B_helmholtz(x, *popt),
               'r--',
-              label=f"Fit: U={popt[0]:.2f}, R={popt[1]:.1f},\n L={popt[2]:.3f}, c={popt[3]:.3f}")
+              label=f"Fit: U={popt[0]:.2f}, R={popt[1]:.1f},\n L={popt[2]:.3f}, c={popt[3]:.3f}, R^2={r2:.3f}")
           ax[1, i - 2].legend()
 
   ax[0,0].set_title("x")
@@ -1127,7 +1127,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 #+begin_src python :session mag :results output
   # Fixed:
   plt.clf()
-  fig, ax = plt.subplots(2, 2, figsize=(8, 5), sharex=True, sharey="row")
+  fig, ax = plt.subplots(2, 2, figsize=(10, 5), sharex=True, sharey="row")
   R_z = 10.6
   L_z = 0.0056
   for i, data in enumerate(avglist):
@@ -1234,6 +1234,7 @@ Um den Einfluss der Änderungsrate des Magnetfeldes auf die Partikelgeschwindigk
   plt.legend()
   plt.xticks(np.arange(0,1.1,0.1))
   plt.grid()
+  plt.tight_layout()
   plt.savefig("./img/plateau.png", dpi=100)
   "./img/plateau.png"
 #+end_src
