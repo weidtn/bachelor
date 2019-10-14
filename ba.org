@@ -1,10 +1,10 @@
 #+Title: Bachelorarbeit
 #+Author: Nikolai Weidt
+#+LANGUAGE: de
 #+OPTIONS: toc:2 tasks:t title:t todo:nil
-#+OPTIONS: d:nil
+#+OPTIONS: d:nil ':t
 #+Todo: TODO(t) | DONE(d) 
 #+EXCLUDE_TAGS: ignore
-#+LANGUAGE: de
 
 * Fragen                                                             :ignore:
   - Drehimpuls im EB einfach weglassen?
