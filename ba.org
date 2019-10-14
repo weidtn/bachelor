@@ -7,6 +7,7 @@
 #+LANGUAGE: de
 
 * Fragen                                                             :ignore:
+  - Drehimpuls im EB einfach weglassen?
 * TODO [9/15] Noch zu tun:                                           :ignore:
 ** TODO Fits passen nicht, weil nicht exponentiell. Zeigen?
 ** TODO Blindwiderstand erklärt?
@@ -14,11 +15,11 @@
 ** TODO Simulierte Trajektorien durch step_evaluate laufen lassen
    SCHEDULED: <2019-09-19 Do>
 ** TODO EB genauer erklären
-- [ ] EB system kann genau einen makroskopisch remanenten Zustand haben, wenn die Flanken der Kurve steil genug und die Verschiebung groß genug ist. --- das ist nämlich toll an EB :)
+- [X] EB system kann genau einen makroskopisch remanenten Zustand haben, wenn die Flanken der Kurve steil genug und die Verschiebung groß genug ist. --- das ist nämlich toll an EB :)
 - [X] Beim Feldkühlen von polykristallinene System wie sie bei uns verwendet werden: Blocking statt NEeltemp
 - [X] Shift der Hystereses ist darin begründet, dass bei der Magnetisiseurngsumkehr ja die AF Momente den F an der Umkehr seiner Momente hindert eben wegen der Kopplungan der GRenzfläche.
 - [X] zumindest ein bisschen was von einem EB Modell, zumindest das einfachste von Meiklejohn und bean und den Zusammenhang zwischen EB Feldstärke und Ferromagnetschichtdicke wünsche ich mir. 
-
+- [ ] Gesamtdrehimpuls J erklären
 ** TODO Transportkonzept genauer erklären
 Hier wäre es toll, wenn du zumindest ein bisschen noch auf die Kräfte eingehst. F_M und F_R sollten vorkommen und die Tatsache, das sie die Gleichgwichtsgeschwindigkeit bestimmen (+ Formel). Du musst nicht im Detail alle Einzelheiten der Elektrostatischen und vdW Kraft ausienandernehmen, aber zumindest nennen kannst du sie, da sie ja immerhin auch in die Simulaitonen am Ende eingehen. Du kannst beschreiben, dass die elektrostat. Kraft in unseren Experimentne abstoßend ist, während vdWaals und magnetostatische Kraft anziehend wirken, sodass aus deren Kräftegleichgewicht zunächst der Gleichgewichtsabstand resultiert...
 
@@ -357,7 +358,7 @@ Der linke und rechte Schnittpunkt der Hysteresekurve $H_\mathrm{L}$ und $H_\math
 H_\mathrm{EB} = \frac{H_\mathrm{R}+ H_\mathrm{L}}{2} \quad H_\mathrm{C} = \frac{H_\mathrm{R} - H_\mathrm{L}}{2}
 \end{equation}
 
-Einerseits kann eine unidirektionale Anisotropie durch Anwesenheit eines externen Magnetfeldes während dem epitaktischen Wachstum bewirkt werden, andererseits durch einen Feldkühlprozess, an welchem Nachfolgend eine Begründung für den EB-Effekt geliefert wird: Die Hysteresekurve eines EB-Systems (Abbildung ref:fig-eb links in magenta) ist um das Austauschwechselfeld $H_\mathrm{EB}$ verschoben im Vergleich zum alleinigen Ferromagneten (grau gestrichelt). Der Grund hierfür sind die magnetischen Momente des AF an der Grenzfläche, welche durch Kopplung an die magnetischen Momente des F die magnetischen Momente im F daran hindern sich zu drehen. Während des Feldkühlprozesses wird die Probe auf eine Temperatur zwischen Néel-Temperatur und Curie-Temperatur gebracht, hier verhält sich der AF paramagnetisch, während der F weiterhin seine ferromagnetischen Eigenschaften behält, so dass seine Magnetisierung innerhalb des externen Feldes gezielt ausgerichtet werden kann (Abb. ref:fig-eb rechts oben). Anschließend wird die Temperatur unter die Néel-Temperatur verringert. Die magnetischen Momente im AF koppeln an der Grenzfläche über $J_\mathrm{AF/F}$ an die magnetischen Momente des gesättigten Ferromagneten (Abb. ref:fig-eb rechts unten). So wird eine magnetische Ordnung hergestellt, welche die unidirektionale Anisotropie im Ferromagneten bewirkt cite:merkel_einfluss_2018.
+Einerseits kann eine unidirektionale Anisotropie durch Anwesenheit eines externen Magnetfeldes während dem epitaktischen Wachstum bewirkt werden, andererseits durch einen Feldkühlprozess, an welchem Nachfolgend eine Begründung für den EB-Effekt geliefert wird: Die Hysteresekurve eines EB-Systems (Abbildung ref:fig-eb links in magenta) ist um das Austauschwechselfeld $H_\mathrm{EB}$ verschoben im Vergleich zum alleinigen Ferromagneten (grau gestrichelt). Der Grund hierfür sind die magnetischen Momente des AF an der Grenzfläche, welche durch Kopplung an die magnetischen Momente des F die magnetischen Momente im F daran hindern sich zu drehen. Während des Feldkühlprozesses wird die Probe auf eine Temperatur zwischen Néel-Temperatur und Curie-Temperatur gebracht, hier verhält sich der AF paramagnetisch, während der F weiterhin seine ferromagnetischen Eigenschaften behält, so dass seine Magnetisierung innerhalb des externen Feldes gezielt ausgerichtet werden kann (Abb. ref:fig-eb rechts oben). Anschließend wird die Temperatur unter die Néel-Temperatur verringert. Die magnetischen Momente im AF koppeln an der Grenzfläche an die magnetischen Momente des gesättigten Ferromagneten (Abb. ref:fig-eb rechts unten). So wird eine magnetische Ordnung hergestellt, welche die unidirektionale Anisotropie im Ferromagneten bewirkt cite:merkel_einfluss_2018.
 
 Durch die Polykristallinität der in dieser Arbeit verwendeten Proben müssen diese im Feldkühlprozess statt auf die Néel-Temperatur $T_\mathrm{N}$ nur auf die niedrigere materialabhängige *Blocking-Temperatur* $T_\mathrm{B}$ erhitzt werden. Die AF-Körner der polykristallinen Schicht verhalten sich hier superparamagnetisch cite:ogrady_new_2010,bean_superparamagnetism_1959.
 
