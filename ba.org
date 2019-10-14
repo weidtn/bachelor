@@ -809,17 +809,23 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
   x = np.linspace(0,sr,cut)
   plt.clf()
   fits = []
-  fig, ax = plt.subplots(2,2, figsize=(8,5), sharex=True, sharey="row")
+  fig, ax = plt.subplots(2,2, figsize=(10,5), sharex=True, sharey="row")
   for i, data in enumerate(avglist):
       x = np.linspace(0,len(data),cut)
-      popt, pcov = curve_fit(I, x, data[:cut], p0=(10, 10, 0.005), bounds=(0,[50, 50,5]), method="trf")
+      y = data[:cut]
+      popt, pcov = curve_fit(I, x, y, p0=(10, 10, 0.005), bounds=(0,[50, 50,5]), method="trf")
+      y_fit = I(x, *popt)
+      ss_res = np.sum((y - y_fit) **2)
+      ss_tot = np.sum((y-np.mean(y))**2)
+      r2 = 1 - (ss_res / ss_tot)
+      print(f"")
       if i < 2:
           ax[0,i].plot(data[:cut], '.', markersize=2, label="Messwerte")
-          ax[0,i].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}, R={popt[1]:.3}, L={popt[2]:.3}")
+          ax[0,i].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}, R={popt[1]:.3}, L={popt[2]:.3}, R^2 = {r2:.3f}")
           ax[0,i].legend()
       else:
           ax[1,i-2].plot(data[:cut], '.', markersize=2, label="Messwerte")
-          ax[1,i-2].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}, R={popt[1]:.3}, L={popt[2]:.3}")
+          ax[1,i-2].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}, R={popt[1]:.3}, L={popt[2]:.3}, R^2 = {r2:.3f}")
           ax[1,i-2].legend()
   ax[1,0].set_xlabel("Datenpunkte")
   ax[1,1].set_xlabel("Datenpunkte")
@@ -828,13 +834,11 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
   plt.tight_layout()
   plt.savefig("./img/strom_fit.png")
   plt.close()
-  print("Plotting finished")
   "./img/strom_fit.png"
 
 #+end_src
 
 #+RESULTS:
-: Plotting finished
 
 :END:
 
@@ -844,10 +848,10 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
 [[file:img/strom_fit.png]]
 
 
-#+name: fig-stromfit_fixed
-#+caption: Fitfunktion zu Gleichung ref:eq-strom-spule durch die gemessenen Stromstärken mit vorgegebenem Widerstand $R$ und Induktiviät $L$.
-#+attr_latex: :width \textwidth :placement [h]
-[[file:img/strom_fit_fixed.png]]
+# #+name: fig-stromfit_fixed
+# #+caption: Fitfunktion zu Gleichung ref:eq-strom-spule durch die gemessenen Stromstärken mit vorgegebenem Widerstand $R$ und Induktiviät $L$.
+# #+attr_latex: :width \textwidth :placement [h]
+# [[file:img/strom_fit_fixed.png]]
 # #####
 
 Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgeführt. Abbildung ref:fig-mag zeigt den zeitlichen Verlauf des Flussdichte.
@@ -1067,12 +1071,18 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
   fig, ax = plt.subplots(2, 2, figsize=(8, 5), sharex=True, sharey="row")
   for i, data in enumerate(avglist):
       x = np.linspace(0, len(data), cut)
+      y = data[:cut]
       popt, pcov = curve_fit(B_helmholtz,
                              x,
-                             data[:cut],
+                             y,
                              p0=(1, 10.6, 0.0056, 0),
                              bounds=([0, 0, 0, 0], [200, 30, 0.5, 10]),
                              method="trf")
+      y_fit = B_helmholtz(x, *popt)
+      ss_res = np.sum((y - y_fit) **2)
+      ss_tot = np.sum((y-np.mean(y))**2)
+      r2 = 1 - (ss_res / ss_tot)
+      print(r2)
       if i < 2:
           ax[0, i].plot(data[:cut], label="Messwerte")
           ax[0, i].plot(
@@ -1101,6 +1111,10 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 #+end_src
 
 #+RESULTS:
+: 0.04338247398196393
+: 0.05518794165147933
+: 0.04168419682071567
+: 0.0489727379527195
 
 #+begin_src python :session mag :results output
   # Fixed:
@@ -1157,6 +1171,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 #+attr_latex: :width \textwidth :placement [h]
 [[file:img/mag_fit_fixed.png]]
 
+Anhand des Verlaufs der Fitfunktionen und des $R^2$ Wertes, ist erkennbar, dass die entstehenden Magnetfelder nicht nur dem angenommenen Modell folgen. Es scheinen noch weitere Faktoren in die Erzeugung der Magnetfelder hinein zu wirken.
 ** TODO Partikelgeschwindigkeiten label:sec-partikelgeschwindigkeiten
 Um aus den aufgenommen Videos aus dem Partikeltransportexperiment die Trajektorien und Partikelgeschwindigkeiten zu erhalten, wird das Programm VideoSpotTracker verwendet. Hierzu wurden möglichst alle sich bewegenden Partikel als /"dark spot"/ der Größe $3$ ausgewählt, und dann mittels /"follow jumps"/ die x- und z-Positionen in Pixeln der einzelnen Partikel verfolgt und in einer csv-Datei aufgezeichnet (siehe Abbildung ref:fig-videospottracker). Da die Größe eines Pixels (\SI{278}{\nano\meter}) sowie die Framerate (1000 FPS) und somit die Zeit bekannt sind, lässt sich so die Geschwindigkeit der Partikel berechnen. Bewegungen in y-Richtung
 
