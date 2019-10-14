@@ -1166,12 +1166,12 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 #+attr_latex: :width \textwidth :placement [h]
 [[file:img/mag_fit.png]]
 
-#+name: fig-mag_fit_fixed
-#+caption: Fixed 
-#+attr_latex: :width \textwidth :placement [h]
-[[file:img/mag_fit_fixed.png]]
+# #+name: fig-mag_fit_fixed
+# #+caption: Fixed 
+# #+attr_latex: :width \textwidth :placement [h]
+# [[file:img/mag_fit_fixed.png]]
 
-Anhand des Verlaufs der Fitfunktionen und des $R^2$ Wertes, ist erkennbar, dass die entstehenden Magnetfelder nicht nur dem einfachen voraus
+Anhand des Verlaufs der Fitfunktionen und des $R^2$ Wertes, ist erkennbar, dass die entstehenden Magnetfelder nicht nur dem angenommenen Modell folgen, sondern noch komplexere Vorgänge in die Erzeugung der Magnetfelder hinein spielen.
 ** TODO Partikelgeschwindigkeiten label:sec-partikelgeschwindigkeiten
 Um aus den aufgenommen Videos aus dem Partikeltransportexperiment die Trajektorien und Partikelgeschwindigkeiten zu erhalten, wird das Programm VideoSpotTracker verwendet. Hierzu wurden möglichst alle sich bewegenden Partikel als /"dark spot"/ der Größe $3$ ausgewählt, und dann mittels /"follow jumps"/ die x- und z-Positionen in Pixeln der einzelnen Partikel verfolgt und in einer csv-Datei aufgezeichnet (siehe Abbildung ref:fig-videospottracker). Da die Größe eines Pixels (\SI{278}{\nano\meter}) sowie die Framerate (1000 FPS) und somit die Zeit bekannt sind, lässt sich so die Geschwindigkeit der Partikel berechnen. Bewegungen in y-Richtung
 
