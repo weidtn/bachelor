@@ -96,7 +96,7 @@ B = \mu_{\mathrm{0}} \cdot n \cdot I .
 \end{equation}
 
 *** TODO Helmholtzspulen
-Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen erzeugt. Eine Helmholtzspule besteht aus zwei parallelen Ringspulen in Reihe. Diese erzeugen ein homogenes Magnetfeld in ihrem Inneren, wenn die Helmholtz-Bedingung erfüllt ist, d.h. Radius und Abstand der Teilspulen gleich sind. Dieses Magnetfeld hängt in Näherung von der Stromstärke $I$, der Windungszahl $N$ und dem Radius einer einzelnen Spule $r$ ab cite:reginka_charakterisierung_2015:
+Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen erzeugt. Eine Helmholtzspule besteht aus zwei parallelen Ringspulen in Reihe. Diese erzeugen ein homogenes Magnetfeld in ihrem Inneren, wenn die Helmholtz-Bedingung erfüllt ist, d.h. Radius und Abstand der Teilspulen gleich sind. Die Flussdichte dieses Magnetfeldes hängt in Näherung von der Stromstärke $I$, der Windungszahl pro Spule $N$ und dem Radius einer einzelnen Spule $r$ ab cite:raith_elektromagnetismus_2006: 
     
 #+name: eq-helmholtz
 \begin{equation}
@@ -490,6 +490,7 @@ Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke $I$ und m
   matplotlib.use("Agg")
   import matplotlib.pyplot as plt
   import scipy.stats
+  import scipy.constants as constants
 
   csv = pd.read_csv("B(I).CSV", sep=";", index_col=False)
   plt.clf()
@@ -522,7 +523,7 @@ Um die Validität der Näherung für die magnetische Flussdichte von Helmholtzsp
   def B_helmholtz(I, c):
       n = 330
       r = 0.030
-      B = 4*np.pi * 10**(-7) * (8* I * n)/(np.sqrt(125)*r) + c
+      B = constants.mu_0 * (8* I * n)/(np.sqrt(125)*r) + c
       return B
 #+end_src
 #+RESULTS:
@@ -530,11 +531,11 @@ Um die Validität der Näherung für die magnetische Flussdichte von Helmholtzsp
 Anschließend wurden die vorher gemessenen Stromstärken verwendet um die zu erwartende magnetische Flussdichte zu berechnen. Der Vergleich zwischen gemessenen und berechneten Werten ist in Abbildung ref:fig-b_helmholtz zu sehen.
 
 :CODE:
-#+begin_src python :session magnetfeld :results output :export none
+#+begin_src python :session magnetfeld :results file :export none
   def B_helmholtz(I, c):
       n = 330
       r = 0.030
-      B = 4*np.pi * 10**(-7) * (8* I * n)/(np.sqrt(125)*r) + c
+      B = constants.mu_0 * (8* I * n)/(np.sqrt(125)*r) + c
       return B
   B_calc = B_helmholtz(x, c=0) * 1000
   plt.clf()
@@ -552,9 +553,10 @@ Anschließend wurden die vorher gemessenen Stromstärken verwendet um die zu erw
 #+end_src
 
 #+RESULTS:
+[[file:./img/B_calc.png]]
 
 #+begin_src python :session magnetfeld :results output
-  m_mess = 4*np.pi * 10**(-7) * (8 * 330)/(np.sqrt(125)*0.030)
+  m_mess = constants.mu_0 * (8 * 330)/(np.sqrt(125)*0.030)
   print(m_mess)
 #+end_src
 
@@ -749,7 +751,7 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
 #+begin_src python :session strom :results output
   from scipy.optimize import curve_fit
 
-  def I(x, U, sr=48000):
+  def I_fixed(x, U, sr=48000):
       """
       Current for measurement with 48k Samplerate
       U = Voltage
@@ -770,14 +772,50 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
   fig, ax = plt.subplots(2,2, figsize=(8,5), sharex=True, sharey="row")
   for i, data in enumerate(avglist):
       x = np.linspace(0,len(data),cut)
-      popt, pcov = curve_fit(I, x, data[:cut], p0=(10), bounds=(0,50), method="trf")
+      popt, pcov = curve_fit(I_fixed, x, data[:cut], p0=(10), bounds=(0,50), method="trf")
       if i < 2:
           ax[0,i].plot(data[:cut], '.', markersize=2, label="Messwerte")
-          ax[0,i].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}")
+          ax[0,i].plot(I_fixed(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}")
           ax[0,i].legend()
       else:
           ax[1,i-2].plot(data[:cut], '.', markersize=2, label="Messwerte")
-          ax[1,i-2].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}")
+          ax[1,i-2].plot(I_fixed(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}")
+          ax[1,i-2].legend()
+  ax[1,0].set_xlabel("Datenpunkte")
+  ax[1,1].set_xlabel("Datenpunkte")
+  ax[0,0].set_ylabel("$I$ [A]")
+  ax[1,0].set_ylabel("$I$ [A]")
+  plt.tight_layout()
+  plt.savefig("./img/strom_fit_fixed.png")
+  "./img/strom_fit_fixed.png"
+
+  def I(x, U, R, L, sr=48000):
+      """
+      Current for measurement with 48k Samplerate
+      U = Voltage
+      R = Resistance
+      L = Inductance
+      sr = Sample Rate (48000 for NI USB-6008)
+      """
+      return (U/R) * (1- np.exp((-x/sr) * R / L))
+
+  x = np.arange(0,cut,sr)
+  R_z = 10.6
+  L_z = 0.0056
+  x = np.linspace(0,sr,cut)
+  plt.clf()
+  fits = []
+  fig, ax = plt.subplots(2,2, figsize=(8,5), sharex=True, sharey="row")
+  for i, data in enumerate(avglist):
+      x = np.linspace(0,len(data),cut)
+      popt, pcov = curve_fit(I, x, data[:cut], p0=(10, 10, 0.005), bounds=(0,[50, 50,5]), method="trf")
+      if i < 2:
+          ax[0,i].plot(data[:cut], '.', markersize=2, label="Messwerte")
+          ax[0,i].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}, R={popt[1]:.3}, L={popt[2]:.3}")
+          ax[0,i].legend()
+      else:
+          ax[1,i-2].plot(data[:cut], '.', markersize=2, label="Messwerte")
+          ax[1,i-2].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}, R={popt[1]:.3}, L={popt[2]:.3}")
           ax[1,i-2].legend()
   ax[1,0].set_xlabel("Datenpunkte")
   ax[1,1].set_xlabel("Datenpunkte")
@@ -786,11 +824,13 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
   plt.tight_layout()
   plt.savefig("./img/strom_fit.png")
   plt.close()
+  print("Plotting finished")
   "./img/strom_fit.png"
 
 #+end_src
 
 #+RESULTS:
+: Plotting finished
 
 :END:
 
@@ -799,6 +839,11 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
 #+attr_latex: :width \textwidth :placement [h]
 [[file:img/strom_fit.png]]
 
+
+#+name: fig-stromfit_fixed
+#+caption: Fitfunktion zu Gleichung ref:eq-strom-spule durch die gemessenen Stromstärken mit vorgegebenem Widerstand $R$ und Induktiviät $L$.
+#+attr_latex: :width \textwidth :placement [h]
+[[file:img/strom_fit_fixed.png]]
 # #####
 
 Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgeführt. Abbildung ref:fig-mag zeigt den zeitlichen Verlauf des Flussdichte.
@@ -812,6 +857,7 @@ Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgef
   import numpy as np
   import pandas as pd
   from scipy.optimize import curve_fit
+  import scipy.constants as constants
 
   B_file1 = "./Messung/B/x/2mT_square_0.csv"
   B_file2 = "./Messung/B/z/2mT_square_0.csv"
@@ -819,15 +865,15 @@ Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgef
   B_file4 = "./Messung/B/z/3mT_square_0.csv"
 
   datalist = [
-        pd.read_csv(B_file1).to_numpy() * 10,
-        pd.read_csv(B_file2).to_numpy() * 10,
-        pd.read_csv(B_file3).to_numpy() * 10,
-        pd.read_csv(B_file4).to_numpy() * 10]
+        (pd.read_csv(B_file1).to_numpy()),
+        (pd.read_csv(B_file2).to_numpy()),
+        (pd.read_csv(B_file3).to_numpy()),
+        (pd.read_csv(B_file4).to_numpy())]
 
   # Anfang und Ende abschneiden
   for i, data in enumerate(datalist):
       sr = 48000
-      end = np.argmax(data>0.4)
+      end = np.argmax(data>0.04)
       if i == 0:
           end_off = end - 29
           sr_off = sr + 23
@@ -847,10 +893,10 @@ Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgef
       datalist[i] = data
 
   fig, ax = plt.subplots(2,2, sharex=True)
-  ax[0,0].plot(datalist[0])
-  ax[0,1].plot(datalist[1])
-  ax[1,0].plot(datalist[2])
-  ax[1,1].plot(datalist[3])
+  ax[0,0].plot(datalist[0]*10)
+  ax[0,1].plot(datalist[1]*10)
+  ax[1,0].plot(datalist[2]*10)
+  ax[1,1].plot(datalist[3]*10)
   ax[0,0].set_title("x")
   ax[0,1].set_title("z")
   ax[0,0].set_ylabel("$B$ [mT]")
@@ -890,10 +936,10 @@ Auch hier wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe
   ax[0,0].set_title("x")
   ax[0,0].set_ylabel("$B$ [mT]")
   ax[1,0].set_xlabel("Datenpunkte")
-  ax[0,0].plot(avglist[0], '.', markersize=3)
-  ax[0,1].plot(avglist[2], '.', markersize=3)
-  ax[1,0].plot(avglist[1], '.', markersize=3)
-  ax[1,1].plot(avglist[3], '.', markersize=3)
+  ax[0,0].plot(avglist[0]*10, '.', markersize=3)
+  ax[0,1].plot(avglist[2]*10, '.', markersize=3)
+  ax[1,0].plot(avglist[1]*10, '.', markersize=3)
+  ax[1,1].plot(avglist[3]*10, '.', markersize=3)
   ax[0,1].set_title("z")
   ax[1,0].set_ylabel("$B$ [mT]")
   ax[1,1].set_xlabel("Datenpunkte")
@@ -927,10 +973,10 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
   ax[0,0].set_title("x")
   ax[0,0].set_ylabel("$B$ [mT]")
   ax[1,0].set_xlabel("Datenpunkte")
-  ax[0,0].plot(avglist[0][:cut], '.', markersize=markersize)
-  ax[0,1].plot(avglist[2][:cut], '.', markersize=markersize)
-  ax[1,0].plot(avglist[1][:cut], '.', markersize=markersize)
-  ax[1,1].plot(avglist[3][:cut], '.', markersize=markersize)
+  ax[0,0].plot(avglist[0][:cut]*10, '.', markersize=markersize)
+  ax[0,1].plot(avglist[1][:cut]*10, '.', markersize=markersize)
+  ax[1,0].plot(avglist[2][:cut]*10, '.', markersize=markersize)
+  ax[1,1].plot(avglist[3][:cut]*10, '.', markersize=markersize)
   ax[0,1].set_title("z")
   ax[1,0].set_ylabel("$B$ [mT]")
   ax[1,1].set_xlabel("Datenpunkte")
@@ -953,7 +999,19 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 :CODE:
 
 #+begin_src python :session mag :results output
-  def I(x, U, sr=48000):
+  def I_fixed(x, U, sr=48000):
+      """
+      Current for measurement with 48k Samplerate
+      U = Voltage
+      R = Resistance
+      L = Inductance
+      sr = Sample Rate (48000 for NI USB-6008)
+      """
+      R = 10.6
+      L = 0.0056
+      return (U / R) * (1 - np.exp((-x / sr) * R / L))
+
+  def I(x, U, R, L, sr=48000):
       """
       Current for measurement with 48k Samplerate
       U = Voltage
@@ -966,7 +1024,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
       return (U / R) * (1 - np.exp((-x / sr) * R / L))
 
 
-  def B_helmholtz(x, U, c):
+  def B_helmholtz_fixed(x, U, c):
       """
       U = Voltage
       R = ohmic resistance
@@ -978,40 +1036,54 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
       """
       R = 10.6
       L = 0.0056
-      n = 330
+      n = 660
       r = 0.030
-      b = 4 * np.pi * 10**(-7) * (8 * I(x, U, sr=48000) *
+      b = constants.mu_0 * (8 * I_fixed(x, U, sr=48000) *
                                   n) / (np.sqrt(125) * r) + c
       return b
 
 
+  def B_helmholtz(x, U, R, L, c):
+      """
+      U = Voltage
+      R = ohmic resistance
+      L = Inductance
+      c = offset
+      -----------
+      n = Turns per coil
+      r = radius
+      """
+      n = 660
+      r = 0.03
+      b = constants.mu_0 * (8 * I(x, U, R, L, sr=48000) *
+                                  n) / (np.sqrt(125) * r) + c
+      return b
+
   plt.clf()
   fig, ax = plt.subplots(2, 2, figsize=(8, 5), sharex=True, sharey="row")
-  R_z = 10.6
-  L_z = 0.0056
   for i, data in enumerate(avglist):
       x = np.linspace(0, len(data), cut)
       popt, pcov = curve_fit(B_helmholtz,
                              x,
                              data[:cut],
-                             p0=(1, 1),
-                             bounds=([0, -20], [5000, 20]),
+                             p0=(1, 10.6, 0.0056, 0),
+                             bounds=([0, 0, 0, 0], [200, 30, 0.5, 10]),
                              method="trf")
       if i < 2:
           ax[0, i].plot(data[:cut], label="Messwerte")
           ax[0, i].plot(
               B_helmholtz(x, *popt),
               'r--',
-              label=f"Fit: U={popt[0]:.5}")
+              label=f"Fit: U={popt[0]:.2f}, R={popt[1]:.1f},\n L={popt[2]:.3f}, c={popt[3]:.3f}")
           ax[0, i].legend()
       else:
           ax[1, i - 2].plot(data[:cut], label="Messwerte")
           ax[1, i - 2].plot(
               B_helmholtz(x, *popt),
               'r--',
-              label=f"Fit: U={popt[0]:.5}")
+              label=f"Fit: U={popt[0]:.2f}, R={popt[1]:.1f},\n L={popt[2]:.3f}, c={popt[3]:.3f}")
           ax[1, i - 2].legend()
-        
+
   ax[0,0].set_title("x")
   ax[0,1].set_title("z")
   ax[0,0].set_ylabel("B [mT]")
@@ -1026,12 +1098,60 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 
 #+RESULTS:
 
+#+begin_src python :session mag :results output
+  # Fixed:
+  plt.clf()
+  fig, ax = plt.subplots(2, 2, figsize=(8, 5), sharex=True, sharey="row")
+  R_z = 10.6
+  L_z = 0.0056
+  for i, data in enumerate(avglist):
+      x = np.linspace(0, len(data), cut)
+      popt, pcov = curve_fit(B_helmholtz_fixed,
+                             x,
+                             data[:cut],
+                             p0=(1, 1),
+                             bounds=([0, -20], [100, 20]),
+                             method="trf")
+      if i < 2:
+          ax[0, i].plot(data[:cut], label="Messwerte")
+          ax[0, i].plot(
+              B_helmholtz_fixed(x, *popt),
+              'r--',
+              label=f"Fit: U={popt[0]:.2f}")
+          ax[0, i].legend()
+      else:
+          ax[1, i - 2].plot(data[:cut], label="Messwerte")
+          ax[1, i - 2].plot(
+              B_helmholtz_fixed(x, *popt),
+              'r--',
+              label=f"Fit: U={popt[0]:.2f}")
+          ax[1, i - 2].legend()
+
+  ax[0,0].set_title("x")
+  ax[0,1].set_title("z")
+  ax[0,0].set_ylabel("B [mT]")
+  ax[1,0].set_ylabel("B [mT]")
+  ax[1,0].set_xlabel("Datenpunkte")
+  ax[1,1].set_xlabel("Datenpunkte")
+  plt.tight_layout()
+  plt.savefig("./img/mag_fit_fixed.png")
+  plt.close()
+  "./img/mag_fit_fixed.png"
+#+end_src
+
+#+RESULTS:
+
 :END:
 
 #+name: fig-mag_fit
 #+caption:
 #+attr_latex: :width \textwidth :placement [h]
 [[file:img/mag_fit.png]]
+
+#+name: fig-mag_fit_fixed
+#+caption: Fixed 
+#+attr_latex: :width \textwidth :placement [h]
+[[file:img/mag_fit_fixed.png]]
 
 ** TODO Partikelgeschwindigkeiten label:sec-partikelgeschwindigkeiten
 Um aus den aufgenommen Videos aus dem Partikeltransportexperiment die Trajektorien und Partikelgeschwindigkeiten zu erhalten, wird das Programm VideoSpotTracker verwendet. Hierzu wurden möglichst alle sich bewegenden Partikel als /"dark spot"/ der Größe $3$ ausgewählt, und dann mittels /"follow jumps"/ die x- und z-Positionen in Pixeln der einzelnen Partikel verfolgt und in einer csv-Datei aufgezeichnet (siehe Abbildung ref:fig-videospottracker). Da die Größe eines Pixels (\SI{278}{\nano\meter}) sowie die Framerate (1000 FPS) und somit die Zeit bekannt sind, lässt sich so die Geschwindigkeit der Partikel berechnen.
@@ -1047,6 +1167,7 @@ Um den Einfluss der Änderungsrate des Magnetfeldes auf die Partikelgeschwindigk
   import numpy as np
   import matplotlib.pyplot as plt
   import scipy.signal as signal
+  import scipy.constants as constants
 
 
   def trapez_signal(x, freq, width=2., slope=1., amp=1., offs=0, phase=0):
@@ -1207,10 +1328,10 @@ file:./img/videospottracker.png
 
 #+RESULTS:
 
-* 
   :PROPERTIES:
   :UNNUMBERED: t
   :END:
+  
 \printbibliography
   
 * Danksagung
@@ -1218,3 +1339,22 @@ file:./img/videospottracker.png
 :UNNUMBERED: t
 :END:
 Danke.
+
+* SONSTIGES :ignore:
+
+#+begin_src python :session :results output
+  import numpy as np
+  def L_helmholtz(N, R, l):
+      L = 2 * N**2 * R * 4 * np.pi * 10**(-7) * (( np.pi * R / l + (2*R/2.2)) + 4.941/4*np.pi)
+      return L
+
+
+  r_wire = 2.79e-4
+  l_wire = 330*np.pi * 2 *r_wire
+  print(f"{L_helmholtz(2*330, r_wire, l_wire) * 1000} mH")
+  print(f"{L_helmholtz(660, 0.03, 0.1) * 1000} mH")
+#+end_src
+
+#+RESULTS:
+: 1.1858631508002566 mH
+: 159.30404220035328 mH
