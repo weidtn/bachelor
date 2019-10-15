@@ -1198,14 +1198,14 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 
 Anhand des Verlaufs der Fitfunktionen und des $R^2$ Wertes, ist erkennbar, dass die entstehenden Magnetfelder nicht nur dem angenommenen Modell folgen, sondern noch komplexere Vorgänge in die Erzeugung der Magnetfelder hinein spielen.
 ** TODO Partikelgeschwindigkeiten label:sec-partikelgeschwindigkeiten
-Um aus den aufgenommen Videos aus dem Partikeltransportexperiment die Trajektorien und Partikelgeschwindigkeiten zu erhalten, wird das Programm /VideoSpotTracker/ verwendet. Hierzu wurden möglichst alle sich bewegenden Partikel als /"dark spot"/ mit der Größe 3 ausgewählt, und dann mittels /"follow jumps"/ die x- und z-Positionen in Pixeln der einzelnen Partikel verfolgt und in einer csv-Datei aufgezeichnet (siehe Abbildung ref:fig-videospottracker). Da die Größe eines Pixels (\SI{278}{\nano\meter}) sowie die Framerate (1000 FPS) und somit die Zeit bekannt sind, lässt sich so die Geschwindigkeit der Partikel berechnen. Bewegungen in y-Richtung sind unter anderem durch ein nicht genau orthogonal zur Streifenstruktur anliegendes Magnetfeld der x-Spule zu erklären, so dass eine Komponente in y-Richtung zeigt.
+Um aus den aufgenommen Videos aus dem Partikeltransportexperiment die Trajektorien und Partikelgeschwindigkeiten zu erhalten, wird das Programm /VideoSpotTracker/ verwendet. Hierzu wurden möglichst alle sich bewegenden Partikel als /"dark spot"/ mit der Größe 3 ausgewählt, und dann mittels /"follow jumps"/ die x- und z-Positionen der einzelnen Partikel in Pixel verfolgt und in einer csv-Datei aufgezeichnet (siehe Abbildung ref:fig-videospottracker). Da die Größe eines Pixels (\SI{278}{\nano\meter}) sowie die Framerate (1000 FPS) und somit die Zeit bekannt sind, lässt sich so die Durchschnittsgeschwindigkeit der Partikel berechnen. Bewegungen in y-Richtung sind unter anderem durch ein nicht genau orthogonal zur Streifenstruktur anliegendes Magnetfeld der x-Spule zu erklären, so dass eine Komponente in y-Richtung zeigt.
 
 #+name: fig-videospottracker
 #+caption: Screenshot der /Video Spot Tracker/ Software nach erfolgreicher Auswertung eines Videos. Gelb markiert sind die Trajektorien der verschiedenen Partikel, blau die Endpunkte der Partikel. Vor allem im rechten Bildbereich ist eine reihenförmige Anordnung der Partikel über den Domänenwänden erkennbar.
 #+attr_latex: :placement [h] :width 0.75\textwidth
 file:./img/videospottracker.png
 
-Um den Einfluss der Änderungsrate des Magnetfeldes auf die Partikelgeschwindigkeit und -trajektorien zu bestimmen, wurden sechs verschiedene Magnetfeldsequenzen mit unterschiedlichen Änderungsraten erstellt. Amplitude und die Frequenz des Magnetfeldes wurden konstant gewählt. Variiert wurde lediglich die Plateaustartzeit, also jene Zeit nach der die maximale Amplitude des Magnetfeldes das erste Mal erreicht sein sollte (siehe Abbildung ref:fig-plateau).
+Um den Einfluss der Änderungsrate des Magnetfeldes auf die Partikelgeschwindigkeit und Form der Trajektorien zu bestimmen, wurden sechs verschiedene Magnetfeldsequenzen mit unterschiedlichen Änderungsraten erstellt. Amplitude und die Frequenz des Magnetfeldes wurden konstant gewählt für eine Messreihe. Variiert wurde lediglich die Plateaustartzeit, also jene Zeit nach der die maximale Amplitude des Magnetfeldes das erste Mal erreicht sein sollte (siehe Abbildung ref:fig-plateau). Es wurden sowohl für Magnetfeld in x-Richtung als auch z-Richtung die selben Plateaustartzeiten verwendet. Das bedeutet, dass bei unterschiedlichen Amplituden auch unterschiedliche Änderungsraten vorliegen.
 
 :CODE:
 Veranschaulichung Plateauzeiten
@@ -1269,9 +1269,13 @@ Veranschaulichung Plateauzeiten
 #+attr_latex: :width 0.75\textwidth :placement [h]
 [[file:./img/plateau.png]]
 
-Um die bisherigen Modelle mit den experimentellen Daten vergleichen zu können, wurden durch verschiedene  Simulationsskripte Trajektorien für verschiedene Magnetfeldänderungsraten vorhergesagt. Dazu wurden zuerst Magnetfeldlandschaften mit dem /The Object Oriented MicroMagnetic Framework/ (OOMMF) cite:donahue_oommf_1999 berechnet. Anschließend kann Anhand verschiedener Parameter der Partikel und des EB-Systems der Gleichgewichtsabstand der Partikel über der Probe berechnet werden. Dieser wird benötigt um im nächsten Schritt mittels der berechneten Magnetfeldlandschaftsdaten aus OOMMF und den Parametern des externen Magnetfeldes, die Trajektorie der Partikel während eines Transportschrittes zu bestimmen.
+Da die bisher vorausgesetzten Modelle mit den experimentellen Daten verglichen werden sollen, wurden durch Simulationsskripte Trajektorien für verschiedene Magnetfeldänderungsraten vorhergesagt. Dazu wurden zuerst Magnetfeldlandschaften mit dem /The Object Oriented MicroMagnetic Framework/ (OOMMF) cite:donahue_oommf_1999 berechnet. Anschließend kann Anhand verschiedener physikalischer Parameter der Partikel und des EB-Systems der Gleichgewichtsabstand der Partikel über der Probe berechnet werden. Dieser wird benötigt um im nächsten Schritt mittels der berechneten Magnetfeldlandschaftsdaten aus OOMMF und den Parametern des externen Magnetfeldes, die Trajektorie der Partikel während eines Transportschrittes zu bestimmen.
 
 # TODO Geschwindigkeit aus Simulation?
+
+Um einen Vergleich zwischen Simulation und Messung zu erhalten, wurde von selektierten Transportschritten der Partikeln eine mittlere Trajektorie gebildet. Der Vergleich zwischen realen und simulierten Trajektorien ist in Abbildung ref:fig-traj zu sehen.
+
+Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetfelder mit späteren Plateaustartzeiten. Da die Steigung der x-Position der Geschwindigkeit der Partikel entspricht, ist offensichtlich, dass niedrigere Magnetfeldänderungsraten auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken.
 
 :CODE:
  Gemessene Trajektorien:
@@ -1304,9 +1308,9 @@ Um die bisherigen Modelle mit den experimentellen Daten vergleichen zu können, 
 #+attr_latex: :placmeent [!h] :width 0.7\textwidth
 # file:./img/traj_real.png
 
-#+name: fig-traj_sim
-#+caption: Simulierte Trajektorien für verschiedene Änderungsraten des Magnetfeldes. 
-#+attr_latex: :placmeent [!h] :width 0.7\textwidth
+#+name: fig-traj
+#+caption: Vergleich gemessener (oben) Trajektorien mit simulierten (unten) Trajektorien der superparamagnetischen Partikel. Die Plateaustartzeiten der Magnetfelder steigen von links nach rechts.
+#+attr_latex: :placmeent [!h] :width \textwidth
 file:./img/sim.png
 
 In Abbildung ref:fig-img_v sind die Gleichgewichtsgeschwindigkeiten der Partikel für unterschiedliche Plateaustartzeiten und als Fehler die Standardabweichung vom Mittelwert der Stichprobe vom Mittelwert aller Werte aufgetragen. Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfeldes auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken.
