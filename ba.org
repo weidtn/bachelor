@@ -402,6 +402,13 @@ Die SPP bewegen sich mit einer Gleichgewichtsgeschwindigkeit welche sich zwische
 \end{equation}
 
 Ein Gleichgewichtsabstand zur Probe stellt sich für die SPP ein, da van-der-Waals-Kräfte $F_\mathrm{vdw}$ und elektrostatische Kraft $F_\mathrm{e}$ anziehend und magnetostatische Kraft $F_\mathrm{m}$ abstoßend wirken.
+
+#+name:fig-force_spp
+#+caption: Schematische Darstellung der wirkenden Kräfte auf ein superparamagnetisches Partikel oberhalb des EB-Dünnschichtsystems. Zu sehen sind van-der-Waals-Kraft $F_\mathrm{vdw}$, elektrostatische Kraft $F_\mathrm{e}$ ,magnetostatische Kraft $F_\mathrm{m}$, Reibungskraft $F_\mathrm{R}$ und magnetische Kraft $F_\mathrm{M}$.
+#+attr_latex: :width 0.5\textwidth :placement [h]
+[[file:img/force_spp.png]]
+
+
 #+name:fig-transport
 #+caption: (a-e): Berechnete magnetische Potentiallandschaft $U_\mathrm{SPP,z(x)}$ als Funktion der x-Position im Partikelzentrum $\SI{2}{\mu\meter}$ über dem EB-System. Die superparamagnetischen Partikel sind schematisch in braun dargestellt. (f): Angelegte Magnetfeldsequenzen. Die Zeitskala der Magnetfeldsequenzen ist passend zu den Darstellungen der Potentiallandschaften zu verschiedenen Zeiten aufgetragen. Aus cite:holzinger_transport_2015.
 #+attr_latex: :width \textwidth :placement [h]
