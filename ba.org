@@ -1302,7 +1302,9 @@ Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetf
       num_particles = len(data.loc[data["FrameNumber"] == 0])
       x_vector = data["X"].to_numpy()
       x_matrix = np.reshape(x_vector, (len(data["FrameNumber"])//num_particles, num_particles)) * px_size
-      [plt.plot(x_matrix[:,i]) for i in range (0, len(x_matrix[0,:]),1)]
+      # [plt.plot(x_matrix[:,i]) for i in range (0, len(x_matrix[0,:]),1)]
+      plt.plot(x_matrix[:,16])
+
   plt.savefig("./img/traj_real.png")
   plt.close()
   "./img/traj_real.png"
