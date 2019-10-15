@@ -398,9 +398,7 @@ Werden SPP in wässriger Lösung ohne externes Magnetfeld auf das EB-Substrat ge
 #+attr_org: :width 100px
 [[file:img/mfl.png]]
 
-Der Transport von superparamagnetischen Partikeln über Exchange-Bias-Systeme erfolgt durch zeitliche Veränderungen der magnetischen Potentiallandschaft über der Probe. 
-
-Die Partikel positionieren sich in Abwesenheit eines externen Feldes in Reihen über alle Domänenwände verteilt (vgl. Abbildung ref:fig-mfl). Der genaue Transportvorgang kann in Abbildung ref:fig-transport nachverfolgt werden. Durch Einschalten des Magnetfeldes $H_\mathrm{z}$ wird die Magnetfeldlandschaft über den Domänenwänden verändert. hh-Domänenwände werden energetisch begünstigt und die Partikel bewegen sich ungeleitet in Richtung dieser (a). So bilden sich Reihen aus SPP, welche jeweils die doppelte Domänenbreite voneinander entfernt sind. Der Vorzeichenwechsel von $H_\mathrm{x,max}$ bewirkt eine Verschiebung der Magnetfeldlandschaft in x-Richtung, welche das magnetische Moment der SPP leicht in Richtung nächster Domänenwand kippt (b), so dass nach erneuter Umpolung von $H_\mathrm{z,max}$ das magnetische Moment in die entgegengesetzte Richtung drehen kann, und das Partikel eine Vorzugsrichtung hat, in die es sich bewegt. Andererseits würden die Partikel zufällig in eins der beiden benachbarten Energieminima wandern. Die Minima der Energielandschaft verschieben sich auf die nächstgelegene Domänenwand, da nun statt hh-Domänenwänden die tt-Domänenwände energetisch günstiger sind (c). Anschließend wird der Prozess mit umgekehrten Vorzeichen durchgeführt (d) und die Partikel befinden sich dann erneut über einer hh-Domänenwand (e) cite:holzinger_directed_2015. 
+Der Transport von superparamagnetischen Partikeln über Exchange-Bias-Systeme erfolgt durch zeitliche Veränderungen der magnetischen Potentiallandschaft über der Probe. Die Partikel positionieren sich in Abwesenheit eines externen Feldes in Reihen über alle Domänenwände verteilt (vgl. Abbildung ref:fig-mfl). Der genaue Transportvorgang kann in Abbildung ref:fig-transport nachverfolgt werden. Durch Einschalten des Magnetfeldes $H_\mathrm{z}$ wird die Magnetfeldlandschaft über den Domänenwänden verändert. hh-Domänenwände werden energetisch begünstigt und die Partikel bewegen sich ungeleitet in Richtung dieser (a). So bilden sich Reihen aus SPP, welche jeweils die doppelte Domänenbreite voneinander entfernt sind. Der Vorzeichenwechsel von $H_\mathrm{x,max}$ bewirkt eine Verschiebung der Magnetfeldlandschaft in x-Richtung, welche das magnetische Moment der SPP leicht in Richtung nächster Domänenwand kippt (b), so dass nach erneuter Umpolung von $H_\mathrm{z,max}$ das magnetische Moment in die entgegengesetzte Richtung drehen kann, und das Partikel eine Vorzugsrichtung hat, in die es sich bewegt. Andererseits würden die Partikel zufällig in eins der beiden benachbarten Energieminima wandern. Die Minima der Energielandschaft verschieben sich auf die nächstgelegene Domänenwand, da nun statt hh-Domänenwänden die tt-Domänenwände energetisch günstiger sind (c). Anschließend wird der Prozess mit umgekehrten Vorzeichen durchgeführt (d) und die Partikel befinden sich dann erneut über einer hh-Domänenwand (e) cite:holzinger_directed_2015. 
 
 Die SPP bewegen sich mit einer Gleichgewichtsgeschwindigkeit welche sich zwischen der magnetischen Kraft $F_\mathrm{M}$ und der Reibungskraft $F_\mathrm{R}$ einstellt, mit der Dichte $\rho_\mathrm{SPP}$ und dem Volumen $V_\mathrm{SPP}$ der Partikel gilt cite:holzinger_transport_2015: 
 
@@ -411,8 +409,8 @@ Die SPP bewegen sich mit einer Gleichgewichtsgeschwindigkeit welche sich zwische
 Ein Gleichgewichtsabstand zur Probe stellt sich für die SPP ein, da van-der-Waals-Kräfte $F_\mathrm{vdw}$ und elektrostatische Kraft $F_\mathrm{e}$ anziehend und magnetostatische Kraft $F_\mathrm{m}$ abstoßend wirken.
 
 #+name:fig-force_spp
-#+caption: Schematische Darstellung der wirkenden Kräfte auf ein superparamagnetisches Partikel oberhalb des EB-Dünnschichtsystems. Zu sehen sind van-der-Waals-Kraft $F_\mathrm{vdw}$, elektrostatische Kraft $F_\mathrm{e}$ ,magnetostatische Kraft $F_\mathrm{m}$, Reibungskraft $F_\mathrm{R}$ und magnetische Kraft $F_\mathrm{M}$.
-#+attr_latex: :width 0.5\textwidth :placement [h]
+#+caption: Schematische Darstellung der wirkenden Kräfte auf ein superparamagnetisches Partikel oberhalb des EB-Dünnschichtsystems. Zu sehen sind van-der-Waals-Kraft $F_\mathrm{vdw}$, elektrostatische Kraft $F_\mathrm{e}$ ,magnetostatische Kraft $F_\mathrm{m}$, Reibungskraft $F_\mathrm{R}$ und magnetische Kraft $F_\mathrm{M}$. Diese resultieren zusammen jeweils in die Gleichgewichtsgeschwindigkeit $v_\mathrm{SPP}$ und den Gleichgewichtsabstand $z$. Die Längen der Kraftvektoren sind zu Anschauungszwecken arbiträr gewählt.
+#+attr_latex: :width 0.75\textwidth :placement [h]
 [[file:img/force_spp.png]]
 
 
@@ -476,7 +474,7 @@ Die Aufzeichnung der Daten des DAQ-Gerätes erfolgte für beide Messungen mittel
 Allgemein kann die Auswertung in zwei Teile unterteilt werden.
 Zu Beginn der Auswertung wird in Kapitel ref:sec-b_helmholtz auf Messungen von Stromstärke und magnetischer Flussdichte an den im Experiment verwendeten Helmholtzspulen eingegangen. Diese Messungen werden zum einen benötigt um das Programm zur Erstellung von Magnetfeldsequenzen zukünftig sinnvoll weiter entwickeln zu können. Weiterhin ist die Kentniss über den realen zeitlichen Verlauf der angelegten Magnetfeldsequenzen wichtig, um die Simulationen und Vorhersagen aus dem theoretischen Modell zum Partikeltransport einordnen, diskutieren und möglicherweise optimieren zu können. Es wurden sowohl statische Messungen der Amplitude der magnetischen Flussdichte als auch der zeitliche Verlauf der magnetischen Flussdichte in Abhängigkeit der Stromstärke durchgeführt.
 
-Anschließend wird Kapitel ref:sec-partikelgeschwindigkeiten der Einfluss der Änderungsrate der trapezförmigen Magnetfeldsequenzen auf die Partikelgeschwindigkeiten näher betrachtet. Hierzu werden außerdem die Auswirkungen der verschiedenen Pulsformen auf die Trajektorien der Partikel genauer untersucht und mit simulierten Werten verglichen. In beiden Fällen wird sich auf ein strukturiertes EB-System mit \SI{5}{\mu\meter} breiten Domänen in hh- und tt-Konfiguration und dem standardmäßig in der Arbeitsgruppe \textsc{Ehresmann} verwendeten Schichtstapel $\ce{ Cu(\SI{10}{\nano\meter}) / IrMn(\SI{30}{\nano\meter}) / CoFe(\SI{10}{\nano\meter}) }$ mit einer \SI{800}{\nano\meter} \ce{Si}-Deckschicht (siehe Abbildung ref:fig-layer).
+Anschließend wird Kapitel ref:sec-partikelgeschwindigkeiten der Einfluss der Änderungsrate der trapezförmigen Magnetfeldsequenzen auf die Partikelgeschwindigkeiten näher betrachtet. Hierzu werden außerdem die Auswirkungen der verschiedenen Pulsformen auf die Trajektorien der Partikel genauer untersucht und mit simulierten Werten verglichen. In beiden Fällen wird sich auf ein strukturiertes EB-System mit \SI{5}{\mu\meter} breiten Domänen in hh- und tt-Konfiguration und dem standardmäßig in der Arbeitsgruppe \textsc{Ehresmann} verwendeten Schichtssystem $\ce{ Cu(\SI{10}{\nano\meter}) / IrMn(\SI{30}{\nano\meter}) / CoFe(\SI{10}{\nano\meter}) }$ mit einer \SI{800}{\nano\meter} \ce{Si}-Deckschicht (siehe Abbildung ref:fig-layer).
 
 #+name: fig-layer
 #+caption: Zusammensetzung der verwendeten Schichtsysteme. Die obere Siliziumschicht wurde erst nach der magnetischen Strukturierung der Probe abgeschieden. Modifiziert aus cite:janzen_fernsteuerbarer_2018.
@@ -552,17 +550,7 @@ Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke $I$ und m
 
 :END:
 
-Um die Validität der Näherung für die magnetische Flussdichte von Helmholtzspulen in Abhängigkeit der Stromstärke (Gleichung ref:eq-helmholtz) für die verwendeten Spulen zu überprüfen, wurde die Gleichung nach einigen mathematischen Umformungen als Pythoncode geschrieben und Radius und Windungszahl der verwendeten Spule vorgegeben:
-
-#+caption: Funktion zur Berechnung der magnetischen Flussdichte einer Helmholtzspule in Abhängigkeit von der Stromstärke.
-#+begin_src python :session magnetfeld :exports code
-  def B_helmholtz(I, c):
-      n = 330
-      r = 0.030
-      B = constants.mu_0 * (8* I * n)/(np.sqrt(125)*r) + c
-      return B
-#+end_src
-#+RESULTS:
+Um die Validität der Näherung für die magnetische Flussdichte von Helmholtzspulen in Abhängigkeit der Stromstärke (Gleichung ref:eq-helmholtz) für die verwendeten Spulen zu überprüfen, wurde die Gleichung nach einigen mathematischen Umformungen.
 
 Anschließend wurden die vorher gemessenen Stromstärken verwendet um die zu erwartende magnetische Flussdichte zu berechnen. Der Vergleich zwischen gemessenen und berechneten Werten ist in Abbildung ref:fig-b_helmholtz zu sehen.
 
@@ -612,6 +600,7 @@ Anschließend wurden die vorher gemessenen Stromstärken verwendet um die zu erw
 \caption{Vergleich von gemessener und mit Näherung aus Gleichung \ref{eq-helmholtz} berechneter magnetischen Flussdichte in z-Richtung.}
 \label{fig-b_helmholtz}
 \end{subfigure}
+\caption{Magnetische Flussdichte in Abhängigkeit der Stromstärke. Messungen und lineare Regression.}
 \end{figure}
 
 Mit Gleichung ref:eq-helmholtz, kann der Proportionalitätsfaktor $m$ der Regression mithilfe von gegebenem Radius $r$ und Windungszahl $N$ berechnet werden, was hier exemplarisch für die Spulen zur Magnetfelderzeugung in z-Richtung gezeigt ist:
@@ -797,7 +786,7 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
       """
       R = 10.6
       L = 0.0056
-      return (U/R) * (1- np.exp((-x/sr) * R / L))
+      return (U/R) * (1- np.exp((-x/sr) * (R+10) / L))
 
   x = np.arange(0,cut,sr)
   R_z = 10.6
@@ -833,7 +822,7 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
       L = Inductance
       sr = Sample Rate (48000 for NI USB-6008)
       """
-      return (U/R) * (1- np.exp((-x/sr) * R / L))
+      return (U/R) * (1- np.exp((-x/sr) * (R+10) / L))
 
   x = np.arange(0,cut,sr)
   R_z = 10.6
@@ -1039,7 +1028,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 :CODE:
 
 #+begin_src python :session mag :results output
-  def I_fixed(x, U, sr=48000):
+  def I_fixed(x, sr=48000):
       """
       Current for measurement with 48k Samplerate
       U = Voltage
@@ -1048,8 +1037,10 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
       sr = Sample Rate (48000 for NI USB-6008)
       """
       R = 10.6
-      L = 0.0056
-      return (U / R) * (1 - np.exp((-x / sr) * R / L))
+      # L = 0.0056
+      L = 0.762
+      U = 17.7
+      return (U / R) * (1 - np.exp((-x / sr) * (R+10) / L))
 
   def I(x, U, R, L, sr=48000):
       """
@@ -1061,7 +1052,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
       """
       R = 10.6
       L = 0.0056
-      return (U / R) * (1 - np.exp((-x / sr) * R / L))
+      return (U / R) * (1 - np.exp((-x / sr) * (R+10) / L))
 
 
   def B_helmholtz_fixed(x, U, c):
@@ -1078,7 +1069,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
       L = 0.0056
       n = 660
       r = 0.030
-      b = constants.mu_0 * (8 * I_fixed(x, U, sr=48000) *
+      b = constants.mu_0 * (8 * I_fixed(x, sr=48000) *
                                   n) / (np.sqrt(125) * r) + c
       return b
 
@@ -1114,7 +1105,6 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
       ss_res = np.sum((y - y_fit) **2)
       ss_tot = np.sum((y-np.mean(y))**2)
       r2 = 1 - (ss_res / ss_tot)
-      print(r2)
       if i < 2:
           ax[0, i].plot(data[:cut], label="Messwerte")
           ax[0, i].plot(
@@ -1143,10 +1133,6 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 #+end_src
 
 #+RESULTS:
-: 0.043382473468657534
-: 0.0551879417856036
-: 0.0416841969595978
-: 0.048972737947641565
 
 #+begin_src python :session mag :results output
   # Fixed:
@@ -1169,6 +1155,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
               'r--',
               label=f"Fit: U={popt[0]:.2f}")
           ax[0, i].legend()
+          ax[0, i].plot(I_fixed(x) * 10.34 / 100, label="test")
       else:
           ax[1, i - 2].plot(data[:cut], label="Messwerte")
           ax[1, i - 2].plot(
@@ -1212,7 +1199,7 @@ Um aus den aufgenommen Videos aus dem Partikeltransportexperiment die Trajektori
 #+attr_latex: :placement [h] :width 0.75\textwidth
 file:./img/videospottracker.png
 
-Um den Einfluss der Änderungsrate des Magnetfeldes auf die Partikelgeschwindigkeit und Form der Trajektorien zu bestimmen, wurden sechs verschiedene Magnetfeldsequenzen mit unterschiedlichen Änderungsraten erstellt. Amplitude und die Frequenz des Magnetfeldes wurden konstant gewählt für eine Messreihe. Variiert wurde lediglich die Plateaustartzeit, also jene Zeit nach der die maximale Amplitude des Magnetfeldes das erste Mal erreicht sein sollte (siehe Abbildung ref:fig-plateau). Es wurden sowohl für Magnetfeld in x-Richtung als auch z-Richtung die selben Plateaustartzeiten verwendet. Das bedeutet, dass bei unterschiedlichen Amplituden auch unterschiedliche Änderungsraten vorliegen.
+Um den Einfluss der Änderungsrate des Magnetfeldes auf die Partikelgeschwindigkeit und Form der Trajektorien zu bestimmen, wurden sechs verschiedene Magnetfeldsequenzen mit unterschiedlichen Änderungsraten erstellt. Amplitude und die Frequenz des Magnetfeldes wurden konstant gewählt für eine Messreihe. Variiert wurde lediglich die Plateaustartzeit, also jene Zeit nach der die maximale Amplitude des Magnetfeldes das erste Mal erreicht sein sollte (siehe Abbildung ref:fig-plateau). Es wurden sowohl für Magnetfeld in x-Richtung als auch z-Richtung die selben Plateaustartzeiten verwendet. Das bedeutet, dass bei unterschiedlichen Amplituden auch unterschiedliche Änderungsraten vorliegen. Um zwei verschiedene Magnetfeldsequenzen zu erstellen wurde die Ausgangspannung des DAQ-Gerätes für die Messreihen variiert. Für die erste Messreihe wurde $U_\mathrm{z} = U_\mathrm{x} = \SI{0.4}{\volt}$ gewählt, für die zweite wurde $U_\mathrm{x} = \SI{0.2}{\volt}$ und  $U_\mathrm{z} = \SI{0.4}{\volt}$ gewählt.
 
 :CODE:
 Veranschaulichung Plateauzeiten
@@ -1286,26 +1273,41 @@ Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetf
 
 :CODE:
  Gemessene Trajektorien:
-#+begin_src python :session traj :results output
+#+begin_src python :session traj :results file
   import numpy as np
   import matplotlib
   matplotlib.use("Agg")
   import matplotlib.pyplot as plt
   import pandas as pd
 
-  t_0 = pd.read_csv("./Messung/800nmSi/1um_0,4_slopeinf.csv", usecols=(0,1,2,3))   
-  t_005 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope10.csv")   
-  t_01 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope4.csv")   
-  t_015 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope2,666.csv")   
-  t_02 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope2.csv")   
-  t_025 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope1,6.csv")   
+  px_size = 278e-9
 
+  t_0 = pd.read_csv("./Messung/800nmSi/1um_0,4_slopeinf.csv", usecols=(0,1,2,3))   
+  t_005 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope10.csv", usecols=(0,1,2,3))   
+  t_01 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope4.csv", usecols=(0,1,2,3))   
+  t_015 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope2,666.csv", usecols=(0,1,2,3))   
+  t_02 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope2.csv", usecols=(0,1,2,3))   
+  t_025 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope1,6.csv", usecols=(0,1,2,3))   
+
+  datalist = [t_0,
+              # t_005["X"].to_numpy(),
+              # t_01["X"].to_numpy(),
+              # t_015["X"].to_numpy(),
+              # t_02["X"].to_numpy(),
+              # t_025["X"].to_numpy()
+              ]
+  for data in datalist:
+      num_particles = len(data.loc[data["FrameNumber"] == 0])
+      x_vector = data["X"].to_numpy()
+      x_matrix = np.reshape(x_vector, (len(data["FrameNumber"])//num_particles, num_particles)) * px_size
+      [plt.plot(x_matrix[:,i]) for i in range (0, len(x_matrix[0,:]),1)]
   plt.savefig("./img/traj_real.png")
   plt.close()
   "./img/traj_real.png"
 #+end_src
 
 #+RESULTS:
+[[file:./img/traj_real.png]]
 
 
 :END:
@@ -1437,10 +1439,8 @@ Danke.
 
   r_wire = 2.79e-4
   l_wire = 330*np.pi * 2 *r_wire
-  print(f"{L_helmholtz(2*330, r_wire, l_wire) * 1000} mH")
-  print(f"{L_helmholtz(660, 0.03, 0.1) * 1000} mH")
+  # print(f"{L_helmholtz(2*330, r_wire, l_wire) * 1000} mH")
+  # print(f"{L_helmholtz(660, 0.03, 0.1) * 1000} mH")
 #+end_src
 
 #+RESULTS:
-: 1.1858631508002566 mH
-: 159.30404220035328 mH
