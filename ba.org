@@ -7,19 +7,26 @@
 #+EXCLUDE_TAGS: ignore
 
 * Fragen                                                             :ignore:
-  - Drehimpuls im EB einfach weglassen?
-* TODO [10/15] Noch zu tun:                                          :ignore:
+  - Formel v_SPP Gradient?
+* TODO [12/15] Noch zu tun:                                          :ignore:
+** TODO Diskussion:
+   - Tracking
+   - Magnetfeldlandschaft aus Simulation ist idealisiert
+   - Netzteil ist blackbox
 ** TODO Fits passen nicht, weil nicht exponentiell. Zeigen?
+   - Gerade für Sättigung in B(I)
 ** TODO DPI
 ** TODO Simulierte Trajektorien durch step_evaluate laufen lassen
    SCHEDULED: <2019-09-19 Do>
-** TODO EB genauer erklären
+** DONE EB genauer erklären
+   CLOSED: [2019-10-15 Di 15:29]
 - [X] EB system kann genau einen makroskopisch remanenten Zustand haben, wenn die Flanken der Kurve steil genug und die Verschiebung groß genug ist. --- das ist nämlich toll an EB :)
 - [X] Beim Feldkühlen von polykristallinene System wie sie bei uns verwendet werden: Blocking statt NEeltemp
 - [X] Shift der Hystereses ist darin begründet, dass bei der Magnetisiseurngsumkehr ja die AF Momente den F an der Umkehr seiner Momente hindert eben wegen der Kopplungan der GRenzfläche.
 - [X] zumindest ein bisschen was von einem EB Modell, zumindest das einfachste von Meiklejohn und bean und den Zusammenhang zwischen EB Feldstärke und Ferromagnetschichtdicke wünsche ich mir. 
-- [ ] Gesamtdrehimpuls J erklären
-** TODO Transportkonzept genauer erklären
+- [X] Gesamtdrehimpuls J erklären
+** DONE Transportkonzept genauer erklären
+   CLOSED: [2019-10-15 Di 15:29]
 Hier wäre es toll, wenn du zumindest ein bisschen noch auf die Kräfte eingehst. F_M und F_R sollten vorkommen und die Tatsache, das sie die Gleichgwichtsgeschwindigkeit bestimmen (+ Formel). Du musst nicht im Detail alle Einzelheiten der Elektrostatischen und vdW Kraft ausienandernehmen, aber zumindest nennen kannst du sie, da sie ja immerhin auch in die Simulaitonen am Ende eingehen. Du kannst beschreiben, dass die elektrostat. Kraft in unseren Experimentne abstoßend ist, während vdWaals und magnetostatische Kraft anziehend wirken, sodass aus deren Kräftegleichgewicht zunächst der Gleichgewichtsabstand resultiert...
 
 Falls du das alles aber erst im Simulationskapitel machen willst, ist es auch ok, aber zzumindest F_R und F_M sollten hier auftauchen.
