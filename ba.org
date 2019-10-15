@@ -8,9 +8,8 @@
 
 * Fragen                                                             :ignore:
   - Drehimpuls im EB einfach weglassen?
-* TODO [9/15] Noch zu tun:                                           :ignore:
+* TODO [10/15] Noch zu tun:                                          :ignore:
 ** TODO Fits passen nicht, weil nicht exponentiell. Zeigen?
-** TODO Blindwiderstand erklärt?
 ** TODO DPI
 ** TODO Simulierte Trajektorien durch step_evaluate laufen lassen
    SCHEDULED: <2019-09-19 Do>
@@ -24,6 +23,8 @@
 Hier wäre es toll, wenn du zumindest ein bisschen noch auf die Kräfte eingehst. F_M und F_R sollten vorkommen und die Tatsache, das sie die Gleichgwichtsgeschwindigkeit bestimmen (+ Formel). Du musst nicht im Detail alle Einzelheiten der Elektrostatischen und vdW Kraft ausienandernehmen, aber zumindest nennen kannst du sie, da sie ja immerhin auch in die Simulaitonen am Ende eingehen. Du kannst beschreiben, dass die elektrostat. Kraft in unseren Experimentne abstoßend ist, während vdWaals und magnetostatische Kraft anziehend wirken, sodass aus deren Kräftegleichgewicht zunächst der Gleichgewichtsabstand resultiert...
 
 Falls du das alles aber erst im Simulationskapitel machen willst, ist es auch ok, aber zzumindest F_R und F_M sollten hier auftauchen.
+** DONE Blindwiderstand erklärt?
+   CLOSED: [2019-10-15 Di 09:59]
 ** DONE Samplerate im Fit für Strom
 CLOSED: [2019-10-12 Sa 21:16]
 ** DONE Fit Stromstärke mit Formel
@@ -341,7 +342,7 @@ Ist das Volumen eines ferromagnetischen Festkörpers so gering, dass er nur aus 
 Jedoch ist die Zeitskala des Experiments, und ob in dieser thermische Aktivierungs- und Relaxationsprozesse statt finden können, wichtig, um Aussagen über das magnetische Verhalten eines Partikels machen zu können. Bei ausreichend großen Zeitskalen wird über die durch thermische Energie unterschiedlichen magnetischen Momente gemittelt und man erhält insgesamt keine Magnetisierung. Wird jedoch sehr kurz gemessen, kann eine Richtung der Magnetisierung für diesen kurzen Zeitausschnitt bestimmt werden cite:leslie-pelecky_magnetic_1996.
     
 ** TODO Exchange Bias Effekt label:sec-EB
-Der /Exchange Bias/ (EB) Effekt  wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten \ce{Co}-Partikeln entdeckt. Diese Partikel bestehen im Kern aus Cobalt, einem Ferromagneten, und besitzen eine äußere dünne \ce{CoO}-Schicht, welche antiferromagnetisch ist. Die Autoren entdeckten eine Verschiebung der Hysteresekurve um das sogenannte Austauschverschiebungsfeld $H_\mathrm{EB}$. Diese Beobachtung kann durch den Austauschverschiebungseffekt (/engl. exchange bias/) erklärt werden. Dieser tritt an der Grenzfläche zwischen antiferromagnetischer (AF) und ferromagnetischer (F) Schicht auf, wenn die Partikel innerhalb eines externen Magnetfeldes unter die Néel-Temperatur der antiferromagnetischen Schicht gekühlt wurden. cite:meiklejohn_new_1957.
+Der /Exchange Bias/ (EB) Effekt  wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten \ce{Co}-Partikeln entdeckt. Diese Partikel bestehen im Kern aus Cobalt, einem Ferromagneten, und besitzen eine äußere dünne \ce{CoO}-Schicht, welche antiferromagnetisch ist. Die Autoren entdeckten eine Verschiebung der Hysteresekurve um das sogenannte Austauschverschiebungsfeld $H_\mathrm{EB}$. Diese Beobachtung kann durch den Austauschverschiebungseffekt (engl. /exchange bias/) erklärt werden. Dieser tritt an der Grenzfläche zwischen antiferromagnetischer (AF) und ferromagnetischer (F) Schicht auf, wenn die Partikel innerhalb eines externen Magnetfeldes unter die Néel-Temperatur der antiferromagnetischen Schicht gekühlt wurden. cite:meiklejohn_new_1957.
 
 
 Der Exchange Bias Effekt bewirkt eine unidirektionale Anisotropie in der ferromagnetischen Schicht, das heißt es wird nur eine Richtung für die Magnetisierung bevorzugt. Dies steht im Gegensatz zur sonst üblichen uniaxialen Anisotropie in Ferromagneten, welche parallele und antiparallele Ausrichtungen entlang der /leichten Achse/ der Magnetisierung favorisiert. Die Ursache für den Exchange Bias Effekt ist die quantenmechanische Austauschwechselwirkung zwischen antiferromagnetischen und ferromagnetischen Momenten an der Grenzfläche zwischen den Schichten cite:stohr_magnetism_2006. 
@@ -357,6 +358,8 @@ Der linke und rechte Schnittpunkt der Hysteresekurve $H_\mathrm{L}$ und $H_\math
 \begin{equation}
 H_\mathrm{EB} = \frac{H_\mathrm{R}+ H_\mathrm{L}}{2} \quad H_\mathrm{C} = \frac{H_\mathrm{R} - H_\mathrm{L}}{2}
 \end{equation}
+
+Das Austauschverschiebungsfeld $H_\mathrm{EB}$ kann also aus der Verschiebung des Mittelpunktes der Hysterese von der y-Achse bestimmt werden cite:meiklejohn_new_1957. 
 
 Einerseits kann eine unidirektionale Anisotropie durch Anwesenheit eines externen Magnetfeldes während dem epitaktischen Wachstum bewirkt werden, andererseits durch einen Feldkühlprozess, an welchem Nachfolgend eine Begründung für den EB-Effekt geliefert wird: Die Hysteresekurve eines EB-Systems (Abbildung ref:fig-eb links in magenta) ist um das Austauschwechselfeld $H_\mathrm{EB}$ verschoben im Vergleich zum alleinigen Ferromagneten (grau gestrichelt). Der Grund hierfür sind die magnetischen Momente des AF an der Grenzfläche, welche durch Kopplung an die magnetischen Momente des F die magnetischen Momente im F daran hindern sich zu drehen. Während des Feldkühlprozesses wird die Probe auf eine Temperatur zwischen Néel-Temperatur und Curie-Temperatur gebracht, hier verhält sich der AF paramagnetisch, während der F weiterhin seine ferromagnetischen Eigenschaften behält, so dass seine Magnetisierung innerhalb des externen Feldes gezielt ausgerichtet werden kann (Abb. ref:fig-eb rechts oben). Anschließend wird die Temperatur unter die Néel-Temperatur verringert. Die magnetischen Momente im AF koppeln an der Grenzfläche an die magnetischen Momente des gesättigten Ferromagneten (Abb. ref:fig-eb rechts unten). So wird eine magnetische Ordnung hergestellt, welche die unidirektionale Anisotropie im Ferromagneten bewirkt cite:merkel_einfluss_2018.
 
@@ -392,10 +395,10 @@ Der Transport von superparamagnetischen Partikeln über Exchange-Bias-Systeme er
 
 Die Partikel positionieren sich in Abwesenheit eines externen Feldes in Reihen über alle Domänenwände verteilt (vgl. Abbildung ref:fig-mfl). Der genaue Transportvorgang kann in Abbildung ref:fig-transport nachverfolgt werden. Durch Einschalten des Magnetfeldes $H_\mathrm{z}$ wird die Magnetfeldlandschaft über den Domänenwänden verändert. hh-Domänenwände werden energetisch begünstigt und die Partikel bewegen sich ungeleitet in Richtung dieser (a). So bilden sich Reihen aus SPP, welche jeweils die doppelte Domänenbreite voneinander entfernt sind. Der Vorzeichenwechsel von $H_\mathrm{x,max}$ bewirkt eine Verschiebung der Magnetfeldlandschaft in x-Richtung, welche das magnetische Moment der SPP leicht in Richtung nächster Domänenwand kippt (b), so dass nach erneuter Umpolung von $H_\mathrm{z,max}$ das magnetische Moment in die entgegengesetzte Richtung drehen kann, und das Partikel eine Vorzugsrichtung hat, in die es sich bewegt. Andererseits würden die Partikel zufällig in eins der beiden benachbarten Energieminima wandern. Die Minima der Energielandschaft verschieben sich auf die nächstgelegene Domänenwand, da nun statt hh-Domänenwänden die tt-Domänenwände energetisch günstiger sind (c). Anschließend wird der Prozess mit umgekehrten Vorzeichen durchgeführt (d) und die Partikel befinden sich dann erneut über einer hh-Domänenwand (e) cite:holzinger_directed_2015. 
 
-Die SPP bewegen sich mit einer Gleichgewichtsgeschwindigkeit welche sich zwischen der magnetischen Kraft $F_\mathrm{M}$ und der Reibungskraft $F_\mathrm{R}$ einstellt:
-# In Dennis Doktorarbeit?
-\begin{equation}
+Die SPP bewegen sich mit einer Gleichgewichtsgeschwindigkeit welche sich zwischen der magnetischen Kraft $F_\mathrm{M}$ und der Reibungskraft $F_\mathrm{R}$ einstellt, mit der Dichte $\rho_\mathrm{SPP}$ und dem Volumen $V_\mathrm{SPP}$ der Partikel gilt cite:holzinger_transport_2015: 
 
+\begin{equation}
+\rho_\mathrm{SPP} \cdot V_\mathrm{SPP} \cdot \frac{dv_\mathrm{SPP,x}}{dt} = F_\mathrm{SPP,x}(x,z) - F_\mathrm{R,x}(x,z)
 \end{equation}
 
 Ein Gleichgewichtsabstand zur Probe stellt sich für die SPP ein, da van-der-Waals-Kräfte $F_\mathrm{vdw}$ und elektrostatische Kraft $F_\mathrm{e}$ anziehend und magnetostatische Kraft $F_\mathrm{m}$ abstoßend wirken.
