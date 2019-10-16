@@ -683,7 +683,7 @@ Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang ein
 
 #+name: fig-stromraw
 #+caption: Zeitlicher Verlauf der Stromstärke in den Spulen für x- (oben) und z-Richtung (unten). 
-#+attr_latex: :width \textwidth :placement [H]
+#+attr_latex: :width 0.75\textwidth :placement [H]
 [[file:img/strom.png]]
  
 Um eine Aussage über die Änderungsrate (Steigung) der Stromstärke und somit in direkter Konsequenz auch des Magnetfeldes machen zu können, ist es vorteilhaft das Verhalten für eine einzelne Periode zu betrachten. Dazu wurde der über alle zehn Perioden gemittelt. Diese gemittelten Messwerte sind zu sehen in Abbildung ref:fig-stromavg.
@@ -723,12 +723,12 @@ Um eine Aussage über die Änderungsrate (Steigung) der Stromstärke und somit i
 
 #+name: fig-stromavg
 #+caption: Über alle zehn Perioden gemittelter zeitlicher Verlauf der Stromstärke für x- und z-Richtung. Oben sind die Stromstärken der x-Spule dargestellt, unten die der z-Spule.
-#+attr_latex: :width \textwidth :placement [H]
+#+attr_latex: :width .75\textwidth :placement [H]
 [[file:img/strom_avg.png]]
 
 Vor allem für die Strommessungen der x-Spule sieht man klar eine Spitze zu Beginn der Plateaus. Dies ist wahrscheinlich auf das spannungsgesteuerte Netzteil zurückzuführen, welches einen konstanten Strom erzeugen soll. Jedoch ist durch die Impedanz der Spule bei abrupten Änderungen des Stromes ein hoher Blindwiderstand vorhanden, welcher durch das Netzteil versucht wird zu kompensieren. Da der Blindwiderstand dann wieder sinkt "übersteuert" das Netzteil und erreicht eine höhere Stromstärke als eigentlich angestrebt. Da sich die Stromstärke im Plateau zunächst nicht mehr ändert, passt das Netzteil den Ausgangsstrom an, und erreicht die gewünschte Amplitude.
 
-Da vor allem das Einschaltverhalten der Spulen von Interesse ist, wurde der Beginn der Perioden, in dem die Stromstärke auf das Maximum ansteigt, genauer betrachtet. Zu sehen sind diese in Abbildung ref:fig-strom_anfang.
+Da vor allem das Einschaltverhalten der Spulen von Interesse ist, wurde der Beginn der Perioden, in dem die Stromstärke auf das Maximum ansteigt, genauer betrachtet.
 :CODE:
 #+begin_src python :session strom :results output
   plt.clf()
@@ -756,14 +756,12 @@ Da vor allem das Einschaltverhalten der Spulen von Interesse ist, wurde der Begi
 
 :END:
 
-#+name: fig-strom_anfang
-#+caption: Verlauf der Stromstärke kurz nach Beginn der gemittelten Periode. Links Stromstärken der x-Spule, rechts der z-Spule. Die oberen Graphen zeigen den Verlauf für eine niedrigere Ausgangsspannung am DAQ-Gerät als die unteren Graphen.
-#+attr_latex: :width \textwidth :placement [H]
-[[file:img/strom_anfang.png]]
+# #+name: fig-strom_anfang
+# #+caption: Verlauf der Stromstärke kurz nach Beginn der gemittelten Periode. Links Stromstärken der x-Spule, rechts der z-Spule. Die oberen Graphen zeigen den Verlauf für eine niedrigere Ausgangsspannung am DAQ-Gerät als die unteren Graphen.
+# #+attr_latex: :width \textwidth :placement [H]
+# [[file:img/strom_anfang.png]]
 
-Die untere rechte Kurve in Abbildung ref:fig-strom_anfang hat eine andere Form als die restlichen Kurven. Dies ist auf ein starkes Rauschen während des ersten Einschaltens zurückzuführen.
-
-Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten. Die Fitkurven und Parameter sind in Abbildung ref:fig-stromfit dargestellt.
+Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten. Die Messwerte, Fitkurven und -parameter sind in Abbildung ref:fig-stromfit dargestellt. Die untere linke Kurve hat eine andere Form als die restlichen Kurven. Dies ist auf ein starkes Rauschen während des ersten Einschaltens zurückzuführen.
 
 :CODE:
 
@@ -860,11 +858,11 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
 :END:
 
 #+name: fig-stromfit
-#+caption: Fitfunktion zu Gleichung ref:eq-strom-spule durch die gemessenen Stromstärken.
+#+caption: Einschaltzeitpunkt der gemittelten Periode der Stromstärke. \mbox{Fitfunktion (rot) und -parameter} zu Gleichung ref:eq-strom-spule an die gemessenen Stromstärken (blau).
 #+attr_latex: :width \textwidth :placement [h]
 [[file:img/strom_fit.png]]
 
-In den Graphen ist deutlich zu erkennen, dass keine ausreichend genauen Parameter für die Fitfunktion gefunden werden konnten. Vor allem im ersten Viertel des Graphen scheint das reale Einschaltverhalten vom erwarteten Einschaltverhalten abzuweichen. Gleichung ref:eq-strom-spule setzt einen konstanten Widerstand $R$ voraus. Jedoch ist durch die hohe Änderungsrate des Stromes ein komplexer induktiver Blindwiderstand vorhanden. Hinzu kommt das bereits vorher genannte "Übersteuern" des Netzteiles, wenn gegen eben jenen Blindwiderstand anstrebt wird die Stromstärke konstant zu halten. Durch diese beiden Effekte sind Widerstand und Spannung während des Einschaltvorganges nicht konstant, und es müssten komplexere Modelle hinzugezogen werden, um den genauen Verlauf der Stromstärke vorhersagen zu können. Des Weiteren ist unbekannt wie das Netzteil aufgebaut ist, welche elektrischen Bauteile darin verwendet werden, und so eventuell zu der Induktivität des Aufbaus beitragen.
+In den Graphen ist deutlich zu erkennen, dass keine ausreichend genauen Parameter für die Fitfunktion gefunden werden konnten. Vor allem zu Beginn der Messung scheint das reale Einschaltverhalten vom erwarteten Einschaltverhalten abzuweichen. Gleichung ref:eq-strom-spule setzt einen konstanten Widerstand $R$ voraus. Jedoch ist durch die hohe Änderungsrate des Stromes ein komplexer induktiver Blindwiderstand vorhanden. Hinzu kommt das bereits vorher genannte "Übersteuern" des Netzteiles, wenn gegen eben jenen Blindwiderstand anstrebt wird die Stromstärke konstant zu halten. Durch diese beiden Effekte sind Widerstand und Spannung während des Einschaltvorganges nicht konstant, und es müssten komplexere Modelle hinzugezogen werden, um den genauen Verlauf der Stromstärke vorhersagen zu können. Des Weiteren ist unbekannt wie das Netzteil aufgebaut ist, welche elektrischen Bauteile darin verwendet werden, und so eventuell zu der Induktivität des Aufbaus beitragen.
 
 # #####
 
@@ -938,7 +936,7 @@ Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgef
 
 #+name: fig-mag
 #+caption: Zeitlicher Verlauf der magnetischen Flussdichte bei einer angelegten Rechteckspannung. Oben ist die magnetische Flussdichte der x-Spule dargestellt, unten das der z-Spulen. Exemplarisch wird hier nur eine der beiden Amplituden der Ausgangsspannung des DAQ-Gerätes gezeigt.
-#+attr_latex: :width \textwidth :placement [H]
+#+attr_latex: :width .75\textwidth :placement [H]
 [[file:img/mag.png]]
 
 Auch hier wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe Rauschen aus dem Signal zu entfernen, andererseits um eine einzelne Periode betrachten zu können. Die gemittelten Messwerte sind in Abbildung ref:fig-mag_avg zu sehen.
@@ -978,12 +976,12 @@ Auch hier wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe
 
 #+name: fig-mag_avg
 #+caption: Über alle zehn Perioden gemittelte Messwerte der magnetischen Flussdichte für x-Spule (oben) und z-Spule (unten).
-#+attr_latex: :width \textwidth :placement [H]
+#+attr_latex: :width .75\textwidth :placement [H]
 [[file:img/mag_avg.png]]
 
 Auch hier sind Spitzen am Beginn des Plateaus zu sehen. Diese haben die gleichen Ursachen wie bereits für die Stromstärke genannt, und wurden deswegen erwartet, da die magnetische Flussdichte aus dem bereits gemessenen durch die Spulen fließenden Strom resultiert.
 
-Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse. Dieser ist in Abbildung ref:fig-mag_anfang zu sehen.
+Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse.
 
 :CODE:
 
@@ -1013,10 +1011,10 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 :END:
 
 
-#+name: fig-mag_anfang
-#+caption: Verlauf der magnetischen Flussdichte kurz nach Beginn der gemittelten Periode. Links für x-Spule, rechts für z-Spule. In den oberen Graphen wurde eine niedrigere Ausgangsspannung am DAQ-Gerät ausgegeben.
-#+attr_latex: :width \textwidth :placement [H]
-[[file:img/mag_anfang.png]]
+# #+name: fig-mag_anfang
+# #+caption: Verlauf der magnetischen Flussdichte kurz nach Beginn der gemittelten Periode. Links für x-Spule, rechts für z-Spule. In den oberen Graphen wurde eine niedrigere Ausgangsspannung am DAQ-Gerät ausgegeben.
+# #+attr_latex: :width \textwidth :placement [H]
+# [[file:img/mag_anfang.png]]
 
 :CODE:
 
@@ -1192,7 +1190,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 
 Da bereits der Verlauf der Stromstärke nicht mit Gleichung ref:eq-strom-spule vorhergesagt werden konnte, ist es nicht möglich die magnetische Flussdichte mithilfe von Gleichung ref:eq-helmholtz vorher zu sagen, da die Stromstärke in dieser Gleichung aus der vorherigen Gleichung berechnet wird. Es konnte jedoch zu Beginn dieses Kapitels gezeigt werden, dass die Amplitude des Magnetfeldes aus der Stromstärke bestimmt werden kann. Dies wird in Abbildung ref:fig-mag_fit gezeigt, indem eine rot gestrichelte Linie mit $y = 0.01034 \cdot I$ analog zu Gleichung ref:eq-regression für die Stromstärken $\SI{0.158}{\ampere}$ und $\SI{0.317}{\ampere}$ (vgl. Tab. ref:tab-B im Anhang) in den Graph gezeichnet wurde. Da nur die Steigung der Regression aus der z-Spule betrachtet wurde, sind nur hier diese Geraden eingezeichnet. Es ist ersichtlich, dass die vorhergesagten Werte der Sättigungsflussdichte mit den gemessenen Werten überein stimmen. 
 #+name: fig-mag_fit
-#+caption: Zeitlicher Verlauf der magnetischen Flussdichte der z-Spule. Rot gestrichelt eingezeichnet ist die vorhergesagte Sättigungsflussdichte für gegebene Stromstärken.
+#+caption: Zeitlicher Verlauf der magnetischen Flussdichte der z-Spule der gemittelten Periode zum Einschaltzeitpunkt. Rot gestrichelt eingezeichnet ist die vorhergesagte Sättigungsflussdichte für gegebene Stromstärken.
 #+attr_latex: :width 0.75\textwidth :placement [h]
 [[file:img/mag_fit.png]]
 
