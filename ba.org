@@ -895,7 +895,7 @@ Spannung nur Widerstand, keine Spulen
 
 #+name: fig-12ohm
 #+caption: Verlauf der Spannung über einem \SI{12.5}{\ohm} Widerstand ohne Spulen zur Untersuchung des Netzteils.
-#+attr_latex: :width .75\textwidth :placement [h]
+#+attr_latex: :width .5\textwidth :placement [h]
 [[file:img/12,5ohm.png]]
 # #####
 
