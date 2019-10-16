@@ -1310,7 +1310,7 @@ Da die bisher vorausgesetzten Modelle mit den experimentellen Daten verglichen w
 
 Um einen Vergleich zwischen Simulation und Messung zu erhalten, wurde von einigen gemessenen Transportschritten der Partikeln eine mittlere Trajektorie gebildet. Der Vergleich zwischen realen und simulierten Trajektorien ist in Abbildung ref:fig-traj zu sehen.
 
-Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetfelder mit späteren Plateaustartzeiten, d.h. niedrigeren Magnetfeldänderungsraten. Da die Steigung der x-Position der Geschwindigkeit der Partikel entspricht, ist offensichtlich, dass niedrigere Magnetfeldänderungsraten auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken.
+Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetfelder mit späteren Plateaustartzeiten, d.h. niedrigeren Magnetfeldänderungsraten. Da die Steigung der Kurve der Geschwindigkeit der Partikel entspricht, ist offensichtlich, dass niedrigere Magnetfeldänderungsraten auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken. Auch erkennt man, dass mit späteren Plateaustartzeiten der kleine Transportschritt mehr in den großen Transportschritt übergeht. Während der kleine Transportschritt für die das rechteckförmige Magnetfeld gut erkennbar ist, ist er beim dreieckigen Magnetfeld nicht mehr zu erkennen, da der große Transportschritt eine flachere Steigung hat, somit früher Anfängt, und den kleinen Transportschritt überlagert.
 
 :CODE:
  Gemessene Trajektorien:
@@ -1464,8 +1464,9 @@ Geschwindigkeiten
 #+name: fig-img_v
 [[file:./img/v.png]]
 
-Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfeldes auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken. Dies kann unter anderem dadurch erklärt werden, dass der Betrag des Magnetfeldvektors in x- und z-Richtung durch die niedrigeren Steigungen kleiner wird. Die Magnetfeldlandschaft wird also effektiv weniger beeinflusst. Sichtbar ist dies in Abbildung ref:fig-betrag.
+Auch hier tragen alle Fehlerquellen, die für die Trajektorien bereits aufgezählt wurden zur Ungenauigkeit bei. Hinzu kommt, dass das Auswertungsskript Parameter benötigt, mit denen die Trajektorien aus den Messungen erhalten werden und anhand derer die Qualität der Fits bestimmt wird. Diese Parameter sind durch Ausprobieren gewählt wurden, und weitere Erfahrung mit dem Programm wird voraussichtlich auch ein besser geeignete Parameter liefern. Auch möglich ist es durch Optimierungsalgorithmen bezüglich der Parameter innerhalb des Skriptes die Anzahl der erfolgreich gefitteten Kurven zu erhöhen und damit die Standardabweichung vom Mittelwert zu minimieren.
 
+Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfeldes auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken. Dies kann unter anderem dadurch erklärt werden, dass der Betrag des Magnetfeldvektors in x- und z-Richtung durch die niedrigeren Steigungen kleiner wird. Die Magnetfeldlandschaft wird also effektiv weniger beeinflusst. Sichtbar ist dies in Abbildung ref:fig-betrag.
 # Vektor beträge magnetfelder
 
 * TODO Zusammenfassung und Ausblick label:sec-zusammenfassung
