@@ -371,7 +371,7 @@ H_\mathrm{EB} = \frac{H_\mathrm{R}+ H_\mathrm{L}}{2} \quad H_\mathrm{C} = \frac{
 
 Das Austauschverschiebungsfeld $H_\mathrm{EB}$ kann also aus der Verschiebung des Mittelpunktes der Hysterese von der y-Achse bestimmt werden cite:meiklejohn_new_1957. 
 
-Einerseits kann eine unidirektionale Anisotropie durch Anwesenheit eines externen Magnetfeldes während dem epitaktischen Wachstum bewirkt werden, andererseits durch einen Feldkühlprozess, an welchem nachfolgend eine Begründung für den EB-Effekt geliefert wird: Die Hysteresekurve eines EB-Systems (Abbildung ref:fig-eb links in magenta) ist um das Austauschwechselfeld $H_\mathrm{EB}$ verschoben im Vergleich zum alleinigen Ferromagneten (grau gestrichelt). Der Grund hierfür sind die magnetischen Momente des AF an der Grenzfläche, welche durch Kopplung an die magnetischen Momente des F die magnetischen Momente im F daran hindern sich zu drehen. Während des Feldkühlprozesses wird die Probe auf eine Temperatur zwischen Néel-Temperatur und Curie-Temperatur gebracht, hier verhält sich der AF paramagnetisch, während der F weiterhin seine ferromagnetischen Eigenschaften behält, sodass seine Magnetisierung innerhalb des externen Feldes gezielt ausgerichtet werden kann (Abb. ref:fig-eb rechts oben). Anschließend wird die Temperatur unter die Néel-Temperatur verringert. Die magnetischen Momente im AF koppeln an der Grenzfläche an die magnetischen Momente des gesättigten Ferromagneten (Abb. ref:fig-eb rechts unten). So wird eine magnetische Ordnung hergestellt, welche die unidirektionale Anisotropie im Ferromagneten bewirkt cite:merkel_einfluss_2018.
+Einerseits kann eine unidirektionale Anisotropie bereits durch Anwesenheit eines externen Magnetfeldes während des Wachstums bewirkt werden. Andererseits kann diese, wie für die Proben, die in dieser Arbeit verwendet werden, durch einen Feldkühlprozess festgelegt werden, an welchem nachfolgend eine Begründung für den EB-Effekt geliefert wird: Die Hysteresekurve eines EB-Systems (Abbildung ref:fig-eb links in magenta) ist um das Austauschwechselfeld $H_\mathrm{EB}$ verschoben im Vergleich zum alleinigen Ferromagneten (grau gestrichelt). Der Grund hierfür sind die magnetischen Momente des AF an der Grenzfläche, welche durch Kopplung an die magnetischen Momente des F die magnetischen Momente im F daran hindern sich zu drehen. Während des Feldkühlprozesses wird die Probe auf eine Temperatur zwischen Néel-Temperatur und Curie-Temperatur gebracht, hier verhält sich der AF paramagnetisch, während der F weiterhin seine ferromagnetischen Eigenschaften behält, sodass seine Magnetisierung innerhalb des externen Feldes gezielt ausgerichtet werden kann (Abb. ref:fig-eb rechts oben). Anschließend wird die Temperatur unter die Néel-Temperatur verringert. Die magnetischen Momente im AF koppeln an der Grenzfläche an die magnetischen Momente des gesättigten Ferromagneten (Abb. ref:fig-eb rechts unten). So wird eine magnetische Ordnung hergestellt, welche die unidirektionale Anisotropie im Ferromagneten bewirkt cite:merkel_einfluss_2018.
 
 Durch die Polykristallinität der in dieser Arbeit verwendeten Proben müssen diese im Feldkühlprozess statt auf die Néel-Temperatur $T_\mathrm{N}$ nur auf die niedrigere materialabhängige *Blocking-Temperatur* $T_\mathrm{B}$ erhitzt werden. Die AF-Körner der polykristallinen Schicht verhalten sich hier superparamagnetisch cite:ogrady_new_2010,bean_superparamagnetism_1959.
 
@@ -380,8 +380,6 @@ Durch die Polykristallinität der in dieser Arbeit verwendeten Proben müssen di
 #+attr_latex: :width \textwidth :placement [!h]
 #+attr_org: :width 50px
 [[file:img/eb.png]]
-
-Um in einem, wie in dieser Arbeit verwendeten polykristallinen System ein Austauschwechselfeld zu bewirken, wird 
 
 Durch Helium-Ionenbeschuss kann der EB-Effekt eines Schichtsystems verändert werden. So kann zum Beispiel die Richtung des Austauschverschiebungsfeldes lokal umgekehrt werden cite:mougin_local_2001. Hierzu kann eine Schattenmaske mittels Lithographie auf die Probe gebracht werden, um anschließend lokal das Eindringen von Ionen zu verhindern. Dies ermöglicht die magnetische Strukturierung von EB-Systemen, zum Beispiel in einer /in-plane/ Anisotropie, welche zu /head-to-head/ und /tail-to-tail/-Domänenwänden in einer Streifenstruktur führt, womit wiederum Transport von superparamagnetischen Partikeln realisiert werden kann cite:holzinger_directed_2015.
 
@@ -392,7 +390,7 @@ Superparamagnetische Partikel (SPP) lassen sich durch Verwendung von den zuvor b
 \vec{H}_\mathrm{eff} = \vec{H}_\mathrm{MFL} + \vec{H}_\mathrm{ext}.
 \end{equation}
 
-Bei der Verwendung superparamagnetischer Partikel werden diese innerhalb des effektiven Magnetfeldes aufmagnetisiert, so dass benachbarte Partikel parallele Magnetisierungen aufweisen, was zu ihrer magnetostatischen Abstoßung führt und die Agglomeration der Partikel verhindert. Außerdem können die Partikelgeschwindigkeiten durch Modifikation am EB-System doer externen Magnetfeld beeinflusst werden cite:holzinger_directed_2015.
+Bei der Verwendung superparamagnetischer Partikel werden diese innerhalb des effektiven Magnetfeldes aufmagnetisiert, so dass benachbarte Partikel parallele Magnetisierungen aufweisen, was zu ihrer magnetostatischen Abstoßung führt und die Agglomeration der Partikel verhindert. Außerdem können die Partikelgeschwindigkeiten durch Veränderungen am EB-System (z.B. Schichtdicke) oder externen Magnetfeld beeinflusst werden cite:holzinger_directed_2015.
 
 Werden SPP in wässriger Lösung ohne externes Magnetfeld auf das EB-Substrat gegeben, so positionieren sie sich in einem Gleichgewichtsabstand in Reihen über den Domänenwänden, da die Minima der potentiellen Energie der SPP an der Position der größten Streufelddichte liegt. Diese Minima sind ohne externes Magnetfeld über sowohl /head-to-head/ (hh) als auch /tail-to-tail/ (tt) Domänenwänden vorhanden (vgl. Abbildung ref:fig-mfl), wobei deren Entartung durch die Hinzunahme eines zusätzlichen externen Magnetfeldes durch die Superposition zum effektiven Magnetfeld aufgehoben wird cite:holzinger_directed_2015.
 
@@ -502,35 +500,8 @@ Anschließend wird Kapitel ref:sec-partikelgeschwindigkeiten der Einfluss der Ä
 ** TODO Stromstärke und magnetische Flussdichte der Helmholtzspulen label:sec-b_helmholtz
 Um die verwendeten Helmholtzspulen näher charakterisieren zu können, wurde zunächst der Zusammenhang zwischen der am Netzteil angelegten Spannung und der die Spulen durchfließenden Stromstärke sowie der daraus resultierenden Flussdichte bestimmt.
 
-Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke $I$ und magnetischen Flussdichte $B$ gemessen. Dabei wurde die Stromstärke an einem in Reihe geschalteten Multimeter abgelesen, die magnetischen Flussdichte an einem Teslameter der Firma /Projekt Elektronik GmbH/, dessen Messkopf sich in der Probenhalterung der Helmholtzspulen zur Messung des Magnetfeldes in z-Richtung befand. Der Zusammenhang von Stromstärke und magnetischer Flussdichte sollte gemäß Gleichung ref:eq-spule linear sein, weshalb die Messwerte in Abbildung ref:fig-magnetfeldstrom durch eine lineare Regression angenähert wurden.
+Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke $I$ und magnetischen Flussdichte $B$ gemessen. Dabei wurde die Stromstärke an einem in Reihe geschalteten Multimeter abgelesen, die magnetischen Flussdichte an einem Teslameter der Firma /Projekt Elektronik GmbH/, dessen Messkopf sich in der Probenhalterung der Helmholtzspulen zur Messung des Magnetfeldes in z-Richtung befand. Die Messwerte sind in Tabelle ref:tab-B im Anhang dargestellt. Der Zusammenhang von Stromstärke und magnetischer Flussdichte sollte gemäß Gleichung ref:eq-spule linear sein, weshalb die Messwerte in Abbildung ref:fig-magnetfeldstrom durch eine lineare Regression angenähert wurden.
 
-:TABLE:
-#+name: Zusammenhang zwischen magnetischer Flussdichte und Stromstärke. Hierbei wurde die Spannung an der NI USB-6002 Box erhöht und dazugehörige Stromstärke am Netzteilausgang $I$ und magnetische Flussdichte im inneren der z-Spule $B_\mathrm{z}$ gemessen.
-#+attr_latex: :center t :align nil
-| $U_\mathrm{DAQ}\nbsp[\si{\volt}]$ | $I\nbsp[\si{\ampere}]$ | $B_\mathrm{z}\nbsp[\si{\milli\tesla}]$ |
-|                            / |                  < |                                 < |
-|                          0.1 |              0.079 |                              0.73 |
-|                          0.2 |              0.158 |                              1.53 |
-|                          0.3 |              0.238 |                              2.29 |
-|                          0.4 |              0.317 |                              3.15 |
-|                          0.5 |              0.396 |                              3.95 |
-|                          0.6 |              0.476 |                              4.78 |
-|                          0.7 |              0.555 |                              5.59 |
-|                          0.8 |              0.635 |                              6.41 |
-|                          0.9 |              0.714 |                              7.23 |
-|                          1.0 |              0.793 |                              8.05 |
-|                          1.1 |              0.873 |                              8.88 |
-|                          1.2 |              0.953 |                              9.70 |
-|                          1.3 |              1.032 |                             10.52 |
-|                          1.4 |              1.111 |                             11.36 |
-|                          1.5 |              1.191 |                             12.20 |
-|                          1.6 |              1.271 |                             13.01 |
-|                          1.7 |               1.35 |                             13.85 |
-|                          1.8 |               1.43 |                             14.69 |
-|                          1.9 |              1.509 |                             15.52 |
-|                          2.0 |              1.588 |                             16.35 |
-
-:END:
 
 :CODE:
 
@@ -624,6 +595,7 @@ Mit Gleichung ref:eq-helmholtz, kann der Proportionalitätsfaktor $m$ der Regres
 B = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot \mu_{\mathrm{0}} \cdot \frac{N}{r} \cdot I = m \cdot I.
 \end{equation}
 
+#+name:eq-regression
 \begin{equation}
 m_\mathrm{calc} = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot 4\pi \cdot 10^{-7}\si{\newton\per\square\ampere} \cdot \frac{330}{\SI{0.03}{m}} = \SI{0.00989}{\tesla\per\ampere} = \SI{9.89}{\milli\tesla\per\ampere}
 \end{equation}
@@ -633,7 +605,7 @@ Anhand von Abbildung ref:fig-b_helmholtz und der berechneten Abweichung zwischen
 
 Um das in Kapitel ref:sec-spulen beschriebene Anschaltverhalten von Spulen für die im Experiment verwendeten Spulen zu charakterisieren, wurde der zeitliche Verlauf der Stromstärke unter Verwendung des Aufbau aus Kapitel ref:sec-stromundmagnet bestimmt.
 
-Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang eine Rechteckspannung mit zwei verschiedene Amplituden angelegt. Da gegenwärtig für das Experiment meist nur zwei der drei Helmholtzspulen gleichzeitig verwendet werden, wurden die Spulen für die Magnetfeldgeneration entlang der x- und z-Richtung verwendet, die der Einfachheit halber im Folgenden auch als x- und z-Spule bezeichnet werden. Dies ergibt die in Abbildung ref:fig-stromraw sichtbaren Messreihen.
+Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang eine Rechteckspannung mit zwei verschiedene Amplituden angelegt. Da gegenwärtig für das Experiment meist nur zwei der drei Helmholtzspulen gleichzeitig verwendet werden, wurden die Spulen für die Magnetfeldgeneration entlang der x- und z-Richtung verwendet, die der Einfachheit halber im Folgenden auch als x- und z-Spule bezeichnet werden. Dies wird exemplarisch für eine Amplitude in Abbildung ref:fig-stromraw gezeigt.
 
 :CODE:
  
@@ -682,18 +654,20 @@ Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang ein
       data = data[end_off:end_off+10*(sr_off)]
       datalist[i] = data
 
-  fig, ax = plt.subplots(2,2, sharex=True, sharey="row")
-  ax[0,0].plot(datalist[0]) #, '.', markersize=4)
-  ax[0,1].plot(datalist[1]) #, '.', markersize=4)
-  ax[1,0].plot(datalist[2]) #, '.', markersize=4)
-  ax[1,1].plot(datalist[3]) #, '.', markersize=4)
-  ax[0,0].set_title("x")
-  ax[0,1].set_title("z")
-  ax[0,0].set_ylabel("$I$ [A]")
-  ax[1,0].set_ylabel("$I$ [A]")
-  ax[1,0].set_xlabel("Datenpunkte")
-  ax[1,1].set_xlabel("Datenpunkte")
-  ax[1,1].set_xticks(np.arange(0,500000,step=150000))
+  fig, ax = plt.subplots(2,1, sharex=True, sharey="row")
+  # ax[0,0].plot(datalist[0]) #, '.', markersize=4)
+  # ax[0,1].plot(datalist[1]) #, '.', markersize=4)
+  # ax[1,0].plot(datalist[2]) #, '.', markersize=4)
+  # ax[1,1].plot(datalist[3]) #, '.', markersize=4)
+  ax[0].plot(datalist[0])
+  ax[1].plot(datalist[0])
+  ax[0].set_title("x")
+  ax[1].set_title("z")
+  ax[0].set_ylabel("$I$ [A]")
+  ax[1].set_ylabel("$I$ [A]")
+  # ax[1,0].set_xlabel("Datenpunkte")
+  ax[1].set_xlabel("Datenpunkte")
+  # ax[1,1].set_xticks(np.arange(0,500000,step=150000))
   plt.tight_layout()
   plt.savefig("./img/strom.png", dpi=100)
   plt.close()
@@ -705,7 +679,7 @@ Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang ein
 :END:
 
 #+name: fig-stromraw
-#+caption: Zeitlicher Verlauf der Stromstärke in den Spulen für x- und z-Richtung. Links Messungen unterschiedlicher Amplitude an der x-Spule, rechts Messungen unterschiedlicher Amplitude an der z-Spule.
+#+caption: Zeitlicher Verlauf der Stromstärke in den Spulen für x- (oben) und z-Richtung (unten). 
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/strom.png]]
  
@@ -722,18 +696,18 @@ Um eine Aussage über die Änderungsrate (Steigung) der Stromstärke und somit i
       avg = periodic.mean(axis=0)
       avglist.append(avg)
   plt.clf()
-  fig, ax = plt.subplots(2,2, sharex=True, sharey="row")
-  ax[0,0].set_title("x")
-  ax[0,0].set_ylabel("$I$ [A]")
-  ax[1,0].set_xlabel("Datenpunkte")
-  ax[0,0].plot(avglist[0], '.', markersize=3)
-  ax[0,1].plot(avglist[1], '.', markersize=3)
-  ax[1,0].plot(avglist[2], '.', markersize=3)
-  ax[1,1].plot(avglist[3], '.', markersize=3)
-  ax[0,1].set_title("z")
-  ax[1,0].set_ylabel("$I$ [A]")
-  ax[1,1].set_xlabel("Datenpunkte")
-  ax[0,0].set_xticks(np.arange(0,50000,15000))
+  fig, ax = plt.subplots(2,1, sharex=True, sharey="row")
+  ax[0].set_title("x")
+  ax[0].set_ylabel("$I$ [A]")
+  ax[1].set_xlabel("Datenpunkte")
+  ax[0].plot(avglist[0], '.', markersize=3)
+  ax[1].plot(avglist[1], '.', markersize=3)
+  # ax[1,0].plot(avglist[2], '.', markersize=3)
+  # ax[1,1].plot(avglist[3], '.', markersize=3)
+  ax[1].set_title("z")
+  # ax[1,0].set_ylabel("$I$ [A]")
+  # ax[1,1].set_xlabel("Datenpunkte")
+  # ax[0,0].set_xticks(np.arange(0,50000,15000))
   plt.tight_layout()
   plt.savefig("./img/strom_avg.png", dpi=100)
   "./img/strom_avg.png"
@@ -745,11 +719,11 @@ Um eine Aussage über die Änderungsrate (Steigung) der Stromstärke und somit i
 :END:
 
 #+name: fig-stromavg
-#+caption: Über alle zehn Perioden gemittelter zeitlicher Verlauf der Stromstärke für x- und z-Richtung. Links sind jeweils Stromstärkenmessungen für die x-Spule dargestellt, rechts Messungen der z-Spule.
+#+caption: Über alle zehn Perioden gemittelter zeitlicher Verlauf der Stromstärke für x- und z-Richtung. Oben sind die Stromstärken der x-Spule dargestellt, unten die der z-Spule.
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/strom_avg.png]]
 
-Vor allem für die Strommessungen der x-Spule sieht man klar eine Stromspitze zu Beginn der Plateaus. Dies ist wahrscheinlich auf das spannungsgesteuerte Netzteil zurückzuführen, welches einen konstanten Strom erzeugen soll. Jedoch ist durch die Impedanz der Spule bei abrupten Änderungen des Stromes ein hoher Blindwiderstand vorhanden, welcher durch das Netzteil versucht wird zu kompensieren. Da der Blindwiderstand dann wieder sinkt "übersteuert" das Netzteil und erreicht eine höhere Stromstärke als eigentlich angestrebt. Da sich die Stromstärke im Plateau zunächst nicht mehr ändert, passt das Netzteil den Ausgangsstrom an, und erreicht die gewünschte Amplitude.
+Vor allem für die Strommessungen der x-Spule sieht man klar eine Spitze zu Beginn der Plateaus. Dies ist wahrscheinlich auf das spannungsgesteuerte Netzteil zurückzuführen, welches einen konstanten Strom erzeugen soll. Jedoch ist durch die Impedanz der Spule bei abrupten Änderungen des Stromes ein hoher Blindwiderstand vorhanden, welcher durch das Netzteil versucht wird zu kompensieren. Da der Blindwiderstand dann wieder sinkt "übersteuert" das Netzteil und erreicht eine höhere Stromstärke als eigentlich angestrebt. Da sich die Stromstärke im Plateau zunächst nicht mehr ändert, passt das Netzteil den Ausgangsstrom an, und erreicht die gewünschte Amplitude.
 
 Da vor allem das Einschaltverhalten der Spulen von Interesse ist, wurde der Beginn der Perioden, in dem die Stromstärke auf das Maximum ansteigt, genauer betrachtet. Zu sehen sind diese in Abbildung ref:fig-strom_anfang.
 :CODE:
@@ -757,7 +731,7 @@ Da vor allem das Einschaltverhalten der Spulen von Interesse ist, wurde der Begi
   plt.clf()
   markersize = 3
   cut = 500
-  fig, ax = plt.subplots(2,2, sharex=True, sharey="row")
+  fig, ax = plt.subplots(2,2, figsize=(10,5), sharex=True, sharey="row")
   ax[0,0].set_title("x")
   ax[0,0].set_ylabel("$I$ [A]")
   ax[1,0].set_xlabel("Datenpunkte")
@@ -780,9 +754,11 @@ Da vor allem das Einschaltverhalten der Spulen von Interesse ist, wurde der Begi
 :END:
 
 #+name: fig-strom_anfang
-#+caption: Verlauf der Stromstärke kurz nach Beginn der gemittelten Periode. Links Stromstärken der x-Spule, rechts der z-Spule.
+#+caption: Verlauf der Stromstärke kurz nach Beginn der gemittelten Periode. Links Stromstärken der x-Spule, rechts der z-Spule. Die oberen Graphen zeigen den Verlauf für eine niedrigere Ausgangsspannung am DAQ-Gerät als die unteren Graphen.
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/strom_anfang.png]]
+
+Die untere rechte Kurve in Abbildung ref:fig-strom_anfang hat eine andere Form als die restlichen Kurven. Dies ist auf ein starkes Rauschen während des ersten Einschaltens zurückzuführen.
 
 Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten. Die Fitkurven und Parameter sind in Abbildung ref:fig-stromfit dargestellt.
 
@@ -867,6 +843,8 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
   ax[1,1].set_xlabel("Datenpunkte")
   ax[0,0].set_ylabel("$I$ [A]")
   ax[1,0].set_ylabel("$I$ [A]")
+  ax[0,0].set_title("x")
+  ax[0,1].set_title("z")
   plt.tight_layout()
   plt.savefig("./img/strom_fit.png")
   plt.close()
@@ -883,11 +861,8 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
 #+attr_latex: :width \textwidth :placement [h]
 [[file:img/strom_fit.png]]
 
+In den Graphen ist deutlich zu erkennen, dass keine ausreichend genauen Parameter für die Fitfunktion gefunden werden konnten. Vor allem im ersten Viertel des Graphen scheint das reale Einschaltverhalten vom erwarteten Einschaltverhalten abzuweichen. Gleichung ref:eq-strom-spule setzt einen konstanten Widerstand $R$ voraus. Jedoch ist durch die hohe Änderungsrate des Stromes ein komplexer induktiver Blindwiderstand vorhanden. Hinzu kommt das bereits vorher genannte "Übersteuern" des Netzteiles, wenn gegen eben jenen Blindwiderstand anstrebt wird die Stromstärke konstant zu halten. Durch diese beiden Effekte sind Widerstand und Spannung während des Einschaltvorganges nicht konstant, und es müssten komplexere Modelle hinzugezogen werden, um den genauen Verlauf der Stromstärke vorhersagen zu können. Des Weiteren ist unbekannt wie das Netzteil aufgebaut ist, welche elektrischen Bauteile darin verwendet werden, und so eventuell zu der Induktivität des Aufbaus beitragen.
 
-# #+name: fig-stromfit_fixed
-# #+caption: Fitfunktion zu Gleichung ref:eq-strom-spule durch die gemessenen Stromstärken mit vorgegebenem Widerstand $R$ und Induktiviät $L$.
-# #+attr_latex: :width \textwidth :placement [h]
-# [[file:img/strom_fit_fixed.png]]
 # #####
 
 Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgeführt. Abbildung ref:fig-mag zeigt den zeitlichen Verlauf des Flussdichte.
@@ -936,18 +911,18 @@ Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgef
       data = data[end_off:end_off+10*sr_off]
       datalist[i] = data
 
-  fig, ax = plt.subplots(2,2, sharex=True)
-  ax[0,0].plot(datalist[0]*10)
-  ax[0,1].plot(datalist[1]*10)
-  ax[1,0].plot(datalist[2]*10)
-  ax[1,1].plot(datalist[3]*10)
-  ax[0,0].set_title("x")
-  ax[0,1].set_title("z")
-  ax[0,0].set_ylabel("$B$ [mT]")
-  ax[1,0].set_ylabel("$B$ [mT]")
-  ax[1,0].set_xlabel("Datenpunkte")
-  ax[1,1].set_xlabel("Datenpunkte")
-  ax[1,1].set_xticks(np.arange(0,500000,step=150000))
+  fig, ax = plt.subplots(2,1, sharex=True)
+  ax[0].plot(datalist[0]*10)
+  ax[1].plot(datalist[1]*10)
+  # ax[1,0].plot(datalist[2]*10)
+  # ax[1,1].plot(datalist[3]*10)
+  ax[0].set_title("x")
+  ax[1].set_title("z")
+  ax[0].set_ylabel("$B$ [mT]")
+  ax[1].set_ylabel("$B$ [mT]")
+  ax[1].set_xlabel("Datenpunkte")
+  # ax[1,1].set_xlabel("Datenpunkte")
+  # ax[1,1].set_xticks(np.arange(0,500000,step=150000))
   plt.tight_layout()
   plt.savefig("./img/mag.png", dpi=100)
   plt.close('all')
@@ -959,7 +934,7 @@ Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgef
 :END:
 
 #+name: fig-mag
-#+caption: Zeitlicher Verlauf der magnetischen Flussdichte bei einer angelegten Rechteckspannung. Links ist die magnetische Flussdichte der x-Spulen dargestellt, rechts das der z-Spulen.
+#+caption: Zeitlicher Verlauf der magnetischen Flussdichte bei einer angelegten Rechteckspannung. Oben ist die magnetische Flussdichte der x-Spule dargestellt, unten das der z-Spulen. Exemplarisch wird hier nur eine der beiden Amplituden der Ausgangsspannung des DAQ-Gerätes gezeigt.
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/mag.png]]
 
@@ -976,18 +951,18 @@ Auch hier wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe
       avg = periodic.mean(axis=0)
       avglist.append(avg)
   plt.clf()
-  fig, ax = plt.subplots(2,2, sharex=True)
-  ax[0,0].set_title("x")
-  ax[0,0].set_ylabel("$B$ [mT]")
-  ax[1,0].set_xlabel("Datenpunkte")
-  ax[0,0].plot(avglist[0]*10, '.', markersize=3)
-  ax[0,1].plot(avglist[2]*10, '.', markersize=3)
-  ax[1,0].plot(avglist[1]*10, '.', markersize=3)
-  ax[1,1].plot(avglist[3]*10, '.', markersize=3)
-  ax[0,1].set_title("z")
-  ax[1,0].set_ylabel("$B$ [mT]")
-  ax[1,1].set_xlabel("Datenpunkte")
-  ax[0,0].set_xticks(np.arange(0,50000,15000))
+  fig, ax = plt.subplots(2,1, sharex=True)
+  ax[0].set_title("x")
+  ax[0].set_ylabel("$B$ [mT]")
+  ax[1].set_xlabel("Datenpunkte")
+  ax[0].plot(avglist[0]*10, '.', markersize=3)
+  ax[1].plot(avglist[2]*10, '.', markersize=3)
+  # ax[1,0].plot(avglist[1]*10, '.', markersize=3)
+  # ax[1,1].plot(avglist[3]*10, '.', markersize=3)
+  ax[1].set_title("z")
+  # ax[1,0].set_ylabel("$B$ [mT]")
+  # ax[1,1].set_xlabel("Datenpunkte")
+  # ax[0,0].set_xticks(np.arange(0,50000,15000))
   plt.tight_layout()
   plt.savefig("./img/mag_avg.png", dpi=100)
   plt.close()
@@ -999,7 +974,7 @@ Auch hier wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe
 :END:
 
 #+name: fig-mag_avg
-#+caption: Über alle zehn Perioden gemittelte Messwerte der magnetischen Flussdichte für x-Spule (links) und z-Spule (rechts).
+#+caption: Über alle zehn Perioden gemittelte Messwerte der magnetischen Flussdichte für x-Spule (oben) und z-Spule (unten).
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/mag_avg.png]]
 
@@ -1036,7 +1011,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 
 
 #+name: fig-mag_anfang
-#+caption: Verlauf der magnetischen Flussdichte kurz nach Beginn der gemittelten Periode. Links für x-Spule, rechts für z-Spule.
+#+caption: Verlauf der magnetischen Flussdichte kurz nach Beginn der gemittelten Periode. Links für x-Spule, rechts für z-Spule. In den oberen Graphen wurde eine niedrigere Ausgangsspannung am DAQ-Gerät ausgegeben.
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/mag_anfang.png]]
 
@@ -1055,7 +1030,6 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
       R = 11.5
       L = 0.0056
       return (U / R) * (1 - np.exp((-x / sr) * (R+10) / L))
-
 
 
   def B_helmholtz(x, U, R, L, c):
@@ -1078,11 +1052,17 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
       # return constants.mu_0 * (8* I * n)/(np.sqrt(125)*r) + c
       return 0.01034 * I
 
+  def B_x(I):
+      # return constants.mu_0 * (8* I * n)/(np.sqrt(125)*r) + c
+      return 0.01034 * I
+
   plt.clf()
-  fig, ax = plt.subplots(2, 2, figsize=(10, 5), sharex=True, sharey="row")
-  for i, data in enumerate(avglist):
-      x = np.linspace(0, len(data), cut)
-      y = data[:cut]
+  fig, ax = plt.subplots(2, 1, sharex=True, sharey="row")
+  # for i, data in enumerate(avglist):
+  x = np.linspace(0, len(data), cut)
+  y = data[:cut]
+  ax[0].plot(avglist[1][:cut] * 10, label="Messwerte")
+  ax[1].plot(avglist[3][:cut] * 10, label="Messwerte")
       # popt, pcov = curve_fit(B_helmholtz,
       #                        x,
       #                        y,
@@ -1093,32 +1073,35 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
       # ss_res = np.sum((y - y_fit) **2)
       # ss_tot = np.sum((y-np.mean(y))**2)
       # r2 = 1 - (ss_res / ss_tot)
-      if i < 2:
-          ax[0, i].plot(data[:cut] *10 , label="Messwerte")
-      else:
-          ax[1, i - 2].plot(data[:cut] * 10, label="Messwerte") # *10 for ?? 
-      if i == 0: # x
-          B_i = B(0.158)
-          ax[0,0 ].axhline( y=B_i * 1000, color='r', linestyle="--") # * 1000 for mT
-      elif i == 1: # x
-          B_i = B(0.317)
-          ax[1,0 ].axhline( y=B_i * 1000, color='r', linestyle="--")
-      elif i == 2: # z
-          B_i = B_z(0.158)
-          ax[0,1].axhline( y=B_i * 1000, color='r', linestyle="--")
-      elif i == 3: #z
-          B_i = B_z(0.317)
-          ax[1,1].axhline( y=B_i * 1000, color='r', linestyle="--")
+      # if i < 2:
+          # ax[0, i].plot(data[:cut] *10 , label="Messwerte")
+      # else:
+          # ax[i - 2].plot(data[:cut] * 10, label="Messwerte") # *10 for ?? 
+      # if i == 0: # x
+          # B_i = B_x(0.158)
+          # ax[0,0 ].axhline( y=B_i * 1000, color='r', linestyle="--") # * 1000 for mT
+      # elif i == 1: # x
+          # B_i = B_x(0.317)
+          # ax[1,0 ].axhline( y=B_i * 1000, color='r', linestyle="--")
+      # if i == 2: # z
+  B_i = B_z(0.158)
+  ax[0].axhline( y=B_i * 1000, color='r', linestyle="--", label="$y=0.158 \cdot m$")
+  # elif i == 3: #z
+  B_i = B_z(0.317)
+  ax[1].axhline( y=B_i * 1000, color='r', linestyle="--", label="$y=0.317 \cdot m$")
 
 
-  ax[0,0].set_title("x")
-  ax[0,1].set_title("z")
-  ax[0,0].set_ylabel("B [mT]")
-  ax[1,0].set_ylabel("B [mT]")
-  ax[1,0].set_xlabel("Datenpunkte")
-  ax[1,1].set_xlabel("Datenpunkte")
+  # ax[0,0].set_title("x")
+  # ax[0,1].set_title("z")
+  ax[0].set_ylabel("B [mT]")
+  ax[1].set_ylabel("B [mT]")
+  ax[1].set_xlabel("Datenpunkte")
+  # ax[1,1].set_xlabel("Datenpunkte")
+  ax[0].legend()
+  ax[1].legend()
+  ax[0].set_title("z")
   plt.tight_layout()
-  plt.savefig("./img/mag_fit.png")
+  plt.savefig("./img/mag_fit.png", dpi=100)
   plt.close()
   "./img/mag_fit.png"
 #+end_src
@@ -1136,8 +1119,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
       U = Voltage
       R = Resistance
       L = Inductance
-      sr = Sample Rate (48000 for NI USB-6008)
-      """
+      sr = Sample Rate (48000 for NI USB-6008) """
       R = 11.5
       L = 0.0056
       # L = 0.762
@@ -1205,9 +1187,10 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 
 :END:
 
+Da bereits der Verlauf der Stromstärke nicht mit Gleichung ref:eq-strom-spule vorhergesagt werden konnte, ist es nicht möglich die magnetische Flussdichte mithilfe von Gleichung ref:eq-helmholtz vorher zu sagen, da die Stromstärke in dieser Gleichung aus der vorherigen Gleichung berechnet wird. Es konnte jedoch zu Beginn dieses Kapitels gezeigt werden, dass die Amplitude des Magnetfeldes aus der Stromstärke bestimmt werden kann. Dies wird in Abbildung ref:fig-mag_fit gezeigt, indem eine rot gestrichelte Linie mit $y = 0.01034 \cdot I$ analog zu Gleichung ref:eq-regression für die Stromstärken $\SI{0.158}{\ampere}$ und $\SI{0.317}{\ampere}$ (vgl. Tab. ref:tab-B im Anhang) in den Graph gezeichnet wurde. Da nur die Steigung der Regression aus der z-Spule betrachtet wurde, sind nur hier diese Geraden eingezeichnet. Es ist ersichtlich, dass die vorhergesagten Werte der Sättigungsflussdichte mit den gemessenen Werten überein stimmen. 
 #+name: fig-mag_fit
-#+caption:
-#+attr_latex: :width \textwidth :placement [h]
+#+caption: Zeitlicher Verlauf der magnetischen Flussdichte der z-Spule. Rot gestrichelt eingezeichnet ist die vorhergesagte Sättigungsflussdichte für gegebene Stromstärken.
+#+attr_latex: :width 0.75\textwidth :placement [h]
 [[file:img/mag_fit.png]]
 
 # #+name: fig-mag_fit_fixed
@@ -1215,7 +1198,6 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 # #+attr_latex: :width \textwidth :placement [h]
 # [[file:img/mag_fit_fixed.png]]
 
-Anhand des Verlaufs der Fitfunktionen und des $R^2$ Wertes, ist erkennbar, dass die entstehenden Magnetfelder nicht nur dem angenommenen Modell folgen, sondern noch komplexere Vorgänge in die Erzeugung der Magnetfelder hinein spielen.
 ** TODO Partikeltransport label:sec-partikelgeschwindigkeiten
 Um aus den aufgenommen Videos aus dem Partikeltransportexperiment die Trajektorien und Partikelgeschwindigkeiten zu erhalten, wird das Programm /VideoSpotTracker/ verwendet. Hierzu wurden möglichst alle sich bewegenden Partikel als /"dark spot"/ mit der Größe 3 ausgewählt, und dann mittels /"follow jumps"/ die x- und z-Positionen der einzelnen Partikel in Pixel verfolgt und in einer csv-Datei aufgezeichnet (siehe Abbildung ref:fig-videospottracker). Da die Größe eines Pixels (\SI{278}{\nano\meter}) sowie die Framerate (1000 FPS) und somit die Zeit bekannt sind, lässt sich so die Durchschnittsgeschwindigkeit der Partikel berechnen. Bewegungen in y-Richtung sind unter anderem durch ein nicht genau orthogonal zur Streifenstruktur anliegendes Magnetfeld der x-Spule zu erklären.
 
