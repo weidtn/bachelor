@@ -862,8 +862,41 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
 #+attr_latex: :width \textwidth :placement [h]
 [[file:img/strom_fit.png]]
 
-In den Graphen ist deutlich zu erkennen, dass keine ausreichend genauen Parameter für die Fitfunktion gefunden werden konnten. Vor allem zu Beginn der Messung scheint das reale Einschaltverhalten vom erwarteten Einschaltverhalten abzuweichen. Gleichung ref:eq-strom-spule setzt einen konstanten Widerstand $R$ voraus. Jedoch ist durch die hohe Änderungsrate des Stromes ein komplexer induktiver Blindwiderstand vorhanden. Hinzu kommt das bereits vorher genannte "Übersteuern" des Netzteiles, wenn gegen eben jenen Blindwiderstand anstrebt wird die Stromstärke konstant zu halten. Durch diese beiden Effekte sind Widerstand und Spannung während des Einschaltvorganges nicht konstant, und es müssten komplexere Modelle hinzugezogen werden, um den genauen Verlauf der Stromstärke vorhersagen zu können. Des Weiteren ist unbekannt wie das Netzteil aufgebaut ist, welche elektrischen Bauteile darin verwendet werden, und so eventuell zu der Induktivität des Aufbaus beitragen.
+In den Graphen ist deutlich zu erkennen, dass keine ausreichend genauen Parameter für die Fitfunktion gefunden werden konnten. Vor allem zu Beginn der Messung scheint das reale Einschaltverhalten vom erwarteten Einschaltverhalten abzuweichen. Gleichung ref:eq-strom-spule setzt einen konstanten Widerstand $R$ voraus. Jedoch ist durch die hohe Änderungsrate des Stromes ein komplexer induktiver Blindwiderstand vorhanden. Hinzu kommt das bereits vorher genannte "Übersteuern" des Netzteiles, wenn gegen eben jenen Blindwiderstand anstrebt wird die Stromstärke konstant zu halten. Durch diese beiden Effekte sind Widerstand und Spannung während des Einschaltvorganges nicht konstant, und es müssten komplexere Modelle hinzugezogen werden, um den genauen Verlauf der Stromstärke vorhersagen zu können. Des Weiteren ist unbekannt wie das Netzteil aufgebaut ist, welche elektrischen Bauteile darin verwendet werden, und so eventuell zu der Induktivität des Aufbaus beitragen. Das Netzteil allein gibt bereits ohne zusätzliche Spulen keine sofortige maximale Spannung aus. Dies wurde überprüft, indem das Netzteil nur an einen $\SI{12.5}{\ohm}$ Widerstand angeschlossen wurde und die darüber abfallende Spannung ohne Helmholtzspule gemessen wurde. Der Einschaltvorgang dieser Messung ist dargestellt in Abbildung ref:fig-12ohm. Wegen des ohmschen Gesetzes ist die Stromstärke proportional zur gemessenen Spannung und zeigt die selbe Form. Außerdem wird deutlich, dass die Auflösung des DAQ-Gerätes anscheinend zu gering ist, um die schnellen Änderungen während des Einschaltens genau darstellen zu können.
 
+:CODE:
+Spannung nur Widerstand, keine Spulen
+#+begin_src python :session 12ohm :results output
+  import matplotlib
+  matplotlib.use("Agg")
+  import matplotlib.pyplot as plt
+  import numpy as np
+  import pandas as pd
+
+  filename = "./Messung/current_12,5Ohm_noCoil.csv"
+  current = np.loadtxt(filename)
+  x1 = (35000)
+  x2 = x1 + 500
+  xlim = (x1, x2)
+  plt.clf()
+  plt.plot(current, '.')
+  plt.xlim(xlim)
+  plt.xlabel("Datenpunkte")
+  plt.ylabel("$U$ [V]")
+  plt.tight_layout()
+  plt.savefig("./img/12,5ohm.png")
+  plt.close()
+  "./img/12,5ohm.png"
+#+end_src
+
+#+RESULTS:
+
+:END:
+
+#+name: fig-12ohm
+#+caption: Verlauf der Spannung über einem \SI{12.5}{\ohm} Widerstand ohne Spulen zur Untersuchung des Netzteils.
+#+attr_latex: :width .75\textwidth :placement [h]
+[[file:img/12,5ohm.png]]
 # #####
 
 Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgeführt. Abbildung ref:fig-mag zeigt den zeitlichen Verlauf des Flussdichte.
