@@ -88,17 +88,17 @@ CLOSED: [2019-10-10 Do 20:51]
 
 * PDF:                                                               :ignore:
  [[file:ba.pdf][ba.pdf]] 
-* TODO Einleitung label:sec-einleitung
+* Einleitung label:sec-einleitung
 Durch den allgemeine Anstieg der Weltbevölkerung, den demographischen Wandel und die steigende Lebenserwartung wird eine Zunahme von Krankheiten wie Krebs oder Diabetes erwartet cite:bray_global_2018,zhou_worldwide_2016. Um dieser Entwicklung entgegen zu wirken, werden kostengünstige, patientennahe Diagnoseprozesse für die Individualmedizin entwickelt. So können bereits früh Krankheitsanzeichen und -ursachen entdeckt und bekämpft werden.
 
 Neuartigen Analysesystemen wie /Lab-on-a-Chip/ (LOC) werden deswegen großes Potential für Biomedizin und Medizindiagnostik in der Zukunft zugesprochen. Durch Miniaturisierung der Chips ergeben sich viele Vorteile cite:stone_microfluidics_2001,knight_honey_2002.
 Möglich sind unter anderem Biochips zur Analyse und Detektion von bestimmten Molekülen cite:papadea_evaluation_2002, Zellen (beispielsweise T-Zellen für die HIV/AIDS-Diagnostik cite:cheng_microchip_2007), Protein- und Molekülmarkern cite:wang_self-powered_2010, sowie DNA/RNA-Analysen (z.B. Identifizierung von resistenten Pathogenen cite:boehme_rapid_2010). Es können bereits geringe Probenvolumina innerhalb kürzester Zeit analysiert werden und es werden nur geringe Mengen von Reagenzien benötigt cite:chin_commercialization_2012. So können relativ kostengünstige Biochips und Analyseverfahren entwickelt werden, um zum Beispiel auch in Schwellen- und Entwicklungsländern die medizinische Versorgung zu verbessern. Ein wichtiger Bestandteil dieser LOCs ist Transport und Separation der Analyte innerhalb des Chips. Hier hat sich die Nutzung von magnetischen Partikeln bewährt. Verschiedene mikromagnetische Oberflächenstrukturierungen machen dabei den gezielten Transport der Partikel möglich cite:rampini_micromagnet_2016.  
 
 Das in der Arbeitsgruppe \textsc{Ehresmann} etablierte Transportkonzept von superparamagnetischen Partikeln (SPP) oberhalb magnetisch strukturierter /Exchange-Bias/ (EB) Dünnschichtsysteme kann hierbei ein wichtiger Bestandteil zukünftiger Analysesysteme werden. Die Grundidee ist es durch ein extern angelegtes Magnetfeld die magnetische Feldlandschaft (MFL) eines künstlichen Domänenmusters so zu transformieren, dass ein gerichteter Transport der SPP zwischen /head-to-head/ und /tail-to-tail/-Domänenwänden möglich wird; dabei können diese SPP in verschiedenen Prozessschritten eines LOCs verwendet werden. Einerseits können Analyte, die an Partikel gebunden sind, in bestimmte Analysebereiche transportiert werden cite:ehresmann_asymmetric_2011, andererseits können aber auch Strömungsfelder durch den Partikeltransport erzeugt werden, welche die Analyten und Reagenzien durchmischen und so höhere biochemische Reaktionsraten bewirken cite:holzinger_controlled_2012. Ein weiteres Anwendungsgebiet ist die magnetophoretische Auftrennung der Partikel, um so verschiedene Partikelgrößen aufgrund unterschiedlicher magnetophoretischer Mobilitäten voneinander trennen zu können, damit zum Beispiel möglichst homogene Partikeldispersionen für Analysen erreicht werden können cite:zhou_magnetic_2016. Für jede dieser Anwendungen werden verschiedene Formen eines externen Magnetfeldes benötigt. Bisher wurden für den Partikeltransport trapezförmige Magnetfeldsequenzen mit konstanten Änderungsraten verwendet. In dieser Arbeit soll der Einfluss der Änderungsrate auf die Transportgeschwindigkeit und Trajektorie der Partikel genauer betrachtet werden, um Optimierungen bezüglich des Partikeltransports für das jeweilige Anwendungsgebiet möglich zu machen.
-* TODO Theoretische Grundlagen label:sec-grundlagen
+* Theoretische Grundlagen label:sec-grundlagen
 In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt. Anschließend wird die Verbindung zum Magnetismus in Materie hergestellt. Dann werden die in dieser Arbeit verwendeten /Exchange Bias Systeme/ eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene /Exchange Bias Systeme/ beschrieben, wobei die auf sie wirkenden Kräfte genauer betrachtet werden sollen.
   
-** DONE Elektromagnetismus label:sec-elektromagnetismus
+** Elektromagnetismus label:sec-elektromagnetismus
    CLOSED: [2019-10-10 Do 16:13]
    Allgemein gilt, dass bewegte Ladungsträger (Ströme) ein Magnetfeld erzeugen. Fließt zum Beispiel ein Strom $I$ durch einen langen geraden Draht, erzeugt dies ein kreisförmiges Magnetfeld. Entlang der Stromrichtung ergibt sich eine Rechtsschraube für das Magnetfeld B. Eine Spule besteht aus mehreren Windungen stromdurchflossenen Drahtes und erzeugt so durch Überlagerung ein Magnetfeld ähnlich eines Stabmagneten mit Nord- und Südpol. Die Magnetische Flussdichte $B$ im Vakuum hängt dabei von Stromstärke $I$ und Windungsdichte $n = \frac{N}{L}$ (Windungen pro Länge) ab. Hierbei ist $\mu_\mathrm{0}$ die magnetische Feldkonstante cite:demtroder_experimentalphysik_2017:
 
@@ -115,7 +115,7 @@ Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von He
 B = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot \mu_{\mathrm{0}} \cdot \frac{N \cdot I}{r} .
 \end{equation}
 
-** DONE Spulen als elektrische Bauteile label:sec-spulen
+** Spulen als elektrische Bauteile label:sec-spulen
    CLOSED: [2019-10-10 Do 16:13]
 Beim Anlegen einer Spannung an eine Spule, wird innerhalb dieser eine Gegenspannung induziert. Hierbei ist die induzierte Spannung
     
@@ -236,7 +236,7 @@ Der Abschaltvorgang ist in Abbildung ref:fig-abschalten abgebildet.
 \caption{Schematische Darstellung der Stromstärke und Spannung bei Ein- und Abschaltvorgang in einem Stromkreis mit Widerstand $R$, Induktion $L$ und einer Diode um einen Weg für den Abschaltinduktionsstrom zu liefern.}
 \end{figure}
 
-** DONE Magnetismus in Materie label:sec-magnetismus
+** Magnetismus in Materie label:sec-magnetismus
    CLOSED: [2019-09-30 Mo 11:12]
 Wie bereits in Kapitel ref:sec-elektromagnetismus erläutert, erzeugen bewegte Ladungen Magnetfelder. Eine solche bewegte Ladung ist auch das Elektron, das in einer vereinfachten Vorstellung um den Atomkern kreist. Folglich besitzen Atome ein magnetisches Moment $\mu$, welches abhängig ist von der umkreisten Fläche $A$ und dem Kreisstrom des Elektrons $I$ cite:kassing_bergmann_2005:
    
@@ -277,7 +277,7 @@ Festkörper können in Folge der mikroskopischen Ursachen bezüglich ihres Magne
 
 Im Folgenden soll näher auf diese Klassifizierungen eingegangen werden.
 
-*** DONE Dia- und Paramagnetismus label:sec-dia-und-para
+*** Dia- und Paramagnetismus label:sec-dia-und-para
     CLOSED: [2019-09-23 Mo 11:59]
 Diamagnetismus ist ein magnetischer Effekt in jeglicher Materie, welcher durch induzierte magnetische Momente auftritt. In einem externen Magnetfeld wird im Atom ein magnetisches Moment induziert, welches dem induzierenden Magnetfeld entgegen wirkt (Lenzsche Regel). Ein Festkörper wird als diamagnetisch bezeichnet, wenn ohne äußeres magnetisches Feld keine magnetischen Momente vorliegen. Vor allem abgeschlossene äußere Elektronenschalen tragen zum diamagnetischen Effekt eines Atoms bei. Die Spin- und Bahnmomente der gepaarten Elektronen heben sich in Summe auf. Diamagnetische Materialien haben eine negative Suszeptibilität und werden aus dem externen Magnetfeld heraus gedrängt cite:gross_festkorperphysik_2012.
 
@@ -302,7 +302,7 @@ Legt man ein äußeres Magnetfeld an, richten sich die magnetischen Momente nach
 \chi_\mathrm{para} > 0
 \end{equation}
 
-*** DONE Ferromagnetismus label:sec-ferro
+*** Ferromagnetismus label:sec-ferro
     CLOSED: [2019-09-24 Di 16:42]
     
 Beeinflussen sich die einzelnen magnetischen Momente gegenseitig, sind sie also gekoppelt, kann das System einen magnetisch geordneten Zustand einnehmen. Dieser geordnete Zustand unterliegt jedoch einer Temperaturabhängigkeit. Eine Ursache für das Vorliegen von kollektivem Magnetismus ist die quantenmechanische *Austausch-Wechselwirkung* cite:kassing_bergmann_2005.
@@ -342,11 +342,11 @@ Beim Ausrichten der magnetischen Dipole in einem ferromagnetischen Stoff wird En
 
 Der Festkörper kann seine ferromagnetischen Eigenschaften verlieren, wenn er über eine bestimmte, für das Material charakteristische, Temperatur $T_\mathrm{C}$, die *Curie-Temperatur* erhitzt wird. Die Wärmebewegung zerstört dann die magnetische Ausrichtung der Dipole und der Stoff zeigt nur noch paramagnetisches Verhalten cite:demtroder_experimentalphysik_2017.
 
-*** DONE Antiferromagnetismus label:sec-antiferro
+*** Antiferromagnetismus label:sec-antiferro
     CLOSED: [2019-09-23 Mo 12:00]
 In einem Antiferromagneten liegen zwei ineinander gestellte Untergitter im Kristallgitter vor. Die magnetischen Momente jener Untergitter zeigen jeweils in entgegengesetzte Richtungen und haben den gleichen Betrag. Somit heben sie sich insgesamt auf und es ist keine makroskopische Magnetisierung sichtbar. Oberhalb der *Néel-Temperatur* $T_\mathrm{N}$, dem Analogon zur Curie-Temperatur, geht der Festkörper in den paramagnetischen Zustand über cite:demtroder_experimentalphysik_2017. 
 
-*** DONE Superparamagnetismus
+*** Superparamagnetismus
     CLOSED: [2019-09-24 Di 16:42]
 Ist das Volumen eines ferromagnetischen Festkörpers so gering, dass er nur aus einer einzelnen Domäne besteht, spricht man von Superparamagnetismus. Die Suszeptibilität solcher Superparamagneten ist größer als die Suszeptibilität von Paramagneten, jedoch verhalten sie sich ohne äußeres Magnetfeld ähnlich, da die Magnetisierung in solchen einzelnen Domänen nicht thermisch stabil ist und sich beliebig ausrichten kann cite:gross_festkorperphysik_2012.
 Jedoch ist die Zeitskala des Experiments, und ob in dieser thermische Aktivierungs- und Relaxationsprozesse statt finden können, wichtig, um Aussagen über das magnetische Verhalten eines Partikels machen zu können. Bei ausreichend großen Zeitskalen wird über die durch thermische Energie unterschiedlichen magnetischen Momente gemittelt und man erhält insgesamt keine Magnetisierung. Wird jedoch sehr kurz gemessen, kann eine Richtung der Magnetisierung für diesen kurzen Zeitausschnitt bestimmt werden cite:leslie-pelecky_magnetic_1996.
