@@ -1275,13 +1275,13 @@ Da die bisher vorausgesetzten Modelle mit den experimentellen Daten verglichen w
 
 # TODO Geschwindigkeit aus Simulation?
 
-Um einen Vergleich zwischen Simulation und Messung zu erhalten, wurde von selektierten gemessenen Transportschritten der Partikeln eine mittlere Trajektorie gebildet. Der Vergleich zwischen realen und simulierten Trajektorien ist in Abbildung ref:fig-traj zu sehen.
+Um einen Vergleich zwischen Simulation und Messung zu erhalten, wurde von einigen gemessenen Transportschritten der Partikeln eine mittlere Trajektorie gebildet. Der Vergleich zwischen realen und simulierten Trajektorien ist in Abbildung ref:fig-traj zu sehen.
 
 Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetfelder mit späteren Plateaustartzeiten, d.h. niedrigeren Magnetfeldänderungsraten. Da die Steigung der x-Position der Geschwindigkeit der Partikel entspricht, ist offensichtlich, dass niedrigere Magnetfeldänderungsraten auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken.
 
 :CODE:
  Gemessene Trajektorien:
-#+begin_src python :session traj :results file
+#+begin_src python :session traj :results output
   import numpy as np
   import matplotlib
   matplotlib.use("Agg")
