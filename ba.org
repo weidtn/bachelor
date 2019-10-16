@@ -1291,11 +1291,11 @@ Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetf
   px_size = 278e-9
 
   t_0 = pd.read_csv("./Messung/800nmSi/1um_0,4_slopeinf.csv", usecols=(0,1,2,3))   
-  t_005 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope10.csv", usecols=(0,1,2,3))   
-  t_01 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope4.csv", usecols=(0,1,2,3))   
-  t_015 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope2,666.csv", usecols=(0,1,2,3))   
-  t_02 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope2.csv", usecols=(0,1,2,3))   
-  t_025 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope1,6.csv", usecols=(0,1,2,3))   
+  # t_005 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope10.csv", usecols=(0,1,2,3))   
+  # t_01 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope4.csv", usecols=(0,1,2,3))   
+  # t_015 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope2,666.csv", usecols=(0,1,2,3))   
+  # t_02 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope2.csv", usecols=(0,1,2,3))   
+  # t_025 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope1,6.csv", usecols=(0,1,2,3))   
 
   datalist = [t_0,
               # t_005["X"].to_numpy(),
@@ -1309,7 +1309,12 @@ Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetf
       x_vector = data["X"].to_numpy()
       x_matrix = np.reshape(x_vector, (len(data["FrameNumber"])//num_particles, num_particles)) * px_size
       # [plt.plot(x_matrix[:,i]) for i in range (0, len(x_matrix[0,:]),1)]
-      plt.plot(x_matrix[:,16])
+      # plt.plot(x_matrix[:,12]) # Partikel Nr. 12
+      particle = x_matrix[:,12]
+      traj_matrix = np.reshape(particle, (len(particle), 17))
+      # plt.plot(traj_matrix[:1])
+      print(np.shape(traj_matrix))
+
 
   plt.savefig("./img/traj_real.png")
   plt.close()
@@ -1317,7 +1322,23 @@ Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetf
 #+end_src
 
 #+RESULTS:
+#+begin_example
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/tmp/babel-WFbRsq/python-JpL1J2", line 30, in <module>
+    traj_matrix = np.reshape(particle, (len(particle), 17))
+  File "<__array_function__ internals>", line 6, in reshape
+  File "/usr/lib/python3.7/site-packages/numpy/core/fromnumeric.py", line 301, in reshape
+    return _wrapfunc(a, 'reshape', newshape, order=order)
+  File "/usr/lib/python3.7/site-packages/numpy/core/fromnumeric.py", line 61, in _wrapfunc
+    return bound(*args, **kwds)
+ValueError: cannot reshape array of size 8759 into shape (8759,17)
+#+end_example
+
+
+
 [[file:./img/traj_real.png]]
+
 
 
 :END:
@@ -1341,9 +1362,6 @@ Geschwindigkeiten
   import matplotlib
   matplotlib.use("Agg")
   import matplotlib.pyplot as plt
-  from matplotlib import rc
-  rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
-  rc('text', usetex=True)
 
   t_plateau = [0.25, 0.2, 0.15, 0.1, 0.05, 0]
   v1 = [54.86, 51.09, 51.51, 60.8, 87.9, 130.91] 
@@ -1353,25 +1371,24 @@ Geschwindigkeiten
 
   plt.clf()
   fig, ax = plt.subplots(1,1)
-  ax.errorbar(t_plateau, v1, yerr=err1, label="B(z) = B(x) = 3.29 mT", capsize=3)
-  ax.errorbar(t_plateau, v2, yerr=err2, label="B(z) = 3.29 mT,  B(x) = 1,19 mT", capsize=3)
+  ax.errorbar(t_plateau, v1, yerr=err1, label="$U_\mathrm{DAQ,z} = U_\mathrm{DAQ,x} = 0,4$ V", capsize=3)
+  ax.errorbar(t_plateau, v2, yerr=err2, label="$U_\mathrm{DAQ,z} = 0,4$ V,  $U_\mathrm{DAQ,x} = 0,2$ V", capsize=3)
   ax.legend()
   ax.set_xlabel("Startzeit Plateau [s]")
   ax.set_ylabel("Geschwindigkeit gr. Schritt [mT/s]")
   ax.grid()
   plt.savefig("./img/v.png", dpi=100)
+  plt.close()
 #+end_src
 
 #+RESULTS:
 
 :END: 
- 
+
 #+caption: Gemessene Partikelgeschwindigkeiten für verschiedene Startzeiten des Plateaus in der angelegten Trapezspannung für eine Frequenz von 1 Hz und deren Standardabweichung vom Mittelwert.
 #+attr_latex: :placement [!h] :width .75\textwidth
 #+name: fig-img_v
 [[file:./img/v.png]]
-
-Um die Gleichgewichtsgeschwindigkeit der Partikel in einem großen Transportschritt zwischen zwei Domänenwänden (im Folgenden nur noch Transportschritt genannt) zu berechnen, wird die zuvor aufgenommene csv-Datei in einem Pythonscript cite:holzinger_pythonscript_nodate-1 eingelesen. Zunächst werden die Trajektorien der Partikel während der gesamten Aufnahme anhand der bekannten Frequenz des externen Magnetfeldes in einzelne Transportschritte aufgeteilt. Um die Geschwindigkeit der einzelnen Schritte zu bestimmen wird zunächst eine gaußsche Fehlerfunktion an die gemessenen Werte gefittet. Unzureichend genaue Fits werden nicht weiter betrachtet. Da die Ableitung der gaußschen Fehlerfunktion eine gaußsche Glockenkurve ist, lässt sich durch Ableiten der einzelnen  Fitfunktionen die durchschnittliche Geschwindigkeit des Partikels für einen Schritt bestimmen. Der Mittelwert dieser durchschnittlichen Gleichgewichtsgeschwindigkeiten für alle erfolgreich gefitteten Transportschritte der Partikel in einer Messung wird schließlich vom Programm ausgegeben.
 
 * TODO Zusammenfassung und Ausblick label:sec-zusammenfassung
 # Beliebige Magnetfeldsequenzen
