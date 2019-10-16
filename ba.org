@@ -363,7 +363,7 @@ Mit ausreichender Steilheit der Hysteresekurve und einer Verschiebung um das Aus
 
 Da der EB-Effekt ein Grenzflächeneffekt ist, ist die Stärke des Austauschwechselfeldes antiproportional zur ferromagnetischen Schichtdicke cite:hohler_exchange_2008.
 
-Der linke und rechte Schnittpunkt der Hysteresekurve $H_\mathrm{L}$ und $H_\mathrm{R}$ werden verwendet um die Magnetische Feldstärke des Austauschwechselfeldes $H_\mathrm{EB}$, sowie das Koerzitivfeld $H_\mathrm{C}$ wie folgt zu definieren:
+Der linke und rechte Schnittpunkt der Hysteresekurve $H_\mathrm{L}$ und $H_\mathrm{R}$ werden verwendet, um die magnetische Feldstärke des Austauschwechselfeldes $H_\mathrm{EB}$, sowie das Koerzitivfeld $H_\mathrm{C}$ wie folgt zu definieren:
 
 \begin{equation}
 H_\mathrm{EB} = \frac{H_\mathrm{R}+ H_\mathrm{L}}{2} \quad H_\mathrm{C} = \frac{H_\mathrm{R} - H_\mathrm{L}}{2}
@@ -371,7 +371,7 @@ H_\mathrm{EB} = \frac{H_\mathrm{R}+ H_\mathrm{L}}{2} \quad H_\mathrm{C} = \frac{
 
 Das Austauschverschiebungsfeld $H_\mathrm{EB}$ kann also aus der Verschiebung des Mittelpunktes der Hysterese von der y-Achse bestimmt werden cite:meiklejohn_new_1957. 
 
-Einerseits kann eine unidirektionale Anisotropie durch Anwesenheit eines externen Magnetfeldes während dem epitaktischen Wachstum bewirkt werden, andererseits durch einen Feldkühlprozess, an welchem Nachfolgend eine Begründung für den EB-Effekt geliefert wird: Die Hysteresekurve eines EB-Systems (Abbildung ref:fig-eb links in magenta) ist um das Austauschwechselfeld $H_\mathrm{EB}$ verschoben im Vergleich zum alleinigen Ferromagneten (grau gestrichelt). Der Grund hierfür sind die magnetischen Momente des AF an der Grenzfläche, welche durch Kopplung an die magnetischen Momente des F die magnetischen Momente im F daran hindern sich zu drehen. Während des Feldkühlprozesses wird die Probe auf eine Temperatur zwischen Néel-Temperatur und Curie-Temperatur gebracht, hier verhält sich der AF paramagnetisch, während der F weiterhin seine ferromagnetischen Eigenschaften behält, so dass seine Magnetisierung innerhalb des externen Feldes gezielt ausgerichtet werden kann (Abb. ref:fig-eb rechts oben). Anschließend wird die Temperatur unter die Néel-Temperatur verringert. Die magnetischen Momente im AF koppeln an der Grenzfläche an die magnetischen Momente des gesättigten Ferromagneten (Abb. ref:fig-eb rechts unten). So wird eine magnetische Ordnung hergestellt, welche die unidirektionale Anisotropie im Ferromagneten bewirkt cite:merkel_einfluss_2018.
+Einerseits kann eine unidirektionale Anisotropie durch Anwesenheit eines externen Magnetfeldes während dem epitaktischen Wachstum bewirkt werden, andererseits durch einen Feldkühlprozess, an welchem nachfolgend eine Begründung für den EB-Effekt geliefert wird: Die Hysteresekurve eines EB-Systems (Abbildung ref:fig-eb links in magenta) ist um das Austauschwechselfeld $H_\mathrm{EB}$ verschoben im Vergleich zum alleinigen Ferromagneten (grau gestrichelt). Der Grund hierfür sind die magnetischen Momente des AF an der Grenzfläche, welche durch Kopplung an die magnetischen Momente des F die magnetischen Momente im F daran hindern sich zu drehen. Während des Feldkühlprozesses wird die Probe auf eine Temperatur zwischen Néel-Temperatur und Curie-Temperatur gebracht, hier verhält sich der AF paramagnetisch, während der F weiterhin seine ferromagnetischen Eigenschaften behält, sodass seine Magnetisierung innerhalb des externen Feldes gezielt ausgerichtet werden kann (Abb. ref:fig-eb rechts oben). Anschließend wird die Temperatur unter die Néel-Temperatur verringert. Die magnetischen Momente im AF koppeln an der Grenzfläche an die magnetischen Momente des gesättigten Ferromagneten (Abb. ref:fig-eb rechts unten). So wird eine magnetische Ordnung hergestellt, welche die unidirektionale Anisotropie im Ferromagneten bewirkt cite:merkel_einfluss_2018.
 
 Durch die Polykristallinität der in dieser Arbeit verwendeten Proben müssen diese im Feldkühlprozess statt auf die Néel-Temperatur $T_\mathrm{N}$ nur auf die niedrigere materialabhängige *Blocking-Temperatur* $T_\mathrm{B}$ erhitzt werden. Die AF-Körner der polykristallinen Schicht verhalten sich hier superparamagnetisch cite:ogrady_new_2010,bean_superparamagnetism_1959.
 
@@ -381,19 +381,20 @@ Durch die Polykristallinität der in dieser Arbeit verwendeten Proben müssen di
 #+attr_org: :width 50px
 [[file:img/eb.png]]
 
-Um in einem wie in dieser Arbeit verwendeten polykristallinen System ein Austauschwechselfeld zu bewirken, wird 
-Durch Helium-Ionenbeschuss kann der EB-Effekt eines Schichtsystems verändert werden. So kann zum Beispiel die Richtung des Austauschverschiebungsfeldes lokal umgekehrt werden cite:mougin_local_2001. Hierzu kann eine Schattenmaske mittels Lithographie auf die Probe gebracht werden, um anschließend lokal das Eindringen von Ionen zu verhindern. Dies ermöglicht magnetische Strukturierung von EB-Systemen, zum Beispiel in einer /in-plane/ Anisotropie, welche zu /head-to-head/ und /tail-to-tail/-Domänenwänden in einer Streifenstruktur führt, womit wiederum Transport von superparamagnetischen Partikeln realisiert werden kann cite:holzinger_directed_2015.
+Um in einem, wie in dieser Arbeit verwendeten polykristallinen System ein Austauschwechselfeld zu bewirken, wird 
+
+Durch Helium-Ionenbeschuss kann der EB-Effekt eines Schichtsystems verändert werden. So kann zum Beispiel die Richtung des Austauschverschiebungsfeldes lokal umgekehrt werden cite:mougin_local_2001. Hierzu kann eine Schattenmaske mittels Lithographie auf die Probe gebracht werden, um anschließend lokal das Eindringen von Ionen zu verhindern. Dies ermöglicht die magnetische Strukturierung von EB-Systemen, zum Beispiel in einer /in-plane/ Anisotropie, welche zu /head-to-head/ und /tail-to-tail/-Domänenwänden in einer Streifenstruktur führt, womit wiederum Transport von superparamagnetischen Partikeln realisiert werden kann cite:holzinger_directed_2015.
 
 ** TODO Partikeltransport label:sec-partikeltransport
-Superparamagnetische Partikel (SPP) lassen sich durch Verwendung von den zuvor beschriebenen streifenstrukturierten (hh und tt) EB-Systemen (im Vergleich zum Transport über nichtmagnetischen Substraten) in kontrollierten Abständen zum Substrat und in geordneter Reihenform transportieren. Dabei setzt sich das effektive Magnetfeld, das die Partikel erfahren, aus der Magnetfeldlandschaft des Exchange-Bias Systems und dem externen Magnetfeld zusammen cite:holzinger_directed_2015:
+Superparamagnetische Partikel (SPP) lassen sich durch Verwendung von den zuvor beschriebenen streifenstrukturierten (hh und tt) EB-Systemen in kontrollierten Abständen zum Substrat und in geordneter Reihenform transportieren. Dabei setzt sich das effektive Magnetfeld, das die Partikel erfahren, aus der Magnetfeldlandschaft des Exchange-Bias Systems und dem externen Magnetfeld zusammen cite:holzinger_directed_2015:
  
 \begin{equation}
 \vec{H}_\mathrm{eff} = \vec{H}_\mathrm{MFL} + \vec{H}_\mathrm{ext}.
 \end{equation}
 
-Bei der Verwendung superparamagnetischer Partikel werden diese innerhalb des effektiven Magnetfeldes aufmagnetisiert, so dass benachbarte Partikel parallele Magnetisierungen aufweisen, was zu ihrer magnetostatischen Abstoßung führt und die Agglomeration der Partikel verhindert. Außerdem können die Partikelgeschwindigkeiten durch Modifikation am EB-System doer externen Magnetfedl beeinflusst werden cite:holzinger_directed_2015.
+Bei der Verwendung superparamagnetischer Partikel werden diese innerhalb des effektiven Magnetfeldes aufmagnetisiert, so dass benachbarte Partikel parallele Magnetisierungen aufweisen, was zu ihrer magnetostatischen Abstoßung führt und die Agglomeration der Partikel verhindert. Außerdem können die Partikelgeschwindigkeiten durch Modifikation am EB-System doer externen Magnetfeld beeinflusst werden cite:holzinger_directed_2015.
 
-Werden SPP in wässriger Lösung ohne externes Magnetfeld auf das EB-Substrat gegeben, so positionieren sie sich in Reihen über den Domänenwänden, da die Minima der potentiellen Energie der SPP an der stelle der größten Streufelddichte liegt. Dabei befinden sie sich in einem Gleichgewichtsabstand über dem Substrat an den x-Positionen, in denen die potentielle Energielandschaft Minima besitzt. Diese Minima sind ohne externes Magnetfeld über sowohl /head-to-head/ (hh) als auch /tail-to-tail/ (tt) Domänenwänden vorhanden (vgl. Abbildung ref:fig-mfl) cite:holzinger_directed_2015.
+Werden SPP in wässriger Lösung ohne externes Magnetfeld auf das EB-Substrat gegeben, so positionieren sie sich in einem Gleichgewichtsabstand in Reihen über den Domänenwänden, da die Minima der potentiellen Energie der SPP an der Position der größten Streufelddichte liegt. Diese Minima sind ohne externes Magnetfeld über sowohl /head-to-head/ (hh) als auch /tail-to-tail/ (tt) Domänenwänden vorhanden (vgl. Abbildung ref:fig-mfl), wobei deren Entartung durch die Hinzunahme eines zusätzlichen externen Magnetfeldes durch die Superposition zum effektiven Magnetfeld aufgehoben wird cite:holzinger_directed_2015.
 
 #+name:fig-mfl
 #+caption: Schematische Darstellung der potentiellen Energielandschaft $U_\mathrm{SPP,z(x,y)}$ superparamagnetischer Partikel über einer EB-Streifendomänenstruktur. Das magnetische Moment der Partikel ist parallel zur Magnetfeldlandschaft ausgerichtet und die Partikel befinden sich in Reihen über den /head-to-head/ (hh) und /tail-to-tail/ (tt) Domänenwänden. Aus cite:holzinger_transport_2015.
@@ -401,18 +402,31 @@ Werden SPP in wässriger Lösung ohne externes Magnetfeld auf das EB-Substrat ge
 #+attr_org: :width 100px
 [[file:img/mfl.png]]
 
-Der Transport von superparamagnetischen Partikeln über Exchange-Bias-Systeme erfolgt durch zeitliche Veränderungen der magnetischen Potentiallandschaft über der Probe. Die Partikel positionieren sich in Abwesenheit eines externen Feldes in Reihen über alle Domänenwände verteilt (vgl. Abbildung ref:fig-mfl). Der genaue Transportvorgang kann in Abbildung ref:fig-transport nachverfolgt werden. Durch Einschalten des Magnetfeldes $H_\mathrm{z}$ wird die Magnetfeldlandschaft über den Domänenwänden verändert. hh-Domänenwände werden energetisch begünstigt und die Partikel bewegen sich ungeleitet in Richtung dieser (a). So bilden sich Reihen aus SPP, welche jeweils die doppelte Domänenbreite voneinander entfernt sind. Der Vorzeichenwechsel von $H_\mathrm{x,max}$ bewirkt eine Verschiebung der Magnetfeldlandschaft in x-Richtung, welche das magnetische Moment der SPP leicht in Richtung nächster Domänenwand kippt (b), so dass nach erneuter Umpolung von $H_\mathrm{z,max}$ das magnetische Moment in die entgegengesetzte Richtung drehen kann, und das Partikel eine Vorzugsrichtung hat, in die es sich bewegt. Andererseits würden die Partikel zufällig in eins der beiden benachbarten Energieminima wandern. Die Minima der Energielandschaft verschieben sich auf die nächstgelegene Domänenwand, da nun statt hh-Domänenwänden die tt-Domänenwände energetisch günstiger sind (c). Anschließend wird der Prozess mit umgekehrten Vorzeichen durchgeführt (d) und die Partikel befinden sich dann erneut über einer hh-Domänenwand (e) cite:holzinger_directed_2015. 
+Ausgehend von der Positionierung der SPP in Reihen über alle Domänenwände verteilt, erfolgt der Transport von superparamagnetischen Partikeln über EB-Systeme erfolgt durch zeitliche Veränderungen der magnetischen Potentiallandschaft über der Probe (vgl. Abbildung ref:fig-mfl). Der genaue Transportvorgang kann in Abbildung ref:fig-transport nachverfolgt werden. Durch Einschalten des Magnetfeldes $H_\mathrm{z}$ wird die effektive Magnetfeldlandschaft über den Domänenwänden verändert. hh-Domänenwände werden energetisch begünstigt und die Partikel bewegen sich ungeleitet in Richtung dieser (a). So bilden sich Reihen aus SPP, welche jeweils die doppelte Domänenbreite voneinander entfernt sind. Der Vorzeichenwechsel von $H_\mathrm{x}$ bewirkt eine Verschiebung der Magnetfeldlandschaft in x-Richtung, welche das magnetische Moment der SPP leicht in Richtung nächster Domänenwand kippt und einen kleinen Transportschritt bewirtk (b). Nach erneuter Umpolung von $H_\mathrm{z}$ dreht sich das magnetische Moment in die entgegengesetzte Richtung, da das Partikel durch den kleinen Transportschritt eine Vorzugsrichtung hat, in die es sich bewegt. Ohne die x-Komponente des externen Magnetfeldes würden die Partikel zufällig in eins der beiden benachbarten Energieminima während der Umpolung von $H_\mathrm{z}$ wandern. Die Minima der Energielandschaft verschieben sich auf die nächstgelegene Domänenwand, da nun statt hh-Domänenwänden die tt-Domänenwände energetisch günstiger sind (c). Anschließend wird der Prozess mit umgekehrten Vorzeichen durchgeführt (d) und die Partikel befinden sich dann erneut über einer hh-Domänenwand (e) cite:holzinger_directed_2015. 
 
-Die SPP bewegen sich mit einer Gleichgewichtsgeschwindigkeit welche sich zwischen der magnetischen Kraft $F_\mathrm{M}$ und der Reibungskraft $F_\mathrm{R}$ einstellt, mit der Dichte $\rho_\mathrm{SPP}$ und dem Volumen $V_\mathrm{SPP}$ der Partikel gilt cite:holzinger_transport_2015: 
+Auf SPP in mikrofluidischer Umgebung über einem EB-System wirken verschiedene Kräfte (vgl. Abbildung ref:fig-force_spp). Dabei sind die Oberflächenkräfte dafür verantwortlich, dass die Partikel trotz ihrer Masse nicht auf die Oberfläche sedimentieren.  Stattdessen stellt sich ein Gleichgewichtsabstand zur Probe ein, da van-der-Waals-Kräfte $F_\mathrm{vdw}$ und magnetostatische Kraft $F_\mathrm{m}$ anziehend und elektrostatische Kraft $F_\mathrm{e}$ abstoßend wirken. In diesem Abstand bewegen sich die SPP nach einer Beschleunigungsphase mit der Dauer von circa $\SI{200}{\nano\s}$ mit einer Gleichgewichtsgeschwindigkeit $\vec{v}_\mathrm{SPP}$. Diese stellt sich nach Erreichen des Kräftegleichgewichts zwischen magnetischer Kraft $F_\mathrm{SPP}$ und Stokesscher Reibungskraft $F_\mathrm{R}$ ein.
 
+Die Reibungskraft
 \begin{equation}
-\rho_\mathrm{SPP} \cdot V_\mathrm{SPP} \cdot \frac{dv_\mathrm{SPP,x}}{dt} = F_\mathrm{SPP,x}(x,z) - F_\mathrm{R,x}(x,z)
+F_\mathrm{R} = 6 \cdot \pi \cdot r_\mathrm{SPP} \cdot \eta_\mathrm{L} \cdot f_\mathrm{R}(z,r_\mathrm{SPP}) \cdot \vec{v}_\mathrm{SPP}(x,y)
+\end{equation}
+ist abhängig von dem Radius der Partikel $r_\mathrm{SPP}$, der Viskosität der Flüssigkeit $\eta_\mathrm{L}$ und dem Reibungskoeffizienten $F_\mathrm{R}$ der Partikel.
+
+Die magnetische Kraft
+\begin{equation}
+F_\mathrm{SPP} = \mu_0 \cdot (\vec{m}_\mathrm{SPP}(x,z) \cdot \vec{\nabla}) \cdot \vec{H}_\mathrm{eff}(x,z)
+\end{equation}
+ist abhängig von dem magnetischen Sättigungsmoment $m_\mathrm{SPP}$ der Partikel und dem effektiven Magnetfeld $\vec{H}_\mathrm{eff}$.
+
+Folglich kann die Gleichgewichtsgeschwindigkeit wie folgt berechnet werden cite:holzinger_transport_2015: 
+\begin{equation}
+\vec{v}_\mathrm{SPP} (x,z) =
+\frac{ \mu_0 \cdot (\vec{m}_\mathrm{SPP}(x,z) \cdot \vec{\nabla}) \cdot \vec{H}_\mathrm{eff}(x,z)}
+{6 \cdot \pi \cdot r_\mathrm{SPP} \cdot \eta_\mathrm{L} \cdot f_\mathrm{R}(z,r_\mathrm{SPP})}
 \end{equation}
 
-Ein Gleichgewichtsabstand zur Probe stellt sich für die SPP ein, da van-der-Waals-Kräfte $F_\mathrm{vdw}$ und elektrostatische Kraft $F_\mathrm{e}$ anziehend und magnetostatische Kraft $F_\mathrm{m}$ abstoßend wirken.
-
 #+name:fig-force_spp
-#+caption: Schematische Darstellung der wirkenden Kräfte auf ein superparamagnetisches Partikel oberhalb des EB-Dünnschichtsystems. Zu sehen sind van-der-Waals-Kraft $F_\mathrm{vdw}$, elektrostatische Kraft $F_\mathrm{e}$ ,magnetostatische Kraft $F_\mathrm{m}$, Reibungskraft $F_\mathrm{R}$ und magnetische Kraft $F_\mathrm{M}$. Diese resultieren zusammen jeweils in die Gleichgewichtsgeschwindigkeit $v_\mathrm{SPP}$ und den Gleichgewichtsabstand $z$. Die Längen der Kraftvektoren sind zu Anschauungszwecken arbiträr gewählt.
+#+caption: Schematische Darstellung der wirkenden Kräfte auf ein superparamagnetisches Partikel oberhalb des EB-Dünnschichtsystems. Zu sehen sind van-der-Waals-Kraft $F_\mathrm{vdw}$, elektrostatische Kraft $F_\mathrm{e}$, magnetostatische Kraft $F_\mathrm{m}$, Reibungskraft $F_\mathrm{R}$ und magnetische Kraft $F_\mathrm{SPP}$. Diese resultieren zusammen jeweils in die Gleichgewichtsgeschwindigkeit $v_\mathrm{SPP}$ und den Gleichgewichtsabstand $z$. Die Längen der Kraftvektoren sind zu Anschauungszwecken arbiträr gewählt.
 #+attr_latex: :width 0.75\textwidth :placement [h]
 [[file:img/force_spp.png]]
 
@@ -424,7 +438,7 @@ Ein Gleichgewichtsabstand zur Probe stellt sich für die SPP ein, da van-der-Waa
 [[file:img/trapez.png]]
 
 * TODO Experimentelle Methoden label:sec-methoden
-
+  
 ** TODO Experimenteller Aufbau label:sec-aufbau
 
 Um den Transport von superparamagnetischen Partikeln über das Substrat zu realisieren und zu beobachten, wurde der Versuchsaufbau, der in Abbildung ref:img-aufbau zu sehen ist, verwendet.
@@ -462,7 +476,7 @@ Mit der in dieser Arbeit entwickelten ersten Version des Programms ist es bisher
 ** TODO Zeitabhängige Messung von Strom und magnetischer Flussdichte label:sec-stromundmagnet
 Um das Verhalten der im Experiment verwendeten Helmholtzspulen nachvollziehen zu können und um die gegebenen technischen Daten und Modelle zu Überprüfen, wurden Messungen des Magnetfeldes und des Stromes an eben jenen Spulen durchgeführt.
 
-Hierfür wurde einerseits der zeitliche Verlauf der Stromstärke in der Spule gemessen, um Induktivität und ohmschen Widerstand zu überprüfen. Es wurde ein Keramikwiderstand in Reihe mit der zu messenden Helmholtzspule angebracht. Über diesem Widerstand $R$ wurde nun die Spannung $U$ gemessen, indem eine NI USB-6002 Box (im folgenden /DAQ/ für /Data Acquisition/) parallel dazu angeschlossen wurde. Dieses DAQ-Gerät besitzt eine maximale Samplerate von \SI{50000}{\per\s} und eine Bittiefe von 16-bit am /Analog Input/ (AI). Damit ist dieses Gerät hinreichend geeignet für Erfassung der Messdaten. Mithilfe des Ohmschen Gesetzes lässt sich so der Strom $I$, der durch den bekannten Widerstand $R$ fließt, berechnen. Da Spule und Widerstand in Reihe geschaltet sind, fließt durch beide die selbe Stromstärke.
+Hierfür wurde einerseits der zeitliche Verlauf der Stromstärke in der Spule gemessen, um Induktivität und ohmschen Widerstand zu überprüfen. Es wurde ein Keramikwiderstand in Reihe mit der zu messenden Helmholtzspule angebracht. Über diesem Messwiderstand $R$ wurde nun die Spannung $U$ gemessen, indem eine NI USB-6002 Box (im folgenden /DAQ/ für /Data Acquisition/) parallel dazu angeschlossen wurde. Dieses DAQ-Gerät besitzt eine maximale Samplerate von \SI{50000}{\per\s} und eine Bittiefe von 16-bit am /Analog Input/ (AI). Damit ist dieses Gerät hinreichend geeignet für Erfassung der Messdaten. Mithilfe des Ohmschen Gesetzes lässt sich so der Strom $I$, der durch den bekannten Messwiderstand $R$ fließt, berechnen. Da Spule und Messwiderstand in Reihe geschaltet sind, fließt durch beide die selbe Stromstärke.
 
 #+name: fig-strommessung-aufbau
 #+caption: Schematisches Schaltbild zur zeitlich aufgelösten Strommessung am Aufbau.
@@ -486,7 +500,7 @@ Anschließend wird Kapitel ref:sec-partikelgeschwindigkeiten der Einfluss der Ä
 [[file:img/layer.png]]
 
 ** TODO Stromstärke und magnetische Flussdichte der Helmholtzspulen label:sec-b_helmholtz
-Um die verwendeten Helmholtzspulen näher charakterisieren zu können, wurde zunächst der Zusammenhang zwischen der am Netzteil angelegten Spannung und der die Spulen durchfließenden Stromstärke sowie dem daraus resultierenden Magnetfeld bestimmt.
+Um die verwendeten Helmholtzspulen näher charakterisieren zu können, wurde zunächst der Zusammenhang zwischen der am Netzteil angelegten Spannung und der die Spulen durchfließenden Stromstärke sowie der daraus resultierenden Flussdichte bestimmt.
 
 Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke $I$ und magnetischen Flussdichte $B$ gemessen. Dabei wurde die Stromstärke an einem in Reihe geschalteten Multimeter abgelesen, die magnetischen Flussdichte an einem Teslameter der Firma /Projekt Elektronik GmbH/, dessen Messkopf sich in der Probenhalterung der Helmholtzspulen zur Messung des Magnetfeldes in z-Richtung befand. Der Zusammenhang von Stromstärke und magnetischer Flussdichte sollte gemäß Gleichung ref:eq-spule linear sein, weshalb die Messwerte in Abbildung ref:fig-magnetfeldstrom durch eine lineare Regression angenähert wurden.
 
@@ -553,9 +567,7 @@ Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke $I$ und m
 
 :END:
 
-Um die Validität der Näherung für die magnetische Flussdichte von Helmholtzspulen in Abhängigkeit der Stromstärke (Gleichung ref:eq-helmholtz) für die verwendeten Spulen zu überprüfen, wurde die Gleichung nach einigen mathematischen Umformungen.
-
-Anschließend wurden die vorher gemessenen Stromstärken verwendet um die zu erwartende magnetische Flussdichte zu berechnen. Der Vergleich zwischen gemessenen und berechneten Werten ist in Abbildung ref:fig-b_helmholtz zu sehen.
+Um die Validität der Näherung für die magnetische Flussdichte von Helmholtzspulen in Abhängigkeit der Stromstärke für die verwendeten Spulen zu überprüfen, wurde Gleichung ref:eq-helmholtz verwendet, um die zu erwartende magnetische Flussdichte zu berechnen. Der Vergleich zwischen gemessenen und berechneten Werten ist in Abbildung ref:fig-b_helmholtz zu sehen.
 
 :CODE:
 #+begin_src python :session magnetfeld :results file :export none
@@ -613,15 +625,15 @@ B = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot \mu_{\mathrm{0}} \cdot \frac{N}
 \end{equation}
 
 \begin{equation}
-m = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot 4\pi \cdot 10^{-7}\si{\newton\per\square\ampere} \cdot \frac{330}{\SI{0.03}{m}} = \SI{0.00989}{\tesla\per\ampere} = \SI{9.89}{\milli\tesla\per\ampere}
+m_\mathrm{calc} = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot 4\pi \cdot 10^{-7}\si{\newton\per\square\ampere} \cdot \frac{330}{\SI{0.03}{m}} = \SI{0.00989}{\tesla\per\ampere} = \SI{9.89}{\milli\tesla\per\ampere}
 \end{equation}
 
 Die Steigung aus der linearen Regression beträgt $m_\mathrm{reg} = \SI{10.34}{\milli\tesla\per\ampere}$, die berechnete Steigung $m_\mathrm{calc} = \SI{9.89}{\milli\tesla\per\ampere}$. Dies entspricht einem relativen Fehler von $$ \frac{m_\mathrm{calc}}{m_\mathrm{reg} -m_\mathrm{calc}} = 0.045 .$$
-Anhand von Abbildung ref:fig-b_helmholtz und der Abweichung dem berechneten und gemessen Proportionalitätsfaktor $m$ wird deutlich, dass die Näherung für höhere Stromstärken nicht hinreichend genügt. Jedoch liegen für die für die standardmäßig im Partikeltransportexperiment benötigten magnetischen Flussdichten im Bereich von unter \SI{8}{\milli\tesla}, weswegen die Näherung in Zukunft im Partikeltransport Programm verwendet werden könnte, um die Amplitude der entstehenden magnetischen Flussdichte bereits im Voraus zu berechnen.
+Anhand von Abbildung ref:fig-b_helmholtz und der berechneten Abweichung zwischen dem rechnerisch ermittelten und dem Proportionalitätsfaktor $m$ aus der Regression der Messwerte wird deutlich, dass die Näherung für höhere Stromstärken nicht hinreichend genügt. Jedoch liegen die standardmäßig im Partikeltransportexperiment benötigten magnetischen Flussdichten im Bereich von unter \SI{8}{\milli\tesla}, weswegen die Näherung in Zukunft im Partikeltransport Programm verwendet werden könnte, um die Amplitude der entstehenden magnetischen Flussdichte bereits im Voraus zu berechnen.
 
-Um den zeitlichen Verlauf der Stromstärke zu bestimmen wurde der Aufbau aus Kapitel ref:sec-stromundmagnet verwendet.
+Um das in Kapitel ref:sec-spulen beschriebene Anschaltverhalten von Spulen für die im Experiment verwendeten Spulen zu charakterisieren, wurde der zeitliche Verlauf der Stromstärke unter Verwendung des Aufbau aus Kapitel ref:sec-stromundmagnet bestimmt.
 
-Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang eine Rechteckspannung mit zwei verschiedene Amplituden angelegt. Es wurden die Helmholtzspulen für x- und z-Richtung vermessen, da gegenwärtig nur zwei Spulen gleichzeitig verwendet werden. Dies ergibt die in Abbildung ref:fig-stromraw sichtbaren Messreihen.
+Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang eine Rechteckspannung mit zwei verschiedene Amplituden angelegt. Da gegenwärtig für das Experiment meist nur zwei der drei Helmholtzspulen gleichzeitig verwendet werden, wurden die Spulen für die Magnetfeldgeneration entlang der x- und z-Richtung verwendet, die der Einfachheit halber im Folgenden auch als x- und z-Spule bezeichnet werden. Dies ergibt die in Abbildung ref:fig-stromraw sichtbaren Messreihen.
 
 :CODE:
  
@@ -697,7 +709,7 @@ Zuerst wurde der zeitliche Verlauf der Stromstärke bestimmt. Dazu wurden mit de
 #+attr_latex: :width \textwidth :placement [H]
 [[file:img/strom.png]]
  
-Um eine Aussage über die Änderungsrate (Steigung) des Magnetfeldes machen zu können, ist es vorteilhaft das Verhalten für eine einzelne Periode zu betrachten. Dazu wurde der über alle zehn Perioden gemittelt. Diese gemittelten Messwerte sind zu sehen in Abbildung ref:fig-stromavg.
+Um eine Aussage über die Änderungsrate (Steigung) der Stromstärke und somit in direkter Konsequenz auch des Magnetfeldes machen zu können, ist es vorteilhaft das Verhalten für eine einzelne Periode zu betrachten. Dazu wurde der über alle zehn Perioden gemittelt. Diese gemittelten Messwerte sind zu sehen in Abbildung ref:fig-stromavg.
 
 :CODE:
 
@@ -993,7 +1005,7 @@ Auch hier wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe
 
 Auch hier sind Spitzen am Beginn des Plateaus zu sehen. Diese haben die gleichen Ursachen wie bereits für die Stromstärke genannt, und wurden deswegen erwartet, da die magnetische Flussdichte aus dem bereits gemessenen durch die Spulen fließenden Strom resultiert.
 
-Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse. Diesen kann man in Abbildung ref:fig-mag_anfang sehen.
+Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse. Dieser ist in Abbildung ref:fig-mag_anfang zu sehen.
 
 :CODE:
 
@@ -1205,7 +1217,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 
 Anhand des Verlaufs der Fitfunktionen und des $R^2$ Wertes, ist erkennbar, dass die entstehenden Magnetfelder nicht nur dem angenommenen Modell folgen, sondern noch komplexere Vorgänge in die Erzeugung der Magnetfelder hinein spielen.
 ** TODO Partikeltransport label:sec-partikelgeschwindigkeiten
-Um aus den aufgenommen Videos aus dem Partikeltransportexperiment die Trajektorien und Partikelgeschwindigkeiten zu erhalten, wird das Programm /VideoSpotTracker/ verwendet. Hierzu wurden möglichst alle sich bewegenden Partikel als /"dark spot"/ mit der Größe 3 ausgewählt, und dann mittels /"follow jumps"/ die x- und z-Positionen der einzelnen Partikel in Pixel verfolgt und in einer csv-Datei aufgezeichnet (siehe Abbildung ref:fig-videospottracker). Da die Größe eines Pixels (\SI{278}{\nano\meter}) sowie die Framerate (1000 FPS) und somit die Zeit bekannt sind, lässt sich so die Durchschnittsgeschwindigkeit der Partikel berechnen. Bewegungen in y-Richtung sind unter anderem durch ein nicht genau orthogonal zur Streifenstruktur anliegendes Magnetfeld der x-Spule zu erklären, so dass eine Komponente in y-Richtung zeigt.
+Um aus den aufgenommen Videos aus dem Partikeltransportexperiment die Trajektorien und Partikelgeschwindigkeiten zu erhalten, wird das Programm /VideoSpotTracker/ verwendet. Hierzu wurden möglichst alle sich bewegenden Partikel als /"dark spot"/ mit der Größe 3 ausgewählt, und dann mittels /"follow jumps"/ die x- und z-Positionen der einzelnen Partikel in Pixel verfolgt und in einer csv-Datei aufgezeichnet (siehe Abbildung ref:fig-videospottracker). Da die Größe eines Pixels (\SI{278}{\nano\meter}) sowie die Framerate (1000 FPS) und somit die Zeit bekannt sind, lässt sich so die Durchschnittsgeschwindigkeit der Partikel berechnen. Bewegungen in y-Richtung sind unter anderem durch ein nicht genau orthogonal zur Streifenstruktur anliegendes Magnetfeld der x-Spule zu erklären.
 
 #+name: fig-videospottracker
 #+caption: Screenshot der /Video Spot Tracker/ Software nach erfolgreicher Auswertung eines Videos. Gelb markiert sind die Trajektorien der verschiedenen Partikel, blau die Endpunkte der Partikel. Vor allem im rechten Bildbereich ist eine reihenförmige Anordnung der Partikel über den Domänenwänden erkennbar.
@@ -1272,17 +1284,17 @@ Veranschaulichung Plateauzeiten
 :END:
 
 #+name: fig-plateau
-#+caption: Trapezförmige Magnetfeldsequenzen mit verschiedenen Plateaustartzeiten. Eine Plateaustartzeit von $\SI{0}{\s}$ bedeutet es liegt eine Rechteckspannung vor. Eine Plateaustartzeit von $\SI{0.25}{\s}$ bedeutet es liegt eine Dreieckspannung für eine Frequenz $f = \SI{1}{\hertz}$ vor. Entsprechend liegen trapezförmige Wellenformen dazwischen.
+#+caption: Trapezförmige Magnetfeldsequenzen mit verschiedenen Plateaustartzeiten. Eine Plateaustartzeit von $\SI{0}{\s}$ bedeutet, dass eine Rechteckspannung vorliegt. Eine Plateaustartzeit von $\SI{0.25}{\s}$ bedeutet es liegt eine Dreieckspannung für eine Frequenz $f = \SI{1}{\hertz}$ vor. Entsprechend liegen Magnetfeldsequenzen mit unterschiedlichen Änderungsraten dazwischen.
 #+attr_latex: :width 0.75\textwidth :placement [h]
 [[file:./img/plateau.png]]
 
-Da die bisher vorausgesetzten Modelle mit den experimentellen Daten verglichen werden sollen, wurden durch Simulationsskripte Trajektorien für verschiedene Magnetfeldänderungsraten vorhergesagt. Dazu wurden zuerst Magnetfeldlandschaften mit dem /The Object Oriented MicroMagnetic Framework/ (OOMMF) cite:donahue_oommf_1999 berechnet. Anschließend kann Anhand verschiedener physikalischer Parameter der Partikel und des EB-Systems der Gleichgewichtsabstand der Partikel über der Probe berechnet werden. Dieser wird benötigt um im nächsten Schritt mittels der berechneten Magnetfeldlandschaftsdaten aus OOMMF und den Parametern des externen Magnetfeldes, die Trajektorie der Partikel während eines Transportschrittes zu bestimmen.
+Da die bisher vorausgesetzten Modelle mit den experimentellen Daten verglichen werden sollen, wurden durch Simulationsskripte Trajektorien für verschiedene Magnetfeldänderungsraten vorhergesagt cite:holzinger_transport_step_simulation_2d.py_nodate. Dazu wurden Berechnungen der Magnetfeldlandschaften mit dem /The Object Oriented MicroMagnetic Framework/ (OOMMF) cite:donahue_oommf_1999, welche in der Arbeitsgruppe bereits vorher vorlagen, verwendet. Anschließend kann Anhand verschiedener physikalischer Parameter der Partikel und des EB-Systems der Gleichgewichtsabstand der Partikel über der Probe berechnet werden. Dieser wird benötigt um im nächsten Schritt mittels der berechneten Magnetfeldlandschaftsdaten aus OOMMF und den Parametern des externen Magnetfeldes, die Trajektorie der Partikel während eines Transportschrittes zu bestimmen.
 
 # TODO Geschwindigkeit aus Simulation?
 
-Um einen Vergleich zwischen Simulation und Messung zu erhalten, wurde von selektierten Transportschritten der Partikeln eine mittlere Trajektorie gebildet. Der Vergleich zwischen realen und simulierten Trajektorien ist in Abbildung ref:fig-traj zu sehen.
+Um einen Vergleich zwischen Simulation und Messung zu erhalten, wurde von selektierten gemessenen Transportschritten der Partikeln eine mittlere Trajektorie gebildet. Der Vergleich zwischen realen und simulierten Trajektorien ist in Abbildung ref:fig-traj zu sehen.
 
-Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetfelder mit späteren Plateaustartzeiten. Da die Steigung der x-Position der Geschwindigkeit der Partikel entspricht, ist offensichtlich, dass niedrigere Magnetfeldänderungsraten auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken.
+Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetfelder mit späteren Plateaustartzeiten, d.h. niedrigeren Magnetfeldänderungsraten. Da die Steigung der x-Position der Geschwindigkeit der Partikel entspricht, ist offensichtlich, dass niedrigere Magnetfeldänderungsraten auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken.
 
 :CODE:
  Gemessene Trajektorien:
