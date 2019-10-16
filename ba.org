@@ -8,19 +8,22 @@
 
 * Fragen                                                             :ignore:
   - Wachstum (So okay ohne epitaktisch)?
-* TODO [12/15] Noch zu tun:                                          :ignore:
+* TODO [14/18] Noch zu tun:                                          :ignore:
 ** TODO Diskussion:
    - Tracking
    - Magnetfeldlandschaft aus Simulation ist idealisiert
    - Netzteil ist blackbox
-** TODO Fits passen nicht, weil nicht exponentiell. Zeigen?
-   - Gerade für Sättigung in B(I)
+** TODO Gleichgewichtsgeschwindigkeit aus Glockenkurve
 ** TODO DPI
 ** TODO Simulierte Trajektorien durch step_evaluate laufen lassen
    SCHEDULED: <2019-09-19 Do>
 ** TODO Plots von gemessenen Trajektorien
 erstmal ausgewählte, vielleicht mittelwert?
-** TODO mag_fit_fixed mir roter line mit Steigung aus regression
+** DONE mag_fit_fixed mir roter line mit Steigung aus regression
+CLOSED: [2019-10-16 Mi 22:13]
+** DONE Fits passen nicht, weil nicht exponentiell. Zeigen?
+CLOSED: [2019-10-16 Mi 22:12]
+   - Gerade für Sättigung in B(I)
 ** DONE EB genauer erklären
    CLOSED: [2019-10-15 Di 15:29]
 - [X] EB system kann genau einen makroskopisch remanenten Zustand haben, wenn die Flanken der Kurve steil genug und die Verschiebung groß genug ist. --- das ist nämlich toll an EB :)
