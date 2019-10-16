@@ -1386,6 +1386,8 @@ ValueError: cannot reshape array of size 8759 into shape (8759,17)
 #+attr_latex: :placmeent [!h] :width \textwidth
 file:./img/sim.png
 
+Ein Grund, weshalb die gemessenen Trajektorien nicht genau mit den simulierten übereinstimmen ist, dass sowohl das externe Magnetfeld, als auch der Magnetisierungszustand der Probe in der Simulation idealisiert sind. Die reale Form des Magnetfeldes kann wie bereits gezeigt nicht einfach vorhergesagt werden. Auch der Magnetisierungszustand der Streifenstruktur auf der Probe ist idealisiert. Es wird von idealen hh- und tt-Domänenwänden mit gleicher Breite ausgegangen. In Realität ist es jedoch wahrscheinlich, dass nicht alle Domänenwände gerade und parallel zu einander sind. Auch muss in Anbetracht gezogen werden, dass die Qualität der aufgenommenen Videos nicht zufriedenstellend war (siehe Abbildung ref:fig-videospottracker). Das Trackingprogramm hatte Schwierigkeiten den Partikeln zu folgen, und diese Schritte konnten dann vom Auswertungsskript nicht gefittet werden. Hier wäre ein höherer Kontrast und bessere Ausleuchtung von Vorteil.
+
 Um die Gleichgewichtsgeschwindigkeit der Partikel in einem großen Transportschritt zwischen zwei Domänenwänden (im Folgenden nur noch Transportschritt genannt) zu berechnen, wird die zuvor aufgenommene csv-Datei in einem Pythonscript cite:holzinger_pythonscript_nodate-1 eingelesen. Zunächst werden die Trajektorien der Partikel während der gesamten Aufnahme anhand der bekannten Frequenz des externen Magnetfeldes in einzelne Transportschritte aufgeteilt. Um die Geschwindigkeit der einzelnen Schritte aus den Trajektorien zu bestimmen wird zunächst eine gaußsche Fehlerfunktion an die gemessenen Werte gefittet. Unzureichend genaue Fits werden nicht weiter betrachtet. Da die Ableitung der gaußschen Fehlerfunktion eine gaußsche Glockenkurve ist, lässt sich durch Ableiten der einzelnen Fitfunktionen die maximale Geschwindigkeit des Partikels für einen Schritt bestimmen. Der Mittelwert dieser maximalen Gleichgewichtsgeschwindigkeiten $v$ für alle erfolgreich gefitteten Transportschritte der Partikel in einer Messung wird schließlich unter anderem vom Programm ausgegeben.
 
 In Abbildung ref:fig-img_v sind die Gleichgewichtsgeschwindigkeiten der Partikel für unterschiedliche Plateaustartzeiten und als Fehler die Standardabweichung vom Mittelwert der Stichprobe vom Mittelwert aller Werte aufgetragen.
@@ -1425,8 +1427,10 @@ Geschwindigkeiten
 #+name: fig-img_v
 [[file:./img/v.png]]
 
-Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfeldes auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken. 
-# Vektorsumme magnetfelder
+Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfeldes auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken. Dies kann unter anderem dadurch erklärt werden, dass der Betrag des Magnetfeldvektors in x- und z-Richtung durch die niedrigeren Steigungen kleiner wird. Die Magnetfeldlandschaft wird also effektiv weniger beeinflusst. Sichtbar ist dies in Abbildung ref:fig-betrag.
+
+# Vektor beträge magnetfelder
+
 * TODO Zusammenfassung und Ausblick label:sec-zusammenfassung
 # Beliebige Magnetfeldsequenzen
 # Trigger Camera
