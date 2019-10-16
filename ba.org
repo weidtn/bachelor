@@ -7,7 +7,7 @@
 #+EXCLUDE_TAGS: ignore
 
 * Fragen                                                             :ignore:
-  - Formel v_SPP Gradient?
+  - Wachstum (So okay ohne epitaktisch)?
 * TODO [12/15] Noch zu tun:                                          :ignore:
 ** TODO Diskussion:
    - Tracking
