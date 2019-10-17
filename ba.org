@@ -607,9 +607,9 @@ m_\mathrm{calc} = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot 4\pi \cdot 10^{-7
 Die Steigung aus der linearen Regression beträgt $m_\mathrm{reg} = \SI{10.34}{\milli\tesla\per\ampere}$, die berechnete Steigung $m_\mathrm{calc} = \SI{9.89}{\milli\tesla\per\ampere}$. Dies entspricht einem relativen Fehler von $$ \frac{m_\mathrm{calc}}{m_\mathrm{reg} -m_\mathrm{calc}} = 0.045 .$$
 Anhand von Abbildung ref:fig-b_helmholtz und der berechneten Abweichung zwischen dem rechnerisch ermittelten und dem Proportionalitätsfaktor $m$ aus der Regression der Messwerte wird deutlich, dass die Näherung für höhere Stromstärken nicht hinreichend genügt. Jedoch liegen die standardmäßig im Partikeltransportexperiment benötigten magnetischen Flussdichten im Bereich von unter \SI{8}{\milli\tesla}, weswegen die Näherung in Zukunft im Partikeltransport Programm verwendet werden könnte, um die Amplitude der entstehenden magnetischen Flussdichte bereits im Voraus zu berechnen.
 
-Um das in Kapitel ref:sec-spulen beschriebene Anschaltverhalten von Spulen für die im Experiment verwendeten Spulen zu charakterisieren, wurde der zeitliche Verlauf der Stromstärke unter Verwendung des Aufbau aus Kapitel ref:sec-stromundmagnet bestimmt.
+Um das in Kapitel ref:sec-spulen beschriebene Anschaltverhalten von Spulen für die im Experiment verwendeten Spulen zu charakterisieren, wurde der zeitliche Verlauf der Stromstärke unter Verwendung des Aufbaus aus Kapitel ref:sec-stromundmagnet bestimmt.
 
-Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang eine Rechteckspannung mit zwei verschiedene Amplituden angelegt. Da gegenwärtig für das Experiment meist nur zwei der drei Helmholtzspulen gleichzeitig verwendet werden, wurden die Spulen für die Magnetfeldgeneration entlang der x- und z-Richtung verwendet, die der Einfachheit halber im Folgenden auch als x- und z-Spule bezeichnet werden. Dies wird exemplarisch für eine Amplitude in Abbildung ref:fig-stromraw gezeigt.
+Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang eine Rechteckspannung bei einer Frequenz von \SI{1}{\hertz} mit zwei verschiedene Amplituden (\SI{0.4}{\volt} und \SI{0.2}{\volt}) angelegt. Da gegenwärtig für das Experiment meist nur zwei der drei Helmholtzspulen gleichzeitig verwendet werden, wurden die Spulen für die Magnetfeldgeneration entlang der x- und z-Richtung verwendet, die der Einfachheit halber im Folgenden auch als x- und z-Spule bezeichnet werden. Dies wird exemplarisch für eine Amplitude in Abbildung ref:fig-stromraw gezeigt.
 
 :CODE:
  
@@ -663,14 +663,16 @@ Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang ein
   # ax[0,1].plot(datalist[1]) #, '.', markersize=4)
   # ax[1,0].plot(datalist[2]) #, '.', markersize=4)
   # ax[1,1].plot(datalist[3]) #, '.', markersize=4)
-  ax[0].plot(datalist[0])
-  ax[1].plot(datalist[0])
+  t0 = np.linspace(0,len(datalist[0])/48000,len(datalist[0]))
+  t1 = np.linspace(0,len(datalist[1])/48000,len(datalist[1]))
+  ax[0].plot(t0,datalist[0])
+  ax[1].plot(t1,datalist[1])
   ax[0].set_title("x")
   ax[1].set_title("z")
   ax[0].set_ylabel("$I$ [A]")
   ax[1].set_ylabel("$I$ [A]")
   # ax[1,0].set_xlabel("Datenpunkte")
-  ax[1].set_xlabel("Datenpunkte")
+  ax[1].set_xlabel("Zeit [s]")
   # ax[1,1].set_xticks(np.arange(0,500000,step=150000))
   plt.tight_layout()
   plt.savefig("./img/strom.png", dpi=100)
@@ -687,7 +689,7 @@ Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang ein
 #+attr_latex: :width 0.75\textwidth :placement [H]
 [[file:img/strom.png]]
  
-Um eine Aussage über die Änderungsrate (Steigung) der Stromstärke und somit in direkter Konsequenz auch des Magnetfeldes machen zu können, ist es vorteilhaft das Verhalten für eine einzelne Periode zu betrachten. Dazu wurde der über alle zehn Perioden gemittelt. Diese gemittelten Messwerte sind zu sehen in Abbildung ref:fig-stromavg.
+Um eine Aussage über die Änderungsrate (Steigung) der Stromstärke und somit in direkter Konsequenz auch des Magnetfeldes machen zu können, ist es vorteilhaft das Verhalten für eine einzelne Periode zu betrachten. Dazu wurde über alle zehn Perioden der Messung gemittelt. Diese gemittelten Messwerte sind zu sehen in Abbildung ref:fig-stromavg.
 
 :CODE:
 
@@ -703,9 +705,11 @@ Um eine Aussage über die Änderungsrate (Steigung) der Stromstärke und somit i
   fig, ax = plt.subplots(2,1, sharex=True, sharey="row")
   ax[0].set_title("x")
   ax[0].set_ylabel("$I$ [A]")
-  ax[1].set_xlabel("Datenpunkte")
-  ax[0].plot(avglist[0], '.', markersize=3)
-  ax[1].plot(avglist[1], '.', markersize=3)
+  ax[1].set_xlabel("Zeit [s]")
+  t0 = np.linspace(0,len(avglist[0])/48000, len(avglist[0]))
+  t1 = np.linspace(0,len(avglist[1])/48000, len(avglist[1]))
+  ax[0].plot(t0,avglist[0], '.', markersize=3)
+  ax[1].plot(t1,avglist[1], '.', markersize=3)
   # ax[1,0].plot(avglist[2], '.', markersize=3)
   # ax[1,1].plot(avglist[3], '.', markersize=3)
   ax[1].set_title("z")
@@ -727,9 +731,9 @@ Um eine Aussage über die Änderungsrate (Steigung) der Stromstärke und somit i
 #+attr_latex: :width .75\textwidth :placement [H]
 [[file:img/strom_avg.png]]
 
-Vor allem für die Strommessungen der x-Spule sieht man klar eine Spitze zu Beginn der Plateaus. Dies ist wahrscheinlich auf das spannungsgesteuerte Netzteil zurückzuführen, welches einen konstanten Strom erzeugen soll. Jedoch ist durch die Impedanz der Spule bei abrupten Änderungen des Stromes ein hoher Blindwiderstand vorhanden, welcher durch das Netzteil versucht wird zu kompensieren. Da der Blindwiderstand dann wieder sinkt "übersteuert" das Netzteil und erreicht eine höhere Stromstärke als eigentlich angestrebt. Da sich die Stromstärke im Plateau zunächst nicht mehr ändert, passt das Netzteil den Ausgangsstrom an, und erreicht die gewünschte Amplitude.
+Vor allem für die Strommessungen der x-Spule ist klar eine Spitze zu Beginn der Plateaus sichtbar. Dies ist wahrscheinlich auf das spannungsgesteuerte Netzteil zurückzuführen, welches einen konstanten Strom erzeugen soll. Jedoch ist durch die Impedanz der Spule bei abrupten Änderungen des Stromes ein hoher Blindwiderstand vorhanden, welchem das Netzteil im Stromregelungsbetrieb durch Ausgabe höherer Spannungen entgegen zu wirken versucht. Da der Blindwiderstand dann wieder sinkt "übersteuert" das Netzteil und es wird eine Stromstärke erreicht als angestrebt. Da sich die Stromstärke im Plateau zunächst nicht mehr ändert, passt das Netzteil den Ausgangsstrom an, und erreicht die gewünschte Amplitude.
 
-Da vor allem das Einschaltverhalten der Spulen von Interesse ist, wurde der Beginn der Perioden, in dem die Stromstärke auf das Maximum ansteigt, genauer betrachtet.
+Da vor allem das beschriebene Einschaltverhalten der Spulen von Interesse ist, wurde der Beginn der gemittelten Periode, in dem die Stromstärke auf das Maximum ansteigt, genauer betrachtet.
 :CODE:
 #+begin_src python :session strom :results output
   plt.clf()
@@ -762,7 +766,7 @@ Da vor allem das Einschaltverhalten der Spulen von Interesse ist, wurde der Begi
 # #+attr_latex: :width \textwidth :placement [H]
 # [[file:img/strom_anfang.png]]
 
-Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten. Die Messwerte, Fitkurven und -parameter sind in Abbildung ref:fig-stromfit dargestellt. Die untere linke Kurve hat eine andere Form als die restlichen Kurven. Dies ist auf ein starkes Rauschen während des ersten Einschaltens zurückzuführen.
+Anschließend wurden die Messwerte durch eine Fitfunktion basierend auf Gleichung ref:eq-strom-spule angenähert. Die Messwerte, Fitkurven und -parameter sind in Abbildung ref:fig-stromfit dargestellt. Die Messung der x-Spule mit der größeren Amplitude hat eine andere Form als die restlichen Kurven. Dies ist auf ein starkes Rauschen während des ersten Einschaltens zurückzuführen.
 
 :CODE:
 
@@ -799,8 +803,8 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
           ax[1,i-2].plot(data[:cut], '.', markersize=2, label="Messwerte")
           ax[1,i-2].plot(I_fixed(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}")
           ax[1,i-2].legend()
-  ax[1,0].set_xlabel("Datenpunkte")
-  ax[1,1].set_xlabel("Datenpunkte")
+  ax[1,0].set_xlabel("Zeit [s]")
+  ax[1,1].set_xlabel("Zeit [s]")
   ax[0,0].set_ylabel("$I$ [A]")
   ax[1,0].set_ylabel("$I$ [A]")
   plt.tight_layout()
@@ -833,16 +837,17 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
       ss_tot = np.sum((y-np.mean(y))**2)
       r2 = 1 - (ss_res / ss_tot)
       print(f"")
+      t  = np.linspace(0,500/48000,len(data[:cut]))
       if i < 2:
-          ax[0,i].plot(data[:cut], '.', markersize=2, label="Messwerte")
-          ax[0,i].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}, R={popt[1]:.3}, L={popt[2]:.3}, $R^2$ = {r2:.3f}")
+          ax[0,i].plot(t,data[:cut], '.', markersize=2, label="Messwerte")
+          ax[0,i].plot(t,I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3} V, R={popt[1]:.3} \n $\Omega$, L={popt[2]:.3} H, $R^2$ = {r2:.3f}")
           ax[0,i].legend()
       else:
-          ax[1,i-2].plot(data[:cut], '.', markersize=2, label="Messwerte")
-          ax[1,i-2].plot(I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}, R={popt[1]:.3}, L={popt[2]:.3}, $R^2$ = {r2:.3f}")
+          ax[1,i-2].plot(t,data[:cut], '.', markersize=2, label="Messwerte")
+          ax[1,i-2].plot(t,I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3} V, R={popt[1]:.3} \n $\Omega$, L={popt[2]:.3} H, $R^2$ = {r2:.3f}")
           ax[1,i-2].legend()
-  ax[1,0].set_xlabel("Datenpunkte")
-  ax[1,1].set_xlabel("Datenpunkte")
+  ax[1,0].set_xlabel("Zeit [s]")
+  ax[1,1].set_xlabel("Zeit [s]")
   ax[0,0].set_ylabel("$I$ [A]")
   ax[1,0].set_ylabel("$I$ [A]")
   ax[0,0].set_title("x")
@@ -851,7 +856,6 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
   plt.savefig("./img/strom_fit.png")
   plt.close()
   "./img/strom_fit.png"
-
 #+end_src
 
 #+RESULTS:
@@ -863,7 +867,7 @@ Anschließend wurde versucht Gleichung ref:eq-strom-spule an die Kurve zu fitten
 #+attr_latex: :width \textwidth :placement [h]
 [[file:img/strom_fit.png]]
 
-In den Graphen ist deutlich zu erkennen, dass keine ausreichend genauen Parameter für die Fitfunktion gefunden werden konnten. Vor allem zu Beginn der Messung scheint das reale Einschaltverhalten vom erwarteten Einschaltverhalten abzuweichen. Gleichung ref:eq-strom-spule setzt einen konstanten Widerstand $R$ voraus. Jedoch ist durch die hohe Änderungsrate des Stromes ein komplexer induktiver Blindwiderstand vorhanden. Hinzu kommt das bereits vorher genannte "Übersteuern" des Netzteiles, wenn gegen eben jenen Blindwiderstand anstrebt wird die Stromstärke konstant zu halten. Durch diese beiden Effekte sind Widerstand und Spannung während des Einschaltvorganges nicht konstant, und es müssten komplexere Modelle hinzugezogen werden, um den genauen Verlauf der Stromstärke vorhersagen zu können. Des Weiteren ist unbekannt wie das Netzteil aufgebaut ist, welche elektrischen Bauteile darin verwendet werden, und so eventuell zu der Induktivität des Aufbaus beitragen. Das Netzteil allein gibt bereits ohne zusätzliche Spulen keine sofortige maximale Spannung aus. Dies wurde überprüft, indem das Netzteil nur an einen $\SI{12.5}{\ohm}$ Widerstand angeschlossen wurde und die darüber abfallende Spannung ohne Helmholtzspule gemessen wurde. Der Einschaltvorgang dieser Messung ist dargestellt in Abbildung ref:fig-12ohm. Wegen des ohmschen Gesetzes ist die Stromstärke proportional zur gemessenen Spannung und zeigt die selbe Form. Außerdem wird deutlich, dass die Auflösung des DAQ-Gerätes anscheinend zu gering ist, um die schnellen Änderungen während des Einschaltens genau darstellen zu können.
+In den Graphen ist zu erkennen, dass der Kurvenverlauf der Stromstärke beim Einschalten prinzipiell dem theoretisch vorhergesagten Einschaltverhalten aus Gleichung ref:eq-strom-spule entspricht. Dennoch sind keine ausreichend genauen Parameter für die Fitfunktion gefunden worden. Vor allem zu Beginn der Messung weicht das reale Einschaltverhalten vom erwarteten Einschaltverhalten ab, da das Netzteil aufgrund der Stromregelung keine konstante Spannung ab Zeitpunkt des Einschaltens ausgibt, sondern diese regelt, um einen konstanten Strom zu erzielen. Hinzu kommt, dass Gleichung ref:eq-strom-spule nur einen konstanten ohmschen Widerstand voraus setzt. Jedoch werden durch die hohe Änderungsrate des Stromes große Gegenströme induziert, welche als Blindwiderstand wirken. Deswegen kann Gleichung ref:eq-strom-spule nur näherungsweise hinzugezogen werden, und es ist nicht möglich die reellen Vorgänge damit zu beschreiben. Durch diese beiden Effekte müssten komplexere Modelle hinzugezogen werden, um den genauen Verlauf der Stromstärke vorhersagen zu können. Des Weiteren ist unbekannt wie das Netzteil aufgebaut ist, welche elektrischen Bauteile darin verwendet werden, und so eventuell zu der Induktivität des Aufbaus beitragen. Das Netzteil allein gibt bereits ohne zusätzliche Spulen keine sofortige maximale Spannung aus. Dies wurde überprüft, indem das Netzteil nur an einen $\SI{12.5}{\ohm}$ Widerstand angeschlossen wurde und die darüber abfallende Spannung ohne Helmholtzspule gemessen wurde. Der Einschaltvorgang dieser Messung ist dargestellt in Abbildung ref:fig-12ohm. Wegen des ohmschen Gesetzes ist die Stromstärke proportional zum am Widerstand gemessenen Spannungsabfall und zeigt die selbe Form. Außerdem wird deutlich, dass die Auflösung des DAQ-Gerätes anscheinend zu gering ist, um die schnellen Änderungen während des Einschaltens genau darstellen zu können.
 
 :CODE:
 Spannung nur Widerstand, keine Spulen
@@ -876,13 +880,15 @@ Spannung nur Widerstand, keine Spulen
 
   filename = "./Messung/current_12,5Ohm_noCoil.csv"
   current = np.loadtxt(filename)
-  x1 = (35000)
+  x1 = 35000
   x2 = x1 + 500
   xlim = (x1, x2)
   plt.clf()
-  plt.plot(current, '.')
-  plt.xlim(xlim)
-  plt.xlabel("Datenpunkte")
+  current = current[x1:x2]
+  x = np.linspace(0,1,len(current))
+  plt.plot(x, current, '.')
+  # plt.xlim(xlim)
+  plt.xlabel("Zeit [s]")
   plt.ylabel("$U$ [V]")
   plt.tight_layout()
   plt.savefig("./img/12,5ohm.png")
@@ -947,15 +953,17 @@ Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgef
       datalist[i] = data
 
   fig, ax = plt.subplots(2,1, sharex=True)
-  ax[0].plot(datalist[0]*10)
-  ax[1].plot(datalist[1]*10)
+  t0 = np.linspace(0, len(datalist[0])/48000, len(datalist[0]))
+  t1 = np.linspace(0, len(datalist[1])/48000, len(datalist[1]))
+  ax[0].plot(t0,datalist[0]*10)
+  ax[1].plot(t1,datalist[1]*10)
   # ax[1,0].plot(datalist[2]*10)
   # ax[1,1].plot(datalist[3]*10)
   ax[0].set_title("x")
   ax[1].set_title("z")
   ax[0].set_ylabel("$B$ [mT]")
   ax[1].set_ylabel("$B$ [mT]")
-  ax[1].set_xlabel("Datenpunkte")
+  ax[1].set_xlabel("Zeit [s]")
   # ax[1,1].set_xlabel("Datenpunkte")
   # ax[1,1].set_xticks(np.arange(0,500000,step=150000))
   plt.tight_layout()
@@ -987,11 +995,13 @@ Auch hier wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe
       avglist.append(avg)
   plt.clf()
   fig, ax = plt.subplots(2,1, sharex=True)
+  t0 = np.linspace(0, len(avglist[0])/48000, len(avglist[0]))
+  t1 = np.linspace(0, len(avglist[1])/48000, len(avglist[1]))
   ax[0].set_title("x")
   ax[0].set_ylabel("$B$ [mT]")
-  ax[1].set_xlabel("Datenpunkte")
-  ax[0].plot(avglist[0]*10, '.', markersize=3)
-  ax[1].plot(avglist[2]*10, '.', markersize=3)
+  ax[1].set_xlabel("Zeit [s]")
+  ax[0].plot(t0,avglist[0]*10, '.', markersize=3)
+  ax[1].plot(t1,avglist[2]*10, '.', markersize=3)
   # ax[1,0].plot(avglist[1]*10, '.', markersize=3)
   # ax[1,1].plot(avglist[3]*10, '.', markersize=3)
   ax[1].set_title("z")
@@ -1027,7 +1037,8 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
   ax[0,0].set_title("x")
   ax[0,0].set_ylabel("$B$ [mT]")
   ax[1,0].set_xlabel("Datenpunkte")
-  ax[0,0].plot(avglist[0][:cut]*10, '.', markersize=markersize)
+  t0 = np.linspace(0, len(avglist[0][:cut])/48000, len(avglist[0][:cut]))
+  ax[0,0].plot(t0,avglist[0][:cut]*10, '.', markersize=markersize)
   ax[0,1].plot(avglist[1][:cut]*10, '.', markersize=markersize)
   ax[1,0].plot(avglist[2][:cut]*10, '.', markersize=markersize)
   ax[1,1].plot(avglist[3][:cut]*10, '.', markersize=markersize)
@@ -1096,8 +1107,10 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
   # for i, data in enumerate(avglist):
   x = np.linspace(0, len(data), cut)
   y = data[:cut]
-  ax[0].plot(avglist[1][:cut] * 10, label="Messwerte")
-  ax[1].plot(avglist[3][:cut] * 10, label="Messwerte")
+  t1 = np.linspace(0, len(avglist[1][:cut])/48000, len(avglist[1][:cut]))
+  t3 = np.linspace(0, len(avglist[3][:cut])/48000, len(avglist[3][:cut]))
+  ax[0].plot(t1,avglist[1][:cut] * 10, label="Messwerte")
+  ax[1].plot(t3,avglist[3][:cut] * 10, label="Messwerte")
       # popt, pcov = curve_fit(B_helmholtz,
       #                        x,
       #                        y,
@@ -1120,17 +1133,17 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
           # ax[1,0 ].axhline( y=B_i * 1000, color='r', linestyle="--")
       # if i == 2: # z
   B_i = B_z(0.158)
-  ax[0].axhline( y=B_i * 1000, color='r', linestyle="--", label="$y=0.158 \cdot m$")
+  ax[0].axhline( y=B_i * 1000, color='r', linestyle="--", label="$B=(0.158  \cdot m)$ mT")
   # elif i == 3: #z
   B_i = B_z(0.317)
-  ax[1].axhline( y=B_i * 1000, color='r', linestyle="--", label="$y=0.317 \cdot m$")
+  ax[1].axhline( y=B_i * 1000, color='r', linestyle="--", label="$B=(0.317 A \cdot m)$ mT")
 
 
   # ax[0,0].set_title("x")
   # ax[0,1].set_title("z")
   ax[0].set_ylabel("B [mT]")
   ax[1].set_ylabel("B [mT]")
-  ax[1].set_xlabel("Datenpunkte")
+  ax[1].set_xlabel("Zeit [s]")
   # ax[1,1].set_xlabel("Datenpunkte")
   ax[0].legend()
   ax[1].legend()
@@ -1356,18 +1369,15 @@ Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetf
 #+end_src
 
 #+RESULTS:
-#+begin_example
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/tmp/babel-WFbRsq/python-JpL1J2", line 30, in <module>
-    traj_matrix = np.reshape(particle, (len(particle), 17))
-  File "<__array_function__ internals>", line 6, in reshape
-  File "/usr/lib/python3.7/site-packages/numpy/core/fromnumeric.py", line 301, in reshape
-    return _wrapfunc(a, 'reshape', newshape, order=order)
-  File "/usr/lib/python3.7/site-packages/numpy/core/fromnumeric.py", line 61, in _wrapfunc
-    return bound(*args, **kwds)
-ValueError: cannot reshape array of size 8759 into shape (8759,17)
-#+end_example
+: Traceback (most recent call last):
+:   File "<stdin>", line 1, in <module>
+:   File "c:/Users/EXP4-A~1/AppData/Local/Temp/babel-SyfopL/python-EozkAu", line 30, in <module>
+:     traj_matrix = np.reshape(particle, (len(particle), 17))
+:   File "C:\Users\exp4-AGE1-106\AppData\Roaming\Python\Python37\site-packages\numpy\core\fromnumeric.py", line 292, in reshape
+:     return _wrapfunc(a, 'reshape', newshape, order=order)
+:   File "C:\Users\exp4-AGE1-106\AppData\Roaming\Python\Python37\site-packages\numpy\core\fromnumeric.py", line 56, in _wrapfunc
+:     return getattr(obj, method)(*args, **kwds)
+: ValueError: cannot reshape array of size 8759 into shape (8759,17)
 
 
 
@@ -1433,6 +1443,7 @@ In Abbildung ref:fig-img_v sind die Gleichgewichtsgeschwindigkeiten der Partikel
 :CODE:
 Geschwindigkeiten
 #+begin_src python :session v :exports none :results output
+
   import numpy as np
   import matplotlib
   matplotlib.use("Agg")
@@ -1467,7 +1478,81 @@ Geschwindigkeiten
 
 Auch hier tragen alle Fehlerquellen, die für die Trajektorien bereits aufgezählt wurden zur Ungenauigkeit bei. Hinzu kommt, dass das Auswertungsskript Parameter benötigt, mit denen die Trajektorien aus den Messungen erhalten werden und anhand derer die Qualität der Fits bestimmt wird. Diese Parameter sind durch Ausprobieren gewählt wurden, und weitere Erfahrung mit dem Programm wird voraussichtlich auch ein besser geeignete Parameter liefern. Auch möglich ist es durch Optimierungsalgorithmen bezüglich der Parameter innerhalb des Skriptes die Anzahl der erfolgreich gefitteten Kurven zu erhöhen und damit die Standardabweichung vom Mittelwert zu minimieren.
 
-Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfeldes auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken. Dies kann unter anderem dadurch erklärt werden, dass der Betrag des Magnetfeldvektors in x- und z-Richtung durch die niedrigeren Steigungen kleiner wird. Die Magnetfeldlandschaft wird also effektiv weniger beeinflusst. Sichtbar ist dies in Abbildung ref:fig-betrag.
+Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfeldes auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken. Dies kann unter anderem dadurch erklärt werden, dass der Betrag des Magnetfeldvektors in x- und z-Richtung durch die niedrigeren Steigungen kleiner wird. Die Magnetfeldlandschaft wird also effektiv weniger beeinflusst. Sichtbar ist dies in Abbildung ref:fig-betrag. Der Betrag des Magnetfeldes ist bei anlegen einer rechteckigen Spannung nahezu immer maximal. Je niedriger die Änderungsrate wird, desto kürzer werden die Zeiten, in denen der Betrag des Magnetfeldes maximal ist.
+
+:code:
+#+begin_src python :session magnitude :results output
+  import numpy as np
+  import matplotlib
+  matplotlib.use("Agg")
+  import matplotlib.pyplot as plt
+  import scipy.signal as signal
+
+  x = np.linspace(0, 2 * np.pi, 10000)
+  t = np.linspace(0, 1, len(x))
+
+  MAG = True # Plots for magnetic field
+  CONV_Z = 8.2356
+  CONV_X = 5.9618
+
+  def trapez_signal(x, freq, width=2., slope=1., amp=1., offs=0, phase=0):
+        """
+        create a trapez signal
+        """
+        # construct the signal:
+        amp = amp*2
+        offs = -1 * amp/2
+        phase = phase * np.pi / 180
+        slope = slope / (2 * np.pi * freq)
+        a = slope*width * \
+              signal.sawtooth(2*np.pi*x*freq/width + 90*np.pi /
+                        180 + phase, width=0.5)/4.
+        a[a > amp/2.] = amp/2.
+        a[a < -amp/2.] = -amp/2.
+        return a + amp/2. + offs
+
+  # NI Box
+  slope1 = np.asarray([1.6, 2, 2.666, 4, 10, 1000])
+  slope2 = slope1 / 2
+  # Magnetfeld
+  if MAG:
+        slope1 = slope1 * CONV_Z
+        slope2 = slope2 * CONV_X
+        amp1 = 0.4 * CONV_Z
+        amp2 = 0.2 * CONV_X
+
+  z_trap = np.zeros((len(slope1), len(x)))
+  x_trap = np.zeros((len(slope1), len(x))) 
+  for idx, slope in enumerate(slope1):
+      z_trap[idx] = trapez_signal(x, freq=1, width=x[-1], phase=0, amp=amp1, slope=slope1[idx])
+      x_trap[idx] = trapez_signal(x, freq=1, width=x[-1], phase=90, amp=amp2, slope=slope2[idx])
+      
+  mag = np.sqrt(z_trap**2 + x_trap **2)
+  plt.clf()
+  fig, axes = plt.subplots( len(slope1), 1, figsize=(5,15), sharex=True)
+  for idx in range(len(slope1)):
+      axes[idx].scatter(t, x_trap[idx], s=0.1, label = "x")
+      axes[idx].scatter(t, z_trap[idx], s=0.1, label = "z")
+      axes[idx].scatter(t, mag[idx], s=0.1, label = "magnitude")
+      # axes[idx].set_ylim(-1)
+      # axes[idx].set_yticks(np.arange(0, 5, 1))
+      axes[idx].grid()
+
+  axes[-1].legend(fontsize="small")
+  plt.tight_layout()
+  plt.savefig("./img/magnitude.png")
+  plt.close()
+  "./img/magnitude.png"
+  #+end_src
+
+  #+RESULTS:
+
+:END:
+#+name: fig-betrag
+#+caption: Betrag der Magnetfeldvektoren. Die angelegten Magnetfeldsequenzen sind in grün und orange dargestellt, der Betrag der Magnetfeldvektoren ist in grün dargestellt.
+#+attr_latex: :width 0.3\textwidth :placement [h]
+[[file:./img/magnitude.png]]
+
 # Vektor beträge magnetfelder
 
 * TODO Zusammenfassung und Ausblick label:sec-zusammenfassung
@@ -1562,6 +1647,16 @@ Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfe
 :END:
 Danke.
 
+* Eigenständigkeitserklärung
+:PROPERTIES:
+:UNNUMBERED: t
+:END:
+Hiermit bestätige ich, dass ich die vorliegende Arbeit selbständig verfasst und keine anderen
+als die angegebenen Hilfsmittel benutzt habe. Die Stellen der Arbeit, die dem Wortlaut
+oder dem Sinn nach anderen Werken (dazu zählen auch Internetquellen) entnommen sind,
+wurden unter Angabe der Quelle kenntlich gemacht.\\
+\bigskip
+Ort, Datum                          Unterschrift
 * SONSTIGES :ignore:
 
 #+begin_src python :session :results output
