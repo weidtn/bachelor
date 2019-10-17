@@ -19,6 +19,7 @@
    SCHEDULED: <2019-09-19 Do>
 ** TODO Plots von gemessenen Trajektorien
 erstmal ausgewählte, vielleicht mittelwert?
+** TODO flacher = bessere voraussagbarkeit aber langsamere Partikel
 ** DONE mag_fit_fixed mir roter line mit Steigung aus regression
 CLOSED: [2019-10-16 Mi 22:13]
 ** DONE Fits passen nicht, weil nicht exponentiell. Zeigen?
@@ -501,7 +502,7 @@ Anschließend wird Kapitel ref:sec-partikelgeschwindigkeiten der Einfluss der Ä
 [[file:img/layer.png]]
 
 ** TODO Stromstärke und magnetische Flussdichte der Helmholtzspulen label:sec-b_helmholtz
-Um die verwendeten Helmholtzspulen näher charakterisieren zu können, wurde zunächst der Zusammenhang zwischen der am Netzteil angelegten Spannung und der die Spulen durchfließenden Stromstärke sowie der daraus resultierenden Flussdichte bestimmt.
+Um die verwendeten Helmholtzspulen näher charakterisieren zu können, wurde zunächst der Zusammenhang zwischen der am Netzteil angelegten Spannung und der die Spulen durchfließenden Stromstärke sowie der daraus resultierenden magnetischen Flussdichte bestimmt.
 
 Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke $I$ und magnetischen Flussdichte $B$ gemessen. Dabei wurde die Stromstärke an einem in Reihe geschalteten Multimeter abgelesen, die magnetischen Flussdichte an einem Teslameter der Firma /Projekt Elektronik GmbH/, dessen Messkopf sich in der Probenhalterung der Helmholtzspulen zur Messung des Magnetfeldes in z-Richtung befand. Die Messwerte sind in Tabelle ref:tab-B im Anhang dargestellt. Der Zusammenhang von Stromstärke und magnetischer Flussdichte sollte gemäß Gleichung ref:eq-spule linear sein, weshalb die Messwerte in Abbildung ref:fig-magnetfeldstrom durch eine lineare Regression angenähert wurden.
 
