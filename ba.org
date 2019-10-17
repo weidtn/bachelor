@@ -526,14 +526,16 @@ Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke $I$ und m
   B=csv['Teslameter [mT]'].to_numpy()
   B = np.insert(B, 0, 0)
   Berr = np.full(len(B), 0.01)
-  plt.xlabel("$I$ [A]")
-  plt.ylabel("$B_\mathrm{z}$ [mT]")
+  fig, ax = plt.subplots(1,1, figsize=(8,5))
+  ax.set_xlabel("$I$ [A]")
+  ax.set_ylabel("$B_\mathrm{z}$ [mT]")
   slope, intercept, r, p, stderr = scipy.stats.linregress(x, B)
-  plt.plot(x, slope * x + intercept, 'r--', label="lin. Regression m={:2.2f} mT/A, b={:2.2f} mT, R^2={:2.5f}".format(slope, intercept, r**2))
+  ax.plot(x, slope * x + intercept, 'r--', label="lin. Regression m={:2.2f} mT/A, b={:2.2f} mT, R^2={:2.5f}".format(slope, intercept, r**2))
   # plt.errorbar(x, B, xerr=xerr, yerr=Berr, capsize=3, label="Messwerte")
   plt.plot(x, B, '.', label="Messwerte")
   plt.grid()
   plt.legend()
+  plt.tight_layout()
   plt.savefig("./img/B(I).png", dpi=100)
   "./img/B(I).png"
 #+end_src 
@@ -553,7 +555,7 @@ Um die Validität der Näherung für die magnetische Flussdichte von Helmholtzsp
       return B
   B_calc = B_helmholtz(x, c=0) * 1000 # *1000 for mT
   plt.clf()
-  ax1 = plt.subplot(1,1,1)
+  fig, ax1 = plt.subplots(1,1, figsize=(8,5))
   ax1.plot(x, B, label="Messwerte")
   ax1.plot(x, B_calc, label="Berechnete Werte")
   ax1.set_ylabel("$B_\mathrm{z}$ [mT]")
@@ -580,12 +582,12 @@ Um die Validität der Näherung für die magnetische Flussdichte von Helmholtzsp
 :END:
 
 \begin{figure}[h]
-\begin{subfigure}[t]{0.5\textwidth}
+\begin{subfigure}[t]{0.49\textwidth}
 \includegraphics[width=\textwidth]{img/B(I).png}
 \caption{Messung der magnetischen Flussdichte in z-Richtung $B_\mathrm{z}$ in Abhängigkeit der Stromstärke am Netzteil $I$. Die Messwerte sind blau dargestellt, eine lineare Regression über diese in rot. Fehlerbalken sind aufgrund der Sichtbarkeit des niedrigen Fehlers nicht dargestellt.}
 \label{fig-magnetfeldstrom}
 \end{subfigure}%
-\begin{subfigure}[t]{0.5\textwidth}
+\begin{subfigure}[t]{0.49\textwidth}
 \includegraphics[width=\textwidth]{img/b_calc.png}
 \caption{Vergleich von gemessener und mit Näherung aus Gleichung \ref{eq-helmholtz} berechneter magnetischen Flussdichte in z-Richtung.}
 \label{fig-b_helmholtz}
