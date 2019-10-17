@@ -686,10 +686,20 @@ Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang ein
 
 :END:
 
-#+name: fig-stromraw
-#+caption: Zeitlicher Verlauf der Stromstärke in den Spulen für x- (oben) und z-Richtung (unten). 
-#+attr_latex: :width 0.75\textwidth :placement [H]
-[[file:img/strom.png]]
+\begin{figure}
+\centering
+\begin{subfigure}[t]{.5\textwidth}
+\includegraphics[width=\textwidth]{./img/strom.png}
+\caption{Zeitlicher Verlauf der Stromstärke in den Spulen für x- (oben) und z-Richtung (unten).}
+\label{fig-stromraw}
+\end{subfigure}%
+\begin{subfigure}[t]{.5\textwidth}
+\includegraphics[width=\textwidth]{./img/strom_avg.png}
+\caption{Über alle zehn Perioden gemittelter zeitlicher Verlauf der Stromstärke. Oben sind die Stromstärken der x-Spule dargestellt, unten die der z-Spule.}
+\label{fig-mag_avg}
+\end{subfigure}
+\caption{Zeitlicher Verlauf der Stromstärke in x- und z-Spule.}
+\end{figure}
  
 Um eine Aussage über die Änderungsrate (Steigung) der Stromstärke und somit in direkter Konsequenz auch des Magnetfeldes machen zu können, ist es vorteilhaft das Verhalten für eine einzelne Periode zu betrachten. Dazu wurde über alle zehn Perioden der Messung gemittelt. Diese gemittelten Messwerte sind zu sehen in Abbildung ref:fig-stromavg.
 
@@ -728,14 +738,10 @@ Um eine Aussage über die Änderungsrate (Steigung) der Stromstärke und somit i
 
 :END:
 
-#+name: fig-stromavg
-#+caption: Über alle zehn Perioden gemittelter zeitlicher Verlauf der Stromstärke für x- und z-Richtung. Oben sind die Stromstärken der x-Spule dargestellt, unten die der z-Spule.
-#+attr_latex: :width .75\textwidth :placement [H]
-[[file:img/strom_avg.png]]
-
 Vor allem für die Strommessungen der x-Spule ist klar eine Spitze zu Beginn der Plateaus sichtbar. Dies ist wahrscheinlich auf das spannungsgesteuerte Netzteil zurückzuführen, welches einen konstanten Strom erzeugen soll. Jedoch ist durch die Impedanz der Spule bei abrupten Änderungen des Stromes ein hoher Blindwiderstand vorhanden, welchem das Netzteil im Stromregelungsbetrieb durch Ausgabe höherer Spannungen entgegen zu wirken versucht. Da der Blindwiderstand dann wieder sinkt "übersteuert" das Netzteil und es wird eine Stromstärke erreicht als angestrebt. Da sich die Stromstärke im Plateau zunächst nicht mehr ändert, passt das Netzteil den Ausgangsstrom an, und erreicht die gewünschte Amplitude.
 
 Da vor allem das beschriebene Einschaltverhalten der Spulen von Interesse ist, wurde der Beginn der gemittelten Periode, in dem die Stromstärke auf das Maximum ansteigt, genauer betrachtet.
+
 :CODE:
 #+begin_src python :session strom :results output
   plt.clf()
@@ -978,10 +984,20 @@ Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgef
 
 :END:
 
-#+name: fig-mag
-#+caption: Zeitlicher Verlauf der magnetischen Flussdichte bei einer angelegten Rechteckspannung. Oben ist die magnetische Flussdichte der x-Spule dargestellt, unten das der z-Spulen. Exemplarisch wird hier nur eine der beiden Amplituden der Ausgangsspannung des DAQ-Gerätes gezeigt.
-#+attr_latex: :width .75\textwidth :placement [H]
-[[file:img/mag.png]]
+\begin{figure}
+\centering
+\begin{subfigure}[t]{.5\textwidth}
+\includegraphics[width=\textwidth]{./img/mag.png}
+\caption{Oben ist die magnetische Flussdichte der x-Spule dargestellt, unten das der z-Spulen. Exemplarisch wird hier nur eine der beiden Amplituden der Ausgangsspannung des DAQ-Gerätes gezeigt.}
+\label{fig-mag}
+\end{subfigure}%
+\begin{subfigure}[t]{.5\textwidth}
+\includegraphics[width=\textwidth]{./img/mag_avg.png}
+\caption{Über alle zehn Perioden gemittelte Messwerte der magnetischen Flussdichte für x-Spule (oben) und z-Spule (unten).}
+\label{fig-mag_avg}
+\end{subfigure}
+\caption{Zeitlicher Verlauf der magnetischen Flussdichte bei einer angelegten Rechteckspannung.}
+\end{figure}
 
 Auch hier wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe Rauschen aus dem Signal zu entfernen, andererseits um eine einzelne Periode betrachten zu können. Die gemittelten Messwerte sind in Abbildung ref:fig-mag_avg zu sehen.
 
@@ -1019,11 +1035,6 @@ Auch hier wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe
 #+RESULTS:
 
 :END:
-
-#+name: fig-mag_avg
-#+caption: Über alle zehn Perioden gemittelte Messwerte der magnetischen Flussdichte für x-Spule (oben) und z-Spule (unten).
-#+attr_latex: :width .75\textwidth :placement [H]
-[[file:img/mag_avg.png]]
 
 Auch hier sind Spitzen am Beginn des Plateaus zu sehen. Diese haben die gleichen Ursachen wie bereits für die Stromstärke genannt, und wurden deswegen erwartet, da die magnetische Flussdichte aus dem bereits gemessenen durch die Spulen fließenden Strom resultiert.
 
