@@ -1249,6 +1249,7 @@ Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse
 :END:
 
 Da bereits der Verlauf der Stromstärke nicht mit Gleichung ref:eq-strom-spule vorhergesagt werden konnte, ist es nicht möglich die magnetische Flussdichte mithilfe von Gleichung ref:eq-helmholtz vorher zu sagen, da die Stromstärke in dieser Gleichung aus der vorherigen Gleichung berechnet wird. Es konnte jedoch zu Beginn dieses Kapitels gezeigt werden, dass die Amplitude des Magnetfeldes aus der Stromstärke bestimmt werden kann. Dies wird in Abbildung ref:fig-mag_fit gezeigt, indem eine rot gestrichelte Linie mit $y = 0.01034 \cdot I$ analog zu Gleichung ref:eq-regression für die Stromstärken $\SI{0.158}{\ampere}$ und $\SI{0.317}{\ampere}$ (vgl. Tab. ref:tab-B im Anhang) in den Graph gezeichnet wurde. Da nur die Steigung der Regression aus der z-Spule betrachtet wurde, sind nur hier diese Geraden eingezeichnet. Es ist ersichtlich, dass die vorhergesagten Werte der Sättigungsflussdichte mit den gemessenen Werten überein stimmen. 
+
 #+name: fig-mag_fit
 #+caption: Zeitlicher Verlauf der magnetischen Flussdichte der z-Spule der gemittelten Periode zum Einschaltzeitpunkt. Rot gestrichelt eingezeichnet ist die vorhergesagte Sättigungsflussdichte für gegebene Stromstärken.
 #+attr_latex: :width 0.75\textwidth :placement [h]
@@ -1371,9 +1372,9 @@ Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetf
       # [plt.plot(x_matrix[:,i]) for i in range (0, len(x_matrix[0,:]),1)]
       # plt.plot(x_matrix[:,12]) # Partikel Nr. 12
       particle = x_matrix[:,12]
-      traj_matrix = np.reshape(particle, (len(particle), 17))
+      # traj_matrix = np.reshape(particle, (len(particle), 17))
       # plt.plot(traj_matrix[:1])
-      print(np.shape(traj_matrix))
+      # print(np.shape(traj_matrix))
 
 
   plt.savefig("./img/traj_real.png")
@@ -1382,15 +1383,6 @@ Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetf
 #+end_src
 
 #+RESULTS:
-: Traceback (most recent call last):
-:   File "<stdin>", line 1, in <module>
-:   File "c:/Users/EXP4-A~1/AppData/Local/Temp/babel-SyfopL/python-EozkAu", line 30, in <module>
-:     traj_matrix = np.reshape(particle, (len(particle), 17))
-:   File "C:\Users\exp4-AGE1-106\AppData\Roaming\Python\Python37\site-packages\numpy\core\fromnumeric.py", line 292, in reshape
-:     return _wrapfunc(a, 'reshape', newshape, order=order)
-:   File "C:\Users\exp4-AGE1-106\AppData\Roaming\Python\Python37\site-packages\numpy\core\fromnumeric.py", line 56, in _wrapfunc
-:     return getattr(obj, method)(*args, **kwds)
-: ValueError: cannot reshape array of size 8759 into shape (8759,17)
 
 
 
@@ -1614,6 +1606,7 @@ Ein weiterer Vorteil ist, dass es voraussichtlich möglich ist, die Aufnahme der
 |               1.8 |             1.43 |                  14.69 |
 |               1.9 |            1.509 |                  15.52 |
 |               2.0 |            1.588 |                  16.35 |
+
 ** Python-Script zur Messung von Stromstärke und magnetischer Flussdichte: label:anh-messung
    CLOSED: [2019-10-10 Do 16:04]
 
@@ -1679,13 +1672,8 @@ Danke.
 :PROPERTIES:
 :UNNUMBERED: t
 :END:
-Hiermit bestätige ich, dass ich die vorliegende Arbeit selbständig verfasst und keine anderen
-als die angegebenen Hilfsmittel benutzt habe. Die Stellen der Arbeit, die dem Wortlaut
-oder dem Sinn nach anderen Werken (dazu zählen auch Internetquellen) entnommen sind,
-wurden unter Angabe der Quelle kenntlich gemacht.\\
-\bigskip
-Ort, Datum                          Unterschrift
-* SONSTIGES :ignore:
+Hiermit bestätige ich, dass ich die vorliegende Arbeit selbständig verfasst und keine anderen als die angegebenen Hilfsmittel benutzt habe. Die Stellen der Arbeit, die dem Wortlaut oder dem Sinn nach anderen Werken (dazu zählen auch Internetquellen) entnommen sind, wurden unter Angabe der Quelle kenntlich gemacht. \\
+* SONSTIGES                                                          :ignore:
 
 #+begin_src python :session :results output
   import numpy as np
