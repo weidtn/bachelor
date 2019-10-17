@@ -1515,6 +1515,7 @@ Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfe
 
   # NI Box
   slope1 = np.asarray([1.6, 2, 2.666, 4, 10, 1000])
+  slope1 = np.flip(slope1)
   slope2 = slope1 / 2
   # Magnetfeld
   if MAG:
@@ -1528,21 +1529,30 @@ Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfe
   for idx, slope in enumerate(slope1):
       z_trap[idx] = trapez_signal(x, freq=1, width=x[-1], phase=0, amp=amp1, slope=slope1[idx])
       x_trap[idx] = trapez_signal(x, freq=1, width=x[-1], phase=90, amp=amp2, slope=slope2[idx])
-      
+
   mag = np.sqrt(z_trap**2 + x_trap **2)
   plt.clf()
-  fig, axes = plt.subplots( len(slope1), 1, figsize=(5,15), sharex=True)
+  fig, axes = plt.subplots(2, 3, sharex=True, sharey="row", figsize=(10,5))
   for idx in range(len(slope1)):
-      axes[idx].scatter(t, x_trap[idx], s=0.1, label = "x")
-      axes[idx].scatter(t, z_trap[idx], s=0.1, label = "z")
-      axes[idx].scatter(t, mag[idx], s=0.1, label = "magnitude")
+      if idx < 3:
+            axes[0,idx].scatter(t, x_trap[idx], s=0.1, label = "x")
+            axes[0,idx].scatter(t, z_trap[idx], s=0.1, label = "z")
+            axes[0,idx].scatter(t, mag[idx], s=0.1, label = "magnitude")
+            axes[0,idx].grid()
+      else:
+            axes[1,idx-3].scatter(t, x_trap[idx], s=0.1, label = "x")
+            axes[1,idx-3].scatter(t, z_trap[idx], s=0.1, label = "z")
+            axes[1,idx-3].scatter(t, mag[idx], s=0.1, label = "magnitude")
+            axes[1,idx-3].grid()
+            axes[1,idx-3].set_xlabel("Zeit [s]")
       # axes[idx].set_ylim(-1)
       # axes[idx].set_yticks(np.arange(0, 5, 1))
-      axes[idx].grid()
 
-  axes[-1].legend(fontsize="small")
+  # axes[-1].legend(fontsize="small")
+  axes[0,0].set_ylabel("B [mT]")
+  axes[1,0].set_ylabel("B [mT]")
   plt.tight_layout()
-  plt.savefig("./img/magnitude.png")
+  plt.savefig("./img/magnitude.png", dpi=100)
   plt.close()
   "./img/magnitude.png"
   #+end_src
@@ -1552,12 +1562,17 @@ Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfe
 :END:
 #+name: fig-betrag
 #+caption: Betrag der Magnetfeldvektoren. Die angelegten Magnetfeldsequenzen sind in grün und orange dargestellt, der Betrag der Magnetfeldvektoren ist in grün dargestellt.
-#+attr_latex: :width 0.3\textwidth :placement [h]
+#+attr_latex: :width \textwidth :placement [h]
 [[file:./img/magnitude.png]]
 
 # Vektor beträge magnetfelder
 
 * TODO Zusammenfassung und Ausblick label:sec-zusammenfassung
+Ziel dieser Arbeit war es, den Einfluss der Änderungsrate der externen Magnetfelder auf den Partikeltransport zu untersuchen. Um dies zu erreichen, waren zuvor einige zusätzliche Untersuchungen von Nöten. Zunächst wurden die im Experiment verwendeten Helmholtzspulen charakterisiert, und überprüft ob das real erzeugte Magnetfeld der Spulen mittels Gleichungen vorhergesagt werden kann. Es konnte gezeigt werden, dass zwar die endgültige magnetische Flussdichte korrekt berechnet werden kann, der Einschaltvorgang der Spulen kann jedoch aufgrund von komplexeren Vorgängen und verwendeten Geräten nicht mathematisch beschrieben werden. Dies wirkt sich auch auf die Simulationen aus, welche durchgeführt werden, um die Partikelgeschwindigkeiten und -trajektorien bereits im Voraus zu berechnen. Diese Simulationen verwenden idealisierte Magnetfeldsequenzen und EB-Systeme. Trotzdem ist es durchaus möglich die Trajektorien der Partikel zu berechnen, und so schon im Voraus die Notwendigkeit der Herstellung bestimmter EB-Schichtsysteme zu prüfen.
+
+Auch wenn es nur ein kleiner Teil dieser Arbeit war, wird durch die Entwicklung des neuen Programms zur Erstellung der Magnetfeldsequenzen in Zukunft einfacher sein, verschiedene Magnetfeldsequenzen und deren Auswirkung auf den Partikeltransport zu Untersuchen. Es ist zum Beispiel möglich verschiedene Frequenzmodulationen zu erstellen, und deren Auswirkungen zu untersuchen.
+Ein weiterer Vorteil ist, dass es voraussichtlich möglich ist, die Aufnahme der Kamera mit eben jenem Programm zur Ausgabe der Magnetfeldsequenzen bereits zu starten. Somit sind Video und Magnetfeldsequenz bereits synchronisiert, und mit einem Mausklick können Magnetfeldsequenzen und Aufnahme gleichzeitig gestartet werden. Hier gab es jedoch aufgrund von veralteter Hardware noch Probleme mit der Implementierung.
+
 # Beliebige Magnetfeldsequenzen
 # Trigger Camera
 * Anhang
