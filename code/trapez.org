@@ -1,0 +1,157 @@
+#+begin_src python :session :results output
+  import numpy as np
+  import matplotlib
+  matplotlib.use("Agg")
+  import matplotlib.pyplot as plt
+  import scipy.signal as signal
+
+  x = np.linspace(0, 2 * np.pi, 10000)
+  t = np.linspace(0, 1, len(x))
+
+  MAG = True # Plots for magnetic field
+  CONV_Z = 8.2356
+  CONV_X = 5.9618
+
+  def trapez_signal(x, freq, width=2., slope=1., amp=1., offs=0, phase=0):
+        """
+        create a trapez signal
+        """
+        # construct the signal:
+        amp = amp*2
+        offs = -1 * amp/2
+        phase = phase * np.pi / 180
+        slope = slope / (2 * np.pi * freq)
+        a = slope*width * \
+              signal.sawtooth(2*np.pi*x*freq/width + 90*np.pi /
+                        180 + phase, width=0.5)/4.
+        a[a > amp/2.] = amp/2.
+        a[a < -amp/2.] = -amp/2.
+        return a + amp/2. + offs
+
+  # NI Box
+  slope1 = np.asarray([1.6, 2, 2.666, 4, 10, 1000])
+  slope2 = slope1 / 2
+  # Magnetfeld
+  if MAG:
+        slope1 = slope1 * CONV_Z
+        slope2 = slope2 * CONV_X
+        amp1 = 0.4 * CONV_Z
+        amp2 = 0.2 * CONV_X
+
+  z_trap = np.zeros((len(slope1), len(x)))
+  x_trap = np.zeros((len(slope1), len(x))) 
+  for idx, slope in enumerate(slope1):
+      z_trap[idx] = trapez_signal(x, freq=1, width=x[-1], phase=0, amp=amp1, slope=slope1[idx])
+      x_trap[idx] = trapez_signal(x, freq=1, width=x[-1], phase=90, amp=amp2, slope=slope2[idx])
+
+#+end_src
+
+#+RESULTS:
+
+* Trapez
+
+#+begin_src python :session :results output
+  plt.clf()
+  fig, axes = plt.subplots(len(slope1), 1, figsize=(7,9), sharex="all")
+  for idx in range(len(slope1)):
+      axes[idx].plot(t, x_trap[idx], label=f"x, slope {slope2[idx]:.2f}")
+      axes[idx].plot(t, z_trap[idx], label=f"z, slope {slope1[idx]:.2f}")
+      axes[idx].set_xlabel("t [s]")
+      axes[idx].grid()
+      axes[idx].legend()
+      if MAG:
+          axes[idx].set_ylabel("B [mT]")
+      else:
+          axes[idx].set_ylabel("U [V]")
+  plt.tight_layout()
+  plt.savefig("trapez.png")
+  "trapez.png"
+#+end_src
+
+#+RESULTS:
+
+:file:
+[[file:trapez.png]]
+:end:
+
+* Zeiger
+#+begin_src python :session :results output
+  plt.clf()
+  fig, axes = plt.subplots(len(slope1), 1, figsize=(3,10))
+  for idx in range(len(slope1)):
+      axes[idx].scatter(x_trap[idx],z_trap[idx], s=0.5, cmap="cividis", c=np.arange(len(z_trap[idx])))
+      axes[idx].set_title(f"z-slope {slope1[idx]:.2f}")
+      x0, x1 = axes[idx].get_xlim()
+      y0, y1 = axes[idx].get_ylim()
+      axes[idx].set_aspect("equal")
+      if MAG:
+          axes[idx].set_xlabel("x-field")
+          axes[idx].set_ylabel("z-field")
+      else:
+          axes[idx].set_xlabel("x")
+          axes[idx].set_ylabel("z")
+  plt.tight_layout()
+  plt.savefig("zeiger.png")
+  plt.close()
+  "zeiger.png"
+#+end_src
+
+#+RESULTS:
+
+:file:
+[[file:zeiger.png]]
+:end:
+
+* Zeiger für x-Richtung:
+
+#+begin_src python :session :results file
+    plt.clf()
+    plt.plot(x_trap[0])
+    plt.savefig("zeigerx.png")
+    "zeigerx.png"
+#+end_src
+
+#+RESULTS:
+[[file:zeigerx.png]]
+* Magnetfeldvektor Betrag
+#+begin_src python :session :results output
+  mag = np.sqrt(z_trap**2 + x_trap **2)
+  plt.clf()
+  fig, axes = plt.subplots( len(slope1), 1, figsize=(5,15))
+  for idx in range(len(slope1)):
+      axes[idx].scatter(t, x_trap[idx], s=0.5, label = "x")
+      axes[idx].scatter(t, z_trap[idx], s=0.5, label = "z")
+      axes[idx].scatter(t, mag[idx], s=0.5, label = "magnitude")
+      # axes[idx].set_ylim(-1)
+      # axes[idx].set_yticks(np.arange(0, 5, 1))
+      axes[idx].grid()
+
+  axes[-1].legend(fontsize="small")
+  plt.tight_layout()
+  plt.savefig("magnitude.png")
+  "magnitude.png"
+#+end_src
+
+#+RESULTS:
+
+:file:
+[[file:magnitude.png]]
+:end:
+
+
+* Trapez A/m
+#+begin_src python :session :results file
+  plt.clf()
+  trapez = trapez_signal(x, freq=1, width=x[-1], phase=0, amp=2720 , slope=10488)
+  trapez2 = trapez_signal(x, freq=1, width=x[-1], phase=0, amp=946.97, slope=4000)
+  plt.plot(trapez)
+  plt.plot(trapez2)
+  plt.savefig("test_trapez.png")
+  "test_trapez.png"
+#+end_src
+
+#+RESULTS:
+[[file:test_trapez.png]]
+
+
+
