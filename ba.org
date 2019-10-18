@@ -83,10 +83,11 @@ CLOSED: [2019-10-10 Do 20:51]
    #+latex_header: \setminted{fontsize=\footnotesize}
    #+latex_header: \usemintedstyle{emacs}
    #+latex_header: \usepackage[version=4]{mhchem}
-   #+latex_header: \newgeometry{bottom=2.5cm,left=2.5cm,right=2.5cm}
+   #+latex_header: \newgeometry{top=2.5cm, bottom=2.5cm,left=2.5cm,right=2.5cm}
    #+latex_header: \usepackage[style=alphabetic,maxbibnames=5,maxcitenames=5,backend=biber,language=german]{biblatex}
    #+latex_header: \addbibresource{library.bib}
    #+latex_header: \input{titlepage/titlepage}
+   #+latex_header: \newgeometry{top=2.5cm, bottom=2.5cm,left=2.5cm,right=2.5cm}
    # #+INCLUDE: "./titlepage/titlepage.tex" src latex
      
 * Andere Arbeiten                                                    :ignore:
