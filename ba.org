@@ -1501,7 +1501,7 @@ Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetf
 :END:
 
 #+name: fig-traj
-#+caption: Vergleich simulierter (oben) Trajektorien mit gemessenen (unten) Trajektorien der superparamagnetischen Partikel. Die Plateaustartzeiten der Magnetfelder steigen von links nach rechts. Die Farben der Kurven entsprechen den Farben der Kurve der verwendeten Plateaustartzeiten aus Abbildung ref:fig-plateau. Da zunächst nur die Form der Trajektorie, nicht aber die Länge des Schrittes von Bedeutung ist, wurden die Kurven normiert.
+#+caption: Vergleich simulierter (oben) Trajektorien mit gemessenen (unten) Trajektorien der superparamagnetischen Partikel. Die x-Position wurde ausgehend von der Startposition des Partikels dargestellt. Die Plateaustartzeiten der Magnetfelder steigen von links nach rechts. Die Farben der Kurven entsprechen den Farben der Kurve der verwendeten Plateaustartzeiten aus Abbildung ref:fig-plateau. Da zunächst nur die Form der Trajektorie, nicht aber die Länge des Schrittes von Bedeutung ist, wurden die Kurven normiert.
 #+attr_latex: :placmeent [!h] :width \textwidth
 file:./img/sim.png
 
@@ -1536,6 +1536,7 @@ Geschwindigkeiten
   ax.set_xlabel("Startzeit Plateau [s]")
   ax.set_ylabel("Geschwindigkeit gr. Schritt [mT/s]")
   ax.grid()
+  plt.tight_layout()
   plt.savefig("./img/v.png", dpi=100)
   plt.close()
 #+end_src
