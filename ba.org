@@ -9,13 +9,13 @@
 * Fragen                                                             :ignore:
   - Wachstum (So okay ohne epitaktisch)?
 * TODO [14/18] Noch zu tun:                                          :ignore:
-** TODO Strom fit
-** TODO STROM PLOTS!!! RAW und AVERAGE
+** TODO Orangene Kurve
+** TODO Skalierung Trajektorien
+   Verschiebung x
 ** TODO Diskussion:
    - Tracking
    - Magnetfeldlandschaft aus Simulation ist idealisiert
    - Netzteil ist blackbox
-** TODO Gleichgewichtsgeschwindigkeit aus Glockenkurve
 ** TODO DPI
 ** TODO Simulierte Trajektorien durch step_evaluate laufen lassen
    SCHEDULED: <2019-09-19 Do>
