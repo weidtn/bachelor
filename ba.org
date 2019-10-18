@@ -1405,14 +1405,12 @@ Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetf
       # plt.plot(x_matrix[:,12]) # Partikel Nr. 12
       particlelist = [12, 6, 9, 0, 9, 6]
       particle = x_matrix[:,particlelist[i]]
-      if i == 2 or i == 4 or i == 5:
-          x = 0 + n*480
-      else:
-          n = 10
-          x = -200 + n * 480
-      step = particle[x:x+700]
-      step = (step -min(step))
-      step = step / max(step)
+      x = 410 
+      step = particle[x:x+500]
+      step = (step - min(step))
+      # if i == 0:
+      #     plt.plot(step)
+      # step = step / max(step)
       plt.plot(step)
       # traj_matrix = np.reshape(particle, (len(particle), 17))
       # plt.plot(traj_matrix[:1])
@@ -1422,6 +1420,7 @@ Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetf
 
   plt.savefig("./img/traj_real.png")
   plt.close()
+
   "./img/traj_real.png"
 #+end_src
 
@@ -1429,67 +1428,62 @@ Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetf
 
 
 
-[[file:./img/traj_real.png]]
+ [[file:./img/traj_real.png]] 
 
 
 
 :END:
 
 :CODE:
-#+begin_src python :session :results output
+#+begin_src python :session simulation :results output
   import numpy as np
   import matplotlib
   matplotlib.use("Agg")
   import matplotlib.pyplot as plt
 
-  crop = "crop" # crop or ipol
-  traj6 = np.load(f"./code/3796x_10488z_{crop}.npy")[100:-200]
-  traj5 = np.load(f"./code/4743x_13106z_{crop}.npy")[100:-200]
-  traj4 = np.load(f"./code/6326x_17475z_{crop}.npy")[100:-200]
-  traj3 = np.load(f"./code/9486x_26213z_{crop}.npy")[100:-200]
-  traj2 = np.load(f"./code/23722x_65540z_{crop}.npy")[100:-200]
-  traj1 = np.load(f"./code/106215x_156678z_{crop}.npy")[100:-200]
+  crop = "ipol" # crop or ipol
+  traj6 = np.load(f"./code/3796x_10488z_{crop}.npy")
+  traj5 = np.load(f"./code/4743x_13106z_{crop}.npy")
+  traj4 = np.load(f"./code/6326x_17475z_{crop}.npy")
+  traj3 = np.load(f"./code/9486x_26213z_{crop}.npy")
+  traj2 = np.load(f"./code/23722x_65540z_{crop}.npy")
+  traj1 = np.load(f"./code/106215x_156678z_{crop}.npy")
   traj_real_0 = np.load("./code/traj_real_0.npy")
   traj_real_1 = np.load("./code/traj_real_1.npy")
   traj_real_2 = np.load("./code/traj_real_2.npy")
   traj_real_3 = np.load("./code/traj_real_3.npy")
   traj_real_4 = np.load("./code/traj_real_4.npy")
   traj_real_5 = np.load("./code/traj_real_5.npy")
-  time = np.linspace(0,1,len(traj1))
-  t0 = np.linspace(0,1,len(traj_real_0))
-  t1 = np.linspace(0,1,len(traj_real_1))
-  t2 = np.linspace(0,1,len(traj_real_2))
-  t3 = np.linspace(0,1,len(traj_real_3))
-  t4 = np.linspace(0,1,len(traj_real_4))
-  t5 = np.linspace(0,1,len(traj_real_5))
+  time = np.linspace(0,0.5,len(traj1))
+  t0 = np.linspace(0,0.5,500)
   traj6 = (traj6 - min(traj6)) 
-  traj5 = (traj5 - min(traj5)) / max(traj5)
-  traj4 = (traj4 - min(traj4)) / max(traj4)
-  traj3 = (traj3 - min(traj3)) / max(traj3)
-  traj2 = (traj2 - min(traj2)) / max(traj2)
-  traj1 = (traj1 - min(traj1)) / max(traj1)
-  traj6 = traj6 / max(traj6)
-  traj5 = traj5 / max(traj5)
-  traj4 = traj4 / max(traj4)
-  traj3 = traj3 / max(traj3)
-  traj2 = traj2 / max(traj2)
-  traj1 = traj1 / max(traj1)
+  traj5 = (traj5 - min(traj5))
+  traj4 = (traj4 - min(traj4))
+  traj3 = (traj3 - min(traj3))
+  traj2 = (traj2 - min(traj2))
+  traj1 = (traj1 - min(traj1))
+  # traj6 = traj6 / max(traj6)
+  # traj5 = traj5 / max(traj5)
+  # traj4 = traj4 / max(traj4)
+  # traj3 = traj3 / max(traj3)
+  # traj2 = traj2 / max(traj2)
+  # traj1 = traj1 / max(traj1)
 
   plt.clf()
   fig, axes = plt.subplots(2,6, sharey="row", sharex=True)
   # fig.suptitle("Simulierte Trajektorien")
-  axes[0,0].plot(time, traj1, color="C0")
-  axes[0,1].plot(time, traj2, color="C1")
-  axes[0,2].plot(time, traj3, color="C2")
-  axes[0,3].plot(time, traj4, color="C3")
-  axes[0,4].plot(time, traj5, color="C4")
-  axes[0,5].plot(time, traj6, color="C5")
-  axes[1,0].plot(t0, traj_real_0, color="C0")
-  axes[1,1].plot(t1, traj_real_1, color="C1")
-  axes[1,2].plot(t1, traj_real_2, color="C2")
-  axes[1,3].plot(t1, traj_real_3, color="C3")
-  axes[1,4].plot(t1, traj_real_4, color="C4")
-  axes[1,5].plot(t1, traj_real_5, color="C5")
+  axes[0,0].plot(time, traj1*1e6, color="C0")
+  axes[0,1].plot(time, traj2*1e6, color="C1")
+  axes[0,2].plot(time, traj3*1e6, color="C2")
+  axes[0,3].plot(time, traj4*1e6, color="C3")
+  axes[0,4].plot(time, traj5*1e6, color="C4")
+  axes[0,5].plot(time, traj6*1e6, color="C5")
+  axes[1,0].plot(t0, traj_real_0*1e6, color="C0")
+  axes[1,1].plot(t0, traj_real_1*1e6, color="C1")
+  axes[1,2].plot(t0, traj_real_2*1e6, color="C2")
+  axes[1,3].plot(t0, traj_real_3*1e6, color="C3")
+  axes[1,4].plot(t0, traj_real_4*1e6, color="C4")
+  axes[1,5].plot(t0, traj_real_5*1e6, color="C5")
   fig.text(0.5, 0.03,"Zeit [s]", ha='center')
   axes[0,0].set_ylabel("$x$-Position [$\mathrm{\mu}$m]")
   axes[1,0].set_ylabel("$x$-Position [$\mathrm{\mu}$m]")
@@ -1558,7 +1552,7 @@ Geschwindigkeiten
 
 Auch hier tragen alle Fehlerquellen, die für die Trajektorien bereits aufgezählt wurden zur Ungenauigkeit bei. Hinzu kommt, dass das Auswertungsskript Parameter benötigt, mit denen die Trajektorien aus den Messungen erhalten werden und anhand derer die Qualität der Fits bestimmt wird. Diese Parameter sind durch Ausprobieren gewählt wurden, und weitere Erfahrung mit dem Programm wird voraussichtlich auch ein besser geeignete Parameter liefern. Auch möglich ist es durch Optimierungsalgorithmen bezüglich der Parameter innerhalb des Skriptes die Anzahl der erfolgreich gefitteten Kurven zu erhöhen und damit die Standardabweichung vom Mittelwert zu minimieren.
 
-Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfeldes auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken. Dies kann unter anderem dadurch erklärt werden, dass der Betrag des Magnetfeldvektors in x- und z-Richtung durch die niedrigeren Steigungen kleiner wird. Die Magnetfeldlandschaft wird also effektiv weniger beeinflusst. Sichtbar ist dies in Abbildung ref:fig-betrag. Der Betrag des Magnetfeldes ist bei anlegen einer rechteckigen Spannung nahezu immer maximal. Je niedriger die Änderungsrate wird, desto kürzer werden die Zeiten, in denen der Betrag des Magnetfeldes maximal ist.
+Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfeldes auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken. Dies kann unter anderem dadurch erklärt werden, dass der Betrag des Magnetfeldvektors in x- und z-Richtung durch die niedrigeren Steigungen kleiner wird. Die magnetische Kraft wird also effektiv weniger beeinflusst. Sichtbar ist dies in Abbildung ref:fig-betrag. Der Betrag des Magnetfeldes ist bei anlegen einer rechteckigen Spannung nahezu immer maximal. Je niedriger die Änderungsrate wird, desto kürzer werden die Zeiten, in denen der Betrag des Magnetfeldes maximal ist.
 
 :code:
 #+begin_src python :session magnitude :results output
@@ -1643,7 +1637,6 @@ Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfe
 #+attr_latex: :width \textwidth :placement [h]
 [[file:./img/magnitude.png]]
 
-# Vektor beträge magnetfelder
 
 * TODO Zusammenfassung und Ausblick label:sec-zusammenfassung
 Ziel dieser Arbeit war es, den Einfluss der Änderungsrate der externen Magnetfelder auf den Partikeltransport zu untersuchen. Um dies zu erreichen, waren zuvor einige zusätzliche Untersuchungen von Nöten. Zunächst wurden die im Experiment verwendeten Helmholtzspulen charakterisiert, und überprüft ob das real erzeugte Magnetfeld der Spulen mittels Gleichungen vorhergesagt werden kann. Es konnte gezeigt werden, dass zwar die endgültige magnetische Flussdichte korrekt berechnet werden kann, der Einschaltvorgang der Spulen kann jedoch aufgrund von komplexeren Vorgängen und verwendeten Geräten nicht mathematisch beschrieben werden. Dies wirkt sich auch auf die Simulationen aus, welche durchgeführt werden, um die Partikelgeschwindigkeiten und -trajektorien bereits im Voraus zu berechnen. Diese Simulationen verwenden idealisierte Magnetfeldsequenzen und EB-Systeme. Trotzdem ist es durchaus möglich die Trajektorien der Partikel zu berechnen, und so schon im Voraus die Notwendigkeit der Herstellung bestimmter EB-Schichtsysteme zu prüfen.
