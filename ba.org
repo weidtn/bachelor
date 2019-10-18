@@ -7,9 +7,7 @@
 #+EXCLUDE_TAGS: ignore
 
 * Fragen                                                             :ignore:
-  - Wachstum (So okay ohne epitaktisch)?
-* TODO [14/18] Noch zu tun:                                          :ignore:
-** TODO Orangene Kurve
+* TODO [15/21] Noch zu tun:                                          :ignore:
 ** TODO Skalierung Trajektorien
    Verschiebung x
 ** TODO Diskussion:
@@ -22,6 +20,8 @@
 ** TODO Plots von gemessenen Trajektorien
 erstmal ausgewählte, vielleicht mittelwert?
 ** TODO flacher = bessere voraussagbarkeit aber langsamere Partikel
+** DONE Orangene Kurve
+CLOSED: [2019-10-18 Fr 21:05]
 ** DONE mag_fit_fixed mir roter line mit Steigung aus regression
 CLOSED: [2019-10-16 Mi 22:13]
 ** DONE Fits passen nicht, weil nicht exponentiell. Zeigen?
