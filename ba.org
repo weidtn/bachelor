@@ -7,15 +7,17 @@
 #+EXCLUDE_TAGS: ignore
 
 * Fragen                                                             :ignore:
-* TODO [17/21] Noch zu tun:                                          :ignore:
-** TODO Diskussion:
+* TODO [20/21] Noch zu tun:                                          :ignore:
+** TODO DPI
+** DONE Diskussion:
+CLOSED: [2019-10-18 Fr 22:24]
    - Tracking
    - Magnetfeldlandschaft aus Simulation ist idealisiert
    - Netzteil ist blackbox
-** TODO DPI
-** TODO Simulierte Trajektorien durch step_evaluate laufen lassen
-   SCHEDULED: <2019-09-19 Do>
-** TODO flacher = bessere voraussagbarkeit aber langsamere Partikel
+** DONE Simulierte Trajektorien durch step_evaluate laufen lassen
+   CLOSED: [2019-10-18 Fr 22:24] SCHEDULED: <2019-09-19 Do>
+** DONE flacher = bessere voraussagbarkeit aber langsamere Partikel
+CLOSED: [2019-10-18 Fr 22:24]
 ** DONE Plots von gemessenen Trajektorien
 CLOSED: [2019-10-18 Fr 21:42]
 erstmal ausgewählte, vielleicht mittelwert?
