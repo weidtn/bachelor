@@ -409,7 +409,7 @@ Werden SPP in wässriger Lösung ohne externes Magnetfeld auf das EB-Substrat ge
 
 #+name:fig-mfl
 #+caption: Schematische Darstellung der potentiellen Energielandschaft $U_\mathrm{SPP,z(x,y)}$ superparamagnetischer Partikel über einer EB-Streifendomänenstruktur. Das magnetische Moment der Partikel ist parallel zur Magnetfeldlandschaft ausgerichtet und die Partikel befinden sich in Reihen über den /head-to-head/ (hh) und /tail-to-tail/ (tt) Domänenwänden. Aus cite:holzinger_transport_2015.
-#+attr_latex: :width \textwidth :placement [h]
+#+attr_latex: :width .5\textwidth :placement [h]
 #+attr_org: :width 100px
 [[file:img/mfl.png]]
 
@@ -438,13 +438,13 @@ Folglich kann die Gleichgewichtsgeschwindigkeit wie folgt berechnet werden cite:
 
 #+name:fig-force_spp
 #+caption: Schematische Darstellung der wirkenden Kräfte auf ein superparamagnetisches Partikel oberhalb des EB-Dünnschichtsystems. Zu sehen sind van-der-Waals-Kraft $F_\mathrm{vdw}$, elektrostatische Kraft $F_\mathrm{e}$, magnetostatische Kraft $F_\mathrm{m}$, Reibungskraft $F_\mathrm{R}$ und magnetische Kraft $F_\mathrm{SPP}$. Diese resultieren zusammen jeweils in die Gleichgewichtsgeschwindigkeit $v_\mathrm{SPP}$ und den Gleichgewichtsabstand $z$. Die Längen der Kraftvektoren sind zu Anschauungszwecken arbiträr gewählt.
-#+attr_latex: :width 0.75\textwidth :placement [h]
+#+attr_latex: :width 0.5\textwidth :placement [h]
 [[file:img/force_spp.png]]
 
 
 #+name:fig-transport
 #+caption: (a-e): Berechnete magnetische Potentiallandschaft $U_\mathrm{SPP,z(x)}$ als Funktion der x-Position im Partikelzentrum $\SI{2}{\mu\meter}$ über dem EB-System. Die superparamagnetischen Partikel sind schematisch in braun dargestellt. (f): Angelegte Magnetfeldsequenzen. Die Zeitskala der Magnetfeldsequenzen ist passend zu den Darstellungen der Potentiallandschaften zu verschiedenen Zeiten aufgetragen. Aus cite:holzinger_transport_2015.
-#+attr_latex: :width \textwidth :placement [h]
+#+attr_latex: :width .75\textwidth :placement [h]
 #+attr_org: :width 100px
 [[file:img/trapez.png]]
 
@@ -905,7 +905,7 @@ Anschließend wurden die Messwerte durch eine Fitfunktion basierend auf Gleichun
 :END:
 
 #+name: fig-stromfit
-#+caption: Einschaltzeitpunkt der gemittelten Periode der Stromstärke. \mbox{Fitfunktion (rot) und -parameter} zu Gleichung ref:eq-strom-spule an die gemessenen Stromstärken (blau). Zum Vergleich wurde im unteren rechten Graphen der berechnete Verlauf der Stromstärke mit gemessenen Werten für Widerstand $R = \SI{11.5}{\ohm}$ und Induktivität $L = \SI{0.0056}{\henry}$ in orange dargestellt.
+#+caption:Einschaltzeitpunkt der gemittelten Periode der Stromstärke. \mbox{Fitfunktion (rot) und -parameter} zu Gleichung ref:eq-strom-spule an die gemessenen Stromstärken (blau). Zum Vergleich wurde im unteren rechten Graphen der berechnete Verlauf der Stromstärke mit gemessenen Werten für Widerstand $R = \SI{11.5}{\ohm}$ und Induktivität $L = \SI{0.0056}{\henry}$ in orange dargestellt.
 #+attr_latex: :width \textwidth :placement [h]
 [[file:img/strom_fit.png]]
 
