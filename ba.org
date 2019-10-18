@@ -7,9 +7,7 @@
 #+EXCLUDE_TAGS: ignore
 
 * Fragen                                                             :ignore:
-* TODO [15/21] Noch zu tun:                                          :ignore:
-** TODO Skalierung Trajektorien
-   Verschiebung x
+* TODO [17/21] Noch zu tun:                                          :ignore:
 ** TODO Diskussion:
    - Tracking
    - Magnetfeldlandschaft aus Simulation ist idealisiert
@@ -17,9 +15,13 @@
 ** TODO DPI
 ** TODO Simulierte Trajektorien durch step_evaluate laufen lassen
    SCHEDULED: <2019-09-19 Do>
-** TODO Plots von gemessenen Trajektorien
-erstmal ausgewählte, vielleicht mittelwert?
 ** TODO flacher = bessere voraussagbarkeit aber langsamere Partikel
+** DONE Plots von gemessenen Trajektorien
+CLOSED: [2019-10-18 Fr 21:42]
+erstmal ausgewählte, vielleicht mittelwert?
+** DONE Skalierung Trajektorien
+CLOSED: [2019-10-18 Fr 21:42]
+   Verschiebung x
 ** DONE Orangene Kurve
 CLOSED: [2019-10-18 Fr 21:05]
 ** DONE mag_fit_fixed mir roter line mit Steigung aus regression
