@@ -9,6 +9,7 @@
 * Fragen                                                             :ignore:
   - Wachstum (So okay ohne epitaktisch)?
 * TODO [14/18] Noch zu tun:                                          :ignore:
+** TODO Strom fit
 ** TODO STROM PLOTS!!! RAW und AVERAGE
 ** TODO Diskussion:
    - Tracking
@@ -510,7 +511,7 @@ Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke $I$ und m
 
 :CODE:
 
-#+begin_src python :session magnetfeld :results output :exports none
+#+begin_src python :session magnetfeld :exports none :results file
   import numpy as np
   import pandas as pd
   import matplotlib
@@ -542,6 +543,7 @@ Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke $I$ und m
 #+end_src 
 
 #+RESULTS:
+[[file:./img/B(I).png]]
 
 :END:
 
@@ -637,13 +639,13 @@ Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang ein
   # Anfang und Ende abschneiden
   sr = 48000
   for i, data in enumerate(datalist):
-      end = np.argmax(data>0.1)
+      end = np.argmax(data>0.01)
       if i == 0:
           sr_off = sr + 20
           end_off = end - 1
       elif i == 1:
           sr_off = sr + 19
-          end_off = end - 1
+          end_off = end - 6
       elif i == 2:
           sr_off = sr + 20
           end_off = end + 11
@@ -653,8 +655,9 @@ Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang ein
       else:
           sr_off = 0
           end_off = 0
-      data = data[end_off:end_off+10*(sr_off)]
+      data = data[end_off+sr_off:end_off+9*(sr_off)]
       datalist[i] = data
+
 
   fig, ax = plt.subplots(2,1, sharex=True, sharey="row")
   t0 = np.linspace(0,len(datalist[0])/48000,len(datalist[0]))
@@ -676,14 +679,19 @@ Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang ein
 #+end_src
 
 #+RESULTS:
+: C:\Users\exp4-AGE1-106\AppData\Roaming\Python\Python37\site-packages\matplotlib\pyplot.py:514: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+:   max_open_warning, RuntimeWarning)
+
+
+[[file:./img/strom.png]]
 
 :END:
 
 :CODE:
 
-#+begin_src python :session strom :results file
+#+begin_src python :session strom :results output
   # in 10 Perioden schneiden:
-  n_periods = 10
+  n_periods = 8
   avglist = []
   for i, data in enumerate(datalist):
       periodic = data.reshape(n_periods, (len(data)//n_periods))
@@ -711,6 +719,7 @@ Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang ein
 #+end_src
 
 #+RESULTS:
+
 [[file:./img/strom_avg.png]]
 
 :END:
@@ -725,12 +734,12 @@ Dazu wurden mit dem Programm aus Kapitel ref:sec-py jeweils 10 Sekunden lang ein
 \begin{subfigure}[t]{.5\textwidth}
 \includegraphics[width=\textwidth]{./img/strom_avg.png}
 \caption{Über alle zehn Perioden gemittelter zeitlicher Verlauf der Stromstärke. Oben sind die Stromstärken der x-Spule dargestellt, unten die der z-Spule.}
-\label{fig-mag_avg}
+\label{fig-strom_avg}
 \end{subfigure}
 \caption{Zeitlicher Verlauf der Stromstärke in x- und z-Spule.}
 \end{figure}
 
-Um eine Aussage über die Änderungsrate (Steigung) der Stromstärke und somit in direkter Konsequenz auch des Magnetfeldes machen zu können, ist es vorteilhaft das Verhalten für eine einzelne Periode zu betrachten. Dazu wurde über alle zehn Perioden der Messung gemittelt. Diese gemittelten Messwerte sind zu sehen in Abbildung ref:fig-stromavg.
+Um eine Aussage über die Änderungsrate (Steigung) der Stromstärke und somit in direkter Konsequenz auch des Magnetfeldes machen zu können, ist es vorteilhaft das Verhalten für eine einzelne Periode zu betrachten. Dazu wurde über alle zehn Perioden der Messung gemittelt. Diese gemittelten Messwerte sind zu sehen in Abbildung ref:fig-strom_avg.
 
 Vor allem für die Strommessungen der x-Spule ist klar eine Spitze zu Beginn der Plateaus sichtbar. Dies ist wahrscheinlich auf das spannungsgesteuerte Netzteil zurückzuführen, welches einen konstanten Strom erzeugen soll. Jedoch ist durch die Impedanz der Spule bei abrupten Änderungen des Stromes ein hoher Blindwiderstand vorhanden, welchem das Netzteil im Stromregelungsbetrieb durch Ausgabe höherer Spannungen entgegen zu wirken versucht. Da der Blindwiderstand dann wieder sinkt "übersteuert" das Netzteil und es wird eine Stromstärke erreicht als angestrebt. Da sich die Stromstärke im Plateau zunächst nicht mehr ändert, passt das Netzteil den Ausgangsstrom an, und erreicht die gewünschte Amplitude.
 
@@ -768,14 +777,14 @@ Da vor allem das beschriebene Einschaltverhalten der Spulen von Interesse ist, w
 # #+attr_latex: :width \textwidth :placement [H]
 # [[file:img/strom_anfang.png]]
 
-Anschließend wurden die Messwerte durch eine Fitfunktion basierend auf Gleichung ref:eq-strom-spule angenähert. Die Messwerte, Fitkurven und -parameter sind in Abbildung ref:fig-stromfit dargestellt. Die Messung der x-Spule mit der größeren Amplitude hat eine andere Form als die restlichen Kurven. Dies ist auf ein starkes Rauschen während des ersten Einschaltens zurückzuführen.
+Anschließend wurden die Messwerte durch eine Fitfunktion basierend auf Gleichung ref:eq-strom-spule angenähert. Die Messwerte, Fitkurven und -parameter sind in Abbildung ref:fig-stromfit dargestellt. Die Messung der x-Spule mit der größeren Amplitude hat eine andere Form als die restlichen Kurven. Der genaue Grund hierfür ist nicht ersichtlich, jedoch ist es möglich, dass die Periodenlänge oder Samplerate durch Hardwareverzögerungen während der Messung geschwankt haben. 
 
 :CODE:
 
 #+begin_src python :session strom :results output
   from scipy.optimize import curve_fit
 
-  def I_fixed(x, U, sr=48000):
+  def I_fixed_z(x, U, sr=48000):
       """
       Current for measurement with 48k Samplerate
       U = Voltage
@@ -783,7 +792,19 @@ Anschließend wurden die Messwerte durch eine Fitfunktion basierend auf Gleichun
       L = Inductance
       sr = Sample Rate (48000 for NI USB-6008)
       """
-      R = 10.6
+      R = 18.2
+      L = 0.0056
+      return (U/R) * (1- np.exp((-x/sr) * (R+10) / L))
+
+  def I_fixed_z(x, U, sr=48000):
+      """
+      Current for measurement with 48k Samplerate
+      U = Voltage
+      R = Resistance
+      L = Inductance
+      sr = Sample Rate (48000 for NI USB-6008)
+      """
+      R = 11.5
       L = 0.0056
       return (U/R) * (1- np.exp((-x/sr) * (R+10) / L))
 
@@ -796,7 +817,10 @@ Anschließend wurden die Messwerte durch eine Fitfunktion basierend auf Gleichun
   fig, ax = plt.subplots(2,2, figsize=(10,5), sharex=True, sharey="row")
   for i, data in enumerate(avglist):
       x = np.linspace(0,len(data),cut)
-      popt, pcov = curve_fit(I_fixed, x, data[:cut], p0=(10), bounds=(0,50), method="trf")
+      if i == 0 or i == 2:
+          popt, pcov = curve_fit(I_fixed_z, x, data[:cut], p0=(10), bounds=(0,50), method="trf")
+      else:
+          popt, pcov = curve_fit(I_fixed_x, x, data[:cut], p0=(10), bounds=(0,50), method="trf")
       if i < 2:
           ax[0,i].plot(data[:cut], '.', markersize=2, label="Messwerte")
           ax[0,i].plot(I_fixed(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3}")
@@ -838,8 +862,7 @@ Anschließend wurden die Messwerte durch eine Fitfunktion basierend auf Gleichun
       ss_res = np.sum((y - y_fit) **2)
       ss_tot = np.sum((y-np.mean(y))**2)
       r2 = 1 - (ss_res / ss_tot)
-      print(f"")
-      t  = np.linspace(0,500/48000,len(data[:cut]))
+      t  = np.linspace(0,cut/48000,len(data[:cut]))
       if i < 2:
           ax[0,i].plot(t,data[:cut], '.', markersize=2, label="Messwerte")
           ax[0,i].plot(t,I(x,*popt), 'r--', label=f"Fit: U={popt[0]:.3} V, R={popt[1]:.3} \n $\Omega$, L={popt[2]:.3} H, $R^2$ = {r2:.3f}")
@@ -861,6 +884,11 @@ Anschließend wurden die Messwerte durch eine Fitfunktion basierend auf Gleichun
 #+end_src
 
 #+RESULTS:
+: Traceback (most recent call last):
+:   File "<stdin>", line 1, in <module>
+:   File "c:/Users/EXP4-A~1/AppData/Local/Temp/babel-K5d1aF/python-3Ee4ND", line 39, in <module>
+:     popt, pcov = curve_fit(I_fixed_x, x, data[:cut], p0=(10), bounds=(0,50), method="trf")
+: NameError: name 'I_fixed_x' is not defined
 
 :END:
 
@@ -1346,29 +1374,41 @@ Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetf
   px_size = 278e-9
 
   t_0 = pd.read_csv("./Messung/800nmSi/1um_0,4_slopeinf.csv", usecols=(0,1,2,3))   
-  # t_005 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope10.csv", usecols=(0,1,2,3))   
-  # t_01 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope4.csv", usecols=(0,1,2,3))   
-  # t_015 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope2,666.csv", usecols=(0,1,2,3))   
-  # t_02 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope2.csv", usecols=(0,1,2,3))   
-  # t_025 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope1,6.csv", usecols=(0,1,2,3))   
+  t_005 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope10.csv", usecols=(0,1,2,3))   
+  t_01 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope4.csv", usecols=(0,1,2,3))   
+  t_015 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope2,666.csv", usecols=(0,1,2,3))   
+  t_02 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope2.csv", usecols=(0,1,2,3))   
+  t_025 = pd.read_csv("./Messung/800nmSi/1um_0,4_slope1,6.csv", usecols=(0,1,2,3))   
 
   datalist = [t_0,
-              # t_005["X"].to_numpy(),
-              # t_01["X"].to_numpy(),
-              # t_015["X"].to_numpy(),
-              # t_02["X"].to_numpy(),
-              # t_025["X"].to_numpy()
+              t_005,
+              t_01,
+              t_015,
+              t_02,
+              t_025
               ]
-  for data in datalist:
+  plt.clf()
+  for i, data in enumerate(datalist):
       num_particles = len(data.loc[data["FrameNumber"] == 0])
       x_vector = data["X"].to_numpy()
       x_matrix = np.reshape(x_vector, (len(data["FrameNumber"])//num_particles, num_particles)) * px_size
       # [plt.plot(x_matrix[:,i]) for i in range (0, len(x_matrix[0,:]),1)]
       # plt.plot(x_matrix[:,12]) # Partikel Nr. 12
-      particle = x_matrix[:,12]
+      particlelist = [12, 6, 9, 0, 9, 6]
+      particle = x_matrix[:,particlelist[i]]
+      if i == 2 or i == 4 or i == 5:
+          x = 0 + n*480
+      else:
+          n = 10
+          x = -200 + n * 480
+      step = particle[x:x+700]
+      step = (step -min(step))
+      step = step / max(step)
+      plt.plot(step)
       # traj_matrix = np.reshape(particle, (len(particle), 17))
       # plt.plot(traj_matrix[:1])
       # print(np.shape(traj_matrix))
+      np.save(f"./code/traj_real_{i}.npy", step)
 
 
   plt.savefig("./img/traj_real.png")
@@ -1387,30 +1427,60 @@ Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetf
 :END:
 
 :CODE:
-#+begin_src python :session :results file
+#+begin_src python :session :results output
   import numpy as np
   import matplotlib
   matplotlib.use("Agg")
   import matplotlib.pyplot as plt
 
   crop = "crop" # crop or ipol
-  traj6 = np.load(f"./code/3796x_10488z_{crop}.npy")
-  traj5 = np.load(f"./code/4743x_13106z_{crop}.npy")
-  traj4 = np.load(f"./code/6326x_17475z_{crop}.npy")
-  traj3 = np.load(f"./code/9486x_26213z_{crop}.npy")
-  traj2 = np.load(f"./code/23722x_65540z_{crop}.npy")
-  traj1 = np.load(f"./code/106215x_156678z_{crop}.npy")
+  traj6 = np.load(f"./code/3796x_10488z_{crop}.npy")[100:-200]
+  traj5 = np.load(f"./code/4743x_13106z_{crop}.npy")[100:-200]
+  traj4 = np.load(f"./code/6326x_17475z_{crop}.npy")[100:-200]
+  traj3 = np.load(f"./code/9486x_26213z_{crop}.npy")[100:-200]
+  traj2 = np.load(f"./code/23722x_65540z_{crop}.npy")[100:-200]
+  traj1 = np.load(f"./code/106215x_156678z_{crop}.npy")[100:-200]
+  traj_real_0 = np.load("./code/traj_real_0.npy")
+  traj_real_1 = np.load("./code/traj_real_1.npy")
+  traj_real_2 = np.load("./code/traj_real_2.npy")
+  traj_real_3 = np.load("./code/traj_real_3.npy")
+  traj_real_4 = np.load("./code/traj_real_4.npy")
+  traj_real_5 = np.load("./code/traj_real_5.npy")
   time = np.linspace(0,1,len(traj1))
+  t0 = np.linspace(0,1,len(traj_real_0))
+  t1 = np.linspace(0,1,len(traj_real_1))
+  t2 = np.linspace(0,1,len(traj_real_2))
+  t3 = np.linspace(0,1,len(traj_real_3))
+  t4 = np.linspace(0,1,len(traj_real_4))
+  t5 = np.linspace(0,1,len(traj_real_5))
+  traj6 = (traj6 - min(traj6)) 
+  traj5 = (traj5 - min(traj5)) / max(traj5)
+  traj4 = (traj4 - min(traj4)) / max(traj4)
+  traj3 = (traj3 - min(traj3)) / max(traj3)
+  traj2 = (traj2 - min(traj2)) / max(traj2)
+  traj1 = (traj1 - min(traj1)) / max(traj1)
+  traj6 = traj6 / max(traj6)
+  traj5 = traj5 / max(traj5)
+  traj4 = traj4 / max(traj4)
+  traj3 = traj3 / max(traj3)
+  traj2 = traj2 / max(traj2)
+  traj1 = traj1 / max(traj1)
 
   plt.clf()
   fig, axes = plt.subplots(2,6, sharey="row", sharex=True)
-  fig.suptitle("Simulierte Trajektorien")
-  axes[0,0].plot(time, traj1/1e-6, color="C0")
-  axes[0,1].plot(time, traj2/1e-6, color="C1")
-  axes[0,2].plot(time, traj3/1e-6, color="C2")
-  axes[0,3].plot(time, traj4/1e-6, color="C3")
-  axes[0,4].plot(time, traj5/1e-6, color="C4")
-  axes[0,5].plot(time, traj6/1e-6, color="C5")
+  # fig.suptitle("Simulierte Trajektorien")
+  axes[0,0].plot(time, traj1, color="C0")
+  axes[0,1].plot(time, traj2, color="C1")
+  axes[0,2].plot(time, traj3, color="C2")
+  axes[0,3].plot(time, traj4, color="C3")
+  axes[0,4].plot(time, traj5, color="C4")
+  axes[0,5].plot(time, traj6, color="C5")
+  axes[1,0].plot(t0, traj_real_0, color="C0")
+  axes[1,1].plot(t1, traj_real_1, color="C1")
+  axes[1,2].plot(t1, traj_real_2, color="C2")
+  axes[1,3].plot(t1, traj_real_3, color="C3")
+  axes[1,4].plot(t1, traj_real_4, color="C4")
+  axes[1,5].plot(t1, traj_real_5, color="C5")
   fig.text(0.5, 0.03,"Zeit [s]", ha='center')
   axes[0,0].set_ylabel("$x$-Position [$\mathrm{\mu}$m]")
   axes[1,0].set_ylabel("$x$-Position [$\mathrm{\mu}$m]")
@@ -1421,13 +1491,15 @@ Man erkennt deutlich eine Abflachung des großen Transportschrittes für Magnetf
 #+end_src
 
 #+RESULTS:
+
+
 [[file:./img/sim.png]]
 
 
 :END:
 
 #+name: fig-traj
-#+caption: Vergleich gemessener (oben) Trajektorien mit simulierten (unten) Trajektorien der superparamagnetischen Partikel. Die Plateaustartzeiten der Magnetfelder steigen von links nach rechts. Die Farben der Kurven entsprechen den Farben der Kurve der verwendeten Plateaustartzeiten aus Abbildung ref:fig-plateau.
+#+caption: Vergleich simulierter (oben) Trajektorien mit gemessenen (unten) Trajektorien der superparamagnetischen Partikel. Die Plateaustartzeiten der Magnetfelder steigen von links nach rechts. Die Farben der Kurven entsprechen den Farben der Kurve der verwendeten Plateaustartzeiten aus Abbildung ref:fig-plateau. Da zunächst nur die Form der Trajektorie, nicht aber die Länge des Schrittes von Bedeutung ist, wurden die Kurven normiert.
 #+attr_latex: :placmeent [!h] :width \textwidth
 file:./img/sim.png
 
