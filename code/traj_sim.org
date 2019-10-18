@@ -34,7 +34,7 @@ Plotting. Mehr Plots durch ändern der shape in plt.subplots().
   axes[5].plot(time, traj6/1e-6)
   fig.text(0.5, 0.03,"Zeit [s]", ha='center')
   fig.text(0.03, 0.5,"$x$-Position [$\mathrm{\mu}$m]", va='center', rotation='vertical')
-  plt.savefig("sim.png", dpi=300)
+  plt.savefig("sim.png", dpi=100)
   "sim.png"
 #+end_src
 
