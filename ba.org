@@ -53,6 +53,7 @@ Neuartigen Analysesystemen wie /Lab-on-a-Chip/ (LOC) werden deswegen großes Pot
 Möglich sind unter anderem Biochips zur Analyse und Detektion von bestimmten Molekülen cite:papadea_evaluation_2002, Zellen (beispielsweise T-Zellen für die HIV/AIDS-Diagnostik cite:cheng_microchip_2007), Protein- und Molekülmarkern cite:wang_self-powered_2010, sowie DNA/RNA-Analysen (z.B. Identifizierung von resistenten Pathogenen cite:boehme_rapid_2010). Es können bereits geringe Probenvolumina innerhalb kürzester Zeit analysiert werden und es werden nur geringe Mengen von Reagenzien benötigt cite:chin_commercialization_2012. So können relativ kostengünstige Biochips und Analyseverfahren entwickelt werden, um zum Beispiel auch in Schwellen- und Entwicklungsländern die medizinische Versorgung zu verbessern. Ein wichtiger Bestandteil dieser LOCs ist Transport und Separation der Analyte innerhalb des Chips. Hier hat sich die Nutzung von magnetischen Partikeln bewährt. Verschiedene mikromagnetische Oberflächenstrukturierungen machen dabei den gezielten Transport der Partikel möglich cite:rampini_micromagnet_2016.  
 
 Das in der Arbeitsgruppe \textsc{Ehresmann} etablierte Transportkonzept von superparamagnetischen Partikeln (SPP) oberhalb magnetisch strukturierter /Exchange-Bias/ (EB) Dünnschichtsysteme kann hierbei ein wichtiger Bestandteil zukünftiger Analysesysteme werden. Die Grundidee ist es, durch ein extern angelegtes Magnetfeld die magnetische Feldlandschaft (MFL) eines künstlichen Domänenmusters so zu transformieren, dass ein gerichteter Transport der SPP zwischen /head-to-head/ und /tail-to-tail/-Domänenwänden möglich wird; dabei können diese SPP in verschiedenen Prozessschritten eines LOCs verwendet werden. Einerseits können Analyte, die an Partikel gebunden sind, in bestimmte Analysebereiche transportiert werden cite:ehresmann_asymmetric_2011, andererseits können aber auch Strömungsfelder durch den Partikeltransport erzeugt werden, welche die Analyten und Reagenzien durchmischen und so höhere biochemische Reaktionsraten bewirken cite:holzinger_controlled_2012. Ein weiteres Anwendungsgebiet ist die magnetophoretische Auftrennung der Partikel, um so verschiedene Partikelgrößen aufgrund unterschiedlicher magnetophoretischer Mobilitäten voneinander trennen zu können, damit zum Beispiel möglichst homogene Partikeldispersionen für Analysen erreicht werden können cite:zhou_magnetic_2016. Für jede dieser Anwendungen werden verschiedene Formen eines externen Magnetfeldes benötigt. Bisher wurden für den Partikeltransport trapezförmige Magnetfeldsequenzen mit konstanten Änderungsraten verwendet. In dieser Arbeit soll der Einfluss der Änderungsrate auf die Transportgeschwindigkeit und Trajektorie der Partikel genauer betrachtet werden, um Optimierungen bezüglich des Partikeltransports für das jeweilige Anwendungsgebiet möglich zu machen.
+
 Außerdem sollten in der Arbeitsgruppe entwickelte Auswertungs-cite:holzinger_pythonscript_nodate und Simulationsskripte cite:holzinger_pythonscript_nodate-1 verwendet werden, um die Funktionalität dieser zu überprüfen. Es sollte auch ein neues Programm geschrieben werden, um die benötigten externen Magnetfeldsequenzen komfortabel generieren zu können. Während der Entwicklung dieses Programmes wurde deutlich, dass auch die Helmholtzspulen des Experimentaufbaus charakterisiert werden sollten, um zu überprüfen, wie genau diese mit den genäherten Annahmen der Theorie übereinstimmen.
 
 * Theoretische Grundlagen label:sec-grundlagen
@@ -388,7 +389,6 @@ Folglich kann die Gleichgewichtsgeschwindigkeit wie folgt berechnet werden cite:
 #+attr_latex: :width \textwidth :placement [h]
 #+attr_org: :width 100px
 [[file:img/trapez.png]]
-
 * TODO Experimentelle Methoden label:sec-methoden
   
 ** TODO Experimenteller Aufbau label:sec-aufbau
@@ -1591,7 +1591,7 @@ Diese Gesamtgeschwindigkeit aus großem und kleinem Schritt muss offensichtlich 
 [[file:./img/magnitude.png]]
 
 * TODO Zusammenfassung und Ausblick label:sec-zusammenfassung
-Ziel dieser Arbeit war es, den Einfluss der Änderungsrate der externen Magnetfelder auf den Partikeltransport zu untersuchen. Es waren zuvor einige zusätzliche Untersuchungen von Nöten, um dies zu erreichen. Zunächst wurden die im Experiment verwendeten Helmholtzspulen charakterisiert, und überprüft, ob das real erzeugte Magnetfeld der Spulen mittels Gleichungen vorhergesagt werden kann. Es wurde gezeigt, dass zwar die endgültige magnetische Flussdichte korrekt berechnet werden kann, der Einschaltvorgang der Spulen jedoch aufgrund der Komplexität des Messaufbaus unter Verwendung realer Komponenten (Helmholtzspulen und stromregelndes Netzteil) nicht präzise mit einem einfachen mathematischen Modell beschrieben werden kann. Dies wirkt sich auch auf die Simulationen aus, welche durchgeführt werden, um die Partikelgeschwindigkeiten und -trajektorien bereits im Voraus zu berechnen und mit den experimentellen Befunden abzugleichen. Diese Simulationen verwenden idealisierte Magnetfeldsequenzen und EB-Systeme. Trotzdem ist es durchaus möglich die Trajektorien der Partikel zu berechnen. Letztendlich ist es von Vorteil eine niedrigere Änderungsrate des Magnetfeldes zu verwenden, wenn näher am Modell gearbeitet werden soll, da hier der Einschaltvorgang langsamer stattfindet. Beispielsweise wäre dies denkbar, wenn einzelne Partikel lokal als "Sonden" verwendet werden sollen, um die Streifenstruktur des EB-Systems zu charakterisieren. Hier muss die Trajektorie der Partikel möglichst genau mit der Theorie übereinstimmen, um auf etwaige Anomalien in dem Magnetisierungszustand der Domänen zurück rechen zu können. Dies würde auch langsamere Partikelgeschwindigkeiten bedeuten, was wiederum eine höhere örtliche Auflösung bei gleicher zeitlicher Auflösung bedeutet.
+Ziel dieser Arbeit war es, den Einfluss der Änderungsrate der externen Magnetfelder auf den Partikeltransport zu untersuchen. Es waren zuvor einige zusätzliche Untersuchungen von Nöten, um dies zu erreichen. Zunächst wurden die im Experiment verwendeten Helmholtzspulen charakterisiert, und überprüft, ob das real erzeugte Magnetfeld der Spulen mittels Gleichungen vorhergesagt werden kann. Es wurde gezeigt, dass zwar die endgültige magnetische Flussdichte korrekt berechnet werden kann, der Einschaltvorgang der Spulen jedoch aufgrund der Komplexität des Messaufbaus unter Verwendung realer Komponenten (Helmholtzspulen und stromregelndes Netzteil) nicht präzise mit einem einfachen mathematischen Modell beschrieben werden kann. Dies wirkt sich auch auf die Simulationen aus, welche durchgeführt werden, um die Partikelgeschwindigkeiten und -trajektorien bereits im Voraus zu berechnen und mit den experimentellen Befunden abzugleichen. Diese Simulationen verwenden idealisierte Magnetfeldsequenzen und EB-Systeme. Trotzdem ist es durchaus möglich die Trajektorien der Partikel zu berechnen. Letztendlich ist es von Vorteil eine niedrigere Änderungsrate des Magnetfeldes zu verwenden, wenn näher am Modell gearbeitet werden soll, da hier der Einschaltvorgang langsamer stattfindet. Beispielsweise wäre dies denkbar, wenn einzelne Partikel lokal als "Sonden" verwendet werden sollen, um die Streifenstruktur des EB-Systems zu charakterisieren. Hier muss die Trajektorie der Partikel möglichst genau mit der Theorie übereinstimmen, um auf etwaige Anomalien des Magnetisierungszustands der Domänen zurück rechen zu können. Dies würde auch langsamere Partikelgeschwindigkeiten bedeuten, was wiederum eine höhere örtliche Auflösung bei gleicher zeitlicher Auflösung bedeutet.
 
 Im Zuge des apperativen Teils dieser Arbeit wurde ein Programm zur Erstellung der Magnetfeldsequenzen entwickelt, das es in Zukunft erleichtert, verschiedene Magnetfeldsequenzen und deren Auswirkung auf den Partikeltransport zu untersuchen. 
 
@@ -1602,8 +1602,7 @@ Diese Arbeit war eine der ersten, die das Auswertungsskript cite:holzinger_pytho
 Außerdem wurde die Validität der in dem Simulationsskript cite:holzinger_pythonscript_nodate-1 verwendeten Modelle geprüft, und gezeigt, dass die tatsächlich gemessenen Trajektorien denen aus der Simulation sehr ähnlich sind, und durchaus erste Einschätzungen bezüglich des Verhaltens der Partikel getätigt werden können. So kann bereits im Voraus bestimmt werden, welche Partikel und EB-Schichtsysteme für nähere Untersuchungen von Interesse wären.
 
 Superparamagnetische Partikel über den EB-Dünnschichtsystemen besitzen eine Grenzfrequenz der Magnetfeldsequenzen, oberhalb derer sich keine Transportschritte mehr zeigen cite:holzinger_directed_2015. Diese kritische Frequenz wurde bisher nur für rechteckförmige Magnetfeldsequenzen bestimmt. Es wäre möglich, dass für bestimmte trapezförmige Magnetfeldsequenzen eine neue maximale Grenzfrequenz bestimmt werden kann, da der große Transportschritt weniger ruckartig verläuft und die Partikel so weniger starke Beschleunigungsphasen erfahren.
-# Beliebige Magnetfeldsequenzen
-# Trigger Camera
+
 * Anhang
 ** Messwerte
 #+caption: Zusammenhang zwischen magnetischer Flussdichte und Stromstärke. Hierbei wurde die Spannung an dem DAQ-Gerät $U_\mathrm{DAQ}$ erhöht und dazugehörige Stromstärke am Netzteilausgang $I$ und magnetische Flussdichte im inneren der z-Spule $B_\mathrm{z}$ gemessen.
@@ -1634,7 +1633,6 @@ Superparamagnetische Partikel über den EB-Dünnschichtsystemen besitzen eine Gr
 |               2.0 |            1.588 |                  16.35 |
 
 ** Python-Script zur Messung von Stromstärken und magnetischer Flussdichte: label:anh-messung
-
 #+begin_src python :exports code
   """ Measure magnetic fieldstrength with NI USB-6002 """
   import numpy as np
@@ -1679,20 +1677,16 @@ Superparamagnetische Partikel über den EB-Dünnschichtsystemen besitzen eine Gr
       plt.show()
 #+end_src
 
-#+RESULTS:
 * 
   :PROPERTIES:
   :UNNUMBERED: t
   :END:
-  
 \printbibliography
-  
 * Danksagung
 :PROPERTIES:
 :UNNUMBERED: t
 :END:
 Danke.
-
 * Eigenständigkeitserklärung
 :PROPERTIES:
 :UNNUMBERED: t
