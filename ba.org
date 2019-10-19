@@ -8,6 +8,8 @@
 
 * Fragen                                                             :ignore:
 * TODO [20/21] Noch zu tun:                                          :ignore:
+** TODO leere seite nach Danksagung
+** TODO MAN
 ** TODO DPI
 ** DONE Diskussion:
 CLOSED: [2019-10-18 Fr 22:24]
