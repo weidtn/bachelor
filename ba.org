@@ -7,65 +7,9 @@
 #+EXCLUDE_TAGS: ignore
 
 * Fragen                                                             :ignore:
-* TODO [21/23] Noch zu tun:                                          :ignore:
-** TODO leere seite nach Danksagung
+* TODO [1/3] Noch zu tun:                                            :ignore:
+** TODO leere Seite nach Danksagung
 ** TODO DPI
-** DONE MAN
-CLOSED: [2019-10-19 Sa 17:13]
-** DONE Diskussion:
-CLOSED: [2019-10-18 Fr 22:24]
-   - Tracking
-   - Magnetfeldlandschaft aus Simulation ist idealisiert
-   - Netzteil ist blackbox
-** DONE Simulierte Trajektorien durch step_evaluate laufen lassen
-   CLOSED: [2019-10-18 Fr 22:24] SCHEDULED: <2019-09-19 Do>
-** DONE flacher = bessere voraussagbarkeit aber langsamere Partikel
-CLOSED: [2019-10-18 Fr 22:24]
-** DONE Plots von gemessenen Trajektorien
-CLOSED: [2019-10-18 Fr 21:42]
-erstmal ausgewählte, vielleicht mittelwert?
-** DONE Skalierung Trajektorien
-CLOSED: [2019-10-18 Fr 21:42]
-   Verschiebung x
-** DONE Orangene Kurve
-CLOSED: [2019-10-18 Fr 21:05]
-** DONE mag_fit_fixed mir roter line mit Steigung aus regression
-CLOSED: [2019-10-16 Mi 22:13]
-** DONE Fits passen nicht, weil nicht exponentiell. Zeigen?
-CLOSED: [2019-10-16 Mi 22:12]
-   - Gerade für Sättigung in B(I)
-** DONE EB genauer erklären
-   CLOSED: [2019-10-15 Di 15:29]
-- [X] EB system kann genau einen makroskopisch remanenten Zustand haben, wenn die Flanken der Kurve steil genug und die Verschiebung groß genug ist. --- das ist nämlich toll an EB :)
-- [X] Beim Feldkühlen von polykristallinene System wie sie bei uns verwendet werden: Blocking statt NEeltemp
-- [X] Shift der Hystereses ist darin begründet, dass bei der Magnetisiseurngsumkehr ja die AF Momente den F an der Umkehr seiner Momente hindert eben wegen der Kopplungan der GRenzfläche.
-- [X] zumindest ein bisschen was von einem EB Modell, zumindest das einfachste von Meiklejohn und bean und den Zusammenhang zwischen EB Feldstärke und Ferromagnetschichtdicke wünsche ich mir. 
-- [X] Gesamtdrehimpuls J erklären
-** DONE Transportkonzept genauer erklären
-   CLOSED: [2019-10-15 Di 15:29]
-Hier wäre es toll, wenn du zumindest ein bisschen noch auf die Kräfte eingehst. F_M und F_R sollten vorkommen und die Tatsache, das sie die Gleichgwichtsgeschwindigkeit bestimmen (+ Formel). Du musst nicht im Detail alle Einzelheiten der Elektrostatischen und vdW Kraft ausienandernehmen, aber zumindest nennen kannst du sie, da sie ja immerhin auch in die Simulaitonen am Ende eingehen. Du kannst beschreiben, dass die elektrostat. Kraft in unseren Experimente abstoßend ist, während vdWaals und magnetostatische Kraft anziehend wirken, so dass aus deren Kräftegleichgewicht zunächst der Gleichgewichtsabstand resultiert...
-
-Falls du das alles aber erst im Simulationskapitel machen willst, ist es auch ok, aber zzumindest F_R und F_M sollten hier auftauchen.
-** DONE Blindwiderstand erklärt?
-   CLOSED: [2019-10-15 Di 09:59]
-** DONE Samplerate im Fit für Strom
-CLOSED: [2019-10-12 Sa 21:16]
-** DONE Fit Stromstärke mit Formel
-CLOSED: [2019-10-12 Sa 21:16]
-** DONE Fit Magnetfeld mit Formel
-CLOSED: [2019-10-12 Sa 21:16]
-** DONE Fit mit festen R und L
-CLOSED: [2019-10-12 Sa 21:16]
-** DONE Samplerate für jede Messung rausfinden
-CLOSED: [2019-10-11 Fr 22:16]
-** DONE Ausschaltstrom
-CLOSED: [2019-10-11 Fr 22:16]
-** DONE Einleitung magnetophoretische Mobilität
-   CLOSED: [2019-10-11 Fr 15:43]
-** DONE REIHENFOLGE FÜR FITS!!
-   CLOSED: [2019-10-11 Fr 15:43]
-** DONE Magnetfeld -> Flussdichte
-CLOSED: [2019-10-10 Do 20:51]
 * Header                                                             :ignore:
    #+latex_class:scrbook
    #+latex_class_options:[page,pdftex,12pt,a4paper,twoside,openright]
@@ -115,7 +59,6 @@ Außerdem sollten in der Arbeitsgruppe entwickelte Auswertungs-cite:holzinger_py
 In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt, anschließend wird die Verbindung zum Magnetismus in Materie hergestellt. Dann werden die in dieser Arbeit verwendeten /Exchange Bias Systeme/ eingeführt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene /Exchange Bias Systeme/ beschrieben, wobei die auf sie wirkenden Kräfte genauer betrachtet werden sollen.
   
 ** Elektromagnetismus label:sec-elektromagnetismus
-   CLOSED: [2019-10-10 Do 16:13]
    Allgemein gilt, dass bewegte Ladungsträger (Ströme) ein Magnetfeld erzeugen. Fließt zum Beispiel ein Strom $I$ durch einen langen, geraden Draht, erzeugt dies ein kreisförmiges Magnetfeld. Entlang der Stromrichtung ergibt sich eine Rechtsschraube für das Magnetfeld B. Eine Spule besteht aus mehreren Windungen stromdurchflossenen Drahtes und erzeugt so durch Überlagerung ein Magnetfeld, ähnlich eines Stabmagneten mit Nord- und Südpol. Die Magnetische Flussdichte $B$ im Vakuum hängt dabei von Stromstärke $I$ und Windungsdichte $n = \frac{N}{L}$ (Windungen pro Länge) ab. Hierbei ist $\mu_\mathrm{0}$ die magnetische Feldkonstante cite:demtroder_experimentalphysik_2017:
 
 #+name: eq-spule
@@ -252,7 +195,6 @@ Der Abschaltvorgang ist in Abbildung ref:fig-abschalten abgebildet.
 \end{figure}
 
 ** Magnetismus in Materie label:sec-magnetismus
-CLOSED: [2019-09-30 Mo 11:12]
 Wie bereits in Kapitel ref:sec-elektromagnetismus erläutert, erzeugen bewegte Ladungen Magnetfelder. Eine solche bewegte Ladung ist auch das Elektron, das in einer vereinfachten Vorstellung um den Atomkern kreist. Folglich besitzen Atome ein magnetisches Moment $\mu$, welches abhängig ist von der umkreisten Fläche $A$ und dem Kreisstrom des Elektrons $I$ cite:kassing_bergmann_2005:
    
 #+name:eq-moment:
@@ -293,7 +235,6 @@ Festkörper können in Folge der mikroskopischen Ursachen bezüglich ihres Magne
 Im Folgenden soll näher auf diese Klassifizierungen eingegangen werden.
 
 *** Dia- und Paramagnetismus label:sec-dia-und-para
-    CLOSED: [2019-09-23 Mo 11:59]
 Diamagnetismus ist ein magnetischer Effekt in jeglicher Materie, welcher durch induzierte magnetische Momente auftritt. In einem externen Magnetfeld wird im Atom ein magnetisches Moment induziert, welches dem induzierenden Magnetfeld entgegen wirkt (Lenzsche Regel). Ein Festkörper wird als diamagnetisch bezeichnet, wenn ohne äußeres magnetisches Feld keine magnetischen Momente vorliegen. Vor allem abgeschlossene äußere Elektronenschalen tragen zum diamagnetischen Effekt eines Atoms bei. Die Spin- und Bahnmomente der gepaarten Elektronen heben sich in Summe auf. Diamagnetische Materialien haben eine negative Suszeptibilität und werden aus dem externen Magnetfeld heraus gedrängt cite:gross_festkorperphysik_2012.
 
 #+name:eq-dia
@@ -318,7 +259,6 @@ Wird ein äußeres Magnetfeld angelegt, richten sich die magnetischen Momente na
 \end{equation}
 
 *** Ferromagnetismus label:sec-ferro
-    CLOSED: [2019-09-24 Di 16:42]
     
 Beeinflussen sich die einzelnen magnetischen Momente gegenseitig, sind sie also gekoppelt, kann das System einen magnetisch geordneten Zustand einnehmen. Dieser geordnete Zustand unterliegt jedoch einer Temperaturabhängigkeit. Eine Ursache für das Vorliegen von kollektivem Magnetismus ist die quantenmechanische *Austausch-Wechselwirkung* cite:kassing_bergmann_2005.
 
@@ -358,11 +298,9 @@ Beim Ausrichten der magnetischen Dipole in einem ferromagnetischen Stoff wird En
 Der Festkörper kann seine ferromagnetischen Eigenschaften verlieren, wenn er über eine bestimmte, für das Material charakteristische Temperatur $T_\mathrm{C}$, die *Curie-Temperatur,* erhitzt wird. Die Wärmebewegung zerstört dann die magnetische Ausrichtung der Dipole und der Stoff zeigt nur noch paramagnetisches Verhalten cite:demtroder_experimentalphysik_2017.
 
 *** Antiferromagnetismus label:sec-antiferro
-    CLOSED: [2019-09-23 Mo 12:00]
 In einem Antiferromagneten liegen zwei ineinander gestellte Untergitter im Kristallgitter vor. Die magnetischen Momente jener Untergitter zeigen jeweils in entgegengesetzte Richtungen und haben den gleichen Betrag. Somit heben sie sich insgesamt auf und es ist keine makroskopische Magnetisierung sichtbar. Oberhalb der *Néel-Temperatur* $T_\mathrm{N}$, dem Analogon zur Curie-Temperatur, geht der Festkörper in den paramagnetischen Zustand über cite:demtroder_experimentalphysik_2017. 
 
 *** Superparamagnetismus
-    CLOSED: [2019-09-24 Di 16:42]
 Ist das Volumen eines ferromagnetischen Festkörpers so gering, dass er nur aus einer einzelnen Domäne besteht, wird von Superparamagnetismus gesprochen. Die Suszeptibilität solcher Superparamagneten ist größer als die Suszeptibilität von Paramagneten, jedoch verhalten sie sich ohne äußeres Magnetfeld ähnlich, da die Magnetisierung in solchen einzelnen Domänen nicht thermisch stabil ist und sich beliebig ausrichten kann cite:gross_festkorperphysik_2012.
 Jedoch ist die Zeitskala des Experiments wichtig, und ob in dieser thermische Aktivierungs- und Relaxationsprozesse statt finden können, um Aussagen über das magnetische Verhalten eines Partikels machen zu können. Bei ausreichend großen Zeitskalen wird über die durch thermische Energie unterschiedlichen magnetischen Momente gemittelt und es resultiert insgesamt keine Magnetisierung. Wird jedoch sehr kurz gemessen, kann eine Richtung der Magnetisierung für diesen kurzen Zeitausschnitt bestimmt werden cite:leslie-pelecky_magnetic_1996.
     
@@ -1695,8 +1633,7 @@ Superparamagnetische Partikel über den EB-Dünnschichtsystemen besitzen eine Gr
 |               1.9 |            1.509 |                  15.52 |
 |               2.0 |            1.588 |                  16.35 |
 
-** Python-Script zur Messung von Stromstärke und magnetischer Flussdichte: label:anh-messung
-   CLOSED: [2019-10-10 Do 16:04]
+** Python-Script zur Messung von Stromstärken und magnetischer Flussdichte: label:anh-messung
 
 #+begin_src python :exports code
   """ Measure magnetic fieldstrength with NI USB-6002 """
@@ -1761,3 +1698,5 @@ Danke.
 :UNNUMBERED: t
 :END:
 Hiermit bestätige ich, dass ich die vorliegende Arbeit selbständig verfasst und keine anderen als die angegebenen Hilfsmittel benutzt habe. Die Stellen der Arbeit, die dem Wortlaut oder dem Sinn nach anderen Werken (dazu zählen auch Internetquellen) entnommen sind, wurden unter Angabe der Quelle kenntlich gemacht. \\
+
+#  LocalWords:  ursachen
