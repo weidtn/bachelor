@@ -1,7 +1,7 @@
 #+Title: Bachelorarbeit
 #+Author: Nikolai Weidt
 #+LANGUAGE: de
-#+OPTIONS: toc:2 tasks:t title:t todo:nil \n:t
+#+OPTIONS: toc:2 tasks:t title:t todo:nil
 #+OPTIONS: d:nil ':t
 #+Todo: TODO(t) | DONE(d) 
 #+EXCLUDE_TAGS: ignore
@@ -1305,7 +1305,7 @@ Veranschaulichung Plateauzeiten
 #+attr_latex: :width 0.5\textwidth :placement [h]
 [[file:./img/plateau.png]]
 
-Da die bisher vorausgesetzten Modelle mit den experimentellen Daten verglichen werden sollen, wurden durch Simulationsskripte Trajektorien für verschiedene Magnetfeldänderungsraten vorhergesagt cite:holzinger_pythonscript_nodate. Dazu wurden Berechnungen der Magnetsisierungszustände aus dem /The Object Oriented MicroMagnetic Framework/ (OOMMF) cite:donahue_oommf_1999, welche in der Arbeitsgruppe bereits vorher vorlagen, verwendet. Hieraus wird die magnetische Potentiallandschaft berechnet. Anschließend kann anhand verschiedener physikalischer Parameter der Partikel und des EB-Systems der Gleichgewichtsabstand der Partikel über der Probe aus dem Gleichgewicht zwischen der elektrostatischen Kraft und der Summe aus magnetischer und Van-der-Waals-Kraft berechnet werden. Er beträgt für die verwendeten Partikel und EB-Systeme in dieser Arbeit $z_\mathrm{ss} = \SI{200}{\nano\meter}$ von Partikeloberfläche zu Probenoberfläche. Dieser Abstand wird benötigt, um im nächsten Schritt mittels der berechneten Magnetfeldlandschaftsdaten und den Parametern des externen Magnetfeldes die Trajektorie der Partikel während eines Transportschrittes zu bestimmen.
+Da die bisher vorausgesetzten Modelle mit den experimentellen Daten verglichen werden sollen, wurden durch Simulationsskripte Trajektorien für verschiedene Magnetfeldänderungsraten vorhergesagt cite:holzinger_pythonscript_nodate. Dazu wurden Berechnungen der Magnetsisierungszustände aus dem /The Object Oriented MicroMagnetic Framework/ (OOMMF) cite:donahue_oommf_1999, welche in der Arbeitsgruppe bereits vorher vorlagen, verwendet. Hieraus wird die magnetische Potentiallandschaft berechnet. Anschließend kann anhand verschiedener physikalischer Parameter der Partikel und des EB-Systems der Gleichgewichtsabstand der Partikel über der Probe aus dem Gleichgewicht zwischen der elektrostatischen Kraft und der Summe aus magnetischer und Van-der-Waals-Kraft berechnet werden. Er beträgt für die verwendeten Partikel und EB-Systeme in dieser Arbeit $z_\mathrm{ss} = \SI{780}{\nano\meter}$ von Partikeloberfläche zu Probenoberfläche. Dieser Abstand wird benötigt, um im nächsten Schritt mittels der berechneten Magnetfeldlandschaftsdaten und den Parametern des externen Magnetfeldes die Trajektorie der Partikel während eines Transportschrittes zu bestimmen.
 
 
 Es wurden einige Trajektorien aus den gemessenen Transportschritten der Partikel ausgewählt, um einen Vergleich zwischen Simulation und Messung zu erhalten. Der Vergleich zwischen realen und simulierten Trajektorien ist in Abbildung ref:fig-traj zu sehen.
@@ -1578,7 +1578,7 @@ Diese Gesamtgeschwindigkeit aus großem und kleinem Schritt muss offensichtlich 
 :END:
 #+name: fig-betrag
 #+caption: Betrag der Magnetfeldvektoren. Die angelegten Magnetfeldsequenzen sind in blau (x) und orange (z) dargestellt, der Betrag des Gesamtmagnetfeldvektor $\vec{B}_\mathrm{ges} = \vec{B}_\mathrm{x} + \vec{B}_\mathrm{z}$ ist in grün dargestellt.
-#+attr_latex: :width \textwidth :placement [h]
+#+attr_latex: :width .75\textwidth :placement [h]
 [[file:./img/magnitude.png]]
 
 * Zusammenfassung und Ausblick label:sec-zusammenfassung
