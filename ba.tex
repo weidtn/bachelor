@@ -1,4 +1,4 @@
-% Created 2019-10-20 So 17:29
+% Created 2019-10-20 So 19:34
 % Intended LaTeX compiler: pdflatex
 \documentclass[page,pdftex,12pt,a4paper,twoside,openright]{scrbook}
 \usepackage[utf8]{inputenc}
@@ -55,7 +55,7 @@
 
 
 \chapter{Einleitung \label{sec-einleitung}}
-\label{sec:org7c2eff4}
+\label{sec:orge6d360f}
 Durch den allgemeinen Anstieg der Weltbevölkerung, den demographischen Wandel und die steigende Lebenserwartung wird eine Zunahme von Krankheiten wie Krebs oder Diabetes erwartet \cite{bray_global_2018,zhou_worldwide_2016}. Um dieser Entwicklung entgegenzuwirken, werden kostengünstige, patientennahe Diagnoseprozesse für die Individualmedizin entwickelt. So können bereits früh Krankheitsanzeichen und -ursachen entdeckt und bekämpft werden.
 
 Neuartigen Analysesystemen wie \emph{Lab-on-a-Chip} (LOC) werden deswegen großes Potential für Biomedizin und Medizindiagnostik in der Zukunft zugesprochen. Durch Miniaturisierung der Chips ergeben sich viele Vorteile \cite{stone_microfluidics_2001,knight_honey_2002}.
@@ -66,11 +66,11 @@ Das in der Arbeitsgruppe \textsc{Ehresmann} etablierte Transportkonzept von supe
 Außerdem sollen in der Arbeitsgruppe entwickelte Simulations- \cite{holzinger_pythonscript_nodate-1} und Auswertungsskripte \cite{holzinger_pythonscript_nodate} verwendet werden, um die Funktionalität dieser zu überprüfen. Es soll auch ein neues Programm geschrieben werden, um die benötigten externen Magnetfeldsequenzen komfortabel generieren zu können. Während der Entwicklung dieses Programmes wurde deutlich, dass auch die Helmholtzspulen des Experimentaufbaus charakterisiert werden müssen, um zu überprüfen, wie genau diese mit den genäherten Annahmen der Theorie übereinstimmen.
 
 \chapter{Theoretische Grundlagen \label{sec-grundlagen}}
-\label{sec:orgf5d5f45}
+\label{sec:org070c288}
 In diesem Kapitel soll das theoretische Hintergrundwissen, welches zum Verständnis dieser Arbeit benötigt wird, vermittelt werden. Dazu wird zunächst der Elektromagnetismus eingeführt, anschließend wird die Verbindung zum Magnetismus in Materie hergestellt. Dann werden die in dieser Arbeit verwendeten \emph{Exchange Bias Systeme} erklärt und im nächsten Teil wird schließlich der Transport von superparamagnetischen Partikeln über eben jene \emph{Exchange Bias Systeme} beschrieben, wobei die auf sie wirkenden Kräfte genauer betrachtet werden sollen.
 
 \section{Elektromagnetismus \label{sec-elektromagnetismus}}
-\label{sec:org738ed33}
+\label{sec:org3aecc4c}
 Allgemein gilt, dass bewegte Ladungsträger (Ströme) ein Magnetfeld erzeugen. Fließt zum Beispiel ein Strom \(I\) durch einen langen, geraden Draht, erzeugt dies ein kreisförmiges Magnetfeld. Entlang der Stromrichtung ergibt sich eine Rechtsschraube für das Magnetfeld B. Eine Spule besteht aus mehreren Windungen stromdurchflossenen Drahtes und erzeugt so durch Überlagerung ein Magnetfeld, ähnlich eines Stabmagneten mit Nord- und Südpol. Die Magnetische Flussdichte \(B\) im Vakuum hängt dabei von Stromstärke \(I\) und Windungsdichte \(n = \frac{N}{L}\) (Windungen pro Länge) ab. Hierbei ist \(\mu_\mathrm{0}\) die magnetische Feldkonstante \cite{demtroder_experimentalphysik_2017}:
 
 \begin{equation}
@@ -79,7 +79,7 @@ B = \mu_{\mathrm{0}} \cdot n \cdot I .
 \end{equation}
 
 \subsection{Helmholtzspulen}
-\label{sec:orgd08ee16}
+\label{sec:org92ab367}
 Für den Partikeltransport wird ein äußeres magnetisches Feld mit Hilfe von Helmholtzspulen erzeugt. Eine Helmholtzspule besteht aus zwei parallelen Ringspulen in Reihe. Diese erzeugen ein homogenes Magnetfeld in ihrem Inneren, wenn die Helmholtz-Bedingung erfüllt ist, d.h. Radius und Abstand der Teilspulen gleich sind. Die Flussdichte dieses Magnetfeldes hängt in Näherung von der Stromstärke \(I\), der Windungszahl pro Spule \(N\) und dem Radius einer einzelnen Spule \(r\) ab \cite{raith_elektromagnetismus_2006}: 
 
 \begin{equation}
@@ -88,7 +88,7 @@ B = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot \mu_{\mathrm{0}} \cdot \frac{N 
 \end{equation}
 
 \section{Spulen als elektrische Bauteile \label{sec-spulen}}
-\label{sec:orgdda80cc}
+\label{sec:org4d0fe92}
 Beim Anlegen einer Spannung an eine Spule, wird innerhalb dieser eine Gegenspannung induziert. Hierbei ist die induzierte Spannung
 
 \begin{equation}
@@ -141,7 +141,7 @@ Der Abschaltvorgang ist in Abbildung \ref{fig-abschalten} abgebildet.
 \end{figure}
 
 \section{Magnetismus in Materie \label{sec-magnetismus}}
-\label{sec:orge29d0cb}
+\label{sec:orge72cd58}
 Wie bereits in Kapitel \ref{sec-elektromagnetismus} erläutert, erzeugen bewegte Ladungen Magnetfelder. Eine solche bewegte Ladung ist auch das Elektron, das in einer vereinfachten Vorstellung um den Atomkern kreist. Folglich besitzen Atome ein magnetisches Moment \(\mu\), welches abhängig ist von der umkreisten Fläche \(A\) und dem Kreisstrom des Elektrons \(I\) \cite{kassing_bergmann_2005}:
 
 \begin{equation}
@@ -182,7 +182,7 @@ Festkörper können in Folge der mikroskopischen Ursachen bezüglich ihres Magne
 Im Folgenden soll näher auf diese Klassifizierungen eingegangen werden.
 
 \subsection{Dia- und Paramagnetismus \label{sec-dia-und-para}}
-\label{sec:org2817367}
+\label{sec:org747c9aa}
 Diamagnetismus ist ein magnetischer Effekt in jeglicher Materie, welcher durch induzierte magnetische Momente auftritt. In einem externen Magnetfeld wird im Atom ein magnetisches Moment induziert, welches dem induzierenden Magnetfeld entgegenwirkt (Lenzsche Regel). Ein Festkörper wird als diamagnetisch bezeichnet, wenn ohne äußeres magnetisches Feld keine magnetischen Momente vorliegen. Vor allem abgeschlossene äußere Elektronenschalen tragen zum diamagnetischen Effekt eines Atoms bei. Die Spin- und Bahnmomente der gepaarten Elektronen heben sich in Summe auf. Diamagnetische Materialien haben eine negative Suszeptibilität und werden aus dem externen Magnetfeld herausgedrängt \cite{gross_festkorperphysik_2012}.
 
 \begin{equation}
@@ -205,7 +205,7 @@ Wird ein äußeres Magnetfeld angelegt, richten sich die magnetischen Momente na
 \end{equation}
 
 \subsection{Ferromagnetismus \label{sec-ferro}}
-\label{sec:orgf913741}
+\label{sec:org13dd62d}
 
 Beeinflussen sich die einzelnen magnetischen Momente gegenseitig, sind sie also gekoppelt, kann das System einen magnetisch geordneten Zustand einnehmen. Dieser geordnete Zustand unterliegt jedoch einer Temperaturabhängigkeit. Eine Ursache für das Vorliegen von kollektivem Magnetismus ist die quantenmechanische \textbf{Austausch-Wechselwirkung} \cite{kassing_bergmann_2005}.
 
@@ -247,16 +247,16 @@ Beim Ausrichten der magnetischen Dipole in einem ferromagnetischen Stoff wird En
 Der Festkörper kann seine ferromagnetischen Eigenschaften verlieren, wenn er über eine bestimmte, für das Material charakteristische Temperatur \(T_\mathrm{C}\), die \textbf{Curie-Temperatur,} erhitzt wird. Die Wärmebewegung zerstört dann die magnetische Ausrichtung der Dipole und der Stoff zeigt nur noch paramagnetisches Verhalten \cite{demtroder_experimentalphysik_2017}.
 
 \subsection{Antiferromagnetismus \label{sec-antiferro}}
-\label{sec:org780e0ee}
+\label{sec:orgde3e68e}
 In einem Antiferromagneten liegen zwei ineinander gestellte Untergitter im Kristallgitter vor. Die magnetischen Momente jener Untergitter zeigen jeweils in entgegengesetzte Richtungen und haben den gleichen Betrag. Somit heben sie sich insgesamt auf und es ist keine makroskopische Magnetisierung sichtbar. Oberhalb der \textbf{Néel-Temperatur} \(T_\mathrm{N}\), dem Analogon zur Curie-Temperatur, geht der Festkörper in den paramagnetischen Zustand über \cite{demtroder_experimentalphysik_2017}. 
 
 \subsection{Superparamagnetismus}
-\label{sec:org0a5b12b}
+\label{sec:orgc9ce7f0}
 Ist das Volumen eines ferromagnetischen Festkörpers so gering, dass er nur aus einer einzelnen Domäne besteht, wird von Superparamagnetismus gesprochen. Die Suszeptibilität solcher Superparamagneten ist größer als die Suszeptibilität von Paramagneten, jedoch verhalten sie sich ohne äußeres Magnetfeld ähnlich, da die Magnetisierung in solchen einzelnen Domänen nicht thermisch stabil ist und sich beliebig ausrichten kann \cite{gross_festkorperphysik_2012}.
 Jedoch ist die Zeitskala des Experiments wichtig und ob in dieser thermische Aktivierungs- und Relaxationsprozesse stattfinden können, um Aussagen über das magnetische Verhalten eines Partikels machen zu können. Bei ausreichend großen Zeitskalen wird über die durch thermische Energie unterschiedlichen magnetischen Momente gemittelt und es resultiert insgesamt keine Magnetisierung. Wird jedoch sehr kurz gemessen, kann eine Richtung der Magnetisierung für diesen kurzen Zeitausschnitt bestimmt werden \cite{leslie-pelecky_magnetic_1996}.
 
 \section{Exchange Bias Effekt \label{sec-EB}}
-\label{sec:org2b76d3f}
+\label{sec:org83e5238}
 Der \emph{Exchange Bias} (EB) Effekt  wurde 1956 von \textsc{Meiklejohn} und \textsc{Bean} an oxidierten \ce{Co}-Partikeln entdeckt. Diese Partikel bestehen im Kern aus Cobalt, einem Ferromagneten, und besitzen eine äußere dünne \ce{CoO}-Schicht, welche antiferromagnetisch ist. Die Autoren entdeckten eine Verschiebung der Hysteresekurve um das sogenannte Austauschverschiebungsfeld \(H_\mathrm{EB}\). Die Beobachtung kann durch den Austauschverschiebungseffekt (engl. \emph{exchange bias}) erklärt werden. Dieser tritt an der Grenzfläche zwischen antiferromagnetischer (AF) und ferromagnetischer (F) Schicht auf, wenn die Partikel innerhalb eines externen Magnetfeldes unter die Néel-Temperatur der antiferromagnetischen Schicht gekühlt wurden. \cite{meiklejohn_new_1957}.
 
 
@@ -290,7 +290,7 @@ Schematische Darstellung der ferromagnetischen Hysteresekurve eines EB-Systems i
 Durch Helium-Ionenbeschuss kann der EB-Effekt eines Schichtsystems verändert werden, so kann zum Beispiel die Richtung des Austauschverschiebungsfeldes lokal umgekehrt werden \cite{mougin_local_2001}. Hierzu kann eine Schattenmaske mittels Lithographie auf die Probe gebracht werden, um anschließend lokal das Eindringen von Ionen zu verhindern. Dies ermöglicht die magnetische Strukturierung von EB-Systemen, zum Beispiel in einer \emph{in-plane} Anisotropie, welche zu \emph{head-to-head} und \emph{tail-to-tail}-Domänenwänden in einer Streifenstruktur führt, womit wiederum Transport von superparamagnetischen Partikeln realisiert werden kann \cite{holzinger_directed_2015}.
 
 \section{Partikeltransport \label{sec-partikeltransport}}
-\label{sec:orgfdd7f26}
+\label{sec:orgeb10049}
 Superparamagnetische Partikel (SPP) lassen sich durch Verwendung von den zuvor beschriebenen streifenstrukturierten (hh und tt) EB-Systemen in kontrollierten Abständen zum Substrat und in geordneter Reihenform transportieren. Dabei setzt sich das effektive Magnetfeld, das die Partikel erfahren, aus der Magnetfeldlandschaft des Exchange-Bias Systems und dem externen Magnetfeld zusammen \cite{holzinger_directed_2015}:
 
 \begin{equation}
@@ -347,10 +347,10 @@ Schematische Darstellung der wirkenden Kräfte auf ein superparamagnetisches Par
 (a-e): Berechnete magnetische Potentiallandschaft \(U_\mathrm{SPP,z(x)}\) als Funktion der x-Position im Partikelzentrum \(\SI{2}{\mu\meter}\) über dem EB-System. Die superparamagnetischen Partikel sind schematisch in braun dargestellt. (f): Angelegte Magnetfeldsequenzen. Die Zeitskala der Magnetfeldsequenzen ist passend zu den Darstellungen der Potentiallandschaften zu verschiedenen Zeiten aufgetragen. Aus \cite{holzinger_transport_2015}.}
 \end{figure}
 \chapter{Experimentelle Methoden \label{sec-methoden}}
-\label{sec:orgac64a19}
+\label{sec:orgff93e92}
 
 \section{Experimenteller Aufbau \label{sec-aufbau}}
-\label{sec:orgcc28654}
+\label{sec:org83c6381}
 
 Um den Transport von superparamagnetischen Partikeln über das Substrat zu realisieren und zu beobachten, wurde der Versuchsaufbau, der in Abbildung \ref{img-aufbau} zu sehen ist, verwendet.
 
@@ -377,11 +377,11 @@ z & \num{330} & \num{0,030} & \num{11,5} & \num{70} & \num{5,6}\\
 \end{table}
 
 
-Bei den Versuchen in dieser Arbeit wurden nur zwei der drei Helmholtzspulen verwendet; dabei handelte es sich um die Spulen für die x- und z-Richtung. Die Partikel wurden in einer mikrofluidischen Zelle auf den Proben platziert, um dann untersucht werden zu können. Hierfür wird Parafilm zuerst in Größe der Probe zurecht geschnitten, und dann ein Rechteck im Inneren des Parafilms ausgeschnitten; so entsteht eine Aussparung in der Mitte, in die circa \SI{10}{\micro\litre} Partikelsuspension gegeben werden. Anschließend wird die Probe auf dem Probentisch platziert, die LED eingeschaltet und die Kamera mittels Livebild auf die Partikel fokussiert.
+Bei den Versuchen in dieser Arbeit wurden nur zwei der drei Helmholtzspulen verwendet; dabei handelte es sich um die Spulen für die x- und z-Richtung. Die Partikel wurden in einer mikrofluidischen Zelle auf den Proben platziert, um dann untersucht werden zu können. Hierfür wird Parafilm zuerst in Größe der Probe zurechtgeschnitten und dann ein Rechteck im Inneren des Parafilms ausgeschnitten; so entsteht eine Aussparung in der Mitte, in die circa \SI{10}{\micro\litre} Partikelsuspension gegeben werden. Anschließend wird die Probe auf dem Probentisch platziert, die LED eingeschaltet und die Kamera mittels Livebild auf die Partikel fokussiert.
 
 \section{Programm zur Erstellung von Magnetfeldsequenzen \label{sec-py}}
-\label{sec:org8ef557b}
-Um die in dieser Arbeit benötigten externen Magnetfelder zu erzeugen, wurde ein neues Programm in Python entwickelt, mit dessen Hilfe verschiedene Wellenformen als Magnetfeld ausgegeben werden können. Hierbei stand ein modularer Ansatz im Vordergrund, weshalb durch einfache Änderungen am Programmcode andere Geräte im Aufbau verwendet werden können. So kann zum Beispiel ein anderes Netzteil verwendet werden, um dann auch drei Helmholtzspulen für Magnetfelder in drei Dimensionen anzusteuern. Ziel war es, sowohl sinus- und rechteckförmige Magnetfelder, als auch die für diese Arbeit benötigten trapezförmigen Magnetfelder erzeugen zu können. Es ist möglich jeden Parameter der Wellenform zu ändern, und die Magnetfeldsequenzen als Plot dargestellt zu sehen. Abbildung \ref{fig-prog} zeigt einen Screenshot der graphischen Benutzeroberfläche des Programms.
+\label{sec:orgf7c8568}
+Um die in dieser Arbeit benötigten externen Magnetfelder zu erzeugen, wurde ein neues Programm in Python entwickelt, mit dessen Hilfe verschiedene Wellenformen als Magnetfeld ausgegeben werden können. Hierbei stand ein modularer Ansatz im Vordergrund, weshalb durch einfache Änderungen am Programmcode andere Geräte im Aufbau verwendet werden können. So kann zum Beispiel ein anderes Netzteil verwendet werden, um dann auch drei Helmholtzspulen für Magnetfelder in drei Dimensionen anzusteuern. Ziel war es, sowohl sinus- und rechteckförmige Magnetfelder, als auch die für diese Arbeit benötigten trapezförmigen Magnetfelder erzeugen zu können. Es ist möglich jeden Parameter der Wellenform zu ändern und die Magnetfeldsequenzen als Plot dargestellt zu sehen. Abbildung \ref{fig-prog} zeigt einen Screenshot der graphischen Benutzeroberfläche des Programms.
 
 Mit der in dieser Arbeit entwickelten ersten Version des Programms ist es bisher nur möglich, die Spannungsausgabe des DAQ-Gerätes an das jeweilige verwendete Netzteil zu steuern und anzuzeigen. In Zukunft soll es jedoch möglich sein, bereits das entstehende Magnetfeld im Programm auszuwählen und angezeigt zu bekommen. Hierzu wurden zunächst die verwendeten Spulen und das Netzteil charakterisiert (siehe Kapitel \ref{sec-stromundmagnet}).
 
@@ -393,10 +393,10 @@ Screenshot des entwickelten Programms zur Erstellung von beliebigen Magnetfeldse
 \end{figure}
 
 \section{Zeitabhängige Messung von Strom und magnetischer Flussdichte \label{sec-stromundmagnet}}
-\label{sec:org3155b3d}
-Um das Verhalten der im Experiment verwendeten Helmholtzspulen nachvollziehen zu können und um die gegebenen technischen Daten und Modelle zu Überprüfen, wurden Messungen des Magnetfeldes und des Stromes an eben jenen Spulen durchgeführt.
+\label{sec:org17981dc}
+Um das Verhalten der im Experiment verwendeten Helmholtzspulen nachvollziehen zu können und um die gegebenen technischen Daten und Modelle zu überprüfen, wurden Messungen des Magnetfeldes und des Stromes an eben jenen Spulen durchgeführt.
 
-Hierfür wurde einerseits der zeitliche Verlauf der Stromstärke in der Spule gemessen, um die Induktivität und den ohmschen Widerstand zu überprüfen. Es wurde ein Keramikwiderstand in Reihe mit der zu messenden Helmholtzspule angebracht. Über diesen Messwiderstand \(R\) wurde nun die Spannung \(U\) gemessen, indem eine NI USB-6002 Box (im folgenden \emph{DAQ} für \emph{Data Acquisition}) parallel dazu angeschlossen wurde. Dieses DAQ-Gerät besitzt eine maximale Samplerate von \SI{50000}{\per\s} und eine Bittiefe von 16-bit am \emph{Analog Input} (AI), damit ist dieses Gerät hinreichend geeignet für die Erfassung der Messdaten. Mithilfe des ohmschen Gesetzes lässt sich so der Strom \(I\), der durch den bekannten Messwiderstand \(R\) fließt, berechnen. Da Spule und Messwiderstand in Reihe geschaltet sind, fließt durch beide die selbe Stromstärke.
+Hierfür wurde der zeitliche Verlauf der Stromstärke in der Spule gemessen, um die Induktivität und den ohmschen Widerstand zu überprüfen. Es wurde ein Keramikwiderstand in Reihe mit der zu messenden Helmholtzspule angebracht. Über diesen Messwiderstand \(R\) wurde nun die Spannung \(U\) gemessen, indem eine NI USB-6002 Box (im folgenden \emph{DAQ} für \emph{Data Acquisition}) parallel dazu angeschlossen wurde. Dieses DAQ-Gerät besitzt eine maximale Samplerate von \SI{50000}{\per\s} und eine Bittiefe von 16-bit am \emph{Analog Input} (AI), damit ist dieses Gerät hinreichend geeignet für die Erfassung der Messdaten. Mithilfe des ohmschen Gesetzes lässt sich so der Strom \(I\), der durch den bekannten Messwiderstand \(R\) fließt, berechnen. Da Spule und Messwiderstand in Reihe geschaltet sind, fließt durch beide die selbe Stromstärke.
 
 \begin{figure}[h]
 \centering
@@ -410,11 +410,11 @@ Bei der Messung des zeitlichen Verlaufs der magnetischen Flussdichte, wurde der 
 Die Aufzeichnung der Daten des DAQ-Gerätes erfolgte für beide Messungen mittels eines selbst geschriebenen Python-Scriptes (siehe Anhang \ref{anh-messung}).
 
 \chapter{Ergebnisse und Diskussion \label{sec-ergebnisse}}
-\label{sec:orgc1eeb1c}
+\label{sec:org32cee70}
 Die Auswertung ist in zwei Teile gegliedert.
-Zu Beginn der Auswertung wird in Kapitel \ref{sec-b_helmholtz} auf Messungen von Stromstärke und magnetischer Flussdichte an den im Experiment verwendeten Helmholtzspulen eingegangen. Diese Messungen werden zum einen benötigt, um das Programm zur Erstellung von Magnetfeldsequenzen zukünftig sinnvoll weiter entwickeln zu können. Weiterhin ist die Kenntnis über den realen zeitlichen Verlauf der angelegten Magnetfeldsequenzen wichtig, um die Simulationen und Vorhersagen aus dem theoretischen Modell zum Partikeltransport einzuordnen, zu diskutieren und möglicherweise optimieren zu können. Es wurden sowohl statische Messungen der Amplitude der magnetischen Flussdichte, als auch der zeitliche Verlauf der magnetischen Flussdichte in Abhängigkeit der Stromstärke durchgeführt.
+Zu Beginn der Auswertung wird in Kapitel \ref{sec-b_helmholtz} auf Messungen von Stromstärke und magnetischer Flussdichte an den im Experiment verwendeten Helmholtzspulen eingegangen. Diese Messungen werden zum einen benötigt, um das Programm zur Erstellung von Magnetfeldsequenzen zukünftig sinnvoll weiterentwickeln zu können. Weiterhin ist die Kenntnis über den realen zeitlichen Verlauf der angelegten Magnetfeldsequenzen wichtig, um die Simulationen und Vorhersagen aus dem theoretischen Modell zum Partikeltransport einzuordnen, zu diskutieren und möglicherweise optimieren zu können. Es wurden sowohl statische Messungen der Amplitude der magnetischen Flussdichte als auch des zeitlichen Verlaufs der magnetischen Flussdichte in Abhängigkeit der Stromstärke durchgeführt.
 
-Anschließend wird in Kapitel \ref{sec-partikelgeschwindigkeiten} der Einfluss der Änderungsrate der trapezförmigen Magnetfeldsequenzen auf die Partikelgeschwindigkeiten näher betrachtet. Hierzu werden außerdem die Auswirkungen der verschiedenen Pulsformen auf die Trajektorien der Partikel genauer untersucht und mit simulierten Werten verglichen. In beiden Fällen wird sich auf ein strukturiertes EB-System mit \SI{5}{\mu\meter} breiten Domänen in hh- und tt-Konfiguration und dem standardmäßig in der Arbeitsgruppe \textsc{Ehresmann} verwendeten Schichtssystem \(\ce{ Cu(\SI{10}{\nano\meter}) / IrMn(\SI{30}{\nano\meter}) / CoFe(\SI{10}{\nano\meter}) }\) mit einer \SI{800}{\nano\meter} \ce{Si}-Deckschicht (siehe Abbildung \ref{fig-layer}) bezogen.
+Anschließend wird in Kapitel \ref{sec-partikelgeschwindigkeiten} der Einfluss der Änderungsrate der trapezförmigen Magnetfeldsequenzen auf die Partikelgeschwindigkeiten näher betrachtet. Hierzu werden außerdem die Auswirkungen der verschiedenen Pulsformen auf die Trajektorien der Partikel genauer untersucht und mit simulierten Werten verglichen. In beiden Fällen wird sich auf ein strukturiertes EB-System mit \SI{5}{\mu\meter} breiten Domänen in hh- und tt-Konfiguration und dem standardmäßig in der Arbeitsgruppe \textsc{Ehresmann} verwendeten Schichtsystem \(\ce{ Cu(\SI{10}{\nano\meter}) / IrMn(\SI{30}{\nano\meter}) / CoFe(\SI{10}{\nano\meter}) }\) mit einer \SI{800}{\nano\meter} \ce{Si}-Deckschicht (siehe Abbildung \ref{fig-layer}) bezogen.
 
 \begin{figure}[h]
 \centering
@@ -424,7 +424,7 @@ Zusammensetzung der verwendeten Schichtsysteme. Die obere Siliziumschicht wurde 
 \end{figure}
 
 \section{Stromstärke und magnetische Flussdichte der Helmholtzspulen \label{sec-b_helmholtz}}
-\label{sec:org6d6497b}
+\label{sec:org6a56e6b}
 Um die verwendeten Helmholtzspulen näher charakterisieren zu können, wurde zunächst der Zusammenhang zwischen der am Netzteil angelegten Spannung und der die Spulen durchfließenden Stromstärke sowie der daraus resultierenden magnetischen Flussdichte bestimmt.
 
 Zuerst wurde der Zusammenhang zwischen den Amplituden der Stromstärke \(I\) und der magnetischen Flussdichte \(B\) gemessen. Die Stromstärke wurde an einem in Reihe geschalteten Multimeter abgelesen, die magnetische Flussdichte an einem Teslameter der Firma \emph{Projekt Elektronik GmbH}, dessen Messkopf sich in der Probenhalterung der Helmholtzspulen zur Messung des Magnetfeldes in z-Richtung befand. Die Messwerte sind in Tabelle \ref{tab-B} im Anhang dargestellt. Der Zusammenhang von Stromstärke und magnetischer Flussdichte sollte gemäß Gleichung \ref{eq-spule} linear sein, weshalb die Messwerte in Abbildung \ref{fig-magnetfeldstrom} durch eine lineare Regression angenähert wurden.
@@ -445,7 +445,7 @@ Um die Validität der Näherung für die magnetische Flussdichte von Helmholtzsp
 \caption{Magnetische Flussdichte in Abhängigkeit der Stromstärke. Messungen und lineare Regression.}
 \end{figure}
 
-Mit Gleichung \ref{eq-helmholtz}, kann der Proportionalitätsfaktor \(m\) der Regression mithilfe von gegebenem Radius \(r\) und Windungszahl \(N\) berechnet werden, wie hier exemplarisch für die Spulen zur Magnetfelderzeugung in z-Richtung gezeigt ist:
+Mit Gleichung \ref{eq-helmholtz} kann der Proportionalitätsfaktor \(m\) der Regression mithilfe von gegebenem Radius \(r\) und Windungszahl \(N\) berechnet werden, wie hier exemplarisch für die Spulen zur Magnetfelderzeugung in z-Richtung gezeigt ist:
 
 \begin{equation}
 B = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot \mu_{\mathrm{0}} \cdot \frac{N}{r} \cdot I = m \cdot I.
@@ -457,11 +457,11 @@ m_\mathrm{calc} = \left(\frac{4}{5}\right)^{\frac{3}{2}} \cdot 4\pi \cdot 10^{-7
 \end{equation}
 
 Die Steigung aus der linearen Regression beträgt \(m_\mathrm{reg} = \SI{10.34}{\milli\tesla\per\ampere}\), die berechnete Steigung ist \(m_\mathrm{calc} = \SI{9.89}{\milli\tesla\per\ampere}\). Dies entspricht einem relativen Fehler von $$ \frac{m_\mathrm{calc}}{m_\mathrm{reg} -m_\mathrm{calc}} = 0.045 .$$
-Anhand von Abbildung \ref{fig-b_helmholtz} und der berechneten Abweichung zwischen dem rechnerisch ermittelten und dem Proportionalitätsfaktor \(m\) aus der Regression der Messwerte wird deutlich, dass die Näherung für höhere Stromstärken nicht hinreichend genügt. Jedoch liegen die standardmäßig im Partikeltransportexperiment benötigten magnetischen Flussdichten im Bereich von unter \SI{8}{\milli\tesla}, weswegen die Näherung in Zukunft im Partikeltransport Programm verwendet werden könnte, um die Amplitude der entstehenden magnetischen Flussdichte bereits im Voraus zu berechnen.
+Anhand von Abbildung \ref{fig-b_helmholtz} und der berechneten Abweichung zwischen dem rechnerisch ermittelten und dem Proportionalitätsfaktor \(m\) aus der Regression der Messwerte wird deutlich, dass die Näherung für höhere Stromstärken nicht hinreichend genügt. Jedoch liegen die standardmäßig im Partikeltransportexperiment benötigten magnetischen Flussdichten im Bereich von unter \SI{8}{\milli\tesla}, weswegen die Näherung in Zukunft im Partikeltransport-Programm verwendet werden könnte, um die Amplitude der entstehenden magnetischen Flussdichte bereits im Voraus zu berechnen.
 
 Um das in Kapitel \ref{sec-spulen} beschriebene Anschaltverhalten von Spulen für die im Experiment verwendeten Spulen zu charakterisieren, wurde der zeitliche Verlauf der Stromstärke unter Verwendung des Aufbaus aus Kapitel \ref{sec-stromundmagnet} bestimmt.
 
-Dazu wurden mit dem Programm aus Kapitel \ref{sec-py} jeweils 10 Sekunden lang eine Rechteckspannung bei einer Frequenz von \SI{1}{\hertz} mit zwei verschiedene Amplituden (\SI{0.4}{\volt} und \SI{0.2}{\volt}) angelegt. Da gegenwärtig für das Experiment meist nur zwei der drei Helmholtzspulen gleichzeitig verwendet werden, wurden die Spulen für die Magnetfeldgeneration entlang der x- und z-Richtung verwendet, die der Einfachheit halber im Folgenden auch als x- und z-Spule bezeichnet werden. Dies wird exemplarisch für eine Amplitude in Abbildung \ref{fig-stromraw} gezeigt.
+Dazu wurde mit dem Programm aus Kapitel \ref{sec-py} jeweils 10 Sekunden lang eine Rechteckspannung bei einer Frequenz von \SI{1}{\hertz} mit zwei verschiedenen Amplituden (\SI{0.4}{\volt} und \SI{0.2}{\volt}) angelegt. Da gegenwärtig für das Experiment meist nur zwei der drei Helmholtzspulen gleichzeitig verwendet werden, wurden die Spulen für die Magnetfeldgeneration entlang der x- und z-Richtung verwendet, die der Einfachheit halber im Folgenden auch als x- und z-Spule bezeichnet werden. Dies wird exemplarisch für eine Amplitude in Abbildung \ref{fig-stromraw} gezeigt.
 
 \begin{figure}
 \centering
@@ -478,7 +478,7 @@ Dazu wurden mit dem Programm aus Kapitel \ref{sec-py} jeweils 10 Sekunden lang e
 \caption{Zeitlicher Verlauf der Stromstärke in x- und z-Spule.}
 \end{figure}
 
-Um eine Aussage über die Änderungsrate (Steigung) der Stromstärke und somit in direkter Konsequenz auch des Magnetfeldes machen zu können, ist es vorteilhaft das Verhalten für eine einzelne Periode zu betrachten, dazu wurde über alle zehn Perioden der Messung gemittelt. Die gemittelten Messwerte sind zu sehen in Abbildung \ref{fig-strom_avg}.
+Um eine Aussage über die Änderungsrate (Steigung) der Stromstärke und somit in direkter Konsequenz auch des Magnetfeldes machen zu können, ist es vorteilhaft das Verhalten für eine einzelne Periode zu betrachten; dazu wurde über alle zehn Perioden der Messung gemittelt. Die gemittelten Messwerte sind zu sehen in Abbildung \ref{fig-strom_avg}.
 
 Vor allem für die Strommessungen der x-Spule ist eine Spitze zu Beginn der Plateaus klar sichtbar. Dies ist wahrscheinlich auf das spannungsgesteuerte Netzteil zurückzuführen, welches einen konstanten Strom erzeugen soll. Jedoch ist durch die Impedanz der Spule bei abrupten Änderungen des Stromes ein hoher Blindwiderstand vorhanden, welchem das Netzteil im Stromregelungsbetrieb durch Ausgabe höherer Spannungen entgegen zu wirken versucht. Da der Blindwiderstand bei weniger hohen Stromänderungen wieder sinkt, "`übersteuert"' das Netzteil und es wird eine höhere Stromstärke erreicht als angestrebt. Die Stromstärke im Plateau ändert sich zunächst nicht mehr, deshalb passt das Netzteil den Ausgangsstrom an, und erreicht die gewünschte Amplitude.
 
@@ -493,7 +493,7 @@ Anschließend wurden die Messwerte durch eine Fitfunktion basierend auf Gleichun
 Einschaltzeitpunkt der gemittelten Periode der Stromstärke. \mbox{Fitfunktion (rot) und -parameter} zu Gleichung \ref{eq-strom-spule} an die gemessenen Stromstärken (blau). Zum Vergleich wurde im unteren rechten Graphen der berechnete Verlauf der Stromstärke mit gemessenen Werten für Widerstand \(R = \SI{11.5}{\ohm}\) und Induktivität \(L = \SI{0.0056}{\henry}\) in orange dargestellt.}
 \end{figure}
 
-In den Graphen ist zu erkennen, dass der Kurvenverlauf der Stromstärke beim Einschalten prinzipiell dem theoretisch vorhergesagten Einschaltverhalten aus Gleichung \ref{eq-strom-spule} entspricht. Dennoch sind keine ausreichend genauen Parameter für die Fitfunktion gefunden worden. Vor allem zu Beginn der Messung weicht das reale Einschaltverhalten vom erwarteten Einschaltverhalten ab, da das Netzteil aufgrund der Stromregelung keine konstante Spannung ab Zeitpunkt des Einschaltens ausgibt, sondern diese regelt, um einen konstanten Strom zu erzielen. Hinzu kommt, dass Gleichung \ref{eq-strom-spule} nur einen konstanten ohmschen Widerstand voraus setzt. Jedoch werden durch die hohe Änderungsrate des Stromes große Gegenströme induziert, welche als Blindwiderstand wirken. Deswegen kann Gleichung \ref{eq-strom-spule} nur näherungsweise hinzugezogen werden, und es ist nicht möglich, die realen Vorgänge damit zu beschreiben. Durch diese beiden Effekte müssten komplexere Modelle hinzugezogen werden, um den genauen Verlauf der Stromstärke vorhersagen zu können. 
+In den Graphen ist zu erkennen, dass der Kurvenverlauf der Stromstärke beim Einschalten prinzipiell dem theoretisch vorhergesagten Einschaltverhalten aus Gleichung \ref{eq-strom-spule} entspricht. Dennoch sind keine ausreichend genauen Parameter für die Fitfunktion gefunden worden. Vor allem zu Beginn der Messung weicht das reale Einschaltverhalten vom erwarteten Einschaltverhalten ab, da das Netzteil aufgrund der Stromregelung keine konstante Spannung ab dem Zeitpunkt des Einschaltens ausgibt, sondern diese regelt, um einen konstanten Strom zu erzielen. Hinzu kommt, dass Gleichung \ref{eq-strom-spule} nur einen konstanten ohmschen Widerstand voraussetzt. Jedoch werden durch die hohe Änderungsrate des Stromes große Gegenströme induziert, welche als Blindwiderstand wirken. Deswegen kann Gleichung \ref{eq-strom-spule} nur näherungsweise hinzugezogen werden und es ist nicht möglich, die realen Vorgänge damit zu beschreiben. Durch diese beiden Effekte müssten komplexere Modelle hinzugezogen werden, um den genauen Verlauf der Stromstärke vorhersagen zu können. 
 Des Weiteren ist unbekannt wie das Netzteil aufgebaut ist und welche elektrischen Bauteile darin verwendet werden, um so eventuell zu der Induktivität des Aufbaus beizutragen. Das Netzteil allein gibt bereits ohne zusätzliche Spulen keine sofortige maximale Spannung aus. Dies wurde überprüft, indem das Netzteil nur an einen \(\SI{12.5}{\ohm}\) Widerstand angeschlossen wurde und die darüber abfallende Spannung ohne Helmholtzspule gemessen wurde. Der Einschaltvorgang dieser Messung ist dargestellt in Abbildung \ref{fig-12ohm}. Wegen des ohmschen Gesetzes ist die Stromstärke proportional zum am Widerstand gemessenen Spannungsabfall und zeigt die selbe Form. Außerdem wird deutlich, dass die Auflösung des DAQ-Gerätes anscheinend zu gering ist, um die schnellen Änderungen während des Einschaltens genau darstellen zu können.
 Dies wird auch verdeutlicht durch die exemplarisch gezeigte orange Kurve in Abbildung \ref{fig-stromfit}, jene beschreibt das Einschaltverhalten mithilfe des im Voraus gemessenen Widerstands und Induktivität. Sie zeigt somit die eigentlich während der Messung erwartete Kurve, wenn das Netzteil einen idealen Stromverlauf ausgeben könnte und Gleichung \ref{eq-strom-spule} diesen korrekt abbilden könnte.
 
@@ -523,11 +523,10 @@ Analog dazu wurden die selben Schritte für die magnetische Flussdichte durchgef
 
 Es wird wieder über alle zehn Perioden gemittelt, einerseits um das hohe Rauschen aus dem Signal zu entfernen, andererseits um eine einzelne Periode betrachten zu können. Die gemittelten Messwerte sind in Abbildung \ref{fig-mag_avg} zu sehen.
 
-Auch hier sind Spitzen am Beginn des Plateaus zu sehen. Diese haben die gleichen Ursachen, wie sie bereits für die Stromstärke genannt. Dies wurde erwartet, da die magnetische Flussdichte aus dem bereits gemessenen, durch die Spulen fließenden Strom resultiert.
+Auch hier sind Spitzen am Beginn des Plateaus zu sehen. Diese haben die gleichen Ursachen, wie sie bereits für die Stromstärke genannt wurden. Dies wurde erwartet, da die magnetische Flussdichte aus dem bereits gemessenen, durch die Spulen fließenden Strom resultiert.
 
-Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse.
 
-Da bereits der Verlauf der Stromstärke nicht mit Gleichung \ref{eq-strom-spule} vorhergesagt werden konnte, ist es nicht möglich die magnetische Flussdichte mithilfe von Gleichung \ref{eq-helmholtz} vorher zu sagen, da die Stromstärke in dieser Gleichung aus der vorherigen Gleichung berechnet wird. Es konnte jedoch zu Beginn dieses Kapitels gezeigt werden, dass die Amplitude des Magnetfeldes aus der Stromstärke bestimmt werden kann. Dies wird in Abbildung \ref{fig-mag_fit} gezeigt, indem eine rot gestrichelte Linie mit \(y = 0.01034 \cdot I\) analog zu Gleichung \ref{eq-regression} für die Stromstärken \(\SI{0.158}{\ampere}\) und \(\SI{0.317}{\ampere}\) (vgl. Tab. \ref{tab-B} im Anhang) in den Graphen gezeichnet wurde. Da nur die Steigung der Regression aus der z-Spule betrachtet wurde, sind nur hier diese Geraden eingezeichnet. Es ist ersichtlich, dass die vorhergesagten Werte der Sättigungsflussdichte mit den gemessenen Werten überein stimmen. 
+Analog zur Stromstärkenmessung ist vor allem der Einschaltvorgang von Interesse. Da bereits der Verlauf der Stromstärke nicht mit Gleichung \ref{eq-strom-spule} vorhergesagt werden konnte, ist es nicht möglich die magnetische Flussdichte mithilfe von Gleichung \ref{eq-helmholtz} vorherzusagen, da die Stromstärke in dieser Gleichung aus der vorherigen Gleichung berechnet wird. Es konnte jedoch zu Beginn dieses Kapitels gezeigt werden, dass die Amplitude des Magnetfeldes aus der Stromstärke bestimmt werden kann. Dies wird in Abbildung \ref{fig-mag_fit} gezeigt, indem eine rot gestrichelte Linie mit \(y = 0.01034 \cdot I\) analog zu Gleichung \ref{eq-regression} für die Stromstärken \(\SI{0.158}{\ampere}\) und \(\SI{0.317}{\ampere}\) (vgl. Tab. \ref{tab-B} im Anhang) in den Graphen gezeichnet wurde. Da nur die Steigung der Regression aus der z-Spule betrachtet wurde, sind nur hier diese Geraden eingezeichnet. Es ist ersichtlich, dass die vorhergesagten Werte der Sättigungsflussdichte mit den gemessenen Werten übereinstimmen. 
 
 \begin{figure}[h]
 \centering
@@ -537,7 +536,7 @@ Zeitlicher Verlauf der magnetischen Flussdichte der z-Spule der gemittelten Peri
 \end{figure}
 
 \section{Partikeltransport \label{sec-partikelgeschwindigkeiten}}
-\label{sec:org1cffbaa}
+\label{sec:orge905124}
 Um aus den aufgenommenen Videos aus dem Partikeltransportexperiment die Trajektorien und Partikelgeschwindigkeiten zu erhalten, wird das Programm \emph{VideoSpotTracker} verwendet. Hierzu wurden möglichst alle sich bewegenden Partikel als \emph{"`dark spot"'} mit der Größe 3 ausgewählt und dann mittels \emph{"`follow jumps"'} die x- und z-Positionen der einzelnen Partikel in Pixel verfolgt und in einer csv-Datei aufgezeichnet (siehe Abbildung \ref{fig-videospottracker}). Da die Größe eines Pixels (\SI{278}{\nano\meter}), sowie die Framerate (1000 FPS) und somit die Zeit bekannt sind, lässt sich so die Durchschnittsgeschwindigkeit der Partikel berechnen. Bewegungen in y-Richtung sind unter anderem durch ein nicht genau orthogonal zur Streifenstruktur anliegendes Magnetfeld der x-Spule zu erklären.
 
 \begin{figure}[h]
@@ -559,9 +558,9 @@ Trapezförmige Magnetfeldsequenzen mit verschiedenen Plateaustartzeiten. Eine Pl
 Da die bisher vorausgesetzten Modelle mit den experimentellen Daten verglichen werden sollen, wurden durch Simulationsskripte Trajektorien für verschiedene Magnetfeldänderungsraten vorhergesagt \cite{holzinger_pythonscript_nodate}. Dazu wurden Berechnungen der Magnetsisierungszustände aus dem \emph{The Object Oriented MicroMagnetic Framework} (OOMMF) \cite{donahue_oommf_1999}, welche in der Arbeitsgruppe bereits vorher vorlagen, verwendet. Hieraus wird die magnetische Potentiallandschaft berechnet. Anschließend kann anhand verschiedener physikalischer Parameter der Partikel und des EB-Systems der Gleichgewichtsabstand der Partikel über der Probe berechnet werden. Er beträgt für die verwendeten Partikel und EB-Systeme in dieser Arbeit \(z_\mathrm{ss} = \SI{200}{\nano\meter}\) von Partikeloberfläche zu Probenoberfläche. Dieser Abstand wird benötigt, um im nächsten Schritt mittels der berechneten Magnetfeldlandschaftsdaten und den Parametern des externen Magnetfeldes die Trajektorie der Partikel während eines Transportschrittes zu bestimmen.
 
 
-Es wurden einige Trajektorien aus den gemessenen Transportschritten der Partikeln ausgewählt, um einen Vergleich zwischen Simulation und Messung zu erhalten. Der Vergleich zwischen realen und simulierten Trajektorien ist in Abbildung \ref{fig-traj} zu sehen.
+Es wurden einige Trajektorien aus den gemessenen Transportschritten der Partikel ausgewählt, um einen Vergleich zwischen Simulation und Messung zu erhalten. Der Vergleich zwischen realen und simulierten Trajektorien ist in Abbildung \ref{fig-traj} zu sehen.
 
-Es ist deutlich eine Abflachung des großen Transportschrittes für Magnetfelder mit späteren Plateaustartzeiten, d.h. niedrigeren Magnetfeldänderungsraten, erkennbar. Da die Steigung der Kurve der Geschwindigkeit der Partikel entspricht, ist offensichtlich, dass niedrigere Magnetfeldänderungsraten auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken. Darüber hinaus ist ersichtlich, dass mit späteren Plateaustartzeiten der kleine Transportschritt mehr in den großen Transportschritt übergeht. Während der kleine Transportschritt für das rechteckförmige Magnetfeld gut erkennbar ist, ist er beim dreieckigen Magnetfeld nicht mehr zu erkennen, da der große Transportschritt eine flachere Steigung hat und somit früher anfängt, und den kleinen Transportschritt überlagert.
+Es ist deutlich eine Abflachung des großen Transportschrittes für Magnetfelder mit späteren Plateaustartzeiten, d.h. niedrigeren Magnetfeldänderungsraten, erkennbar. Da die Steigung der Kurve der Geschwindigkeit der Partikel entspricht, ist offensichtlich, dass niedrigere Magnetfeldänderungsraten auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken. Darüber hinaus ist ersichtlich, dass mit späteren Plateaustartzeiten der kleine Transportschritt mehr in den großen Transportschritt übergeht. Während der kleine Transportschritt für das rechteckförmige Magnetfeld gut erkennbar ist, ist er beim dreieckigen Magnetfeld nicht mehr zu erkennen, da der große Transportschritt eine flachere Steigung hat und somit früher anfängt und den kleinen Transportschritt überlagert.
 
 \begin{figure}[htbp]
 \centering
@@ -571,11 +570,11 @@ Vergleich simulierter (oben) Trajektorien mit gemessenen (unten) Trajektorien de
 \end{figure}
 
 
-Ein Grund, weshalb die gemessenen Trajektorien nicht genau mit den simulierten übereinstimmen, ist, dass sowohl das externe Magnetfeld, als auch der Magnetisierungszustand der Streifenstruktur auf der Probe idealisiert sind. Es wird von idealen hh- und tt-Domänenwänden mit gleicher Breite ausgegangen. In Realität ist es jedoch wahrscheinlich, dass nicht alle Domänenwände gerade und parallel zu einander sind. Auch muss in Betracht gezogen werden, dass die Qualität der aufgenommenen Videos nicht zufriedenstellend war (siehe Abbildung \ref{fig-videospottracker}). Das Trackingprogramm hatte Schwierigkeiten den Partikeln zu folgen, und diese Schritte konnten dann vom Auswertungsskript nicht gefittet werden. Hier wäre ein höherer Kontrast und eine bessere Ausleuchtung von Vorteil.
+Ein Grund, weshalb die gemessenen Trajektorien nicht genau mit den simulierten übereinstimmen, ist, dass sowohl das externe Magnetfeld als auch der Magnetisierungszustand der Streifenstruktur auf der Probe idealisiert sind. Es wird von idealen hh- und tt-Domänenwänden mit gleicher Breite ausgegangen. In Realität ist es jedoch wahrscheinlich, dass nicht alle Domänenwände gerade und parallel zueinander sind. Auch muss in Betracht gezogen werden, dass die Qualität der aufgenommenen Videos nicht zufriedenstellend war (siehe Abbildung \ref{fig-videospottracker}). Das Trackingprogramm hatte Schwierigkeiten den Partikeln zu folgen und diese Schritte konnten dann vom Auswertungsskript nicht gefittet werden. Hier wäre ein höherer Kontrast und eine bessere Ausleuchtung von Vorteil.
 
 Die zuvor im Trackingverfahren generierte csv-Datei wurde in einem Pythonscript \cite{holzinger_pythonscript_nodate-1} eingelesen, um die Gleichgewichtsgeschwindigkeit der Partikel in einem großen Transportschritt zwischen zwei Domänenwänden als Folge der Magnetfeldrichtungsumkehr entlang der z-Richtung (im Folgenden nur noch Transportschritt genannt) zu berechnen. Zunächst werden die Trajektorien der Partikel während der gesamten Aufnahme anhand der bekannten Frequenz des externen Magnetfeldes in einzelne Transportschritte aufgeteilt. Um die Geschwindigkeit der einzelnen Schritte aus den Trajektorien zu bestimmen, wird zunächst eine gaußsche Fehlerfunktion an die gemessenen Werte gefittet, unzureichend genaue Fits werden nicht weiter betrachtet. Da die Ableitung der gaußschen Fehlerfunktion eine gaußsche Glockenkurve ist, lässt sich durch Ableiten der einzelnen Fitfunktionen die maximale Geschwindigkeit des Partikels für einen Schritt als Maximum der Gaußkurve bestimmen. Der Mittelwert dieser maximalen Gleichgewichtsgeschwindigkeiten \(v\) für alle erfolgreich gefitteten Transportschritte der Partikel in einer Messung wird schließlich unter anderem vom Programm ausgegeben.
 
-In Abbildung \ref{fig-img_v} sind die Gleichgewichtsgeschwindigkeiten der Partikel für unterschiedliche Plateaustartzeiten, die Standardabweichung vom Mittelwert der Stichprobe vom Mittelwert aller Werte als Fehlerbalken aufgetragen.
+In Abbildung \ref{fig-img_v} sind die Gleichgewichtsgeschwindigkeiten der Partikel für unterschiedliche Plateaustartzeiten und die Standardabweichung vom Mittelwert der Stichprobe vom Mittelwert aller Werte als Fehlerbalken aufgetragen.
 
 \begin{figure}[!h]
 \centering
@@ -584,13 +583,13 @@ In Abbildung \ref{fig-img_v} sind die Gleichgewichtsgeschwindigkeiten der Partik
 Gemessene Partikelgeschwindigkeiten für verschiedene Startzeiten des Plateaus in der angelegten Trapezspannung für eine Frequenz von 1 Hz und deren Standardabweichung vom Mittelwert.}
 \end{figure}
 
-Als mögliche Fehlerquelle muss in Anbetracht gezogen werden, dass das Auswertungsskript Parameter benötigt, mit denen die Trajektorien aus den Messungen erhalten werden und anhand derer die Qualität der Fits bestimmt wird. Diese Parameter wurden durch Ausprobieren gewählt. Weitere Erfahrungen mit dem Auswertungsskript werden voraussichtlich auch besser geeignete Parameter liefern.
+Als mögliche Fehlerquelle muss in Betracht gezogen werden, dass das Auswertungsskript Parameter benötigt, mit denen die Trajektorien aus den Messungen erhalten werden und anhand derer die Qualität der Fits bestimmt wird. Diese Parameter wurden durch Ausprobieren gewählt. Weitere Erfahrungen mit dem Auswertungsskript werden voraussichtlich auch besser geeignete Parameter liefern.
 
-Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfeldes auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken. Dies kann unter anderem dadurch erklärt werden, dass der Betrag des Magnetfeldvektors in x- und z-Richtung durch die niedrigeren Steigungen kleiner wird. Die magnetische Kraft wird also effektiv bei kleineren Änderungsraten reduziert. Sichtbar ist dies in Abbildung \ref{fig-betrag}. Der Betrag des Magnetfeldes ist bei anlegen eines rechteckförmigen Magnetfeldpulses nahezu immer maximal. Je niedriger die Änderungsrate wird, desto kürzer werden die Zeiten, in denen der Betrag des Magnetfeldes maximal ist.
+Es ist deutlich erkennbar, dass niedrigere Änderungsraten des externen Magnetfeldes auch niedrigere Gleichgewichtsgeschwindigkeiten bewirken. Dies kann unter anderem dadurch erklärt werden, dass der Betrag des Magnetfeldvektors in x- und z-Richtung durch die niedrigeren Steigungen kleiner wird. Die magnetische Kraft wird also effektiv bei kleineren Änderungsraten reduziert. Sichtbar ist dies in Abbildung \ref{fig-betrag}. Der Betrag des Magnetfeldes ist bei Anlegen eines rechteckförmigen Magnetfeldpulses nahezu immer maximal. Je niedriger die Änderungsrate wird, desto kürzer werden die Zeiten, in denen der Betrag des Magnetfeldes maximal ist.
 
-In Abbildung \ref{fig-img_v} liegt die Gleichgewichtsgeschwindigkeit der zweiten (orange) Messreihe meist über der Gleichgewichtstgeschwindigkeit der ersten Messreihe (blau). Dies könnte darauf zurück zu führen sein, dass mit größerem externen Magnetfeld in x-Richtung \(H_\mathrm{x}\) der Gradient der potentiellen Energielandschaft abnimmt. Die Energielandschaft wird durch \(H_\mathrm{x}\) von der Domänenwand in x-Richtung verschoben. Für größere \(H_\mathrm{x}\) ist diese Verschiebung größer. Dies zeigt sich als kleiner Transportschritt. Der kleine Transportschritt sollte also mit größeren \(H_\mathrm{x}\) die Partikel eine längere Strecke transportieren. Dadurch wird die Strecke und der Gradient der Potentiallandschaft im großen Transportschritt geringer, was sich gemäß Gleichung \ref{eq-v_spp} auf die Gleichgewichtsgeschwindigkeit auswirkt. Zusätzlich sollte eine höhere Geschwindigkeit während des kleinen Transportschrittes messbar sein, was mit dem verwendeten Aufbau jedoch nicht möglich ist.
+In Abbildung \ref{fig-img_v} liegt die Gleichgewichtsgeschwindigkeit der zweiten Messreihe (orange) meist über der Gleichgewichtstgeschwindigkeit der ersten Messreihe (blau). Dies könnte darauf zurückzuführen sein, dass mit größerem externen Magnetfeld in x-Richtung \(H_\mathrm{x}\) der Gradient der potentiellen Energielandschaft abnimmt. Die Energielandschaft wird durch \(H_\mathrm{x}\) von der Domänenwand in x-Richtung verschoben. Für größere \(H_\mathrm{x}\) ist diese Verschiebung größer. Dies zeigt sich als kleiner Transportschritt. Der kleine Transportschritt sollte also mit größeren \(H_\mathrm{x}\) die Partikel eine längere Strecke transportieren. Dadurch wird die Strecke und der Gradient der Potentiallandschaft im großen Transportschritt geringer, was sich gemäß Gleichung \ref{eq-v_spp} auf die Gleichgewichtsgeschwindigkeit auswirkt. Zusätzlich sollte eine höhere Geschwindigkeit während des kleinen Transportschrittes messbar sein, was mit dem verwendeten Aufbau jedoch nicht möglich ist.
 
-Eine Erhöhung der Gleichgewichtsgeschwindigkeit für dreieckige Magnetfeldpulse ist ersichtlich. Vermutlich liegt dies an dem Auswertungsskript, welches in der für trapezförmige Magnetfeldpulse noch zwischen kleinem und großen Transportschritt differenzieren kann, für dreieckige Magnetfeldpulse jedoch beide Transportschritte in einen Gesamtschritt vereint, und so höhere Geschwindigkeiten für diese Gesamtschritte erhält, als wenn nur der große Transportschritt betrachtet werden würde.
+Eine Erhöhung der Gleichgewichtsgeschwindigkeit für dreieckige Magnetfeldpulse ist ersichtlich. Vermutlich liegt dies an dem Auswertungsskript, welches in der für trapezförmige Magnetfeldpulse noch zwischen kleinem und großem Transportschritt differenzieren kann, für dreieckige Magnetfeldpulse jedoch beide Transportschritte in einen Gesamtschritt vereint und so höhere Geschwindigkeiten für diese Gesamtschritte erhält, als wenn nur der große Transportschritt betrachtet werden würde.
 
 Diese Gesamtgeschwindigkeit aus großem und kleinem Schritt muss offensichtlich konstant bleiben, da die Streifenlänge und Frequenz der Magnetfeldpulse konstant bleibt.
 \begin{figure}[h]
@@ -601,7 +600,7 @@ Betrag der Magnetfeldvektoren. Die angelegten Magnetfeldsequenzen sind in blau (
 \end{figure}
 
 \chapter{Zusammenfassung und Ausblick \label{sec-zusammenfassung}}
-\label{sec:orgdd20432}
+\label{sec:orgde982eb}
 Ziel dieser Arbeit war es, den Einfluss der Änderungsrate der externen Magnetfelder auf den Partikeltransport zu untersuchen. Es waren zuvor einige zusätzliche Untersuchungen von Nöten, um dies zu erreichen. Zunächst wurden die im Experiment verwendeten Helmholtzspulen charakterisiert, und überprüft, ob das real erzeugte Magnetfeld der Spulen mittels Gleichungen vorhergesagt werden kann. Es wurde gezeigt, dass zwar die endgültige magnetische Flussdichte korrekt berechnet werden kann, der Einschaltvorgang der Spulen jedoch aufgrund der Komplexität des Messaufbaus unter Verwendung realer Komponenten (Helmholtzspulen und stromregelndes Netzteil) nicht präzise mit einem einfachen mathematischen Modell beschrieben werden kann. Dies wirkt sich auch auf die Simulationen aus, welche durchgeführt werden, um die Partikelgeschwindigkeiten und -trajektorien bereits im Voraus zu berechnen und mit den experimentellen Befunden abzugleichen. Diese Simulationen verwenden idealisierte Magnetfeldsequenzen und EB-Systeme. Trotzdem ist es durchaus möglich die Trajektorien der Partikel zu berechnen. Letztendlich ist es von Vorteil eine niedrigere Änderungsrate des Magnetfeldes zu verwenden, wenn näher am Modell gearbeitet werden soll, da hier der Einschaltvorgang langsamer stattfindet. Beispielsweise wäre dies denkbar, wenn einzelne Partikel lokal als "`Sonden"' verwendet werden sollen, um die Streifenstruktur des EB-Systems zu charakterisieren. Hier muss die Trajektorie der Partikel möglichst genau mit der Theorie übereinstimmen, um auf etwaige Anomalien des Magnetisierungszustands der Domänen zurückrechnen zu können. Dies würde auch langsamere Partikelgeschwindigkeiten bewirken, was wiederum eine höhere örtliche Auflösung bei gleicher zeitlicher Auflösung bedeutet.
 
 Im Zuge des apperativen Teils dieser Arbeit wurde ein Programm zur Erstellung der Magnetfeldsequenzen entwickelt, das es in Zukunft erleichtert, verschiedene Magnetfeldsequenzen und deren Auswirkung auf den Partikeltransport zu untersuchen. 
@@ -615,9 +614,9 @@ Außerdem wurde die Validität der in dem Simulationsskript \cite{holzinger_pyth
 Superparamagnetische Partikel über den EB-Dünnschichtsystemen besitzen eine Grenzfrequenz der Magnetfeldsequenzen, oberhalb derer sich keine Transportschritte mehr zeigen \cite{holzinger_directed_2015}. Diese kritische Frequenz wurde bisher nur für rechteckförmige Magnetfeldsequenzen bestimmt. Es wäre möglich, dass für bestimmte trapezförmige Magnetfeldsequenzen eine neue maximale Grenzfrequenz bestimmt werden kann, da der große Transportschritt weniger ruckartig verläuft und die Partikel so weniger starke Beschleunigungsphasen erfahren.
 
 \chapter{Anhang}
-\label{sec:org1c62c80}
+\label{sec:org69350b7}
 \section{Messwerte}
-\label{sec:orgfdbdb47}
+\label{sec:org380a510}
 \begin{table}[htbp]
 \caption{\label{tab-B}
 Zusammenhang zwischen magnetischer Flussdichte und Stromstärke. Hierbei wurde die Spannung an dem DAQ-Gerät \(U_\mathrm{DAQ}\) erhöht und dazugehörige Stromstärke am Netzteilausgang \(I\) und magnetische Flussdichte im inneren der z-Spule \(B_\mathrm{z}\) gemessen.}
@@ -649,7 +648,7 @@ U\textsubscript{DAQ}~[\si{\volt}] & I~[\si{\ampere}] & B\textsubscript{z}~[\si{\
 \end{table}
 
 \section{Python-Script zur Messung von Stromstärken und magnetischer Flussdichte \label{anh-messung}}
-\label{sec:org9707a26}
+\label{sec:org32a7f54}
 \begin{minted}[]{python}
 """ Measure magnetic fieldstrength with NI USB-6002 """
 import numpy as np
@@ -695,12 +694,12 @@ if __name__ == "__main__":
 \end{minted}
 
 \chapter*{}
-\label{sec:orgf7a9dc9}
+\label{sec:orgb73a0be}
 \printbibliography
 \chapter*{Danksagung}
-\label{sec:orgbdf7b4d}
+\label{sec:orga7e2aa8}
 Danke.
 \chapter*{Eigenständigkeitserklärung}
-\label{sec:org3458950}
+\label{sec:org36034eb}
 Hiermit bestätige ich, dass ich die vorliegende Arbeit selbständig verfasst und keine anderen als die angegebenen Hilfsmittel benutzt habe. Die Stellen der Arbeit, die dem Wortlaut oder dem Sinn nach anderen Werken (dazu zählen auch Internetquellen) entnommen sind, wurden unter Angabe der Quelle kenntlich gemacht. \\
 \end{document}
